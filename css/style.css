@@ -1,0 +1,130 @@
+body{
+    font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+
+body>header>nav, body>footer{
+    background-color:  #ed7988;
+    padding:10px;
+    border-radius: 10px;
+    width:100%;
+}
+
+nav a{
+    font-size: 10pt;
+    text-decoration: none;
+    color: black;
+    border-radius: 5px;
+    border-style: none;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    padding:2px 10px;
+
+}
+
+body>header>nav li{
+    display:inline-block;
+}
+
+body>header article{
+    background-color: rgb(249, 228, 125);
+    border-radius: 10px;
+    padding: 10px;
+    margin-top:10px;
+    width: 100%;
+    font-size: 10pt;
+}
+
+body>header h1{
+    color: black;
+    font-size: 18pt;
+}
+
+
+body>header{
+    padding: 1px 5px;
+    border-radius: 10px;
+}
+
+img{
+    max-height: 150px;
+    max-width: 100%;
+    display: inline;
+    float:left;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+body>header footer{
+    text-align: right;
+}
+
+header ul, footer ul, nav ul, article li{
+    list-style: none;
+}
+
+
+body>main>article{
+    margin: 20px;
+    border: 3px solid  #ed7988;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5%;
+    width:90%;
+    font-size: 10pt;
+}
+
+article>header>h2{
+    font-size: 15pt;
+}
+
+article>header>p{
+    font-size: 10pt;
+}
+
+article>footer>ul>li{
+    display: inline-block;
+
+}
+
+article>footer a, article>footer input{
+    background-color: white;
+    border-radius: 5px;
+    font-size: 10pt;
+    text-decoration: none;
+    color: #ed7988;
+    border-style:groove;
+    font-weight: bold;
+}
+
+article>footer a:hover, article>footer input:hover{
+    border-style:double;
+}
+
+body>header>footer>input {
+    font-weight: bold;
+    color: black;
+    background-color: white;
+    border-style:inherit;
+    border-radius: 3px;
+}
+
+nav{
+    border-radius: 10px;
+}
+
+nav a:hover{
+    color:#ed7988;
+    background-color: white;
+    font-weight: bold;
+}
+
+body footer{
+    color:rgb(250, 249, 249);
+    text-align: center;
+    width: 100%;
+    border-radius: 10px;
+    font-size: 8pt;
+}
+
+
