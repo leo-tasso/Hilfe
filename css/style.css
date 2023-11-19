@@ -93,20 +93,15 @@ article>footer a, article>footer input{
     font-size: 10pt;
     text-decoration: none;
     color: rgb(48, 46, 46);
-    border-style:groove;
-    font-weight: bold;
+    border-style:solid;
+}
+
+header>nav a, article>nav a, article>footer>a{
+    border-style: solid;
 }
 
 article>footer a:hover, article>footer input:hover{
     border-style:double;
-}
-
-body>header>footer>input {
-    font-weight: bold;
-    color: rgb(48, 46, 46);
-    background-color: white;
-    border-style:inherit;
-    border-radius: 3px;
 }
 
 nav{
