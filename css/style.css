@@ -3,7 +3,7 @@ body{
 }
 
 body>header>nav, body>footer{
-    background-color:  #ed7988;
+    background-color:  #087e8b;
     padding:10px;
     border-radius: 10px;
     width:100%;
@@ -12,7 +12,7 @@ body>header>nav, body>footer{
 nav a{
     font-size: 10pt;
     text-decoration: none;
-    color: black;
+    color: rgb(48, 46, 46);
     border-radius: 5px;
     border-style: none;
     background-color: white;
@@ -27,7 +27,7 @@ body>header>nav li{
 }
 
 body>header article{
-    background-color: rgb(249, 228, 125);
+    background-color: #fcdc4d;
     border-radius: 10px;
     padding: 10px;
     margin-top:10px;
@@ -66,7 +66,7 @@ header ul, footer ul, nav ul, article li{
 
 body>main>article{
     margin: 20px;
-    border: 3px solid  #ed7988;
+    border: 3px solid  #087e8b;
     padding: 10px;
     border-radius: 10px;
     margin: 5%;
@@ -92,7 +92,7 @@ article>footer a, article>footer input{
     border-radius: 5px;
     font-size: 10pt;
     text-decoration: none;
-    color: #ed7988;
+    color: rgb(48, 46, 46);
     border-style:groove;
     font-weight: bold;
 }
@@ -103,7 +103,7 @@ article>footer a:hover, article>footer input:hover{
 
 body>header>footer>input {
     font-weight: bold;
-    color: black;
+    color: rgb(48, 46, 46);
     background-color: white;
     border-style:inherit;
     border-radius: 3px;
@@ -114,7 +114,7 @@ nav{
 }
 
 nav a:hover{
-    color:#ed7988;
+    color:#087e8b;
     background-color: white;
     font-weight: bold;
 }
