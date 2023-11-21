@@ -3,10 +3,9 @@ body{
 }
 
 body>header>nav{
-    background-color:  #087e8b;
-    border-bottom: 3px solid #087e8b;
+    background-color:  #f9fcfd;
+    border-bottom: 1px solid grey;
     width:100%;
-    border-radius: 10px;;
 }
 
 body>footer{
@@ -16,13 +15,22 @@ body>footer{
     width: 100%;
     font-size: 8pt;
     padding:10px;
-    border-radius: 10px;
+   
 }
 
 /**immagine logo barra in alto**/
 body>header>nav>img{
-    float:right;
+    float: right;
     height:40px; /**modificare in base a logo nuovo**/
+}
+
+/**modifica bottoni menù slidebar**/ 
+body>header>nav>div a{
+    border:1px solid white;
+}
+
+body>header>article:not(ul){
+    display: inline-block;
 }
 
 /**immagine profilo**/
@@ -37,11 +45,23 @@ body>header>article>ul>li img{
 }
 
 /**modifica bottone Segui**/
-article>ul input{
+header>article>input{
     border-radius:5px;
-    background-color: white;
+    border: 2px solid white;
     float:right;
-    padding:5px 10px;
+    padding:5px 15px;
+    background-color: #f4c03e;
+    color: white;
+    font-weight: bold;
+    font-size:12pt;  
+    box-shadow: 0px 6px 5px 1px #e79417;
+}
+
+/**passaggio sopra a bottone segui**/
+header>article>input:hover{
+    background-color: white;
+    color:#087e8b;
+
 }
 
 body>header>article{
@@ -66,8 +86,9 @@ body>header>article>ul>li a:hover{
 }
 
 body>header h1{
-    font-size: 22pt;
+    font-size: 30pt;
     color:white;
+    margin:0;
 }
 
 
@@ -87,7 +108,7 @@ body>main>article{
 
 /**qui modifico stile bio**/
 body>header>aside{
-    margin-top:45px;
+    margin-top:10px;
     background-color: white;
     border-top:3px solid #fcdc4d;
     border-bottom:3px solid #fcdc4d;
