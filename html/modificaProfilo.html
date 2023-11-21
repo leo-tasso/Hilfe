@@ -5,6 +5,7 @@
         <meta charset="UTF-8"/>
         <link rel="icon" type="image/x-icon" href="../LogoRes/1x/LogoNuovo.png">
         <link href="../css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/styleEditProfile.css" rel="stylesheet" type="text/css"/>
         <script>
             /* Set the width of the sidebar to 250px (show it) */
             function openNav() {
@@ -18,7 +19,6 @@
         </script> 
     <body>
         <header> 
-            <h1>HILFE</h1>
             <nav class="top bar">
                 <img src="../LogoRes/1x/LogoNuovo.png" alt="logo HILFE"/>
                 <div id="mySidepanel" class="sidepanel">
@@ -28,11 +28,11 @@
                     <a href="esplora.html">Esplora</a>
                 </div>
                 <button class="openbtn" onclick="openNav()" >&#9776; </button>
-            </nav> 
+            </nav>
+            <h1>Modifica Profilo</h1> 
         </header>
         <main>
             <section>
-                <h2>Modifica Profilo</h2>
                 <form action="#" method="POST">
                     <ul>
                         <li>
@@ -61,7 +61,7 @@
                         </li>
                         <li>
                             <label for="bio">Biografia:</label><br/>
-                            <textarea id="bio" rows="10" cols="50"></textarea>
+                            <textarea id="bio" rows="5" cols="auto"></textarea>
                         </li>
                         <li>
                             <label for="password">Password:</label>
@@ -72,10 +72,10 @@
                             <input type="password" id="conferma" name="conferma password" placeholder="Conferma password">
                         </li>
                         <li>
-                            <input type="button" name="Indietro" value="Indietro"> <!-- dovrà permettere di tornare al profilo dell'utente senza apportare modifiche-->
-                        </li>
-                        <li>
-                            <input type="button" name="Salva" value="Salva">
+                            <footer>
+                                <input type="button" name="Indietro" value="Indietro"> <!-- dovrà permettere di tornare al profilo dell'utente senza apportare modifiche-->
+                                <input type="button" name="Salva" value="Salva">
+                            </footer>
                         </li>
                     </ul>
                 </form>
