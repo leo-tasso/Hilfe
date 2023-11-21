@@ -3,10 +3,32 @@
     <head>
         <title>HILFE - Modifica Profilo</title>
         <meta charset="UTF-8"/>
-    </head>
+        <link rel="icon" type="image/x-icon" href="../LogoRes/1x/LogoNuovo.png">
+        <link href="../css/style.css" rel="stylesheet" type="text/css"/>
+        <script>
+            /* Set the width of the sidebar to 250px (show it) */
+            function openNav() {
+            document.getElementById("mySidepanel").style.width = "250px";
+            }
+
+            /* Set the width of the sidebar to 0 (hide it) */
+            function closeNav() {
+            document.getElementById("mySidepanel").style.width = "0";
+            }
+        </script> 
     <body>
         <header> 
             <h1>HILFE</h1>
+            <nav class="top bar">
+                <img src="../LogoRes/1x/LogoNuovo.png" alt="logo HILFE"/>
+                <div id="mySidepanel" class="sidepanel">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="home.html">Home</a>  
+                    <a href="profiloUtente.html">Profilo</a>
+                    <a href="esplora.html">Esplora</a>
+                </div>
+                <button class="openbtn" onclick="openNav()" >&#9776; </button>
+            </nav> 
         </header>
         <main>
             <section>
