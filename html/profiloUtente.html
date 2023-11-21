@@ -4,35 +4,47 @@
         <title>HILFE - Profilo</title>
         <meta charset="UTF-8"/>
         <link href="../css/style.css" rel="stylesheet" type="text/css"/>
+        <script>
+            /* Set the width of the sidebar to 250px (show it) */
+            function openNav() {
+            document.getElementById("mySidepanel").style.width = "250px";
+            }
+
+            /* Set the width of the sidebar to 0 (hide it) */
+            function closeNav() {
+            document.getElementById("mySidepanel").style.width = "0";
+            }
+        </script> 
     </head>
     <body>
         <header> 
             <nav class="top bar">
-                
-                <img src="../LogoRes/1x/LogoNuovo.png" alt="logo HILFE" width="80" height="auto"/>
-                <a href="home.html">Home</a>
-                <a href="profiloUtente.html">Il mio profilo</a>
-                <a href="esplora.html">Esplora</a>
-                
+                <img src="../LogoRes/1x/LogoNuovo.png" alt="logo HILFE"/>
+                <div id="mySidepanel" class="sidepanel">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="home.html">Home</a>  
+                    <a href="profiloUtente.html">Profilo</a>
+                    <a href="esplora.html">Esplora</a>
+                  </div>
+                  
+                  <button class="openbtn" onclick="openNav()">&#9776; Toggle Sidepanel</button>
+
             </nav> 
             <article>
                 <h1>Nome Utente</h1>
-                <nav>
-                    <a href="infoUtente.html">Informazioni personali</a>
-                    <a href="followers.html">Followers</a>
-                    <a href="follow.html">Follow</a>
-                    <a href="statistiche.html">Statistiche</a>
-                    <a href="foto.html">Foto</a>   
-                </nav>
                 <ul>
+                    
                     <li><img src="../fotoProfiloIniziale.jpg" alt=""/>
-                    <li><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nulla elit, efficitur ut semper et, tempus faucibus sapien. Nunc euismod, felis non mattis fermentum, nibh arcu mollis augue, id euismod lectus turpis ultricies sem. Nunc cursus a nunc sit amet scelerisque. Curabitur nec suscipit nisi. Ut sit amet purus cursus, ullamcorper dolor sit amet, pharetra eros. Nunc sollicitudin pharetra justo.</p></li>
+                    <li><a href="followers.html">Followers: </a></li>
+                    <li><a href="follow.html">Follow:</a></li>
+                    <li><a href="statistiche.html">Partecipazioni:</a></li>
+                    <li><a href="infoUtente.html">Altre informazioni...</a></li>
+                    <li><footer>
+                        <input type="button" name="Segui" value="Segui">
+                    </footer> </li>
                 </ul>
-                <footer>
-                    <input type="button" name="Segui" value="Segui">
-                </footer> 
             </article>
-             
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nulla elit, efficitur ut semper et, tempus faucibus sapien. Nunc euismod, felis non mattis fermentum, nibh arcu mollis augue, id euismod lectus turpis ultricies sem. Nunc cursus a nunc sit amet scelerisque. Curabitur nec suscipit nisi. Ut sit amet purus cursus, ullamcorper dolor sit amet, pharetra eros. Nunc sollicitudin pharetra justo.</p>
         </header>
         <main>
             <article>
