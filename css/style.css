@@ -1,33 +1,48 @@
 body{
-    font-family:Verdana, Geneva, Tahoma, sans-serif
+    font-family:"Century Gothic" ;
 }
 
-body>header>nav, body>footer{
-    background-color:  white;
+body>header>nav{
+    background-color:  #087e8b;
+    border-bottom: 3px solid #087e8b;
+    width:100%;
+    border-radius: 10px;;
+}
+
+body>footer{
+    background-color: #087e8b;
+    color:white;
+    text-align: center;
+    width: 100%;
+    font-size: 8pt;
     padding:10px;
     border-radius: 10px;
-    width:100%;
 }
 
-header>nav{
-    display:inline-block;
-    
-}
-header>nav img{
+/**immagine logo barra in alto**/
+body>header>nav>img{
     float:right;
+    height:40px; /**modificare in base a logo nuovo**/
 }
 
-nav img{
-    width:30%;
-    height:20%; 
-    padding:0;
+/**immagine profilo**/
+body>header>article>ul>li img{
+    max-height: 150px;
+    max-width: 100%;
+    display: inline;
+    float:left;
+    margin-right: 20px;
+    border-radius: 50%;
+    border:5px solid white;
 }
 
-
-body>header>nav li{
-    display:inline-block;
+/**modifica bottone Segui**/
+article>ul input{
+    border-radius:5px;
+    background-color: white;
+    float:right;
+    padding:5px 10px;
 }
-
 
 body>header>article{
     background-color: #f4c03e;
@@ -40,8 +55,9 @@ body>header>article{
 }
 
 body>header>article>ul>li a{
-    color:rgb(98, 97, 97);
+    color:white;
     text-decoration: none;
+    font-size: 13pt;
 }
 
 body>header>article>ul>li a:hover{
@@ -51,27 +67,9 @@ body>header>article>ul>li a:hover{
 
 body>header h1{
     font-size: 22pt;
-    color: rgb(98, 97, 97);
+    color:white;
 }
 
-
-body>header{
-    padding: 1px 5px;
-    border-radius: 10px;
-}
-
-article img{
-    max-height: 150px;
-    max-width: 100%;
-    display: inline;
-    float:left;
-    margin-right: 20px;
-    border-radius: 50%;
-}
-
-body>header footer{
-    text-align: right;
-}
 
 header ul, footer ul, nav ul, article li{
     list-style: none;
@@ -96,6 +94,7 @@ body>header>aside{
     width: 100%;
 }
 
+/**modifica titolo biografia**/
 body>header>aside h2{
     font-size: 10pt;
     color: rgb(48, 46, 46);
@@ -120,7 +119,7 @@ article>footer>ul>li{
 
 }
 
-article>footer a, article>footer input{
+article>footer a{
     background-color: white;
     border-radius: 5px;
     font-size: 10pt;
@@ -129,31 +128,13 @@ article>footer a, article>footer input{
     border-style:solid;
 }
 
-header>nav a, article>nav a, article>footer>a{
-    border-style: solid;
-}
-
-article>footer a:hover, article>footer input:hover{
-    border-style:double;
-}
-
-nav{
-    border-radius: 10px;
-}
-
 nav a:hover{
     color:#087e8b;
     background-color: white;
     font-weight: bold;
 }
 
-body footer{
-    color:rgb(250, 249, 249);
-    text-align: center;
-    width: 100%;
-    border-radius: 10px;
-    font-size: 8pt;
-}
+
 
 /**css per mappa google**/
 article div{
@@ -218,13 +199,13 @@ article iframe{
   
   /* Style the button that is used to open the sidepanel */
   .openbtn {
-    font-size: 12px;
+    font-size: 20px;
     cursor: pointer;
     background-color: #087e8b;
     color: white;
     padding: 10px 15px;
     border: none;
-    border-radius:10px;
+    border-radius:13px;
   }
   
   .openbtn:hover {
