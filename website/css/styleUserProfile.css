@@ -1,0 +1,144 @@
+body>header>article:not(ul){
+    display: inline-block;
+}
+
+/**immagine profilo**/
+body>header>article>ul>li img{
+    max-height: 150px;
+    max-width: 100%;
+    display: inline;
+    float:left;
+    margin-right: 20px;
+    border-radius: 50%;
+    border:5px solid white;
+}
+
+/**modifica bottone Segui**/
+header>article>input{
+    border-radius:5px;
+    border: 2px solid white;
+    float:right;
+    padding:5px 15px;
+    background-color: #f4c03e;
+    color: white;
+    font-weight: bold;
+    font-size:12pt;  
+    box-shadow: 0px 6px 5px 1px #e79417;
+}
+
+/**passaggio sopra a bottone segui**/
+header>article>input:hover{
+    background-color: white;
+    color:#087e8b;
+
+}
+
+body>header>article{
+    background-color: #f4c03e;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top:10px;
+    width: 100%;
+    font-size: 10pt;
+    font-weight: bold;
+}
+
+body>header>article>ul>li a{
+    color:white;
+    text-decoration: none;
+    font-size: 13pt;
+}
+
+body>header>article>ul>li a:hover{
+    color:#087e8b;
+    text-decoration: underline;
+}
+
+body>header h1{
+    font-size: 30pt;
+    color:white;
+    margin:0;
+}
+
+
+header ul, footer ul, nav ul, article li{
+    list-style: none;
+}
+
+body>main>article{
+    margin: 20px;
+    border: 3px solid  #087e8b;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5%;
+    width:90%;
+    font-size: 10pt;
+}
+
+/**qui modifico stile bio**/
+body>header>aside{
+    margin-top:10px;
+    background-color: white;
+    border-top:3px solid #fcdc4d;
+    border-bottom:3px solid #fcdc4d;
+    width: 100%;
+}
+
+/**modifica titolo biografia**/
+body>header>aside h2{
+    font-size: 10pt;
+    color: rgb(48, 46, 46);
+}
+
+body>header>aside p{
+    font-size: 9pt;
+    text-align:justify;
+}
+
+
+article>header>h2{
+    font-size: 15pt;
+}
+
+article>header>p{
+    font-size: 10pt;
+}
+
+article>footer>ul>li{
+    display: inline-block;
+
+}
+
+article>footer a{
+    background-color: white;
+    border-radius: 5px;
+    font-size: 10pt;
+    text-decoration: none;
+    color: rgb(48, 46, 46);
+    border-style:solid;
+}
+
+nav a:hover{
+    color:#087e8b;
+    background-color: white;
+    font-weight: bold;
+}
+
+
+
+/**css per mappa google**/
+article div{
+    position:relative;
+    padding-bottom: 75%;
+    height: 0;
+    overflow: hidden;
+}
+
+article iframe{
+    position:absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+}
+
