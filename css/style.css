@@ -57,7 +57,7 @@ body>header>nav>div a{
   
   /* When you mouse over the navigation links, change their color */
   .sidepanel a:hover {
-    color: #087e8b;
+    background-color: grey;
   }
   
   /* Position and style the close button (top right corner) */
@@ -78,13 +78,14 @@ body>header>nav>div a{
   .openbtn {
     font-size: 20px;
     cursor: pointer;
-    background-color: #087e8b;
-    color: white;
+    background-color: white;
+    color: grey;
     padding: 10px 15px;
     border: none;
     border-radius:13px;
   }
   
   .openbtn:hover {
-    background-color: #444;
+    background-color: #087e8b;
+    color:white;
   }
