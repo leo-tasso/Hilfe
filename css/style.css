@@ -103,7 +103,43 @@ body>header>nav>div a{
     border-radius:13px;
   }
   
+  .desktopbar{
+    display:none;
+  }
   .openbtn:hover {
     background-color: #087e8b;
     color:white;
   }
+
+  @media screen and (min-width: 768px) {
+    .openbtn{
+      display: none;
+    }
+
+    .desktopbar{
+      display:block;
+    }
+
+    .topbar{
+      display:inline-block;
+    }
+
+    .logo{
+      float:left;
+    }
+    
+    .desktopbar{
+      text-align: center;
+      margin-top:10;
+    }
+
+    .profilo{
+      margin-bottom: 2pt;
+    }
+
+    .desktopbar a{
+      margin-left: 10pt;
+      color:grey;
+    }
+
+   }
