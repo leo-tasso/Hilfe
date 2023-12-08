@@ -46,6 +46,10 @@ header>div a {
     border-top-left-radius: 10pt;
 }
 
+.default{
+    background-color: #087e8b;
+}
+
 header>div a:active {
     /**deve cambiare colore una volta cliccato**/
     background-color: #087e8b;
@@ -100,6 +104,7 @@ article>footer {
     text-align: center;
 }
 
+/**sistemare bottoni**/
 article>footer>input,
 article>footer>a {
     border: 1px solid #087e8b;
@@ -126,6 +131,8 @@ article>footer>a {
     height: 400px;
     z-index: 0;
     margin: 5pt auto;
+    border: 2px solid #f4c03e;
+    border-radius: 10pt; /**tondeggiante o quadrata?**/
 }
 
 #navbar {
