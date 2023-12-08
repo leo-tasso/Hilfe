@@ -18,10 +18,29 @@ body>footer{
    
 }
 
+body>header>nav{
+  display:inline-block;
+}
+
 /**immagine logo barra in alto**/
-body>header>nav>img{
-    float: right;
-    height:40px; /**modificare in base a logo nuovo**/
+.logo {
+  height:40px; /**modificare in base a logo nuovo**/
+  margin-left: 40pt;
+  margin-right: 40pt;
+}
+
+.openbtn{
+  float:left;
+}
+
+.profilo{
+  float:right;
+  border: 1px solid grey;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat; /**non ripete l'immagine nel caso il bottone fosse più grande dell'immagine**/
+  background-position: center center; /**per centrare l'immagine**/
 }
 
 /**modifica bottoni menù slidebar**/ 
