@@ -132,12 +132,12 @@ aside{
     }
 
     aside{
-        display: block; /**rende di nuovo visibile aside*/
+        display: inline-block;
         background-color: #f4c03e;
         border-radius: 10pt;
         margin: 5pt;
         width: 30%;
-        display: inline-block;
+        vertical-align: top;
     }
 
     h3{
