@@ -75,6 +75,7 @@ body>header>ul a {
     text-decoration: none;
     font-size: 10pt;
     margin-top: 8pt;
+    box-shadow: inset 0px 0px 4px rgba(0,0,0,0.9);
 }
 
 body>main>article {
@@ -154,12 +155,12 @@ aside{
     }
 
     aside{
-        display: block; /**rende di nuovo visibile aside*/
+        display: inline-block;
         background-color: #f4c03e;
         border-radius: 10pt;
         margin: 5pt;
         width: 30%;
-        display: inline-block;
+        vertical-align: top;
     }
 
     h3{
