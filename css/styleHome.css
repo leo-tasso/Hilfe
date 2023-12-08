@@ -13,24 +13,23 @@ body>header>ul {
 table{
     border-collapse: collapse;
     width: 70%;
-    margin-bottom: 5pt; 
+    margin: 5pt auto;
 }
 
 td, th {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 2pt;
     font-size: 9pt;
 }
 
 tr:nth-child(even){background-color: #f2f2f2;}
   
 th {
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding: 5pt;
     text-align: left;
     background-color: #087e8b;
     color: white;
-  }
+}
 
 /**posiziona tab in alto**/
 header>div {
@@ -126,6 +125,7 @@ article>footer>a {
     width: 400px;
     height: 400px;
     z-index: 0;
+    margin: 5pt auto;
 }
 
 #navbar {
@@ -143,7 +143,7 @@ aside{
 
 /**media query per dispositivi non mobile**/
 @media screen and (min-width: 768px) { 
-    body>main, body>header ul{
+    body>main{
         width:60%;
         display:inline-block;
         text-align: justify;

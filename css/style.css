@@ -25,8 +25,7 @@ body>header>nav{
 /**immagine logo barra in alto**/
 .logo {
   height:40px; /**modificare in base a logo nuovo**/
-  margin-left: 40pt;
-  margin-right: 40pt;
+  margin: 2pt auto; 
 }
 
 .openbtn{
@@ -35,7 +34,7 @@ body>header>nav{
 
 .profilo{
   float:right;
-  border: 1px solid grey;
+  border: 2px solid #f4c03e;
   border-radius: 50%;
   width: 40px;
   height: 40px;
