@@ -9,6 +9,29 @@ body>header>ul {
     width: 100%;
 }
 
+/**per modificare stile della tabella**/
+table{
+    border-collapse: collapse;
+    width: 70%;
+    margin-bottom: 5pt; 
+}
+
+td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    font-size: 9pt;
+}
+
+tr:nth-child(even){background-color: #f2f2f2;}
+  
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #087e8b;
+    color: white;
+  }
+
 /**posiziona tab in alto**/
 header>div {
     margin: 10pt auto 0 auto;
