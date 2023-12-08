@@ -24,6 +24,12 @@ header>div a {
     border-top-left-radius: 10pt;
 }
 
+header>div a:active {
+    /**deve cambiare colore una volta cliccato**/
+    background-color: #087e8b;
+    font-weight: bold;
+}
+
 header>div a:hover {
     /**deve cambiare colore una volta cliccato**/
     background-color: #087e8b;
@@ -104,3 +110,58 @@ article>footer>a {
 #mySidepanel {
     width: 0;
 }
+
+/**modifica dello pannello dei profili suggeriti**/
+aside{
+    display: none;
+}
+
+/**media query per dispositivi non mobile**/
+@media screen and (min-width: 768px) { 
+    body>main, body>header ul{
+        width:60%;
+        display:inline-block;
+        text-align: justify;
+    }
+
+    body>header>div{
+        text-align: left;
+        margin-left: 10pt;
+    }
+
+    aside{
+        display: block; /**rende di nuovo visibile aside*/
+        background-color: #f4c03e;
+        border-radius: 10pt;
+        margin: 5pt;
+        width: 30%;
+        display: inline-block;
+    }
+
+    h3{
+        font-size: 10pt;
+        font-weight: bold;
+        color:white;
+        padding: 5pt;
+    }
+    
+    aside ul{
+        list-style: none;
+    }
+
+    aside>ul{
+        display:inline-block;
+    }
+
+    aside a{
+        float:left;
+    }
+
+    aside>ul>li a{
+        text-decoration: none;
+        color:white;
+        font-size: 10pt;
+    }
+}
+
+
