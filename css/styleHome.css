@@ -10,20 +10,23 @@ body>header>ul {
 }
 
 /**per modificare stile della tabella**/
-table{
+table {
     border-collapse: collapse;
     width: 70%;
     margin: 5pt auto;
 }
 
-td, th {
+td,
+th {
     border: 1px solid #ddd;
     padding: 2pt;
     font-size: 9pt;
 }
 
-tr:nth-child(even){background-color: #f2f2f2;}
-  
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
 th {
     padding: 5pt;
     text-align: left;
@@ -46,7 +49,7 @@ header>div a {
     border-top-left-radius: 10pt;
 }
 
-.default{
+.default {
     background-color: #087e8b;
 }
 
@@ -78,7 +81,7 @@ body>header>ul a {
     text-decoration: none;
     font-size: 10pt;
     margin-top: 8pt;
-    box-shadow: inset 0px 0px 4px rgba(0,0,0,0.9);
+    box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.9);
 }
 
 body>main>article {
@@ -132,7 +135,8 @@ article>footer>a {
     z-index: 0;
     margin: 5pt auto;
     border: 2px solid #f4c03e;
-    border-radius: 10pt; /**tondeggiante o quadrata?**/
+    border-radius: 10pt;
+    /**tondeggiante o quadrata?**/
 }
 
 #navbar {
@@ -144,65 +148,8 @@ article>footer>a {
 }
 
 /**modifica dello pannello dei profili suggeriti**/
-aside{
+aside {
     display: none;
-}
-
-/**media query per dispositivi non mobile**/
-@media screen and (min-width: 768px) { 
-    body>main, body>header>ul{
-        width:60%;
-        display:inline-block;
-        text-align: justify;
-    }
-
-    body>header>div{
-        text-align: left;
-        margin-left: 10pt;
-    }
-
-    aside{
-        display: inline-block;
-        background-color: #f4c03e;
-        border-radius: 10pt;
-        margin: 5pt;
-        width: 30%;
-        vertical-align: top;
-    }
-
-    h3{
-        font-size: 10pt;
-        font-weight: bold;
-        color:white;
-        padding: 5pt;
-    }
-    
-    aside ul{
-        list-style: none;
-    }
-
-    aside>ul{
-        display:inline-block;
-    }
-
-    aside a{
-        float:left;
-    }
-
-    aside>ul>li a{
-        text-decoration: none;
-        color:white;
-        font-size: 10pt;
-    }
-
-    body>header>ul{
-        display:inline-block;
-    }
-    body>header>ul a{
-        float: right;
-        width: 50%;
-        text-align: center;
-    }
 }
 
 .button {
@@ -230,4 +177,89 @@ aside{
 
 .button__text {
     position: relative;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 80px;
+    /* Adjust the width as needed */
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+}
+
+.openbtn {
+    order: -1;
+}
+
+/**media query per dispositivi non mobile**/
+@media screen and (min-width: 768px) {
+
+    body>main,
+    body>header>ul {
+        width: 60%;
+        display: inline-block;
+        text-align: justify;
+    }
+
+    body>header>div {
+        text-align: left;
+        margin-left: 10pt;
+    }
+
+    aside {
+        display: inline-block;
+        background-color: #f4c03e;
+        border-radius: 10pt;
+        margin: 5pt;
+        width: 30%;
+        vertical-align: top;
+    }
+
+    .logo {
+        margin-left: 0;
+        margin-right: 0;
+        display: block;
+    }
+
+    h3 {
+        font-size: 10pt;
+        font-weight: bold;
+        color: white;
+        padding: 5pt;
+    }
+
+    aside ul {
+        list-style: none;
+    }
+
+    aside>ul {
+        display: inline-block;
+    }
+
+    aside a {
+        float: left;
+    }
+
+    aside>ul>li a {
+        text-decoration: none;
+        color: white;
+        font-size: 10pt;
+    }
+
+    body>header>ul {
+        display: inline-block;
+    }
+
+    body>header>ul a {
+        float: right;
+        width: 50%;
+        text-align: center;
+    }
 }
