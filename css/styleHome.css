@@ -1,4 +1,4 @@
-body>header>ul{
+body>header>ul {
     background-color: #087e8b;
     border-radius: 10pt;
     list-style: none;
@@ -66,7 +66,8 @@ h2 {
     font-size: 12pt;
     font-weight: bold;
 }
-article>footer{
+
+article>footer {
     text-align: center;
 }
 
@@ -103,4 +104,31 @@ article>footer>a {
 
 #mySidepanel {
     width: 0;
+}
+
+.button {
+    border: none;
+    background: #087e8b;
+    color: #ffffff;
+    padding: 7px 16px;
+    position: relative;
+    cursor: pointer;
+    font-family: "Fira Sans", sans-serif;
+    overflow: hidden;
+    border-radius: 30px;
+    min-width: 50px;
+}
+
+.button__progress {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.2);
+    transition: width 0.3s;
+}
+
+.button__text {
+    position: relative;
 }
