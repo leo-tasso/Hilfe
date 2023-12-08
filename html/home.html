@@ -8,21 +8,28 @@
         <link href="../css/style.css" rel="stylesheet" type="text/css"/>
         <link href="../css/styleHome.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
         <script>
             /* Set the width of the sidebar to 250px (show it) */
             function openNav() {
-            document.getElementById("mySidepanel").style.width = "250px";
+                document.getElementById("mySidepanel").style.width = "250px";
             }
             /* Set the width of the sidebar to 0 (hide it) */
             function closeNav() {
-            document.getElementById("mySidepanel").style.width = "0";
+                document.getElementById("mySidepanel").style.width = "0";
             }
-        </script> 
+            </script> 
+            <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+                integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+                crossorigin=""></script>
     </head>
     <body>
         <header> 
             <nav class="top bar">
                 <img src="../LogoRes/1x/LogoHeart.png" alt="logo HILFE"/>
+                <img src=""
                 <div id="mySidepanel" class="sidepanel">
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                     <a href="login.html">Login</a>  
@@ -48,9 +55,26 @@
                 <section lang="zxx">
                     <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
                 </section>
-                <div class="google-maps">
-                   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d91611.09494987623!2d12.153389202559785!3d44.148405065489904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132ca58ba97cf34f%3A0x9a4e66c64fd8978c!2sCampus%20di%20Cesena%20-%20Universit%C3%A0%20di%20Bologna%20-%20Alma%20Mater%20Studiorum!5e0!3m2!1sit!2sit!4v1700418585005!5m2!1sit!2sit" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
-                </div>
+                 <div id="map" class="openmap"></div>
+
+    <script>
+        const map = L.map('map', {
+            center: [-29.50, 145],
+            zoom: 3.5
+        });
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' }).addTo(map);
+
+
+        const marker1 = L.marker([-37.699450, 176.279420]).addTo(map);
+        const marker2 = L.marker([-27.643310, 153.305140]).addTo(map);
+        const marker3 = L.marker([-33.956330, 122.150270]).addTo(map);
+        const marker4 = L.marker([-34.962390, 117.391220]).addTo(map);
+        const marker5 = L.marker([-17.961210, 122.214820]).addTo(map);
+        const marker6 = L.marker([-16.505960, 151.751520]).addTo(map);
+        const marker7 = L.marker([-22.594400, 167.484440]).addTo(map);
+        const marker8 = L.marker([-37.977000, 177.057000]).addTo(map);
+    </script>
                 <footer>
                     <input type="button" name="Salva" value="Salva">
                     <input type="button" name="Partecipa" value="Partecipa">
@@ -65,9 +89,6 @@
                 <section lang="zxx">
                     <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
                 </section>
-                <div class="google-maps">
-                   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d91611.09494987623!2d12.153389202559785!3d44.148405065489904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132ca58ba97cf34f%3A0x9a4e66c64fd8978c!2sCampus%20di%20Cesena%20-%20Universit%C3%A0%20di%20Bologna%20-%20Alma%20Mater%20Studiorum!5e0!3m2!1sit!2sit!4v1700418585005!5m2!1sit!2sit" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
-                </div>
                 <footer>
                     <input type="button" name="Salva" value="Salva">
                     <input type="button" name="Partecipa" value="Partecipa">
