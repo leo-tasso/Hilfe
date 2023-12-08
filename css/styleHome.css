@@ -143,7 +143,7 @@ aside{
 
 /**media query per dispositivi non mobile**/
 @media screen and (min-width: 768px) { 
-    body>main{
+    body>main, body>header>ul{
         width:60%;
         display:inline-block;
         text-align: justify;
@@ -187,10 +187,16 @@ aside{
         color:white;
         font-size: 10pt;
     }
+
+    body>header>ul{
+        display:inline-block;
+    }
+    body>header>ul a{
+        float: right;
+        width: 50%;
+        text-align: center;
+    }
 }
-
-
-
 
 .button {
     border: none;
