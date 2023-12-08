@@ -11,6 +11,7 @@ body>header>ul{
     display: inline-flex;
     /** controllare se c'è opzione migliore**/
     margin-top: 0;
+    width: 100%;
 }
 
 header>div {
