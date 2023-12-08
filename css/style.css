@@ -19,13 +19,14 @@ body>footer{
 }
 
 body>header>nav{
-  display:inline-block;
+  display: inline-block;
 }
 
 /**immagine logo barra in alto**/
 .logo {
   height:40px; /**modificare in base a logo nuovo**/
-  margin: 2pt auto; 
+  margin: 2pt auto;
+  text-align: center;
 }
 
 .openbtn{
