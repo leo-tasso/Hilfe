@@ -46,6 +46,7 @@ body>header>ul a {
     text-decoration: none;
     font-size: 10pt;
     margin-top: 8pt;
+    box-shadow: inset 0px 0px 4px rgba(0,0,0,0.9);
 }
 
 body>main>article {
