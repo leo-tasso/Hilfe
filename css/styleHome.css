@@ -65,6 +65,7 @@ header>div a:hover {
     font-weight: bold;
 }
 
+/**hai bisogno di aiuto?**/
 body>header>ul p {
     float: left;
     color: white;
@@ -72,16 +73,21 @@ body>header>ul p {
     margin-right: 5pt;
 }
 
+/**Nuovo post**/
 body>header>ul a {
-    float: right;
+    display: inline-block;
     background-color: white;
     border-radius: 10pt;
-    padding: 2pt 10pt;
+    padding: 3pt 10pt;
     color: grey;
     text-decoration: none;
     font-size: 10pt;
     margin-top: 8pt;
     box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.9);
+}
+
+body>header>ul i{
+    float:right;
 }
 
 body>main>article {
@@ -90,17 +96,24 @@ body>main>article {
     border-radius: 10px;
     width: 90%;
     max-width: 700px;
-    font-size: 10pt;
     margin-bottom: 10pt;
     margin-left: 5%;
 }
 
 body>main>article p {
+    font-size: 10pt;
+}
+
+.date{
     font-size: 8pt;
 }
 
+.time, .people{
+    font-weight: bold;
+}
+
 h2 {
-    font-size: 12pt;
+    font-size: 13pt;
     font-weight: bold;
 }
 
@@ -143,46 +156,34 @@ aside {
     max-width: 300px;
 }
 
+.buttonPartecipa, .buttonPartecipanti, .buttonSalva{
+    font-size: 9pt;
+    font-family: "Fira Sans", sans-serif;
+    padding: 5pt;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    border:1px solid white;
+    color: #ffffff;
+}
+
 .buttonSalva{
     background: #f4c03e;
-    color: #ffffff;
-    padding: 7px 16px;
-    position: relative;
-    cursor: pointer;
-    font-family: "Fira Sans", sans-serif;
-    overflow: hidden;
     border-top-left-radius: 10pt;
     border-bottom-left-radius: 10pt;
-    border:1px solid white;
     margin-right: 0;
-
 }
 
 .buttonPartecipa{
     background: #087e8b;
-    color: #ffffff;
-    padding: 7px 16px;
-    position: relative;
-    cursor: pointer;
-    font-size: 10pt;
-    font-family: "Fira Sans", sans-serif;
-    overflow: hidden;
-    border:1px solid white;
     margin-left: 0;
     margin-right: 0;
 }
 
 .buttonPartecipanti {
     background: #087e8b;
-    color: #ffffff;
-    padding: 7px 16px;
-    position: relative;
-    cursor: pointer;
-    font-family: "Fira Sans", sans-serif;
-    overflow: hidden;
     border-top-right-radius: 10pt;
     border-bottom-right-radius: 10pt;
-    border:1px solid white;
     min-width: 50px;
     margin-left:0;
 }
@@ -223,11 +224,18 @@ aside {
 /**media query per dispositivi non mobile**/
 @media screen and (min-width: 768px) {
 
+    body:not(header){
+        text-align: center;
+    }
+
     body>main,
     body>header>ul {
-        width: 60%;
         display: inline-block;
         text-align: justify;
+    }
+
+    body>main{
+        width: 70%;
     }
 
     body>header>div {
@@ -240,8 +248,30 @@ aside {
         background-color: #f4c03e;
         border-radius: 10pt;
         margin: 5pt;
-        width: 30%;
+        width: 20%;
         vertical-align: top;
+        text-align: left;
+        padding-left: 10pt;
+    }
+
+    .profile {
+        width:90%;
+        margin-bottom: 10px;
+        display: flex;
+    }
+
+    .profile img {
+        width: 30px; /* Puoi regolare la larghezza dell'immagine a tuo piacimento */
+        border-radius: 50%;
+        float:left; 
+        margin-right: 3pt;
+         
+    }
+
+    .profile a{
+        text-decoration: none;
+        color:white;
+        font-size: 9pt;
     }
 
     .logo {
@@ -251,7 +281,7 @@ aside {
     }
 
     h3 {
-        font-size: 10pt;
+        font-size: 11pt;
         font-weight: bold;
         color: white;
         padding: 5pt;

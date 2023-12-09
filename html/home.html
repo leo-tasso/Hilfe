@@ -2,7 +2,7 @@
 <html lang="it">
 
 <head>
-    <title>HILFE - Profilo</title>
+    <title>HILFE - Home page</title>
     <meta charset="UTF-8" />
     <!-- link to add favicon-->
     <link rel="icon" type="image/x-icon" href="../LogoRes/1x/LogoNuovo.png">
@@ -62,7 +62,7 @@
         <article>
             <header>
                 <h2>Titolo post</h2>
-                <p>data di pubblicazione del post</p>
+                <p class="date">data di pubblicazione del post</p>
             </header>
             <section lang="zxx">
                 <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
@@ -70,8 +70,8 @@
                     aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
                     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
                     culpa qui officia deserunt mollit anim id est laborum."</p>
-                <p>Data e ora dell'incontro</p>
-                <p> Persone necessarie: 10 </p>
+                <p class="time">Data e ora dell'incontro</p>
+                <p class="people">Persone necessarie: 10</p>
                 <table>
                     <tr>
                         <th>Materiale necessario</th>
@@ -130,29 +130,27 @@
                 <button type="button" class="buttonSalva"><i class="fa fa-fw fa-heart"></i> Salva</button><input type="button" class="buttonPartecipa" name="Partecipa" value="Partecipa"><button type="button" class="buttonPartecipanti" data-progress-text="Partecipa" data-complete-text="Al completo"><div class="button__progress"></div><span class="button__text">Partecipanti 2/10</span>
             </footer>
         </article>
-    </main>
-    <aside>
+    </main><aside>
         <h3>Profili suggeriti</h3>
-        <ul>
-            <li>
-                <ul>
-                    <li><input class="profilo" type="image" src="../fotoProfiloIniziale.jpg" alt="profilo"></li>
-                    <li><a href="profiloUtente.html">Luna Fabbri</a></li>
-                </ul>
-            </li>
-            <li>
-                <ul>
-                    <li><input class="profilo" type="image" src="../fotoProfiloIniziale.jpg" alt="profilo"></li>
-                    <li><a href="profiloUtente.html">Lupo Lucio</a></li>
-                </ul>
-            </li>
-            <li>
-                <ul>
-                    <li><input class="profilo" type="image" src="../fotoProfiloIniziale.jpg" alt="profilo"></li>
-                    <li><a href="profiloUtente.html">Milo Cotogno</a></li>
-                </ul>
-            </li>
-        </ul>
+        <div class="profile">
+            <img src="../fotoProfiloIniziale.jpg" alt="Profilo 1">
+            <a href="profiloUtente.html">Luna Fabbri</span>
+        </div>
+
+        <div class="profile">
+            <img src="../fotoProfiloIniziale.jpg" alt="Profilo 1">
+            <a href="profiloUtente.html">Lupo Lucio</span>
+        </div>
+
+        <div class="profile">
+            <img src="../fotoProfiloIniziale.jpg" alt="Profilo 1">
+            <a href="profiloUtente.html">Milo Cotogno</span>
+        </div>
+        
+        <div class="profile">
+            <img src="../fotoProfiloIniziale.jpg" alt="Profilo 1">
+            <a href="profiloUtente.html">Gigio Bagigio</span>
+        </div>
     </aside>
     <footer>
         <p>Progetto di Tecnologie Web - A.A. 2023/2024</p>
