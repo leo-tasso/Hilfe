@@ -117,21 +117,15 @@ body>header>nav>div a{
       display: none;
     }
 
-    .desktopbar{
-      display:block;
-    }
-
-    .topbar{
+    .topbar .logo, .topbar .profilo, .topbar .desktopbar{
       display:inline-block;
-    }
-
-    .logo{
-      float:left;
     }
     
     .desktopbar{
+      display:block;
       text-align: center;
-      margin-top:10;
+      width:50%;
+      margin:10pt 10%;
     }
 
     .profilo{
@@ -139,8 +133,17 @@ body>header>nav>div a{
     }
 
     .desktopbar a{
-      margin-left: 10pt;
+      margin-left: 15pt;
+      text-decoration: none;
+      
+    }
+    
+    .desktopbar a:not(.privacy){
       color:grey;
+    }
+
+    .privacy{
+      color:#f4c03e;
     }
 
    }
