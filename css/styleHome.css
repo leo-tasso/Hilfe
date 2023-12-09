@@ -108,17 +108,6 @@ article>footer {
     text-align: center;
 }
 
-/**sistemare bottoni**/
-article>footer>input,
-article>footer>a {
-    border: 1px solid #087e8b;
-    border-radius: 10pt;
-    padding: 5pt;
-    font-family: Century Gothic;
-    font-size: 8pt;
-    margin: 5pt 0;
-}
-
 article>footer>input {
     background-color: #087e8b;
     color: white;
@@ -154,9 +143,36 @@ aside {
     max-width: 300px;
 }
 
+.buttonSalva{
+    background: #f4c03e;
+    color: #ffffff;
+    padding: 7px 16px;
+    position: relative;
+    cursor: pointer;
+    font-family: "Fira Sans", sans-serif;
+    overflow: hidden;
+    border-top-left-radius: 10pt;
+    border-bottom-left-radius: 10pt;
+    border:1px solid white;
+    margin-right: 0;
 
-.button {
-    border: none;
+}
+
+.buttonPartecipa{
+    background: #087e8b;
+    color: #ffffff;
+    padding: 7px 16px;
+    position: relative;
+    cursor: pointer;
+    font-size: 10pt;
+    font-family: "Fira Sans", sans-serif;
+    overflow: hidden;
+    border:1px solid white;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.buttonPartecipanti {
     background: #087e8b;
     color: #ffffff;
     padding: 7px 16px;
@@ -164,8 +180,11 @@ aside {
     cursor: pointer;
     font-family: "Fira Sans", sans-serif;
     overflow: hidden;
-    border-radius: 30px;
+    border-top-right-radius: 10pt;
+    border-bottom-right-radius: 10pt;
+    border:1px solid white;
     min-width: 50px;
+    margin-left:0;
 }
 
 .button__progress {
