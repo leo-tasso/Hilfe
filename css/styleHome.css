@@ -9,7 +9,7 @@ body>header>ul {
     width: 100%;
 }
 
-main>article>section>p{
+main>article section>p{
     margin:5pt;
 }
 
@@ -124,6 +124,8 @@ body main article {
     width: 90%;
     margin-bottom: 10pt;
     margin-left: 5%;
+    color: #454545;
+    
 }
 
 body main article p {
@@ -328,19 +330,19 @@ aside {
         text-align: center;
     }
 
-    article:not(article>footer){
-        display:inline-block;
+    .content{
+        display:flex;
+        width: 100%;
     }
 
     .openmap{
-        float:right;
-        width:200px;
-        height:60vh;
-        margin-right: 15pt;
+        width: 40%;
+        height:auto;
+        margin: 10px;
     }
 
-    article>section{
-        float:left;
-        width:50%;
+    .content>section{
+        width: 60%;
+        margin: 10px;
     }
 }
