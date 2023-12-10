@@ -40,6 +40,8 @@ body>footer{
     margin-top: 10pt;
     text-align: center;
     font-size: 10pt;
+    bottom: 0;
+    position: relative;
 }
 
 input[type="text"], input[type="password"]{
@@ -80,5 +82,21 @@ main>section>form>footer p{
     main {
         display: flex;
         justify-content: center;
+        border: 1px solid grey;
+        border-radius: 10pt;
+        width:60%;
+        padding:20pt;
+        margin:50px auto;
+
+    }
+
+    /**modificare posizione del checkbox**/
+    main>section>form>div{
+        display: block;
+        float: right;
+    }
+
+    .registrati, main>section>form>footer p{
+        display: none;
     }
 }
