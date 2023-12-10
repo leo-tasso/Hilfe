@@ -3,28 +3,49 @@
     <head>
         <title>HILFE - Login</title>
         <meta charset="UTF-8"/>
+        <link href="../css/style.css" rel="stylesheet" type="text/css" />
+        <link href="../css/styleLogin.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
         <header> 
-            <h1>HILFE</h1>
+            <nav class="topbar">
+                <img class="logo" src="../LogoRes/1x/LogoHeart.png" alt="logo HILFE" />
+                <nav class="desktopbar">
+                    <a href="home.html">Home</a>
+                    <a href="annunciSalvati.html">Salvati</a>
+                    <a class="privacy" href="privacy.html">Privacy</a>
+                    <a href="login.html">Login</a>
+                    <a href="followers.html">Users</a>
+                </nav>
+                <input class="profilo" type="image" src="../fotoProfiloIniziale.jpg" alt="profilo">
+                <div id="mySidepanel" class="sidepanel">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="login.html">Login</a>
+                    <a href="profiloUtente.html">Il mio profilo</a>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="annunciSalvati.html">Annunci salvati</a>
+                </div>
+                <button class="openbtn" onclick="openNav()">&#9776; </button>
         </header>
         <main>
             <section>
-                <h2>Login</h2>
+                <header>
+                    <img class="logo" src="../LogoRes/1x/LogoHeart.png" alt="logo HILFE" />
+                </header>
                 <form action="#" method="POST">
                     <ul>
-                        <li>
-                            <label for="email">Email:</label>
-                            <input type="text" id="email" name="email" placeholder="email">
-                        </li>
-                        <li>
-                            <label for="password">Password:</label>
-                            <input type="password" id="password" name="password" placeholder="password">
-                        </li>
-                        <li>
-                            <input type="button" name="Login" value="Login">
-                        </li>
+                        <li><label for="email">Email:</label><input type="text" id="email" name="email" placeholder="email"></li><li><label for="password">Password:</label><input type="password" id="password" name="password" placeholder="password"></li>
                     </ul>
+                    <div>
+                        <a href="#">Password dimenticata?</a>
+                        <input type="checkbox" id="ricordami" name="ricordami" value="Ricordami">
+                        <label for="ricordami">Ricordami</label> 
+                    </div>
+                    <footer>
+                        <input type="button" name="Login" value="Login">
+                        <p>oppure</p>
+                        <input type="button" name="Registrati" value="Registrati">
+                    </footer>
                 </form>
             </section>
         </main>
