@@ -112,6 +112,33 @@ body>header>nav>div a{
     color:white;
   }
 
+  #navbar {
+    z-index: 999;
+  }
+
+  #mySidepanel {
+    width: 0;
+  }
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 80px;
+    /* Adjust the width as needed */
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+}
+
+.openbtn {
+    order: -1;
+}
+
+
   @media screen and (min-width: 768px) {
     .openbtn{
       display: none;
@@ -145,5 +172,4 @@ body>header>nav>div a{
     .desktopbar a:hover{
       color:#f4c03e;
     }
-
    }

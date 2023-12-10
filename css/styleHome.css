@@ -169,14 +169,6 @@ article>footer>a {
     /**tondeggiante o quadrata?**/
 }
 
-#navbar {
-    z-index: 999;
-}
-
-#mySidepanel {
-    width: 0;
-}
-
 /**modifica dello pannello dei profili suggeriti**/
 aside {
     display: none;
@@ -229,24 +221,6 @@ aside {
     position: relative;
 }
 
-.topbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    width: 80px;
-    /* Adjust the width as needed */
-    height: auto;
-    margin-right: auto;
-    margin-left: auto;
-    display: block;
-}
-
-.openbtn {
-    order: -1;
-}
 
 .footer p{
     color:white;
@@ -355,10 +329,6 @@ aside {
 
     article:not(article>footer){
         display:inline-block;
-    }
-
-    article>footer{
-       /**posizionare bene bottoni indipendnetemente da posizione del resto**/
     }
 
     .openmap{
