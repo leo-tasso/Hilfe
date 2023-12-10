@@ -1,0 +1,84 @@
+main, footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main>section>form>ul{
+    list-style: none;
+}
+
+main>section>form>ul li{
+    color:#087e8b;
+    font-size: 15pt;
+    margin-bottom: 10pt;
+}
+
+label[for="email"], label[for="password"]{
+    display: block;
+}
+
+main>section>form>div{
+    font-size: 10pt;
+    color:#087e8b;
+}
+
+main>section>form>div input{
+    margin: 10pt 5pt;
+}
+
+main>section>form>div a{
+    float:right;
+    margin-right: 5pt;
+    color:#087e8b;
+}
+
+body>footer{
+    background-color: #087e8b;
+    color:white;
+    padding:2pt;
+    margin-top: 10pt;
+    text-align: center;
+    font-size: 10pt;
+}
+
+input[type="text"], input[type="password"]{
+    border: 2px solid #f4c03e;
+    border-radius: 5pt;
+    padding:5pt;
+}
+
+main>section>form>footer {
+    margin-top: 20pt;
+    display: block;
+    text-align: center;
+}
+
+main>section>form>footer p{
+    font-size: 10pt;
+}
+
+.log, .registrati{
+    color:white;
+    padding:10pt 15pt;
+    border: none;
+    border-radius: 15pt;
+    font-size: 12pt;
+    width:80%;
+}
+
+.log{
+    background-color: #f4c03e;
+}
+
+.registrati{
+    background-color: #087e8b;
+}
+
+@media screen and (min-width: 768px) {
+
+    main {
+        display: flex;
+        justify-content: center;
+    }
+}
