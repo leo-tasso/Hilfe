@@ -138,11 +138,11 @@ body>header>nav>div a{
       
     }
     
-    .desktopbar a:not(.privacy){
+    .desktopbar a {
       color:grey;
     }
 
-    .privacy{
+    .desktopbar a:hover{
       color:#f4c03e;
     }
 
