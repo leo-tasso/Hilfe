@@ -9,6 +9,10 @@ body>header>ul {
     width: 100%;
 }
 
+main>article>section>p{
+    margin:5pt;
+}
+
 article>header .infoUtente, article>header p, article>header h2{
     display:inline-block;
 }
@@ -244,6 +248,11 @@ aside {
     order: -1;
 }
 
+.footer p{
+    color:white;
+    text-decoration: none;
+}
+
 /**media query per dispositivi non mobile**/
 @media screen and (min-width: 768px) {
 
@@ -342,5 +351,25 @@ aside {
         float: right;
         width: 50%;
         text-align: center;
+    }
+
+    article:not(article>footer){
+        display:inline-block;
+    }
+
+    article>footer{
+       /**posizionare bene bottoni indipendnetemente da posizione del resto**/
+    }
+
+    .openmap{
+        float:right;
+        width:200px;
+        height:60vh;
+        margin-right: 15pt;
+    }
+
+    article>section{
+        float:left;
+        width:50%;
     }
 }
