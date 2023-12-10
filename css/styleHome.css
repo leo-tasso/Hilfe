@@ -117,17 +117,16 @@ body>header>ul i{
     float:right;
 }
 
-body>main>article {
+body main article {
     border: 3px solid #f4c03e;
     padding: 5px;
     border-radius: 10px;
     width: 90%;
-    max-width: 700px;
     margin-bottom: 10pt;
     margin-left: 5%;
 }
 
-body>main>article p {
+body main article p {
     font-size: 10pt;
 }
 
@@ -172,7 +171,6 @@ article>footer>a {
 /**modifica dello pannello dei profili suggeriti**/
 aside {
     display: none;
-    max-width: 300px;
 }
 
 .buttonPartecipa, .buttonPartecipanti, .buttonSalva{
@@ -230,18 +228,9 @@ aside {
 /**media query per dispositivi non mobile**/
 @media screen and (min-width: 768px) {
 
-    body:not(header){
-        text-align: center;
-    }
-
-    body>main,
-    body>header>ul {
-        display: inline-block;
-        text-align: justify;
-    }
-
-    body>main{
-        width: 70%;
+    main {
+        display: flex;
+        justify-content: center;
     }
 
     body>header>div {
@@ -249,15 +238,27 @@ aside {
         margin-left: 10pt;
     }
 
+
+    .articles{
+        max-width: 60%;
+        max-width: 700px;
+    }
+    .leftAside{
+        width: 20%;
+        max-width: 200px;
+    }
+
     aside {
+        width: 20%;
+        max-width: 200px;
         display: inline-block;
         background-color: #f4c03e;
         border-radius: 10pt;
         margin: 5pt;
-        width: 20%;
         vertical-align: top;
         text-align: left;
         padding-left: 10pt;
+        height: fit-content;
     }
 
     .profile {
