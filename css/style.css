@@ -164,6 +164,11 @@ body>header>nav>div a{
       text-decoration: none;
       
     }
+    .logo {
+      margin-left: 0;
+      margin-right: 0;
+      display: block;
+  }
     
     .desktopbar a {
       color:grey;
