@@ -77,6 +77,15 @@ main>section>form>footer p{
     background-color: #087e8b;
 }
 
+main>section>header{
+    display:flex;
+}
+
+.logo2{
+    height:40px; 
+    margin: 10pt auto;
+}
+
 @media screen and (min-width: 768px) {
 
     main {
@@ -89,6 +98,7 @@ main>section>form>footer p{
         margin:50px auto;
 
     }
+
 
     /**modificare posizione del checkbox**/
     main>section>form>div{
