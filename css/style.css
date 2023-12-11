@@ -4,7 +4,7 @@ body{
   margin:0;
 }
 
-body>header>nav{
+.topbar{
   background-color:  #f9fcfd;
   border-bottom: 1px solid grey;
   width:100%;

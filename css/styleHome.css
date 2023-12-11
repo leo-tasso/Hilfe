@@ -1,12 +1,37 @@
-body>header>ul {
+header{
+    text-align: center;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+.navbar{
+    width: 100%;
+    max-width: 700px;
+}
+
+.articles{
+    max-width: 60%;
+    max-width: 700px;
+}
+
+.newPost {
+    justify-content: space-between;
     background-color: #087e8b;
     border-radius: 10pt;
-    list-style: none;
-    padding: 2pt 5pt;
     display: inline-flex;
     /** controllare se c'è opzione migliore**/
     margin-top: 0;
+    margin-bottom: 10px;
     width: 100%;
+    max-width: 700px;
+    align-items: center;
+}
+
+.newPost>* {
+    margin: 7px;
 }
 
 main>article section>p{
@@ -86,31 +111,19 @@ header>div a:hover {
     font-weight: bold;
 }
 
-body>header>ul{
-    display:inline-block;
-    justify-content: left;
-}
-
-/**hai bisogno di aiuto?**/
-body>header>ul p {
-    float: left;
-    color: white;
-    font-size: 10pt;
-    margin-right: 5pt;
-}
 
 /**Nuovo post**/
-body>header>ul a {
-    display: inline-block;
-    text-align: left;
+.newPost a {
+    text-align: center;
     background-color: white;
     border-radius: 10pt;
-    padding: 3pt 10pt;
+    padding: 7pt 10pt;
     color: grey;
     text-decoration: none;
     font-size: 10pt;
-    margin-top: 8pt;
+    margin: 5pt 6pt;
     box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.9);
+    width: 100%;
 }
 
 body>header>ul i{
@@ -121,9 +134,7 @@ body main article {
     border: 3px solid #f4c03e;
     padding: 5px;
     border-radius: 10px;
-    width: 90%;
     margin-bottom: 10pt;
-    margin-left: 5%;
     color: #454545;
     
 }
@@ -230,27 +241,17 @@ aside {
 /**media query per dispositivi non mobile**/
 @media screen and (min-width: 768px) {
 
-    main {
-        display: flex;
-        justify-content: center;
+    .navbar a{
+        float: left;
+        margin:0px 5px;
     }
 
-    body>header>div {
-        text-align: left;
-        margin-left: 10pt;
-    }
-
-
-    .articles{
-        max-width: 60%;
-        max-width: 700px;
-    }
     .leftAside{
         width: 20%;
         max-width: 200px;
     }
 
-    aside {
+    aside, .leftAside {
         width: 20%;
         max-width: 200px;
         display: inline-block;
