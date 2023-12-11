@@ -10,7 +10,7 @@ body{
   width:100%;
 }
 
-body>footer{
+.footer{
   background-color: #087e8b;
   color:white;
   text-align: center;
