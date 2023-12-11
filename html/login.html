@@ -12,10 +12,12 @@
                 <img class="logo" src="../LogoRes/1x/LogoHeart.png" alt="logo HILFE" />
                 <nav class="desktopbar">
                     <a href="home.html">Home</a>
+                    <a href="#">Seguiti</a>
                     <a href="annunciSalvati.html">Salvati</a>
+                    <a href="#">Profilo</a>
                     <a class="privacy" href="privacy.html">Privacy</a>
-                    <a href="login.html">Login</a>
-                    <a href="followers.html">Users</a>
+      
+                    
                 </nav>
                 <input class="profilo" type="image" src="../fotoProfiloIniziale.jpg" alt="profilo">
                 <div id="mySidepanel" class="sidepanel">
@@ -30,15 +32,17 @@
         <main>
             <section>
                 <header>
-                    <img class="logo2" src="../LogoRes/1x/LogoHeart.png" alt="logo HILFE" />
+                    <img class="logo2" src="../LogoRes/1x/HeartHands.png" alt="logo HILFE" />
                 </header>
                 <form action="#" method="POST">
                     <ul>
-                        <li><label for="email">Email:</label><input type="text" id="email" name="email" placeholder="Email"></li><li><label for="password">Password:</label><input type="password" id="password" name="password" placeholder="Password"></li>
+                        <li><label for="name">Username</label><input type="text" id="name" name="name" placeholder="Username"></li><li><label for="password">Password</label><input type="password" id="password" name="password" placeholder="Password"></li>
                     </ul>
-                    <div>
+                    <div class="options">
+                        <div class="ricordami">
+                            <input type="checkbox" id="ricordami" name="ricordami" value="Ricordami"><label for="ricordami">Ricordami</label> 
+                        </div>
                         <a href="#">Password dimenticata?</a><br/>
-                        <input type="checkbox" id="ricordami" name="ricordami" value="Ricordami"><label for="ricordami">Ricordami</label> 
                     </div>
                     <footer>
                         <input type="button" class="log" name="Login" value="Login">

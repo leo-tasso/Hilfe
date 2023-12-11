@@ -1,21 +1,22 @@
 body{
-    font-family:"Helvetica" ;
+  font-family:"Helvetica" ;
+  overflow-x: hidden;
+  margin:0;
 }
 
 body>header>nav{
-    background-color:  #f9fcfd;
-    border-bottom: 1px solid grey;
-    width:100%;
+  background-color:  #f9fcfd;
+  border-bottom: 1px solid grey;
+  width:100%;
 }
 
-.footer{
-    background-color: #087e8b;
-    color:white;
-    text-align: center;
-    width: 100%;
-    font-size: 8pt;
-    padding:10px;
-   
+body>footer{
+  background-color: #087e8b;
+  color:white;
+  text-align: center;
+  width: 100%;
+  font-size: 8pt;
+  padding:10px;
 }
 
 body>header>nav{
