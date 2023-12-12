@@ -4,7 +4,7 @@
 
 .profilo{
     float:right;
-    border: 2px solid #f4c03e;
+    border: 2px solid var(--hilfeYellow);
     border-radius: 50%;
     width: 40px;
     height: 40px;
@@ -29,7 +29,7 @@
 
 .newPost {
     justify-content: space-between;
-    background-color: #087e8b;
+    background-color: var(--hilfeBlue);
     border-radius: 10pt;
     display: inline-flex;
     margin-top: 0;
@@ -44,7 +44,7 @@
     background-color: white;
     border-radius: 10pt;
     padding: 7pt 10pt;
-    color: grey;
+    color: var(--hilfeGrey);
     text-decoration: none;
     margin: 5pt 6pt;
     box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.9);
@@ -64,6 +64,11 @@
 
 main>article section>p{
     margin:5pt;
+}
+
+section>h3{
+    color: var(--hilfeGrey);
+    margin:0;
 }
 
 .articles header{
@@ -111,7 +116,7 @@ tr:nth-child(even) {
 th {
     padding: 5pt;
     text-align: left;
-    background-color: #087e8b;
+    background-color: var(--hilfeBlue);
     color: white;
 }
 
@@ -122,7 +127,7 @@ header>div {
 }
 
 header>div a {
-    background-color: #f4c03e;
+    background-color: var(--hilfeYellow);
     padding: 5pt;
     text-decoration: none;
     color: white;
@@ -131,18 +136,18 @@ header>div a {
 }
 
 .default {
-    background-color: #087e8b;
+    background-color: var(--hilfeBlue);
 }
 
 header>div a:active {
     /**deve cambiare colore una volta cliccato**/
-    background-color: #087e8b;
+    background-color: var(--hilfeBlue);
     font-weight: bold;
 }
 
 header>div a:hover {
     /**deve cambiare colore una volta cliccato**/
-    background-color: #087e8b;
+    background-color: var(--hilfeBlue);
     font-weight: bold;
 }
 
@@ -151,11 +156,11 @@ body>header>ul i{
 }
 
 body main article {
-    border: 3px solid #f4c03e;
+    border: 3px solid var(--hilfeYellow);
     padding: 5px;
     border-radius: 10px;
     margin-bottom: 10pt;
-    color: #454545;
+    color: var(--hilfeGrey);
 }
 
 body main article p {
@@ -180,14 +185,14 @@ article>footer {
 }
 
 article>footer>input {
-    background-color: #087e8b;
+    background-color: var(--hilfeBlue);
     color: white;
 }
 
 article>footer>a {
     text-decoration: none;
     color: white;
-    background-image: linear-gradient(to right, #087e8b, #0e4c53);
+    background-image: linear-gradient(to right, var(--hilfeBlue), #0e4c53);
 }
 
 .openmap {
@@ -195,7 +200,7 @@ article>footer>a {
     height: 400px;
     z-index: 0;
     margin: 5pt auto;
-    border: 2px solid #f4c03e;
+    border: 2px solid var(--hilfeYellow);
     border-radius: 10pt;
 }
 
@@ -216,20 +221,20 @@ aside {
 }
 
 .buttonSalva{
-    background: #f4c03e;
+    background: var(--hilfeYellow);
     border-top-left-radius: 10pt;
     border-bottom-left-radius: 10pt;
     margin-right: 0;
 }
 
 .buttonPartecipa{
-    background: #087e8b;
+    background: var(--hilfeBlue);
     margin-left: 0;
     margin-right: 0;
 }
 
 .buttonPartecipanti {
-    background: #087e8b;
+    background: var(--hilfeBlue);
     border-top-right-radius: 10pt;
     border-bottom-right-radius: 10pt;
     min-width: 50px;
@@ -276,7 +281,7 @@ aside {
         width: 20%;
         max-width: 200px;
         display: inline-block;
-        background-color: #f4c03e;
+        background-color: var(--hilfeYellow);
         border-radius: 10pt;
         margin: 5pt;
         vertical-align: top;
@@ -316,7 +321,7 @@ aside {
     }
 
     .profile a:hover{
-        color:#087e8b;
+        color:var(--hilfeBlue);
     }
 
     .profile p{
