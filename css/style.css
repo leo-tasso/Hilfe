@@ -1,6 +1,7 @@
 body{
   font-family:"Helvetica" ;
-  margin:0;
+  margin:1pt;
+  overflow-x: hidden;
 }
 
 .buttonLogin{
@@ -102,7 +103,7 @@ body>header>nav>div a{
     cursor: pointer;
     background-color: white;
     color: grey;
-    padding: 10px 15px;
+    padding: px 15px;
     border: none;
     border-radius:13px;
   }
@@ -110,6 +111,7 @@ body>header>nav>div a{
   .desktopbar{
     display:none;
   }
+
   .openbtn:hover {
     background-color: #087e8b;
     color:white;
@@ -122,16 +124,16 @@ body>header>nav>div a{
   #mySidepanel {
     width: 0;
   }
+
   .topbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
+  }
 
 .openbtn {
     order: -1;
 }
-
 
 @media screen and (min-width: 768px) {
   .openbtn{
