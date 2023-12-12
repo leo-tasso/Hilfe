@@ -32,7 +32,7 @@ body>header>nav>div>a, body>header>nav>div div{
 .notifiche p{
   background-color: white;
   color:grey;
-  padding: 2pt 3pt;
+  padding: 2pt 4pt;
   border-radius: 50%;
   font-size: 9pt;
   margin:0;
@@ -179,9 +179,7 @@ body>header>nav{
   .notifiche p{
     background-color:var(--hilfeYellow);
     color:white;
-    padding: 2pt 3pt;
-    border-radius: 50%;
-    font-size: 9pt;
+    padding: 2pt 4pt;
     margin-left:2pt;
   }
 
