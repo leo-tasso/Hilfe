@@ -3,6 +3,15 @@
   --hilfeYellow:#f4c03e;
   --hilfeBlue:#087e8b;
 }
+.icon{
+  width: 12px;
+  margin-right: 3pt;
+}
+
+.iconButton{
+  width: 10px;
+  margin-right: 5pt;
+}
 
 
 /**modifica bottoni menù slidebar**/ 
