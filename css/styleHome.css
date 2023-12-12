@@ -262,6 +262,13 @@ aside {
     text-decoration: none;
 }
 
+h3 {
+    font-size: 11pt;
+    font-weight: bold;
+    color: white;
+    padding: 5pt;
+}
+
 /**media query per dispositivi non mobile**/
 @media screen and (min-width: 768px) {
 
@@ -347,13 +354,6 @@ aside {
 
     .amici{
         font-size: 8pt;
-    }
-
-    h3 {
-        font-size: 11pt;
-        font-weight: bold;
-        color: white;
-        padding: 5pt;
     }
 
     aside ul {
