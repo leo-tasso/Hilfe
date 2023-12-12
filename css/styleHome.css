@@ -12,7 +12,6 @@
     background-position: center center; /**per centrare l'immagine**/
 }
 
-
 .centralContent {
     display: flex;
     justify-content: center;
@@ -43,7 +42,7 @@
     margin: 7px;
 }
 
-.newPost a{
+.newPost>a{
     font-size: 12pt;
 }
 

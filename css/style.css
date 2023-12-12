@@ -142,8 +142,13 @@ body>header>nav>div a{
       display:none;
   }
 
-  .topbar .logo,.topbar .buttonLogin, .topbar .desktopbar{
-      display:inline-block;
+  .topbar:not(.sidepanel, .openbtn){
+      display:flex;
+  }
+
+  .buttonLogin{
+    display: flex;
+    margin:0;
   }
 
   /**modifica i bottoni/link login e registrati**/
