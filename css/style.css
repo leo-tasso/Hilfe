@@ -5,8 +5,8 @@ body{
 
 .topbar{
   background-color:  #f9fcfd;
-  border-bottom: 1px solid grey;
-  width:100%;
+  border-bottom: 1.5px solid #989898;
+  margin: 0 15px;
 }
 
 .footer{
@@ -25,7 +25,6 @@ body>header>nav{
 /**immagine logo barra in alto**/
 .logo {
   height:40px; /**modificare in base a logo nuovo**/
-  margin: 2pt auto;
   text-align: center;
 }
 
@@ -125,15 +124,6 @@ body>header>nav>div a{
     align-items: center;
 }
 
-.logo {
-    width: 80px;
-    /* Adjust the width as needed */
-    height: auto;
-    margin-right: auto;
-    margin-left: auto;
-    display: block;
-}
-
 .openbtn {
     order: -1;
 }
@@ -164,11 +154,6 @@ body>header>nav>div a{
       text-decoration: none;
       
     }
-    .logo {
-      margin-left: 0;
-      margin-right: 0;
-      display: block;
-  }
     
     .desktopbar a {
       color:grey;
