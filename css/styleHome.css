@@ -1,12 +1,12 @@
-header, .footer{
+.footer{
     text-align: center;
-    box-sizing: border-box;
 }
 
 .centralContent {
     display: flex;
     justify-content: center;
 }
+
 .newPostContainer{
     width: 100%;
     max-width: 700px;
@@ -22,7 +22,6 @@ header, .footer{
     background-color: #087e8b;
     border-radius: 10pt;
     display: inline-flex;
-    /** controllare se c'è opzione migliore**/
     margin-top: 0;
     margin-bottom: 10px;
     width: 100%;
@@ -33,12 +32,19 @@ header, .footer{
     margin: 7px;
 }
 
+.newPost>a:hover{
+    background-color: white;
+    font-weight: bold;
+}
+
 main>article section>p{
     margin:5pt;
 }
 
-article>header .infoUtente, article>header p, article>header h2{
-    display:inline-block;
+.articles header{
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
 }
 
 article>header h2{
@@ -46,8 +52,13 @@ article>header h2{
 }
 
 article>header .infoUtente{
-    float:right;
-    vertical-align: top;
+    display:flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.infoUtente{
+    margin:0;
 }
 
 .infoUtente p{
@@ -177,7 +188,6 @@ article>footer>a {
     margin: 5pt auto;
     border: 2px solid #f4c03e;
     border-radius: 10pt;
-    /**tondeggiante o quadrata?**/
 }
 
 /**modifica dello pannello dei profili suggeriti**/
