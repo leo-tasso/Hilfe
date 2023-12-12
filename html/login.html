@@ -12,14 +12,18 @@
                 <img class="logo" src="../LogoRes/1x/LogoHeart.png" alt="logo HILFE" />
                 <nav class="desktopbar">
                     <a href="home.html">Home</a>
-                    <a href="#">Seguiti</a>
+                    <a href="follow.html">Seguiti</a>
                     <a href="annunciSalvati.html">Salvati</a>
-                    <a href="#">Profilo</a>
-                    <a class="privacy" href="privacy.html">Privacy</a>
-      
-                    
+                    <a href="profiloUtente.html">Profilo</a>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="notifiche.html">Notifiche</a>
                 </nav>
-                <input class="profilo" type="image" src="../fotoProfiloIniziale.jpg" alt="profilo">
+                <label for="profiloBarra" hidden>Foto profilo</label>
+                <input class="profiloBarra" id="profiloBarra" type="image" src="../fotoProfiloIniziale.jpg" alt="profilo">
+                <div class="buttonLogin">
+                    <a class="b1" href="login.html">Login</a>
+                    <a class="b2" href="registrazione.html">Registrati</a>
+                </div>
                 <div id="mySidepanel" class="sidepanel">
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                     <a href="login.html">Login</a>
@@ -34,7 +38,7 @@
                 <header>
                     <img class="logo2" src="../LogoRes/1x/HeartHands.png" alt="logo HILFE" />
                 </header>
-                <form action="#" method="POST">
+                <form class="form" action="#" method="POST">
                     <ul>
                         <li><label for="name">Username</label><input type="text" id="name" name="name" placeholder="Username"></li><li><label for="password">Password</label><input type="password" id="password" name="password" placeholder="Password"></li>
                     </ul>
@@ -45,9 +49,9 @@
                         <a href="#">Password dimenticata?</a><br/>
                     </div>
                     <footer>
-                        <input type="button" class="log" name="Login" value="Login">
+                        <a class="log" href="login.html">Login</a>
                         <p>oppure</p>
-                        <input type="button" class="registrati" name="Registrati" value="Registrati">
+                        <a class="registrati" href="registrazione.html">Registrati</a>
                     </footer>
                 </form>
             </section>
