@@ -68,6 +68,10 @@ body>header>nav {
   display: inline-block;
 }
 
+.logoContainer {
+  width: 20%;
+}
+
 /**immagine logo barra in alto**/
 .logo {
   height: 40px;
@@ -205,7 +209,9 @@ body>header>nav {
   }
 
   .buttonLogin {
+    width: 20%;
     display: flex;
+    justify-content: flex-end;
     margin: 0;
   }
 
