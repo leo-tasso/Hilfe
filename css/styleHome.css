@@ -89,6 +89,8 @@ article>header .infoUtente{
 
 .infoUtente{
     margin:0;
+    text-decoration: none;
+    color: var(--hilfeGrey);  
 }
 
 .infoUtente p{
@@ -148,7 +150,6 @@ header>div a:active {
 header>div a:hover {
     /**deve cambiare colore una volta cliccato**/
     background-color: var(--hilfeBlue);
-    font-weight: bold;
 }
 
 body>header>ul i{
@@ -271,6 +272,15 @@ h3 {
 /**media query per dispositivi non mobile**/
 @media screen and (min-width: 768px) {
 
+    .b1:hover {
+        background-color: var(--hilfeBlue);
+        color: white;
+    }
+
+    .b2:hover {
+        background-color: var(--hilfeYellow);
+        color: white;
+    }
     .navbar {
         margin-left: 10px;
     }
@@ -302,6 +312,12 @@ h3 {
         display: flex;
         margin-bottom: 10px;
         border-bottom: 1px solid white;
+        text-decoration: none;
+        color: white;
+    }
+
+    .infoUser p {
+        margin: 5px 0;
     }
 
 
@@ -328,7 +344,7 @@ h3 {
     }
 
     .profile a:hover{
-        color:var(--hilfeBlue);
+        color:var(--hilfeGrey);
     }
 
     .profile p{
