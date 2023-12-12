@@ -3,6 +3,32 @@
   --hilfeYellow:#f4c03e;
   --hilfeBlue:#087e8b;
 }
+
+
+/**modifica bottoni menù slidebar**/ 
+body>header>nav>div>a, body>header>nav>div div{
+  border:1px solid white;
+}
+
+.notifiche{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  margin:0;
+  padding:0;
+
+}
+
+/**modifica pallino notifiche**/
+.notifiche p{
+  background-color: white;
+  color:grey;
+  padding: 2pt 3pt;
+  border-radius: 50%;
+  font-size: 9pt;
+  margin:0;
+}
+
 body{
   font-family:"Helvetica" ;
   margin:1pt;
@@ -52,10 +78,6 @@ body>header>nav{
   background-position: center center; /**per centrare l'immagine**/
 }
 
-/**modifica bottoni menù slidebar**/ 
-body>header>nav>div a{
-    border:1px solid white;
-}
 
 /**css per menu con icona animata**/
 /* The sidepanel menu */
@@ -77,14 +99,14 @@ body>header>nav>div a{
   .sidepanel a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 12px;
+    font-size: 10pt;
     color: white;
     display: block;
     transition: 0.3s;
   }
   
   /* When you mouse over the navigation links, change their color */
-  .sidepanel a:hover {
+  .sidepanel>a:hover, .sidepanel>div:hover {
     background-color: var(--hilfeGrey);
   }
   
@@ -145,6 +167,15 @@ body>header>nav>div a{
       display: none;
   }
 
+  .notifiche p{
+    background-color:var(--hilfeYellow);
+    color:white;
+    padding: 2pt 3pt;
+    border-radius: 50%;
+    font-size: 9pt;
+    margin-left:2pt;
+  }
+
   .profiloBarra{
       display:none;
   }
@@ -184,7 +215,7 @@ body>header>nav>div a{
   }
     
   .desktopbar{
-    display:block;
+    display:flex;
     text-align: center;
     width:50%;
     margin:10pt 10%;
@@ -194,17 +225,16 @@ body>header>nav>div a{
       margin-bottom: 2pt;
     }
 
-    .desktopbar a{
+    .desktopbar>a, .desktopbar>div>a{
       margin-left: 15pt;
       text-decoration: none;
-      
     }
     
-    .desktopbar a {
+    .desktopbar a,.desktopbar>div>a  {
       color:var(--hilfeGrey);
     }
 
-    .desktopbar a:hover{
+    .desktopbar a:hover,.desktopbar>div>a:hover{
       color:var(--hilfeYellow);
     }
    }
