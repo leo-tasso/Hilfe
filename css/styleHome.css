@@ -2,6 +2,17 @@
     text-align: center;
 }
 
+.profilo{
+    float:right;
+    border: 2px solid #f4c03e;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat; /**non ripete l'immagine nel caso il bottone fosse più grande dell'immagine**/
+    background-position: center center; /**per centrare l'immagine**/
+}
+
+
 .centralContent {
     display: flex;
     justify-content: center;
@@ -30,6 +41,10 @@
 
 .newPost>* {
     margin: 7px;
+}
+
+.newPost a{
+    font-size: 12pt;
 }
 
 .newPost>a:hover{

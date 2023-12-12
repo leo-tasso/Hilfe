@@ -3,6 +3,10 @@ body{
   margin:0;
 }
 
+.buttonLogin{
+  display:none;
+}
+
 .topbar{
   background-color:  #f9fcfd;
   border-bottom: 1.5px solid #989898;
@@ -32,7 +36,7 @@ body>header>nav{
   float:left;
 }
 
-.profilo{
+.profiloBarra{
   float:right;
   border: 2px solid #f4c03e;
   border-radius: 50%;
@@ -129,21 +133,44 @@ body>header>nav>div a{
 }
 
 
-  @media screen and (min-width: 768px) {
-    .openbtn{
+@media screen and (min-width: 768px) {
+  .openbtn{
       display: none;
-    }
+  }
 
-    .topbar .logo, .topbar .profilo, .topbar .desktopbar{
+  .profiloBarra{
+      display:none;
+  }
+
+  .topbar .logo,.topbar .buttonLogin, .topbar .desktopbar{
       display:inline-block;
-    }
+  }
+
+  /**modifica i bottoni/link login e registrati**/
+  .b1 , .b2{
+    padding: 5pt;
+    margin-left:2pt;
+    border-radius: 5pt;
+    text-decoration: none;
+  }
+
+  .b1{
+    background-color: white;
+    color:grey;
+    border: 2px solid #f4c03e;
+  }
+
+  .b2{
+    background-color: #087e8b;
+    color:white;
+  }
     
-    .desktopbar{
-      display:block;
-      text-align: center;
-      width:50%;
-      margin:10pt 10%;
-    }
+  .desktopbar{
+    display:block;
+    text-align: center;
+    width:50%;
+    margin:10pt 10%;
+  }
 
     .profilo{
       margin-bottom: 2pt;
