@@ -266,11 +266,13 @@ aside {
         height: fit-content;
     }
 
-    .profile {
+    .infoUser {
         width:90%;
         margin-bottom: 10px;
-        display: flex;
         border-bottom: 1px solid white;
+    }
+    .profile{
+        display:flex;
     }
 
     .profile img {
@@ -286,9 +288,14 @@ aside {
         text-decoration: none;
         color:white;
         font-size: 9pt;
+        margin-top: 2pt;
     }
 
-    .amici{
+    .infoUser p{
+        color:white;
+    }
+
+.amici{
         font-size: 8pt;
     }
 
