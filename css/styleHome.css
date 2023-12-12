@@ -268,14 +268,13 @@ aside {
 
     .infoUser {
         width:90%;
+        display: flex;
         margin-bottom: 10px;
         border-bottom: 1px solid white;
     }
-    .profile{
-        display:flex;
-    }
 
-    .profile img {
+
+    .infoUser img {
         width: 30px; /* Puoi regolare la larghezza dell'immagine a tuo piacimento */
         height:30px;
         border-radius: 50%;
@@ -283,19 +282,30 @@ aside {
         margin-right: 3pt;
          
     }
+    
+    .profile{
+        display:inline-block;
+    }
 
     .profile a{
+        width:100%;
         text-decoration: none;
         color:white;
         font-size: 9pt;
         margin-top: 2pt;
+        font-weight: bold;
     }
 
-    .infoUser p{
+    .profile a:hover{
+        color:#087e8b;
+    }
+
+    .profile p{
         color:white;
+        width: 100%;
     }
 
-.amici{
+    .amici{
         font-size: 8pt;
     }
 
