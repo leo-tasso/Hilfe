@@ -1,3 +1,8 @@
+:root {
+  --hilfeGrey:#595959;
+  --hilfeYellow:#f4c03e;
+  --hilfeBlue:#087e8b;
+}
 body{
   font-family:"Helvetica" ;
   margin:1pt;
@@ -9,7 +14,7 @@ body{
 }
 
 .topbar{
-  background-color:  #f9fcfd;
+  background-color:  white;
   border-bottom: 1.5px solid #989898;
   margin: 0 15px;
 }
@@ -39,7 +44,7 @@ body>header>nav{
 
 .profiloBarra{
   float:right;
-  border: 2px solid #f4c03e;
+  border: 2px solid var(--hilfeYellow);
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -80,7 +85,7 @@ body>header>nav>div a{
   
   /* When you mouse over the navigation links, change their color */
   .sidepanel a:hover {
-    background-color: grey;
+    background-color: var(--hilfeGrey);
   }
   
   /* Position and style the close button (top right corner) */
@@ -102,7 +107,7 @@ body>header>nav>div a{
     font-size: 20px;
     cursor: pointer;
     background-color: white;
-    color: grey;
+    color: var(--hilfeGrey);
     padding: 5px 15px;
     border: none;
     border-radius:13px;
@@ -163,8 +168,8 @@ body>header>nav>div a{
 
   .b1{
     background-color: white;
-    color:grey;
-    border: 2px solid #f4c03e;
+    color:var(--hilfeGrey);
+    border: 2px solid var(--hilfeYellow);
   }
 
   .b2{
@@ -190,10 +195,10 @@ body>header>nav>div a{
     }
     
     .desktopbar a {
-      color:grey;
+      color:var(--hilfeGrey);
     }
 
     .desktopbar a:hover{
-      color:#f4c03e;
+      color:var(--hilfeYellow);
     }
    }
