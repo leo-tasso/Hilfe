@@ -379,7 +379,8 @@ h3 {
     }
 
     .profile span:hover{
-        color:var(--hilfeGrey);
+        
+        color:lightgray;
     }
 
     .profile p{
@@ -529,7 +530,6 @@ h3 {
   }
 
   .closePopup:hover{
-    background-color: grey;
-    color:var(--hilfeYellow);
+    background-color: var(--hilfeBlue);
     cursor:pointer;
   }
