@@ -77,6 +77,10 @@ section>h3{
     align-items: center;
 }
 
+article>header {
+    margin: 0 15px;
+}
+
 article>header h2{
     margin-top:15pt;
 }
@@ -183,7 +187,7 @@ body main article p {
 }
 
 h2 {
-    font-size: 13pt;
+    font-size: 19pt;
     font-weight: bold;
 }
 
