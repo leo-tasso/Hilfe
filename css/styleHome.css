@@ -107,7 +107,7 @@ article>header .infoUtente{
 table {
     border-collapse: collapse;
     width: 70%;
-    margin: 5pt auto;
+    margin: 10pt auto;
 }
 
 td,
@@ -192,6 +192,7 @@ h2 {
 }
 
 article>footer {
+    margin: 10px;
     text-align: center;
 }
 
