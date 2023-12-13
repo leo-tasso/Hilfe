@@ -93,8 +93,10 @@ article>header .infoUtente{
     color: var(--hilfeGrey);  
 }
 
-.infoUtente p{
+.nomeAutore{
     margin-right: 5pt;
+    text-decoration: none;
+    color: var(--hilfeGrey);
 }
 
 /**per modificare stile della tabella**/
@@ -128,7 +130,7 @@ header>div {
     text-align: center;
 }
 
-header>div a {
+.navbar a {
     background-color: var(--hilfeYellow);
     padding: 5pt;
     text-decoration: none;
@@ -137,17 +139,21 @@ header>div a {
     border-top-left-radius: 10pt;
 }
 
+.navbar .default {
+    background-color: var(--hilfeBlue);
+}
+
 .default {
     background-color: var(--hilfeBlue);
 }
 
-header>div a:active {
+.navbar a:active {
     /**deve cambiare colore una volta cliccato**/
     background-color: var(--hilfeBlue);
     font-weight: bold;
 }
 
-header>div a:hover {
+.navbar a:hover {
     /**deve cambiare colore una volta cliccato**/
     background-color: var(--hilfeBlue);
 }
