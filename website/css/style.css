@@ -4,6 +4,10 @@
   --hilfeBlue: #087e8b;
 }
 
+body>header, .footer{
+    box-sizing: border-box;  
+}
+
 .icon {
   width: 12px;
   margin-right: 3pt;
