@@ -134,7 +134,36 @@
                 const marker8 = L.marker([-37.977000, 177.057000]).addTo(map);
             </script>
             <footer>
-                <button type="button" class="buttonSalva"><img class="iconButton" src="../Icons/Heart.svg" alt="">Salva</button><input type="button" class="buttonPartecipa" name="Partecipa" value="Partecipa"><button type="button" class="buttonPartecipanti" data-progress-text="Partecipa" data-complete-text="Al completo"><span class="button__progress"></span><span class="button__text">Partecipanti 2/10</span></button>
+                <button type="button" onclick="openPopup()" class="buttonSalva"><img class="iconButton" src="../Icons/Heart.svg" alt="">Salva</button><input type="button" class="buttonPartecipa" name="Partecipa" value="Partecipa"><button type="button" class="buttonPartecipanti" onclick="openPopup()" data-progress-text="Partecipa" data-complete-text="Al completo"><span class="button__progress"></span><span class="button__text">Partecipanti 2/10</span></button>
+                <div id="popup">
+                    <h3>Utenti partecipanti</h3>
+                    <a href="profiloUtente.html" class="infoUser">
+                        <img src="../fotoProfiloIniziale.jpg" alt="Profilo 1">
+                        <div class="profile">
+                        <span>Luna Fabbri</span>
+                        <p class="amici">Ti Segue - n followers comuni</p></div>
+                    </a>
+                    <a href="profiloUtente.html" class="infoUser">
+                        <img src="../fotoProfiloIniziale.jpg" alt="Profilo 1">
+                        <div class="profile">
+                        <span>Lupo Lucio</span>
+                        <p class="amici"> Ti segue - n followers comuni</p></div>
+                    </a>
+                    <button class="closePopup" onclick="closePopup()">Indietro</button>
+                </div>
+                <div id="overlay"></div>
+                <script>
+
+                    function openPopup() {
+                      document.getElementById("popup").style.display = "block";
+                      document.getElementById("overlay").style.display = "block";
+                    }
+                
+                    function closePopup() {
+                      document.getElementById("popup").style.display = "none";
+                      document.getElementById("overlay").style.display = "none";
+                    }
+                  </script>
             </footer>
         </article>
         <article>
