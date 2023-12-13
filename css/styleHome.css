@@ -207,7 +207,7 @@ article>footer>a {
 }
 
 .openmap {
-    width: 400px;
+    width: 85%;
     height: 400px;
     z-index: 0;
     margin: 5pt auto;
