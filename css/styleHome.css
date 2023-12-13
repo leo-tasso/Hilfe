@@ -23,8 +23,8 @@
 }
 
 .articles{
-    max-width: 60%;
-    max-width: 700px;
+    max-width: 700px;    
+    margin: 0 10px;
 }
 
 .newPost {
