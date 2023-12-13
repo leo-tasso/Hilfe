@@ -1,6 +1,6 @@
 :root {
   --hilfeGrey: #595959;
-  --hilfeYellow: #f4c03e;
+  --hilfeYellow: #a21c1c;
   --hilfeBlue: #087e8b;
 }
 
@@ -137,7 +137,7 @@ body>header>nav {
 /* When you mouse over the navigation links, change their color */
 .sidepanel>a:hover,
 .sidepanel>div:hover {
-  background-color: var(--hilfeGrey);
+  background-color: var(--hilfeYellow);
 }
 
 /* Position and style the close button (top right corner) */
