@@ -255,9 +255,15 @@ aside {
     background: var(--hilfeBlue);
 }
 
-.buttonPartecipa:hover, .buttonPartecipanti:hover{
+.buttonPartecipanti{
+    cursor: default;
+   }
+
+/*.buttonPartecipanti:hover, commentare la regola sopra se il pulsante è premibile */
+.buttonPartecipa:hover{
     background: var(--hilfeYellow);
 }
+
 
 .button__progress {
     position: absolute;
