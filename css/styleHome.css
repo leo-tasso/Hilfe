@@ -251,6 +251,13 @@ aside {
     min-width: 50px;
     margin-left:0;
 }
+.buttonSalva:hover{
+    background: var(--hilfeBlue);
+}
+
+.buttonPartecipa:hover, .buttonPartecipanti:hover{
+    background: var(--hilfeYellow);
+}
 
 .button__progress {
     position: absolute;
