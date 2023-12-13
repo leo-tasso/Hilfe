@@ -245,7 +245,7 @@ aside {
 }
 
 .buttonPartecipanti {
-    background: var(--hilfeBlue);
+    background: color-mix(in srgb,var(--hilfeBlue),#000 30%); 
     border-top-right-radius: 10pt;
     border-bottom-right-radius: 10pt;
     min-width: 50px;
@@ -271,8 +271,9 @@ aside {
     width: 50%;
     top: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.2);
+    background: var(--hilfeBlue);
     transition: width 0.3s;
+    border-radius: 0 10pt 10pt 0;
 }
 
 .button__text {
