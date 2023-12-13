@@ -137,7 +137,7 @@ body>header>nav {
 /* When you mouse over the navigation links, change their color */
 .sidepanel>a:hover,
 .sidepanel>div:hover {
-  background-color: var(--hilfeGrey);
+  background-color: var(--hilfeYellow);
 }
 
 /* Position and style the close button (top right corner) */
