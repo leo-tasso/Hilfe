@@ -269,6 +269,9 @@ aside {
     background: var(--hilfeYellow);
 }
 
+.buttonPartecipanti:hover {
+    background: color-mix(in srgb,var(--hilfeYellow),#000 30%); 
+}
 
 .button__progress {
     position: absolute;
