@@ -1,90 +1,277 @@
-body{
-    font-family:"Century Gothic" ;
+:root {
+  --hilfeGrey: #595959;
+  --hilfeYellow: #f4c03e;
+  --hilfeBlue: #087e8b;
 }
 
-body>header>nav{
-    background-color:  #f9fcfd;
-    border-bottom: 1px solid grey;
-    width:100%;
+.icon {
+  width: 12px;
+  margin-right: 3pt;
 }
 
-body>footer{
-    background-color: #087e8b;
-    color:white;
-    text-align: center;
-    width: 100%;
-    font-size: 8pt;
-    padding:10px;
-   
+.iconButton {
+  width: 10px;
+  margin-right: 5pt;
+}
+
+
+/**modifica bottoni menù slidebar**/
+body>header>nav>div>a,
+body>header>nav>div div {
+  border: 1px solid white;
+}
+
+.notifiche {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+
+}
+
+/**modifica pallino notifiche**/
+.notifiche p {
+  background-color: white;
+  color: grey;
+  padding: 2pt 4pt;
+  border-radius: 50%;
+  font-size: 9pt;
+  margin: 0;
+}
+
+body {
+  font-family: "Helvetica";
+  margin: 1pt;
+}
+
+.buttonLogin {
+  display: none;
+}
+
+.topbar {
+  background-color: white;
+  border-bottom: 1.5px solid #989898;
+  margin: 0 15px;
+}
+
+.footer {
+  background-color: #087e8b;
+  color: white;
+  text-align: center;
+  width: 100%;
+  font-size: 8pt;
+  padding: 10px;
+}
+
+body>header>nav {
+  display: inline-block;
+}
+
+.logoContainer {
+  width: 20%;
 }
 
 /**immagine logo barra in alto**/
-body>header>nav>img{
-    float: right;
-    height:40px; /**modificare in base a logo nuovo**/
+.logo {
+  height: 40px;
+  /**modificare in base a logo nuovo**/
+  text-align: center;
 }
 
-/**modifica bottoni menù slidebar**/ 
-body>header>nav>div a{
-    border:1px solid white;
+.openbtn {
+  float: left;
 }
+
+.profiloBarra {
+  float: right;
+  border: 2px solid var(--hilfeYellow);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
+  /**non ripete l'immagine nel caso il bottone fosse più grande dell'immagine**/
+  background-position: center center;
+  /**per centrare l'immagine**/
+}
+
 
 /**css per menu con icona animata**/
 /* The sidepanel menu */
 .sidepanel {
-    height: 100%; /* Specify a height */
-    width:40%; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
-    top: 0;
-    left: 0;
-    float:right;
-    background-color: #087e8b; /* Black*/
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
-  }
-  
-  /* The sidepanel links */
-  .sidepanel a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 12px;
-    color: white;
-    display: block;
-    transition: 0.3s;
-  }
-  
-  /* When you mouse over the navigation links, change their color */
-  .sidepanel a:hover {
-    color: #087e8b;
-  }
-  
-  /* Position and style the close button (top right corner) */
-  .sidepanel .closebtn {
-    position: absolute;
-    top: 0;
-    right: 0px;
-    font-size: 15px;
-    margin-left: 30px;
-    padding: 5px;
+  height: 100%;
+  /* Specify a height */
+  width: 40%;
+  /* 0 width - change this with JavaScript */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Stay on top */
+  top: 0;
+  left: 0;
+  float: right;
+  background-color: #087e8b;
+  /* Black*/
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+  padding-top: 60px;
+  /* Place content 60px from the top */
+  transition: 0.5s;
+  /* 0.5 second transition effect to slide in the sidepanel */
+}
+
+/* The sidepanel links */
+.sidepanel a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 10pt;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidepanel>a:hover,
+.sidepanel>div:hover {
+  background-color: var(--hilfeGrey);
+}
+
+/* Position and style the close button (top right corner) */
+.sidepanel .closebtn {
+  position: absolute;
+  top: 0;
+  right: 0px;
+  font-size: 15px;
+  margin-left: 30px;
+  padding: 5px;
+}
+
+.sidepanel {
+  float: left;
+}
+
+/* Style the button that is used to open the sidepanel */
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: white;
+  color: var(--hilfeGrey);
+  padding: 5px 15px;
+  border: none;
+  border-radius: 13px;
+}
+
+.desktopbar {
+  display: none;
+}
+
+.openbtn:hover {
+  background-color: #087e8b;
+  color: white;
+}
+
+#navbar {
+  z-index: 999;
+}
+
+#mySidepanel {
+  width: 0;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.openbtn {
+  order: -1;
+}
+
+@media screen and (min-width: 768px) {
+  .openbtn {
+    display: none;
   }
 
-  .sidepanel{
-    float:left;
+  .notifiche p {
+    background-color: var(--hilfeYellow);
+    color: white;
+    padding: 2pt 4pt;
+    margin-left: 2pt;
   }
-  
-  /* Style the button that is used to open the sidepanel */
-  .openbtn {
-    font-size: 20px;
-    cursor: pointer;
+
+  .profiloBarra {
+    display: none;
+  }
+
+  .topbar:not(.sidepanel, .openbtn) {
+    display: flex;
+  }
+
+  .buttonLogin {
+    width: 20%;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+  }
+
+  /**modifica i bottoni/link login e registrati**/
+
+  .b1,
+  .b2 {
+    padding: 5pt;
+    margin-left: 2pt;
+    border-radius: 5pt;
+    text-decoration: none;
+  }
+
+  .b1 {
+    background-color: white;
+    color: var(--hilfeGrey);
+    border: 2px solid var(--hilfeYellow);
+  }
+
+  .b2 {
     background-color: #087e8b;
     color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius:13px;
   }
-  
-  .openbtn:hover {
-    background-color: #444;
+
+  .b1:hover {
+    background-color: var(--hilfeBlue);
+    color: white;
+    border: 2px solid transparent;
   }
+
+  .b2:hover {
+    background-color: var(--hilfeYellow);
+    color: white;
+  }
+
+  .desktopbar {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 50%;
+    margin: 10pt 10%;
+  }
+
+  .profilo {
+    margin-bottom: 2pt;
+  }
+
+  .desktopbar>a,
+  .desktopbar>div>a {
+    margin-left: 15pt;
+    text-decoration: none;
+  }
+
+  .desktopbar a,
+  .desktopbar>div>a {
+    color: var(--hilfeGrey);
+  }
+
+  .desktopbar a:hover,
+  .desktopbar>div>a:hover {
+    color: var(--hilfeYellow);
+  }
+}

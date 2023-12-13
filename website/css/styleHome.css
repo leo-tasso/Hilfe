@@ -1,84 +1,403 @@
-/* Style the navigation bar */
-.navbar {
-    width: 100%;
-    background-color: #f4c03e;
-    overflow: auto;
-    margin-top: 3pt;
-    border-radius: 10pt;
-  }
-  
-/* Navbar links */
-.navbar a {
-    float: left;
+.footer{
     text-align: center;
-    padding: 12px;
-    color: white;
-    text-decoration: none;
-    font-size: 17px;
-}
-  
-/* Navbar links on mouse-over */
-.navbar a:hover {
-    background-color: #087e8b;
-    font-weight: bold;
-}
-  
-/* Current/active navbar link */
-.active {
-    background-color: #087e8b;
-    font-weight: bold;
-}
-  
-/* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
-/**@media screen and (max-width: 500px) {
-    .navbar a {
-        float: none;
-        display: block;
-    }
-}**/
-
-body>header>ul{
-    background-color: #087e8b;
-    border-radius: 10pt;
-    color:white;
-    list-style: none;
-    display: inline-block;
-    width:100%;
-    margin-bottom: 3pt;
 }
 
-body>header>ul>li p{
-    float:left; 
-}
-
-body>header>ul>li a{
+.profilo{
     float:right;
-    text-decoration: none;
-    color:white;
-    padding-top: 10pt;
+    border: 2px solid var(--hilfeYellow);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat; /**non ripete l'immagine nel caso il bottone fosse più grande dell'immagine**/
+    background-position: center center; /**per centrare l'immagine**/
 }
 
-body>main>article{
-    border: 3px solid  #f4c03e;
-    padding: 10px;
-    border-radius: 10px;
-    width:90%;
-    font-size: 10pt;
-    margin-bottom: 10pt;
+.centralContent {
+    display: flex;
+    justify-content: center;
 }
 
-/**css per mappa google**/
-article div{
-    position:relative;
-    padding-bottom: 75%;
-    height: 0;
-    overflow: hidden;
-}
-
-article iframe{
-    position:absolute;
-    top:0;
-    left:0;
+.newPostContainer{
     width: 100%;
+    max-width: 700px;
+}
+
+.articles{
+    max-width: 60%;
+    max-width: 700px;
+}
+
+.newPost {
+    justify-content: space-between;
+    background-color: var(--hilfeBlue);
+    border-radius: 10pt;
+    display: inline-flex;
+    margin-top: 0;
+    margin-bottom: 10px;
+    width: 100%;
+    align-items: center;
+}
+
+/**Nuovo post**/
+.newPost a {
+    text-align: center;
+    background-color: white;
+    border-radius: 10pt;
+    padding: 7pt 10pt;
+    color: var(--hilfeGrey);
+    text-decoration: none;
+    margin: 5pt 6pt;
+    box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.9);
+    width: 100%;
+    font-size: 11pt;
+}
+
+.newPost>* {
+    margin: 7px;
+}
+
+
+.newPost>a:hover{
+    background-color: white;
+    font-weight: bold;
+}
+
+main>article section>p{
+    margin:5pt;
+}
+
+section>h3{
+    color: var(--hilfeGrey);
+    margin:0;
+}
+
+.articles header{
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+article>header {
+    margin: 0 15px;
+}
+
+article>header h2{
+    margin-top:15pt;
+}
+
+article>header .infoUtente{
+    display:flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.infoUtente{
+    margin:0;
+    text-decoration: none;
+    color: var(--hilfeGrey);  
+}
+
+.nomeAutore{
+    margin-right: 5pt;
+    text-decoration: none;
+    color: var(--hilfeGrey);
+}
+
+/**per modificare stile della tabella**/
+table {
+    border-collapse: collapse;
+    width: 70%;
+    margin: 5pt auto;
+}
+
+td,
+th {
+    border: 1px solid #ddd;
+    padding: 2pt;
+    font-size: 9pt;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+th {
+    padding: 5pt;
+    text-align: left;
+    background-color: var(--hilfeBlue);
+    color: white;
+}
+
+/**posiziona tab in alto**/
+header>div {
+    margin: 10pt auto 0 auto;
+    text-align: center;
+}
+
+.navbar a {
+    background-color: var(--hilfeYellow);
+    padding: 5pt;
+    text-decoration: none;
+    color: white;
+    border-top-right-radius: 10pt;
+    border-top-left-radius: 10pt;
+}
+
+.navbar .default {
+    background-color: var(--hilfeBlue);
+}
+
+.default {
+    background-color: var(--hilfeBlue);
+}
+
+.navbar a:active {
+    /**deve cambiare colore una volta cliccato**/
+    background-color: var(--hilfeBlue);
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    /**deve cambiare colore una volta cliccato**/
+    background-color: var(--hilfeBlue);
+}
+
+body>header>ul i{
+    float:right;
+}
+
+body main article {
+    border: 3px solid var(--hilfeYellow);
+    padding: 5px;
+    border-radius: 10px;
+    margin-bottom: 10pt;
+    color: var(--hilfeGrey);
+}
+
+body main article p {
+    font-size: 10pt;
+}
+
+.date, .infoUtente p{
+    font-size: 8pt;
+}
+
+.time, .people{
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 19pt;
+    font-weight: bold;
+}
+
+article>footer {
+    text-align: center;
+}
+
+article>footer>input {
+    background-color: var(--hilfeBlue);
+    color: white;
+}
+
+article>footer>a {
+    text-decoration: none;
+    color: white;
+    background-image: linear-gradient(to right, var(--hilfeBlue), #0e4c53);
+}
+
+.openmap {
+    width: 400px;
+    height: 400px;
+    z-index: 0;
+    margin: 5pt auto;
+    border: 2px solid var(--hilfeYellow);
+    border-radius: 10pt;
+}
+
+/**modifica dello pannello dei profili suggeriti**/
+aside {
+    display: none;
+}
+
+.buttonPartecipa, .buttonPartecipanti, .buttonSalva{
+    font-size: 9pt;
+    font-family: "Fira Sans", sans-serif;
+    padding: 5pt;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    border:1px solid white;
+    color: #ffffff;
+}
+
+.buttonSalva{
+    background: var(--hilfeYellow);
+    border-top-left-radius: 10pt;
+    border-bottom-left-radius: 10pt;
+    margin-right: 0;
+}
+
+.buttonPartecipa{
+    background: var(--hilfeBlue);
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.buttonPartecipanti {
+    background: var(--hilfeBlue);
+    border-top-right-radius: 10pt;
+    border-bottom-right-radius: 10pt;
+    min-width: 50px;
+    margin-left:0;
+}
+
+.button__progress {
+    position: absolute;
     height: 100%;
+    width: 50%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.2);
+    transition: width 0.3s;
+}
+
+.button__text {
+    position: relative;
+}
+
+
+.footer p{
+    color:white;
+    text-decoration: none;
+}
+
+h3 {
+    font-size: 11pt;
+    font-weight: bold;
+    color: white;
+    padding: 5pt;
+}
+
+/**media query per dispositivi non mobile**/
+@media screen and (min-width: 768px) {
+
+    .navbar {
+        margin-left: 10px;
+    }
+    .navbar a{
+        float: left;
+        margin:0px 5px;
+    }
+
+    .leftAside{
+        width: 20%;
+        max-width: 200px;
+    }
+
+    aside, .leftAside {
+        width: 20%;
+        max-width: 200px;
+        display: inline-block;
+        background-color: var(--hilfeYellow);
+        border-radius: 10pt;
+        margin: 5pt;
+        vertical-align: top;
+        text-align: left;
+        padding-left: 10pt;
+        height: fit-content;
+    }
+
+    .infoUser {
+        width:90%;
+        display: flex;
+        margin-bottom: 10px;
+        border-bottom: 1px solid white;
+        text-decoration: none;
+        color: white;
+    }
+
+    .infoUser p {
+        margin: 5px 0;
+    }
+
+
+    .infoUser img {
+        width: 30px; /* Puoi regolare la larghezza dell'immagine a tuo piacimento */
+        height:30px;
+        border-radius: 50%;
+        float:left; 
+        margin-right: 3pt;
+         
+    }
+    
+    .profile{
+        display:inline-block;
+    }
+
+    .profile a{
+        width:100%;
+        text-decoration: none;
+        color:white;
+        font-size: 9pt;
+        margin-top: 2pt;
+        font-weight: bold;
+    }
+
+    .profile span:hover{
+        color:var(--hilfeGrey);
+    }
+
+    .profile p{
+        color:white;
+        width: 100%;
+    }
+
+    .amici{
+        font-size: 8pt;
+    }
+
+    aside ul {
+        list-style: none;
+    }
+
+    aside>ul {
+        display: inline-block;
+    }
+
+    aside a {
+        float: left;
+    }
+
+    aside>ul>li a {
+        text-decoration: none;
+        color: white;
+        font-size: 10pt;
+    }
+
+    body>header>ul {
+        display: inline-block;
+    }
+
+    body>header>ul a {
+        float: right;
+        width: 50%;
+        text-align: center;
+    }
+
+    .content{
+        display:flex;
+        width: 100%;
+    }
+
+    .openmap{
+        width: 40%;
+        height:auto;
+        margin: 10px;
+    }
+
+    .content>section{
+        width: 60%;
+        margin: 10px;
+    }
 }

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <title>HILFE - Profilo</title>
+        <meta charset="UTF-8"/>
+        <!-- link to add favicon-->
+        <link rel="icon" type="image/x-icon" href="../LogoRes/1x/LogoNuovo.png">
+        <link href="../css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/styleCreaPost.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script>
+            /* Set the width of the sidebar to 250px (show it) */
+            function openNav() {
+            document.getElementById("mySidepanel").style.width = "250px";
+            }
+
+            /* Set the width of the sidebar to 0 (hide it) */
+            function closeNav() {
+            document.getElementById("mySidepanel").style.width = "0";
+            }
+        </script> 
+    </head>
+    <body>
+        <header> 
+            <nav class="top bar">
+                <img src="../LogoRes/1x/LogoHeart.png" alt="logo HILFE"/>
+                <div id="mySidepanel" class="sidepanel">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="home.html">Home</a>  
+                    <a href="profiloUtente.html">Profilo</a>
+                    <a href="esplora.html">Esplora</a>
+                </div>
+                <button class="openbtn" onclick="openNav()" >&#9776; </button>
+            </nav> 
+            <h1>Creazione post</h1>
+        </header>
+        <main>
+            <section>
+                <form action="#" method="POST">
+                    
+                    <label for="descrizione">Di cosa hai bisogno?</label><br/>
+                    <textarea id="descrizione" rows="5" cols="50"></textarea>
+                    
+                    <p>Di quante persone hai bisogno in tuo aiuto?</p> 
+                    <label>Numero persone (1-50):<input type="number" name="quantity" min="1" max="50"/></label><br/></br>
+                    
+                    <label>Inserisci l'indirizzo a cui recarsi: <input type="text" name="fname"/></label><br/><br/>
+                    <label>Che giorno sarà l'incontro? <input type="date" name="day"/></label> <br/><br/>
+                    <label>A che ora sarà l'incontro? <input type="time" name="usr_time"/></label><br/> <br/>       
+                        
+                    </ul>
+                    <p>Quali oggetti è necessario portare?</p>
+                    <label><input type="checkbox" name="obj1" value="Badile"/>Badile</label><br/>
+                    <label><input type="checkbox" name="obj2" value="Stivali"/>Stivali di gomma</label><br/>
+                    <label><input type="checkbox" name="obj3" value="Secchio"/>Secchio</label><br/>
+                    <label><input type="checkbox" name="obj4" value="Spugna"/>Spugna</label><br/>
+                    <label><input type="checkbox" name="obj5" value="Tira acqua"/>Tira acqua</label><br/>
+                    <label><input type="checkbox" name="obj6" value="Cariola"/>Cariola</label><br/>
+                    <label><input type="checkbox" name="obj7" value="Pompa tira acqua"/>Pompa tira acqua</label><br/>
+
+                    <footer>
+                        <input type="button" name="Pubblica" value="Pubblica annuncio">
+                    </footer>
+                </form>
+            </section>
+        </main><aside>
+        </aside>
+        <footer>
+            <p>Progetto di Tecnologie Web - A.A. 2023/2024</p>
+        </footer>
+    </body>
+</html>

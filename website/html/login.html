@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <title>HILFE - Login</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="../css/style.css" rel="stylesheet" type="text/css" />
+        <link href="../css/styleLogin.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <header> 
+            <nav class="topbar">
+                <img class="logo" src="../LogoRes/1x/LogoHeart.png" alt="logo HILFE" />
+                <nav class="desktopbar">
+                    <a href="home.html">Home</a>
+                    <a href="follow.html">Seguiti</a>
+                    <a href="annunciSalvati.html">Salvati</a>
+                    <a href="profiloUtente.html">Profilo</a>
+                    <a href="privacy.html">Privacy</a>
+                    <div class="notifiche">
+                        <a href="notifiche.html">Notifiche</a>
+                        <p>1</p>
+                    </div>
+                </nav>
+                <label for="profiloBarra" hidden>Foto profilo</label>
+                <input class="profiloBarra" id="profiloBarra" type="image" src="../fotoProfiloIniziale.jpg" alt="profilo">
+                <div class="buttonLogin">
+                    <a class="b1" href="login.html">Login</a>
+                    <a class="b2" href="registrazione.html">Registrati</a>
+                </div>
+                <div id="mySidepanel" class="sidepanel">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="login.html">Login</a>
+                    <a href="profiloUtente.html">Il mio profilo</a>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="annunciSalvati.html">Annunci salvati</a>
+                    <div class="notifiche">
+                        <a href="notifiche.html">Notifiche</a>
+                        <p>1</p>
+                    </div>
+                </div>
+                <button class="openbtn" onclick="openNav()">&#9776; </button>
+        </header>
+        <main>
+            <section>
+                <header>
+                    <img class="logo2" src="../LogoRes/1x/HeartHands.png" alt="logo HILFE" />
+                </header>
+                <form class="form" action="#" method="POST">
+                    <ul>
+                        <li><label for="name">Username</label><input type="text" id="name" name="name" placeholder="Username"></li><li><label for="password">Password</label><input type="password" id="password" name="password" placeholder="Password"></li>
+                    </ul>
+                    <div class="options">
+                        <div class="ricordami">
+                            <input type="checkbox" id="ricordami" name="ricordami" value="Ricordami"><label for="ricordami">Ricordami</label> 
+                        </div>
+                        <a href="#">Password dimenticata?</a><br/>
+                    </div>
+                    <footer>
+                        <a class="log" href="login.html">Login</a>
+                        <p>oppure</p>
+                        <a class="registrati" href="registrazione.html">Registrati</a>
+                    </footer>
+                </form>
+            </section>
+        </main><footer>
+            <p>Progetto di Tecnologie Web - A.A. 2023/2024</p>
+        </footer>
+    </body>
+</html>
