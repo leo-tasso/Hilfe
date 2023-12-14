@@ -95,6 +95,7 @@ h1{
     width: 100%;
     display:flex;
     margin-bottom: 5pt;
+    justify-content: space-between;
 }
 
 .materiale #oggetto{
@@ -154,13 +155,20 @@ h1{
     .form>footer{
         margin-top: 50pt;
         width:100%; 
+        display: flex;
+        justify-content: center;
     }
 
     #titolo, textarea, .luogo input, .giorno input, #oggetto{
         padding:5pt 2pt;
     }
     .pubblica, .annulla{
-        padding: 10pt 60pt;
+        padding: 7pt 50pt;
+        font-size: 13pt;
+        margin-top: 40pt;
+    }
+    .annulla{
+        margin-right: 40pt;
     }
 
     .colonna1, .colonna2{
@@ -175,6 +183,14 @@ h1{
     .footer{
         position: absolute;
         bottom: 0;
+    }
+
+    .giorno, .luogo, .pers{
+        font-size: 12pt;
+    }
+
+    .aggiungi{
+
     }
 
     
