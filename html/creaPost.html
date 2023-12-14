@@ -4,7 +4,7 @@
         <title>HILFE - Profilo</title>
         <meta charset="UTF-8"/>
         <!-- link to add favicon-->
-        <link rel="icon" type="image/x-icon" href="../LogoRes/1x/LogoNuovo.png">
+        <link rel="icon" type="image/x-icon" href="../LogoRes/1x/HeartHands.png">
         <link href="../css/style.css" rel="stylesheet" type="text/css"/>
         <link href="../css/styleCreaPost.css" rel="stylesheet" type="text/css"/>
         <script>
@@ -58,36 +58,39 @@
         </header>
         <main>
             <section>
-                <form action="#" method="POST">
+                <form class="form" action="#" method="POST">
                     <label for="titolo" hidden>Titolo</label><br/>
                     <input type="text" id="titolo" name="titolo" placeholder="Titolo"/>
-                    
-                    <label for="descrizione">Di cosa hai bisogno?</label><br/>
-                    <textarea id="descrizione" rows="5" cols="50"></textarea>
-                    
-                    <p>Di quante persone hai bisogno in tuo aiuto?</p> 
-                    <label>Numero persone (1-50):<input type="number" name="quantity" min="1" max="50"/></label><br/></br>
-                    
-                    <label>Inserisci l'indirizzo a cui recarsi: <input type="text" name="fname"/></label><br/><br/>
-                    <label>Che giorno sarà l'incontro? <input type="date" name="day"/></label> <br/><br/>
-                    <label>A che ora sarà l'incontro? <input type="time" name="usr_time"/></label><br/> <br/>       
-                        
-                    </ul>
-                    <p>Quali oggetti è necessario portare?</p>
-                    <label><input type="checkbox" name="obj1" value="Badile"/>Badile</label><br/>
-                    <label><input type="checkbox" name="obj2" value="Stivali"/>Stivali di gomma</label><br/>
-                    <label><input type="checkbox" name="obj3" value="Secchio"/>Secchio</label><br/>
-                    <label><input type="checkbox" name="obj4" value="Spugna"/>Spugna</label><br/>
-                    <label><input type="checkbox" name="obj5" value="Tira acqua"/>Tira acqua</label><br/>
-                    <label><input type="checkbox" name="obj6" value="Cariola"/>Cariola</label><br/>
-                    <label><input type="checkbox" name="obj7" value="Pompa tira acqua"/>Pompa tira acqua</label><br/>
-
+                    <label for="annuncio" hidden>Testo annuncio</label><br/>
+                    <textarea id="annuncio" placeholder="Testo annuncio" rows="5" cols="auto"></textarea>
+                    <div class="luogo">
+                        <label for="indirizzo">Indirizzo:</label>
+                        <input type="text" id="indirizzo" name="fname"/>
+                    </div>
+                    <div class="giorno">
+                        <label for="date">Data e ora:</label>
+                        <input id="date" type="datetime" name="daytime"/>
+                    </div>
+                    <div class="persone">
+                        <input class="meno" type="button" name="-" value="-">
+                        <p class="numero">5</p>
+                        <input class="piu" type="button" name="+" value="+">
+                    </div>
+                    <h2>Materiale richiesto</h2>
+                    <div class="materiale">
+                        <label for="oggetto" hidden>Oggetto</label>
+                        <input type="text" id="oggetto" name="oggetto" placeholder="Oggetto"/>
+                        <label for="numero" hidden>Quantità</label>
+                        <input type="number" name="quantità" min="1" max="20"/>
+                    </div>
+                    <input class="aggiungi" type="button" name="Aggiungi+" value="Aggiungi+">
                     <footer>
-                        <input type="button" name="Pubblica" value="Pubblica annuncio">
+                        <input class="annulla" type="button" name="Annulla" value="Annulla">
+                        <input class="pubblica" type="button" name="Pubblica" value="Pubblica">
                     </footer>
                 </form>
             </section>
-        </main><footer>
+        </main><footer class="footer">
             <p>Progetto di Tecnologie Web - A.A. 2023/2024</p>
         </footer>
     </body>

@@ -1,34 +1,131 @@
+main{
+    display: flex;
+    flex-direction: column;
+
+}
+
+textarea, input{
+    border:1px solid #d74444;
+    border-radius: 3pt;
+}
+
+textarea::placeholder{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 5%;
+    width: 90%;
+}
+
+.giorno, .luogo{
+    display: flex;
+    font-size: 10pt;
+    margin: 10pt 0; 
+    align-items: center;
+    justify-content: space-between;
+}
+
+.giorno input, .luogo input{
+    width: 70%;
+    margin-left: 10pt;
+
+}
+
 h1{
-    background-color: #e79417;
-    color:white;
-    padding: 5pt;
-    border-radius: 10pt;
+    width: 100%;
+    font-size: 18pt;
+    color:#087e8b;
+    text-align: center;
 }
 
-form{
-    background-color: white;
-    border-radius: 10pt;
-    color:#013c43;
-    padding: 10pt;
-    margin-bottom: 10pt;
-    border: 3px solid #e79417;
+
+.form h2{
+    font-size: 13pt;
+    color:#087e8b;
+    margin-left: 2pt;
 }
 
-form textarea{
-    width:100%;
-}
-form>p, form>label{
-    font-weight: bold;
+.persone{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
 }
 
-form footer input{
-    border-radius:5px;
+.meno, .piu{
+    border-radius: 50%;
+    font-size: 15pt;
     border: 2px solid white;
-    margin-top: 10pt;
-    padding:5px 15px;
+    color:white;
+    cursor: pointer;
+}
+
+.meno:active, .piu:active{
+    background-color: grey;
+}
+
+.meno{
+    margin-right:50pt;
+    background-color: #d74444;
+    padding:2pt 7pt;
+}
+
+.piu{
+    margin-left: 50pt;
+    background-color: #087e8b;
+    padding:2pt 6pt;
+}
+
+.materiale{
+    width: 100%;
+    display:flex;
+    margin-bottom: 5pt;
+}
+
+.materiale #oggetto{
+    width: 80%;
+}
+
+.aggiungi{
+    background-color: #d74444;
+    border-radius: 10pt;
+    border:none;
+    color: white;
+    width: 50%; 
+    padding: 3pt; 
+
+}
+
+.pubblica, .annulla{
+    padding: 5pt 30pt;
+    border-radius: 10pt;
+    border:none;
+    color: white;
+    font-size: 12pt;
+    cursor: pointer;
+}
+
+.annulla{
+    background-color: #d74444; 
+}
+
+.pubblica{
+    background-color: #087e8b;
+}
+
+.form>footer{
+    margin: 10pt auto;
+    display: flex;
+    width: 100%;
+    justify-content:space-around;
+}
+
+.form input[type="button"]:hover{
     background-color: white;
-    color: #e79417;
-    font-weight: bold;
-    font-size:12pt;  
-    box-shadow: 0px 6px 5px 1px #013c43;
+    color:#d74444;
 }
