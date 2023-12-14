@@ -59,6 +59,8 @@
         <main>
             <section>
                 <form class="form" action="#" method="POST">
+                    <div class="container">
+                    <div class="colonna1">
                     <label for="titolo" hidden>Titolo</label><br/>
                     <input type="text" id="titolo" name="titolo" placeholder="Titolo"/>
                     <label for="annuncio" hidden>Testo annuncio</label><br/>
@@ -67,14 +69,19 @@
                         <label for="indirizzo">Indirizzo:</label>
                         <input type="text" id="indirizzo" name="fname"/>
                     </div>
+                    </div>
+                    <div class="colonna2">
                     <div class="giorno">
                         <label for="date">Data e ora:</label>
                         <input id="date" type="datetime" name="daytime"/>
                     </div>
-                    <div class="persone">
+                    <div class="numPersone">
+                        <p class="pers">Persone:</p>
+                        <div class="persone">
                         <input class="meno" type="button" name="-" value="-">
                         <p class="numero">5</p>
                         <input class="piu" type="button" name="+" value="+">
+                        </div>
                     </div>
                     <h2>Materiale richiesto</h2>
                     <div class="materiale">
@@ -84,6 +91,8 @@
                         <input type="number" name="quantità" min="1" max="20"/>
                     </div>
                     <input class="aggiungi" type="button" name="Aggiungi+" value="Aggiungi+">
+                    </div>
+                    </div>
                     <footer>
                         <input class="annulla" type="button" name="Annulla" value="Annulla">
                         <input class="pubblica" type="button" name="Pubblica" value="Pubblica">

@@ -4,6 +4,11 @@ main{
 
 }
 
+#titolo, #annuncio{
+    width:100%;
+    margin-bottom: 10pt;
+}
+
 textarea, input{
     border:1px solid #d74444;
     border-radius: 3pt;
@@ -21,7 +26,7 @@ textarea::placeholder{
     width: 90%;
 }
 
-.giorno, .luogo{
+.giorno, .luogo, .pers{
     display: flex;
     font-size: 10pt;
     margin: 10pt 0; 
@@ -49,10 +54,15 @@ h1{
     margin-left: 2pt;
 }
 
+.numPersone{
+    display: flex;
+    width:100%;
+    justify-content: space-between;
+}
+
 .persone{
     display: flex;
     flex-direction: row;
-    width: 100%;
     align-items: center;
     justify-content: center;
 }
@@ -128,4 +138,44 @@ h1{
 .form input[type="button"]:hover{
     background-color: white;
     color:#d74444;
+}
+
+
+
+
+@media screen and (min-width: 768px) {
+    .container{
+        display: flex;
+        flex-direction:row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .form>footer{
+        margin-top: 50pt;
+        width:100%; 
+    }
+
+    #titolo, textarea, .luogo input, .giorno input, #oggetto{
+        padding:5pt 2pt;
+    }
+    .pubblica, .annulla{
+        padding: 10pt 60pt;
+    }
+
+    .colonna1, .colonna2{
+        width:48%;
+    }
+
+    .colonna2{
+        width:48%; 
+        
+    }
+
+    .footer{
+        position: absolute;
+        bottom: 0;
+    }
+
+    
 }
