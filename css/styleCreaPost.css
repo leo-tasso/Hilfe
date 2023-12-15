@@ -91,7 +91,7 @@ h1{
 .materiale{
     width: 100%;
     display:flex;
-    margin-bottom: 10pt;
+    margin-bottom: 5pt;
     justify-content: space-between;
 }
 
@@ -110,6 +110,7 @@ h1{
     color: white;
     width: 50%; 
     padding: 5pt; 
+    margin-bottom: 20pt;
 
 }
 
@@ -162,7 +163,6 @@ textarea{
     }
 
     .form>footer{
-        margin-top: 50pt;
         width:100%; 
         display: flex;
         justify-content: center;
@@ -182,11 +182,11 @@ textarea{
 
     .colonna1, .colonna2{
         width:48%;
+        padding-bottom: 0;
     }
 
     .colonna2{
         width:48%; 
-        
     }
 
     .giorno, .luogo, .pers{
