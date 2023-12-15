@@ -114,8 +114,8 @@ h1{
 }
 
 .pubblica, .annulla{
-    padding: 5pt 30pt;
-    border-radius: 10pt;
+    padding: 10pt 40pt;
+    border-radius: 15pt;
     border:none;
     color: white;
     font-size: 12pt;
