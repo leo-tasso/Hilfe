@@ -35,7 +35,7 @@ textarea::placeholder{
 }
 
 .giorno input, .luogo input{
-    width: 70%;
+    width: 80%;
     margin-left: 10pt;
 
 }
@@ -174,7 +174,7 @@ textarea{
     .pubblica, .annulla{
         padding: 7pt 50pt;
         font-size: 13pt;
-        margin-top: 40pt;
+        margin-top: 0;
     }
     .annulla{
         margin-right: 40pt;
