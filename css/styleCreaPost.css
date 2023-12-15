@@ -153,6 +153,11 @@ textarea{
     resize: none;
 }
 
+#numero{
+    width: 20pt;
+    text-align: center;
+}
+
 
 @media screen and (min-width: 768px) {
     .container{
