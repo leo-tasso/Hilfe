@@ -66,6 +66,8 @@ body {
   width: 100%;
   font-size: 8pt;
   padding: 10px;
+  position: absolute;
+  bottom: 0;
 }
 
 body>header>nav {
