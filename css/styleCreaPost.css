@@ -9,7 +9,7 @@ main{
     margin-bottom: 10pt;
 }
 
-textarea, input{
+textarea, form>input{
     border:1px solid #d74444;
     border-radius: 3pt;
     padding: 3pt 5pt;

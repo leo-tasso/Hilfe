@@ -108,6 +108,8 @@ body>header>nav {
   border-radius: 50%;
   width: 40px;
   height: 40px;
+  background-image: url('../fotoProfiloIniziale.jpg');
+  background-size: cover;
   background-repeat: no-repeat;
   /**non ripete l'immagine nel caso il bottone fosse più grande dell'immagine**/
   background-position: center center;
