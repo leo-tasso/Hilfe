@@ -4,6 +4,11 @@ main{
 
 }
 
+.footer{
+    position: absolute;
+    bottom: 0;
+}
+
 #titolo, #annuncio{
     width:100%;
     margin-bottom: 10pt;
@@ -91,12 +96,16 @@ h1{
 .materiale{
     width: 100%;
     display:flex;
-    margin-bottom: 5pt;
+    margin-bottom: 10pt;
     justify-content: space-between;
 }
 
 .materiale #oggetto{
     width: 80%;
+}
+
+.materiale #quantita{
+    width:10%;
 }
 
 .aggiungi{
@@ -105,7 +114,7 @@ h1{
     border:none;
     color: white;
     width: 50%; 
-    padding: 3pt; 
+    padding: 5pt; 
 
 }
 
@@ -142,6 +151,10 @@ h1{
 .piu:active, .pubblica:hover, .piu:hover{
     background-color: #d74444;
     color: white;
+}
+
+textarea{
+    resize: none;
 }
 
 
@@ -181,18 +194,13 @@ h1{
         
     }
 
-    .footer{
-        position: absolute;
-        bottom: 0;
-    }
-
     .giorno, .luogo, .pers{
         font-size: 12pt;
     }
 
-    .aggiungi{
-
+    .form{
+        border:1px solid grey;
+        border-radius: 10pt;
+        padding:10pt;
     }
-
-    
 }
