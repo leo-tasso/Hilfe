@@ -12,6 +12,7 @@ body {
   min-height: 100vh;
   margin: 0;
   padding:0;
+  background-color: #f4f2ee;
 }
 
 .centralContent {
@@ -79,7 +80,6 @@ body>header>nav>div div {
 .topbar {
   background-color: white;
   border-bottom: 1.5px solid #989898;
-  margin: 0 15px;
 }
 
 
@@ -88,7 +88,8 @@ body>header>nav {
 }
 
 .logoContainer {
-  width: 20%;
+  width: 10%;
+  margin-left: 15px;
 }
 
 /**immagine logo barra in alto**/
@@ -98,16 +99,13 @@ body>header>nav {
   text-align: center;
 }
 
-.openbtn {
-  float: left;
-}
-
 .profiloBarra {
+  margin: 5px 15px 5px 0;
   float: right;
   border: 2px solid var(--hilfeYellow);
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   background-image: url('../fotoProfiloIniziale.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -173,6 +171,7 @@ body>header>nav {
 
 /* Style the button that is used to open the sidepanel */
 .openbtn {
+  float: left;
   font-size: 20px;
   cursor: pointer;
   background-color: white;
@@ -180,6 +179,8 @@ body>header>nav {
   padding: 5px 15px;
   border: none;
   border-radius: 13px;
+  order: -1;
+  margin-left: 15px;
 }
 
 .desktopbar {
@@ -205,10 +206,6 @@ body>header>nav {
   align-items: center;
 }
 
-.openbtn {
-  order: -1;
-}
-
 @media screen and (min-width: 768px) {
   .openbtn {
     display: none;
@@ -221,6 +218,10 @@ body>header>nav {
     margin-left: 2pt;
   }
 
+  .buttonLogin{
+    margin-right: 15px;
+  }
+
   .profiloBarra {
     display: none;
   }
@@ -230,10 +231,9 @@ body>header>nav {
   }
 
   .buttonLogin {
-    width: 20%;
+    width: 10%;
     display: flex;
     justify-content: flex-end;
-    margin: 0;
   }
 
   /**modifica i bottoni/link login e registrati**/

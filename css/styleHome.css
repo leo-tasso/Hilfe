@@ -168,12 +168,14 @@ body>header>ul i{
 }
 
 body main article {
-    border: 3px solid var(--hilfeYellow);
+    /*border: 3px solid var(--hilfeYellow);*/
     padding: 5px;
     border-radius: 10px;
     margin-bottom: 10pt;
     color: var(--hilfeGrey);
     text-align: left;
+    background-color: white;
+    box-shadow: 2px 2px 4px grey;
 }
 
 body main article p {
