@@ -1,6 +1,6 @@
 :root {
   --hilfeGrey: #595959;
-  --hilfeYellow: #bb0112; 
+  --hilfeYellow: #bb0112;
   --hilfeBlue: #087e8b;
 }
 
@@ -11,12 +11,12 @@ body {
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
-  padding:0;
+  padding: 0;
   background-color: #f4f2ee;
 }
 
 .centralContent {
-    flex: 1;
+  flex: 1;
 }
 
 
@@ -27,12 +27,13 @@ body {
   width: 100%;
   font-size: 8pt;
   padding: 10px;
-  height:50px;
-  
+  height: 50px;
+
 }
 
-body>header, .footer{
-  box-sizing: border-box;  
+body>header,
+.footer {
+  box-sizing: border-box;
 }
 
 .icon {
@@ -88,8 +89,8 @@ body>header>nav {
 }
 
 .logoContainer {
-  width: 10%;
-  margin-left: 15px;
+  width: fit-content;
+  min-width: fit-content;
 }
 
 /**immagine logo barra in alto**/
@@ -207,6 +208,11 @@ body>header>nav {
 }
 
 @media screen and (min-width: 768px) {
+  .logoContainer {
+    margin-left: 15px;
+    width: 30%;
+  }
+
   .openbtn {
     display: none;
   }
@@ -218,10 +224,6 @@ body>header>nav {
     margin-left: 2pt;
   }
 
-  .buttonLogin{
-    margin-right: 15px;
-  }
-
   .profiloBarra {
     display: none;
   }
@@ -231,7 +233,9 @@ body>header>nav {
   }
 
   .buttonLogin {
-    width: 10%;
+    margin-right: 15px;
+    min-width: fit-content;
+    width: 30%;
     display: flex;
     justify-content: flex-end;
   }
@@ -273,7 +277,7 @@ body>header>nav {
     justify-content: center;
     text-align: center;
     width: 50%;
-    margin: 10pt 10%;
+    margin: 10pt 0;
   }
 
   .profilo {
