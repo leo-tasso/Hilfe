@@ -1,11 +1,39 @@
 :root {
   --hilfeGrey: #595959;
-  --hilfeYellow: #a21c1c;
+  --hilfeYellow: #bb0112;
   --hilfeBlue: #087e8b;
 }
 
-body>header, .footer{
-    box-sizing: border-box;  
+body {
+  font-family: "Helvetica";
+  margin: 1pt;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f2ee;
+}
+
+.centralContent {
+  flex: 1;
+}
+
+
+.footer {
+  background-color: #087e8b;
+  color: white;
+  text-align: center;
+  width: 100%;
+  font-size: 8pt;
+  padding: 10px;
+  height: 50px;
+
+}
+
+body>header,
+.footer {
+  box-sizing: border-box;
 }
 
 .icon {
@@ -20,8 +48,8 @@ body>header, .footer{
 
 
 /**modifica bottoni menù slidebar**/
-body>header>nav>div>a,
-body>header>nav>div div {
+.sidepanel>a,
+.sidepanel div {
   border: 1px solid white;
 }
 
@@ -44,10 +72,7 @@ body>header>nav>div div {
   margin: 0;
 }
 
-body {
-  font-family: "Helvetica";
-  margin: 1pt;
-}
+
 
 .buttonLogin {
   display: none;
@@ -56,24 +81,16 @@ body {
 .topbar {
   background-color: white;
   border-bottom: 1.5px solid #989898;
-  margin: 0 15px;
 }
 
-.footer {
-  background-color: #087e8b;
-  color: white;
-  text-align: center;
-  width: 100%;
-  font-size: 8pt;
-  padding: 10px;
-}
 
 body>header>nav {
   display: inline-block;
 }
 
 .logoContainer {
-  width: 20%;
+  width: fit-content;
+  min-width: fit-content;
 }
 
 /**immagine logo barra in alto**/
@@ -83,16 +100,15 @@ body>header>nav {
   text-align: center;
 }
 
-.openbtn {
-  float: left;
-}
-
 .profiloBarra {
+  margin: 5px 15px 5px 0;
   float: right;
   border: 2px solid var(--hilfeYellow);
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
+  background-image: url('../fotoProfiloIniziale.jpg');
+  background-size: cover;
   background-repeat: no-repeat;
   /**non ripete l'immagine nel caso il bottone fosse più grande dell'immagine**/
   background-position: center center;
@@ -156,6 +172,7 @@ body>header>nav {
 
 /* Style the button that is used to open the sidepanel */
 .openbtn {
+  float: left;
   font-size: 20px;
   cursor: pointer;
   background-color: white;
@@ -163,6 +180,8 @@ body>header>nav {
   padding: 5px 15px;
   border: none;
   border-radius: 13px;
+  order: -1;
+  margin-left: 15px;
 }
 
 .desktopbar {
@@ -188,11 +207,12 @@ body>header>nav {
   align-items: center;
 }
 
-.openbtn {
-  order: -1;
-}
-
 @media screen and (min-width: 768px) {
+  .logoContainer {
+    margin-left: 15px;
+    width: 30%;
+  }
+
   .openbtn {
     display: none;
   }
@@ -213,10 +233,11 @@ body>header>nav {
   }
 
   .buttonLogin {
-    width: 20%;
+    margin-right: 15px;
+    min-width: fit-content;
+    width: 30%;
     display: flex;
     justify-content: flex-end;
-    margin: 0;
   }
 
   /**modifica i bottoni/link login e registrati**/
@@ -236,8 +257,9 @@ body>header>nav {
   }
 
   .b2 {
-    background-color: #087e8b;
+    background-color: var(--hilfeBlue);
     color: white;
+    border: 2px solid var(--hilfeBlue);
   }
 
   .b1:hover {
@@ -249,6 +271,7 @@ body>header>nav {
   .b2:hover {
     background-color: var(--hilfeYellow);
     color: white;
+    border: 2px solid var(--hilfeYellow);
   }
 
   .desktopbar {
@@ -256,7 +279,7 @@ body>header>nav {
     justify-content: center;
     text-align: center;
     width: 50%;
-    margin: 10pt 10%;
+    margin: 10pt 0;
   }
 
   .profilo {

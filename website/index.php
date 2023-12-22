@@ -1,10 +1,10 @@
 <?php
-/*require_once("bootstrap.php");
+require_once 'bootstrap.php';
 
-$templateparams["title"] = "Hilfe - Home";
-$templateparams["name"] = "explore.php";
-$templateparams["articles"] = $dbh->getHelpPosts(5);
-*/
-require("html/home.html");
+$templateParams["title"] = "Hilfe-Home";
+$templateParams["css"] = "styleHome.php";
+$templateParams["page"] = "Home.php";
+$templateParams["posts"] = $dbh->getHelpPosts($START_POST_NUMBER);
 
+require 'template/base.php';
 ?>

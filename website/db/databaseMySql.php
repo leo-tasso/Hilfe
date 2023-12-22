@@ -1,10 +1,11 @@
 <?php
-class DatabaseHelper{
+require("databaseHelper.php");
+class DatabaseHelperMySql implements DatabaseHelper{
     private $db;
     public function __construct($servername,$username,$password,$dbname){
         $this->db = new mysqli($servername,$username,$password,$dbname);
         if($this->db->connect_error){
-            die("Connection failed: " . $db->connect_error);
+            die("Connection failed: " . $this->db->connect_error);
         }
     }
     public function getHelpPosts($n){
@@ -15,5 +16,8 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 }
+
+
+$dbh = new DatabaseHelperMySql("localhost", "root", "", "HilfeDb", 3306);
 
 ?>
