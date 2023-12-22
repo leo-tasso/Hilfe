@@ -33,34 +33,34 @@
 
 <body>
     <header class="topbar">
-            <a href="home.html" class="logoContainer">
+            <a href="home.php" class="logoContainer">
                 <img class="logo" src="../res/LogoHeart.svg" alt="logo HILFE" />
             </a>
             <nav class="desktopbar">
-                <a href="home.html">Home</a>
-                <a href="annunciSalvati.html">Salvati</a>
-                <a href="profiloUtente.html">Profilo</a>
-                <a href="privacy.html">Privacy</a>
+                <a href="home.php">Home</a>
+                <a href="annunciSalvati.php">Salvati</a>
+                <a href="profiloUtente.php">Profilo</a>
+                <a href="privacy.php">Privacy</a>
                 <div class="notifiche">
-                    <a href="notifiche.html">Notifiche</a>
+                    <a href="notifiche.php">Notifiche</a>
                     <p>1</p>
                     <!--TODO update notification number -->
                 </div>
             </nav>
-            <a class="profiloBarra" id="profiloBarra" href="profiloUtente.html"> </a>
+            <a class="profiloBarra" id="profiloBarra" href="profiloUtente.php"> </a>
             <!--TODO profpic if logged -->
             <div class="buttonLogin">
-                <a class="b1" href="login.html">Login</a>
-                <a class="b2" href="registrazione.html">Registrati</a>
+                <a class="b1" href="login.php">Login</a>
+                <a class="b2" href="registrazione.php">Registrati</a>
             </div>
             <div id="mySidepanel" class="sidepanel">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <a href="login.html"><img class="icon" src="../Icons/Door.svg" alt="">Login</a>
-                <a href="profiloUtente.html"><img class="icon" src="../Icons/Profile.svg" alt="">Il mio profilo</a>
-                <a href="privacy.html"><img class="icon" src="../Icons/Lock.svg" alt="">Privacy</a>
-                <a href="annunciSalvati.html"><img class="icon" src="../Icons/Pin.svg" alt="">Annunci salvati</a>
+                <a href="login.php"><img class="icon" src="../Icons/Door.svg" alt="">Login</a>
+                <a href="profiloUtente.php"><img class="icon" src="../Icons/Profile.svg" alt="">Il mio profilo</a>
+                <a href="privacy.php"><img class="icon" src="../Icons/Lock.svg" alt="">Privacy</a>
+                <a href="annunciSalvati.php"><img class="icon" src="../Icons/Pin.svg" alt="">Annunci salvati</a>
                 <div class="notifiche">
-                    <a href="notifiche.html"><img class="icon" src="../Icons/Bell.svg" alt="">Notifiche</a>
+                    <a href="notifiche.php"><img class="icon" src="../Icons/Bell.svg" alt="">Notifiche</a>
                     <p>1</p>
                 </div>
             </div>
