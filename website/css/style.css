@@ -100,19 +100,13 @@ body>header>nav {
   text-align: center;
 }
 
-.profiloBarra {
+.fotoProfilo {
   margin: 5px 15px 5px 0;
   float: right;
   border: 2px solid var(--hilfeYellow);
   border-radius: 50%;
   width: 35px;
   height: 35px;
-  background-image: url('../fotoProfiloIniziale.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  /**non ripete l'immagine nel caso il bottone fosse più grande dell'immagine**/
-  background-position: center center;
-  /**per centrare l'immagine**/
 }
 
 

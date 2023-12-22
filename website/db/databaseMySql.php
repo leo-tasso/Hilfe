@@ -9,13 +9,36 @@ class DatabaseHelperMySql implements DatabaseHelper{
         }
     }
     public function getHelpPosts($n){
-        /*
-        $stmt = $this->db->prepare("SELECT * FROM postinterventi LIMIT ?");
+        $stmt = $this->db->prepare("SELECT 	
+        * FROM PostInterventi LIMIT ?");
         $stmt->bind_param('i', $n);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
-        */
+    }
+    public function getUserFromId($id){
+        $stmt = $this->db->prepare("SELECT * FROM User where idUser =".$id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function getProfilePicPathFromId($id){
+        $stmt = $this->db->prepare("SELECT FotoProfilo FROM User where idUser =".$id." LIMIT 1");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function getAuthorFromHelpPost($id){
+        $stmt = $this->db->prepare("SELECT * FROM User, PostInterventi  where idUser = Autore_idUser AND idUser =".$id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function getMaterialFromHelpPost($id){
+        $stmt = $this->db->prepare("SELECT * FROM Materiale  where idPostIntervento =".$id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 }
 

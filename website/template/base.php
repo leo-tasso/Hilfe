@@ -49,8 +49,9 @@
                     <!--TODO update notification number -->
                 </div>
             </nav>
-            <a class="profiloBarra" id="profiloBarra" href="profiloUtente.php"> </a>
-            <!--TODO profpic if logged -->
+            <a class="profiloBarra" id="profiloBarra" href="profiloUtente.html"> 
+                <img src="../res/fotoProfiloIniziale.jpg" alt="" class="fotoProfilo">
+            </a>            <!--TODO profpic if logged -->
             <div class="buttonLogin">
                 <a class="b1" href="login.php">Login</a>
                 <a class="b2" href="registrazione.php">Registrati</a>
