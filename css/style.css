@@ -48,8 +48,8 @@ body>header,
 
 
 /**modifica bottoni menù slidebar**/
-body>header>nav>div>a,
-body>header>nav>div div {
+.sidepanel>a,
+.sidepanel div {
   border: 1px solid white;
 }
 
@@ -257,8 +257,9 @@ body>header>nav {
   }
 
   .b2 {
-    background-color: #087e8b;
+    background-color: var(--hilfeBlue);
     color: white;
+    border: 2px solid var(--hilfeBlue);
   }
 
   .b1:hover {
@@ -270,6 +271,7 @@ body>header>nav {
   .b2:hover {
     background-color: var(--hilfeYellow);
     color: white;
+    border: 2px solid var(--hilfeYellow);
   }
 
   .desktopbar {
