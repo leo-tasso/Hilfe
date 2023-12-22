@@ -33,11 +33,11 @@
 
 <body>
     <header class="topbar">
-            <a href="home.php" class="logoContainer">
+            <a href="index.php" class="logoContainer">
                 <img class="logo" src="../res/LogoHeart.svg" alt="logo HILFE" />
             </a>
             <nav class="desktopbar">
-                <a href="home.php">Home</a>
+                <a href="index.php">Home</a>
                 <a href="annunciSalvati.php">Salvati</a>
                 <a href="profiloUtente.php">Profilo</a>
                 <a href="privacy.php">Privacy</a>

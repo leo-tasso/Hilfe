@@ -9,11 +9,13 @@ class DatabaseHelperMySql implements DatabaseHelper{
         }
     }
     public function getHelpPosts($n){
+        /*
         $stmt = $this->db->prepare("SELECT * FROM postinterventi LIMIT ?");
         $stmt->bind_param('i', $n);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
+        */
     }
 }
 
