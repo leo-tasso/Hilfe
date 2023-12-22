@@ -4,4 +4,7 @@ function isActive($pagename){
         echo " class='active' ";
     }
 }
+function addStyle($styleSheet){
+    echo('<link href="'.$styleSheet.'" rel="stylesheet" type="text/css" />');
+}
 ?>

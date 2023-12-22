@@ -9,7 +9,9 @@
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
     <?php
     if(isset($templateParams["css"])){
-        require($templateParams["css"]);
+        foreach ($templateParams["css"] as $key => $value) {
+            addStyle($value);
+        }
     }
     ?>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
