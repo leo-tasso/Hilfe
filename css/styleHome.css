@@ -1,20 +1,11 @@
-.footer{
-    text-align: center;
-}
-
 .profilo{
     float:right;
-    border: 2px solid var(--hilfeYellow);
+    border: 2px solid var(--hilfeRed);
     border-radius: 50%;
     width: 40px;
     height: 40px;
     background-repeat: no-repeat; /**non ripete l'immagine nel caso il bottone fosse più grande dell'immagine**/
     background-position: center center; /**per centrare l'immagine**/
-}
-
-.centralContent {
-    display: flex;
-    justify-content: center;
 }
 
 .newPostContainer{
@@ -136,7 +127,7 @@ th {
 }
 
 .navbar a {
-    background-color: var(--hilfeYellow);
+    background-color: var(--hilfeRed);
     padding: 5pt;
     text-decoration: none;
     color: white;
@@ -168,7 +159,6 @@ body>header>ul i{
 }
 
 body main article {
-    /*border: 3px solid var(--hilfeYellow);*/
     padding: 5px;
     border-radius: 10px;
     margin-bottom: 10pt;
@@ -216,14 +206,10 @@ article>footer>a {
     height: 200px;
     z-index: 0;
     margin: 5pt auto;
-    border: 2px solid var(--hilfeYellow);
+    border: 2px solid var(--hilfeRed);
     border-radius: 10pt;
 }
 
-/**modifica dello pannello dei profili suggeriti**/
-aside {
-    display: none;
-}
 
 .buttonPartecipa, .buttonPartecipanti, .buttonSalva, .buttonAltriPost{
     font-size: 9pt;
@@ -237,7 +223,7 @@ aside {
 }
 
 .buttonSalva{
-    background: var(--hilfeYellow);
+    background: var(--hilfeRed);
     border-top-left-radius: 10pt;
     border-bottom-left-radius: 10pt;
     margin-right: 0;
@@ -262,11 +248,11 @@ aside {
 
 /*.buttonPartecipanti:hover, commentare la regola sopra se il pulsante è premibile */
 .buttonPartecipa:hover{
-    background: var(--hilfeYellow);
+    background: var(--hilfeRed);
 }
 
 .buttonPartecipanti:hover {
-    background: color-mix(in srgb,var(--hilfeYellow),#000 30%); 
+    background: color-mix(in srgb,var(--hilfeRed),#000 30%); 
 }
 
 .button__progress {
@@ -284,12 +270,6 @@ aside {
     position: relative;
 }
 
-
-.footer p{
-    color:white;
-    text-decoration: none;
-}
-
 h3 {
     font-size: 11pt;
     font-weight: bold;
@@ -300,7 +280,7 @@ h3 {
 .buttonAltriPost{
     margin: 10px auto ;
     font-size: large;
-    background: var(--hilfeYellow);
+    background: var(--hilfeRed);
     border-radius: 13pt;
     width: 20%;
 }
@@ -318,92 +298,6 @@ h3 {
     .navbar a{
         float: left;
         margin:0px 5px;
-    }
-
-    .leftAside{
-        width: 20%;
-        max-width: 200px;
-    }
-
-    aside, .leftAside {
-        width: 20%;
-        max-width: 200px;
-        display: inline-block;
-        background-color: var(--hilfeYellow);
-        border-radius: 10pt;
-        margin: 5pt;
-        vertical-align: top;
-        text-align: left;
-        padding-left: 10pt;
-        height: fit-content;
-    }
-
-    .infoUser {
-        width:90%;
-        display: flex;
-        margin-bottom: 10px;
-        border-bottom: 1px solid white;
-        text-decoration: none;
-        color: white;
-    }
-
-    .infoUser p {
-        margin: 5px 0;
-    }
-
-
-    .infoUser img {
-        width: 30px; /* Puoi regolare la larghezza dell'immagine a tuo piacimento */
-        height:30px;
-        border-radius: 50%;
-        float:left; 
-        margin-right: 3pt;
-         
-    }
-    
-    .profile{
-        display:inline-block;
-    }
-
-    .profile span{
-        width:100%;
-        text-decoration: none;
-        color:white;
-        font-size: 9pt;
-        margin-top: 2pt;
-        font-weight: bold;
-    }
-
-    .profile span:hover{
-        
-        color:lightgray;
-    }
-
-    .profile p{
-        color:white;
-        width: 100%;
-    }
-
-    .amici{
-        font-size: 8pt;
-    }
-
-    aside ul {
-        list-style: none;
-    }
-
-    aside>ul {
-        display: inline-block;
-    }
-
-    aside a {
-        float: left;
-    }
-
-    aside>ul>li a {
-        text-decoration: none;
-        color: white;
-        font-size: 10pt;
     }
 
     body>header>ul {
@@ -437,7 +331,7 @@ h3 {
 
 /**CSS per il pop up**/ 
 #popup h3{
-    color:var(--hilfeYellow);
+    color:var(--hilfeRed);
     font-weight: bold;
 }
 
@@ -461,7 +355,7 @@ h3 {
     border-radius: 50%;
     float:left; 
     margin-right: 3pt;
-    border: 2px solid var(--hilfeYellow);
+    border: 2px solid var(--hilfeRed);
      
 }
 
@@ -480,7 +374,7 @@ h3 {
     font-weight: bold;
 }
 #popup .profile span:hover{
-    color:var(--hilfeYellow);
+    color:var(--hilfeRed);
 }
 
 #popup .profile p{
@@ -517,7 +411,7 @@ h3 {
   }
 
   .closePopup{
-    background-color: var(--hilfeYellow);
+    background-color: var(--hilfeRed);
     color: white;
     border: 2px solid white;
     padding: 5pt 10pt;

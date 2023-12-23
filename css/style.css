@@ -1,6 +1,6 @@
 :root {
   --hilfeGrey: #595959;
-  --hilfeYellow: #bb0112;
+  --hilfeRed: #bb0112;
   --hilfeBlue: #087e8b;
 }
 
@@ -21,7 +21,7 @@ body {
 
 
 .footer {
-  background-color: #087e8b;
+  background-color: var(--hilfeBlue);
   color: white;
   text-align: center;
   width: 100%;
@@ -103,7 +103,7 @@ body>header>nav {
 .fotoProfilo {
   margin: 5px 15px 5px 0;
   float: right;
-  border: 2px solid var(--hilfeYellow);
+  border: 2px solid var(--hilfeRed);
   border-radius: 50%;
   width: 35px;
   height: 35px;
@@ -124,7 +124,7 @@ body>header>nav {
   top: 0;
   left: 0;
   float: right;
-  background-color: #087e8b;
+  background-color: var(--hilfeBlue);
   /* Black*/
   overflow-x: hidden;
   /* Disable horizontal scroll */
@@ -147,7 +147,7 @@ body>header>nav {
 /* When you mouse over the navigation links, change their color */
 .sidepanel>a:hover,
 .sidepanel>div:hover {
-  background-color: var(--hilfeYellow);
+  background-color: var(--hilfeRed);
 }
 
 /* Position and style the close button (top right corner) */
@@ -183,7 +183,7 @@ body>header>nav {
 }
 
 .openbtn:hover {
-  background-color: #087e8b;
+  background-color: var(--hilfeBlue);
   color: white;
 }
 
@@ -212,7 +212,7 @@ body>header>nav {
   }
 
   .notifiche p {
-    background-color: var(--hilfeYellow);
+    background-color: var(--hilfeRed);
     color: white;
     padding: 2pt 4pt;
     margin-left: 2pt;
@@ -247,7 +247,7 @@ body>header>nav {
   .b1 {
     background-color: white;
     color: var(--hilfeGrey);
-    border: 2px solid var(--hilfeYellow);
+    border: 2px solid var(--hilfeRed);
   }
 
   .b2 {
@@ -263,9 +263,9 @@ body>header>nav {
   }
 
   .b2:hover {
-    background-color: var(--hilfeYellow);
+    background-color: var(--hilfeRed);
     color: white;
-    border: 2px solid var(--hilfeYellow);
+    border: 2px solid var(--hilfeRed);
   }
 
   .desktopbar {
@@ -293,6 +293,6 @@ body>header>nav {
 
   .desktopbar a:hover,
   .desktopbar>div>a:hover {
-    color: var(--hilfeYellow);
+    color: var(--hilfeRed);
   }
 }
