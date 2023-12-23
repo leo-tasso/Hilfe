@@ -18,7 +18,7 @@
             <header>
                 <h2><?php echo $post["TitoloPost"]; ?></h2>
                 <div class="infoUtente">
-                    <a href="profiloUtente.html" class="nomeAutore"><?php $autore = $dbh->getAuthorFromHelpPost($post["idPostIntervento"])[0]; 
+                    <a href="profiloUtente.html" class="nomeAutore"><?php $autore = $dbh->getAuthorFromHelpPost($post["idPostIntervento"])[0];
                     echo $autore["Name"]." ".$autore["Surname"] ?></a>
                     <a href="profiloUtente.html"><img class="profilo" id="profilo" src="../res/<?php echo $dbh->getProfilePicPathFromId($post["Autore_idUser"]); ?>" alt="profilo"></a>
                 </div>
@@ -29,6 +29,9 @@
                     <p class="date"><?php echo $post["DataPubblicazione"]; ?></p>
                     <p><?php echo $post["DescrizionePost"]; ?></p>
                     <p class="time"><?php echo $post["DataIntervento"]; ?></p>
+                    <?php if($autore["PhoneNumber"]!=null):?>
+                    <p class="phoneNumber">Numero di telefono: <?php echo $autore["PhoneNumber"]; ?></p>
+                    <?php endif ?>
                     <p class="people">Persone necessarie: <?php echo $post["PersoneRichieste"]; ?></p>
                     <?php $materiale = $dbh->getMaterialFromHelpPost($post["idPostIntervento"]);
                     if (count($materiale)>0):?>
@@ -46,23 +49,23 @@
                     </table>
                     <?php endif?>
                 </section>
-                <div id="map" class="openmap"></div>
+                <div id="map<?php echo $post["idPostIntervento"]; ?>" class="openmap"></div>
             </div>
             <script>
-                const map = L.map('map', {
+                const map<?php echo $post["idPostIntervento"]; ?> = L.map('map<?php echo $post["idPostIntervento"]; ?>', {
                     center: [<?php echo $post["PosizioneLongitudine"]?>, <?php echo $post["PosizioneLatitudine"]?>],
                     zoom: 50
                 });
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                }).addTo(map);
+                }).addTo(map<?php echo $post["idPostIntervento"]; ?>);
                 var heart = L.icon({
                 iconUrl: '../res/MapPointer.svg',
                 iconSize:     [38, 38], // size of the icon
                 iconAnchor:   [19, 38], // point of the icon which will correspond to marker's location
                 popupAnchor:  [0, -38] // point from which the popup should open relative to the iconAnchor
             });
-                const marker1 = L.marker([<?php echo $post["PosizioneLongitudine"]?>, <?php echo $post["PosizioneLatitudine"]?>],{icon: heart}).addTo(map).bindPopup("<?php echo $post["Indirizzo"]?>");;
+                const marker<?php echo $post["idPostIntervento"]; ?> = L.marker([<?php echo $post["PosizioneLongitudine"]?>, <?php echo $post["PosizioneLatitudine"]?>],{icon: heart}).addTo(map<?php echo $post["idPostIntervento"]; ?>).bindPopup("<?php echo $post["Indirizzo"]?>");;
             </script>
             <footer>
                 <button type="button" onclick="openPopup()" class="buttonSalva"><img class="iconButton" src="../Icons/Heart.svg" alt="">Salva</button><input type="button" class="buttonPartecipa" name="Partecipa" value="Partecipa"><button type="button" class="buttonPartecipanti" onclick="openPopup()" data-progress-text="Partecipa" data-complete-text="Al completo"><span class="button__progress"></span><span class="button__text">Partecipanti 2/10</span></button>
