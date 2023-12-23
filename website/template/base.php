@@ -34,7 +34,7 @@
 <body>
     <header class="topbar">
             <a href="index.php" class="logoContainer">
-                <img class="logo" src="../res/LogoHeart.svg" alt="logo HILFE" />
+                <img class="logo" src="../res/LogoHeart.png" alt="logo HILFE" />
             </a>
             <nav class="desktopbar">
                 <a href="index.php">Home</a>
