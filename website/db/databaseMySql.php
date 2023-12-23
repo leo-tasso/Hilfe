@@ -59,7 +59,7 @@ class DatabaseHelperMySql implements DatabaseHelper
 
     private function getPicFromId($id)
     {
-        $stmt = $this->db->prepare("SELECT FotoProfilo FROM user WHERE idUser = ?");
+        $stmt = $this->db->prepare("SELECT FotoProfilo FROM User WHERE idUser = ?");
         $stmt->bind_param('i', $id);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -90,7 +90,7 @@ class DatabaseHelperMySql implements DatabaseHelper
     public function getNotification()
     {
         if (isLogged()) {
-            $stmt = $this->db->prepare("SELECT * FROM notifica WHERE idUser = ? AND Letta = 0");
+            $stmt = $this->db->prepare("SELECT * FROM Notifica WHERE idUser = ? AND Letta = 0");
             $stmt->bind_param('i', $_SESSION["idUser"]);
             $stmt->execute();
             $result = $stmt->get_result();
@@ -104,7 +104,7 @@ class DatabaseHelperMySql implements DatabaseHelper
         $suggestedUsers = [];
 
         if (isLogged()) {
-            $stmt = $this->db->prepare("SELECT * FROM user,seguiti WHERE idUser NOT IN (SELECT idSeguito FROM user,seguiti WHERE idSeguace = ?) AND idSeguito = ? AND idSeguace=idUser LIMIT ?");
+            $stmt = $this->db->prepare("SELECT * FROM User, Seguiti WHERE idUser NOT IN (SELECT idSeguito FROM User, Seguiti WHERE idSeguace = ?) AND idSeguito = ? AND idSeguace=idUser LIMIT ?");
             $stmt->bind_param('iii', $_SESSION["idUser"], $_SESSION["idUser"], $n);
             $stmt->execute();
             $result = $stmt->get_result();
@@ -136,7 +136,7 @@ class DatabaseHelperMySql implements DatabaseHelper
 
             if (count($suggestedUsers) < $n) {
                 $selectedUserIdsString = implode(',', array_column($suggestedUsers, 'idUser'));
-                $stmt = $this->db->prepare("SELECT * FROM user,seguiti WHERE idUser NOT IN (?) AND idSeguito = ? AND idSeguace=idUser ORDER BY RAND() LIMIT ?");
+                $stmt = $this->db->prepare("SELECT * FROM User, Seguiti WHERE idUser NOT IN (?) AND idSeguito = ? AND idSeguace=idUser ORDER BY RAND() LIMIT ?");
                 $limitValue = $n - count($suggestedUsers);
                 $stmt->bind_param('sii', $selectedUserIdsString, $_SESSION["idUser"], $limitValue);
                 $stmt->execute();
@@ -154,7 +154,7 @@ class DatabaseHelperMySql implements DatabaseHelper
         }
 
         if (count($suggestedUsers) < $n) {
-            $stmt = $this->db->prepare("SELECT * FROM user ORDER BY RAND() LIMIT ?");
+            $stmt = $this->db->prepare("SELECT * FROM User ORDER BY RAND() LIMIT ?");
             $stmt->bind_param('i', $n);
             $stmt->execute();
             $result = $stmt->get_result();
