@@ -65,6 +65,11 @@ h1{
         border-radius: 10pt;
     }
 
+    .elencoNotifiche{
+        margin:0;
+        padding:0;
+    }
+
     .infoNotifica p{
         color:var(--hilfeGrey);
 
