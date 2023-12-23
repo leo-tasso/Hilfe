@@ -34,6 +34,6 @@
     </symbol>
   </defs>
   <text class="cls-3" transform="translate(784.67 766.57)"><tspan x="0" y="0">Hilfe</tspan></text>
-  <circle class="cls-1" cx="1230.5" cy="396.5" r="48.5"/>
+  <circle class="cls-1" cx="1230.5" cy="396.5" r="52.5"/>
   <use width="833" height="743.82" transform="translate(4.01 23.1)" xlink:href="#HilfeHeart"/>
 </svg>
