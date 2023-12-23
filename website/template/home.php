@@ -4,8 +4,7 @@
         <a href="#"><img class="icon" src="../Icons/Profile.svg" alt="">Followers</a>
     </div>
     <div class="newPost">
-        <!--TODO Update prof pic-->
-        <img src="../res/fotoProfiloIniziale.jpg" alt="Profilo 1" class="profilo">
+        <img src="../<?php echo $dbh->getSelfProfilePic();?>" alt="Profilo 1" class="profilo">
         <a href="creaPost.html">Hai bisogno di aiuto?🛟 Nuovo post</a>
     </div>
 </header>
@@ -20,7 +19,7 @@
                 <div class="infoUtente">
                     <a href="profiloUtente.html" class="nomeAutore"><?php $autore = $dbh->getAuthorFromHelpPost($post["idPostIntervento"])[0];
                     echo $autore["Name"]." ".$autore["Surname"] ?></a>
-                    <a href="profiloUtente.html"><img class="profilo" id="profilo" src="../res/<?php echo $dbh->getProfilePicPathFromId($post["Autore_idUser"]); ?>" alt="profilo"></a>
+                    <a href="profiloUtente.html"><img class="profilo" id="profilo" src="../<?php echo $dbh->getProfilePic($post["Autore_idUser"]);?>" alt="profilo"></a>
                 </div>
             </header>
             <div class="content">

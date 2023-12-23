@@ -13,4 +13,7 @@ function nameSurnameFromuserId($id){
     $user = $dbh->getUserFromId($id);
     return $user["Name"]." ".$user["Surname"];
 }
+function isLogged(){
+    return isset($_SESSION['idUser']) && !empty($_SESSION['idUser']);
+}
 ?>

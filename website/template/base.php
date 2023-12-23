@@ -45,13 +45,16 @@
                 <a href="privacy.php">Privacy</a>
                 <div class="notifiche">
                     <a href="notifiche.php">Notifiche</a>
-                    <p>1</p>
-                    <!--TODO update notification number -->
+                    <?php 
+                    $notifications= $dbh->getNotification();
+                    if(count($notifications)>0):?>
+                    <p><?php echo count($notifications);?></p>
+                    <?php endif;?>
                 </div>
             </nav>
             <a class="profiloBarra" id="profiloBarra" href="profiloUtente.html"> 
-                <img src="../res/fotoProfiloIniziale.jpg" alt="" class="fotoProfilo">
-            </a>            <!--TODO profpic if logged -->
+                <img src="../<?php echo $dbh->getSelfProfilePic();?>" alt="" class="fotoProfilo">
+            </a>
             <div class="buttonLogin">
                 <a class="b1" href="login.php">Login</a>
                 <a class="b2" href="registrazione.php">Registrati</a>
@@ -64,7 +67,10 @@
                 <a href="annunciSalvati.php"><img class="icon" src="../Icons/Pin.svg" alt="">Annunci salvati</a>
                 <div class="notifiche">
                     <a href="notifiche.php"><img class="icon" src="../Icons/Bell.svg" alt="">Notifiche</a>
-                    <p>1</p>
+                    <?php 
+                    if(count($notifications)>0):?>
+                    <p><?php echo count($notifications);?></p>
+                    <?php endif;?>
                 </div>
             </div>
             <button class="openbtn" onclick="openNav()">&#9776; </button>

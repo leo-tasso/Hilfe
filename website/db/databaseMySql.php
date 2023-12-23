@@ -40,6 +40,43 @@ class DatabaseHelperMySql implements DatabaseHelper{
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    private function getPicFromId($id){
+        $stmt = $this->db->prepare("SELECT FotoProfilo FROM user  where idUser =".$id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $lines = $result->fetch_all(MYSQLI_ASSOC);
+        if(count($lines) == 0 || $lines[0]["FotoProfilo"] == null){
+            return DEFAULT_PIC_PATH.DEFAULT_PIC;
+        }
+        else{
+            return DEFAULT_PIC_PATH.$lines[0]["FotoProfilo"];
+        }
+    }
+
+    public function getProfilePic($id){
+        if($id==null){
+            return DEFAULT_PIC_PATH.DEFAULT_PIC;
+        }
+        return $this->getPicFromId($id);
+    }
+    public function getSelfProfilePic(){
+        if(isLogged()){
+            return $this->getPicFromId($_SESSION["idUser"]);
+        }
+        return DEFAULT_PIC_PATH.DEFAULT_PIC;
+    }
+    public function getNotification() {
+        if(isLogged()){
+            $stmt = $this->db->prepare("SELECT * FROM notifica  where idUser =".$_SESSION["idUser"]." AND Letta=0");
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+        else{
+            return [];
+        }
+    }
 }
 
 
