@@ -117,6 +117,7 @@ class DatabaseHelperMySql implements DatabaseHelper
             $suggestedUsers = array_merge($suggestedUsers, $entries);
 
             if (count($suggestedUsers) < $n) {
+                $selectedUserIdsString = implode(',', array_fill(0, count($suggestedUsers), '?'));
                 $stmt = $this->db->prepare("
                     SELECT u.idUser, u.Name, u.Surname, COUNT(s1.idSeguito) AS NumSeguitiInComune
                     FROM User u
@@ -124,11 +125,15 @@ class DatabaseHelperMySql implements DatabaseHelper
                     JOIN Seguiti s2 ON s1.idSeguito = s2.idSeguace AND s2.idSeguito IN (SELECT idSeguito FROM Seguiti WHERE idSeguace = ?)
                     WHERE u.idUser <> ?
                     AND u.idUser NOT IN (SELECT idSeguito FROM Seguiti WHERE idSeguace = ?) 
+                    AND u.idUser NOT IN ($selectedUserIdsString) 
                     GROUP BY u.idUser, u.Name, u.Surname
                     ORDER BY NumSeguitiInComune DESC
                     LIMIT ?");
                 $limitValue = $n - count($suggestedUsers);
-                $stmt->bind_param('iiii', $_SESSION["idUser"], $_SESSION["idUser"], $_SESSION["idUser"], $limitValue);
+                $params = array_merge([$_SESSION["idUser"], $_SESSION["idUser"], $_SESSION["idUser"]], array_column($suggestedUsers, 'idUser'));
+                $params = array_merge($params, [$limitValue]);
+                $types = 'iii'.str_repeat('s', count($suggestedUsers)) .'i';
+                $stmt->bind_param($types, ...$params);
                 $stmt->execute();
                 $result = $stmt->get_result();
                 $suggestedUsers = array_merge($suggestedUsers, $result->fetch_all(MYSQLI_ASSOC));
