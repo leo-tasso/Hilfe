@@ -29,7 +29,7 @@ class DatabaseHelperMySql implements DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
     public function getAuthorFromHelpPost($id){
-        $stmt = $this->db->prepare("SELECT * FROM User, PostInterventi  where idUser = Autore_idUser AND idUser =".$id);
+        $stmt = $this->db->prepare("SELECT * FROM User, PostInterventi  where idUser = Autore_idUser AND idPostIntervento =".$id);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
