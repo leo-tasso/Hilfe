@@ -234,6 +234,10 @@ body>header>nav {
     justify-content: flex-end;
   }
 
+  .buttonLogin>a>img {
+    margin-right: 0;
+  }
+
   /**modifica i bottoni/link login e registrati**/
 
   .b1,

@@ -54,8 +54,14 @@
                 <img src="../<?php echo $dbh->getSelfProfilePic();?>" alt="" class="fotoProfilo">
             </a>
             <div class="buttonLogin">
+                <?php if(isLogged()):?>
+                    <a href="profiloUtente.html"> 
+                    <img src="../<?php echo $dbh->getSelfProfilePic();?>" alt="" class="fotoProfilo">
+                    </a>
+                    <?php else:?>
                 <a class="b1" href="login.php">Login</a>
                 <a class="b2" href="registrazione.php">Registrati</a>
+                <?php endif;?>
             </div>
             <div id="mySidepanel" class="sidepanel">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
