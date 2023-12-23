@@ -1,0 +1,74 @@
+.followers{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: white;
+}
+
+h1{
+    font-size: 20pt;
+    color:var(--hilfeBlue);
+    text-align: center;
+}
+
+.follower{
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+
+}
+
+.follower img{
+    border: 2px solid var(--hilfeRed);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat; /**non ripete l'immagine nel caso il bottone fosse più grande dell'immagine**/
+    background-position: center center; /**per centrare l'immagine**/
+    margin:10pt;
+
+}
+
+.follower>a{
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    align-items: center;
+}
+
+.follower:hover{
+    background-color: rgb(210, 206, 206);
+}
+
+
+.infoUtente{
+    display: flex;
+    flex-direction: column;
+    color:var(--hilfeGrey);
+    padding:2pt;
+}
+
+.infoUtente span{
+    font-size: 12pt;
+    color:var(--hilfeRed);
+    font-weight: bold;
+}
+
+.infoUtente p{
+    font-size: 10pt;
+}
+
+.elencoFollowers{
+    padding:0pt;
+    list-style: none;
+}
+
+@media screen and (min-width: 768px) {
+    .followers{
+        width:60%;
+        margin:10pt;
+        box-shadow: 2px 2px 4px grey;
+        border-radius: 10pt;
+        background-color: white;
+    }
+
+}
