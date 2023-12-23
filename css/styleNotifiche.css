@@ -1,0 +1,72 @@
+.notifica>img{
+    border: 2px solid var(--hilfeRed);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat; /**non ripete l'immagine nel caso il bottone fosse più grande dell'immagine**/
+    background-position: center center; /**per centrare l'immagine**/
+    margin-right: 10pt;
+}
+
+/**è tutto il main**/
+.notificheMain{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: white;
+    
+}
+
+h1{
+    color:var(--hilfeBlue);
+    font-size: 20pt;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.notifica{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid var(--hilfeGrey);
+    border-top: 1px solid var(--hilfeGrey);
+    background-color: rgb(206, 200, 200);
+    padding:5pt;
+}
+
+.notifica:hover, .notifica:active{
+    background-color: white;
+}
+
+.infoNotifica{
+    font-size: 10pt;
+}
+
+.infoNotifica span{
+    color:var(--hilfeRed);
+    font-weight: bold;
+}
+
+.elencoNotifiche{
+    padding:0;
+    list-style: none;
+    margin-bottom: 0;
+}
+
+@media screen and (min-width: 768px) {
+    h1{
+        font-size: 23pt; /**valutare**/ 
+    }
+
+    .notificheMain{
+        width:60%;
+        margin:10pt;
+        box-shadow: 2px 2px 4px grey;
+        border-radius: 10pt;
+    }
+
+    .infoNotifica p{
+        color:var(--hilfeGrey);
+
+    }
+}
