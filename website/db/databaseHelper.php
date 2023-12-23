@@ -8,4 +8,5 @@ interface DatabaseHelper{
     public function getSelfProfilePic();
     public function getProfilePic($id);
     public function getNotification();
+    public function getSuggestedUsers($n);
 }

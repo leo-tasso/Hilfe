@@ -90,33 +90,19 @@
     </main>
     <aside>
         <h3>Profili suggeriti</h3>
-        <a href="profiloUtente.html" class="infoUser">
-            <img src="../fotoProfiloIniziale.jpg" alt="Profilo 1">
+        <?php foreach($dbh->getSuggestedUsers(START_SUGGESTED_USERS) as $user):?>
+        <a href="profiloUtente.php/<?php echo $user["idUser"] ?>" class="infoUser">
+            <img src="../<?php echo $dbh->getProfilePic($user["idUser"]);?>" alt="immagine profilo di <?php echo $user["Name"] ?> <?php echo $user["Surname"] ?>">
             <div class="profile">
-                <span>Luna Fabbri</span>
-                <p class="amici">Ti Segue - n followers comuni</p>
+                <span><?php echo $user["Name"] ?> <?php echo $user["Surname"] ?></span>
+                <p class="amici"><?php 
+                if(isset($user["seguace"])){ echo "Ti Segue";} 
+                if(isset($user["seguace"]) && isset($user["NumSeguitiInComune"])){ echo " - ";}
+                if(isset($user["NumSeguitiInComune"])){ echo $user["NumSeguitiInComune"]." Seguiti in comune";}
+                if(isset($user["Motivazione"])){ echo $user["Motivazione"];}
+                ?></p>
             </div>
         </a>
-        <a href="profiloUtente.html" class="infoUser">
-            <img src="../fotoProfiloIniziale.jpg" alt="Profilo 1">
-            <div class="profile">
-                <span>Lupo Lucio</span>
-                <p class="amici"> Ti segue - n followers comuni</p>
-            </div>
-        </a>
-        <a href="profiloUtente.html" class="infoUser">
-            <img src="../fotoProfiloIniziale.jpg" alt="Profilo 1">
-            <div class="profile">
-                <span>Milo Cotogno</span>
-                <p class="amici">n followers comuni</p>
-            </div>
-        </a>
-        <a href="profiloUtente.html" class="infoUser">
-            <img src="../fotoProfiloIniziale.jpg" alt="Profilo 1">
-            <div class="profile">
-                <span>Gigio Bagigio</span>
-                <p class="amici">Ti segue - n followers comuni</p>
-            </div>
-        </a>
+        <?php endforeach;?>
     </aside>
 </div>
