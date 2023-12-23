@@ -1,0 +1,106 @@
+/**raggruppo in questo foglio di stile tutto il codice che riguarda la disposizione generale degli elementi e il layout versione desktop (aside compreso)**/ 
+.centralContent {
+    display: flex;
+    justify-content: center;
+}
+
+h3{
+    font-size: 11pt;
+    font-weight: bold;
+    color: white;
+    padding: 5pt;
+}
+
+
+/**modifica dello pannello dei profili suggeriti**/
+aside {
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    .leftAside{
+        width: 20%;
+        max-width: 200px;
+    }
+
+    aside, .leftAside {
+        width: 20%;
+        max-width: 200px;
+        display: inline-block;
+        background-color: var(--hilfeRed);
+        border-radius: 10pt;
+        margin: 5pt;
+        vertical-align: top;
+        text-align: left;
+        padding-left: 10pt;
+        height: fit-content;
+    }
+
+    
+    .infoUser {
+        width:90%;
+        display: flex;
+        margin-bottom: 10px;
+        border-bottom: 1px solid white;
+        text-decoration: none;
+        color: white;
+    }
+
+    .infoUser p {
+        margin: 5px 0;
+    }
+
+    .infoUser img {
+        width: 30px; /* Puoi regolare la larghezza dell'immagine a tuo piacimento */
+        height:30px;
+        border-radius: 50%;
+        float:left; 
+        margin-right: 3pt;
+         
+    }
+    
+    .profile{
+        display:inline-block;
+    }
+
+    .profile span{
+        width:100%;
+        text-decoration: none;
+        color:white;
+        font-size: 9pt;
+        margin-top: 2pt;
+        font-weight: bold;
+    }
+
+    .profile span:hover{
+        
+        color:lightgray;
+    }
+
+    .profile p{
+        color:white;
+        width: 100%;
+    }
+
+    .amici{
+        font-size: 8pt;
+    }
+
+    aside ul {
+        list-style: none;
+    }
+
+    aside>ul {
+        display: inline-block;
+    }
+
+    aside a {
+        float: left;
+    }
+
+    aside>ul>li a {
+        text-decoration: none;
+        color: white;
+        font-size: 10pt;
+    }
+}
