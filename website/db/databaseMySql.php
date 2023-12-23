@@ -135,18 +135,21 @@ class DatabaseHelperMySql implements DatabaseHelper
             }
 
             if (count($suggestedUsers) < $n) {
-                $selectedUserIdsString = implode(',', array_column($suggestedUsers, 'idUser'));
-                $stmt = $this->db->prepare("SELECT * FROM User, Seguiti WHERE idUser NOT IN (?) AND idSeguito = ? AND idSeguace=idUser ORDER BY RAND() LIMIT ?");
                 $limitValue = $n - count($suggestedUsers);
-                $stmt->bind_param('sii', $selectedUserIdsString, $_SESSION["idUser"], $limitValue);
+                $selectedUserIdsString = implode(',', array_fill(0, count($suggestedUsers), '?'));
+                $stmt = $this->db->prepare("SELECT * FROM User WHERE idUser NOT IN ($selectedUserIdsString) AND idUser <> ? ORDER BY RAND() LIMIT ?");
+                $params = array_merge(array_column($suggestedUsers, 'idUser'), [$_SESSION["idUser"], $limitValue]);
+                $types = str_repeat('s', count($suggestedUsers)) . 'ii';
+                $stmt->bind_param($types, ...$params);
+            
                 $stmt->execute();
                 $result = $stmt->get_result();
                 $entries = $result->fetch_all(MYSQLI_ASSOC);
-
+            
                 foreach ($entries as $key => $entry) {
                     $entries[$key]["Motivazione"] = CUTE_PHRASES[array_rand(CUTE_PHRASES)];
                 }
-
+            
                 $suggestedUsers = array_merge($suggestedUsers, $entries);
             }
 
