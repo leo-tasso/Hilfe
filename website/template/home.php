@@ -1,3 +1,4 @@
+<?php include 'map.php'; ?>
 <header class="newPostContainer">
     <div class="navbar">
         <a class="default" href="#"><img class="icon" src="../Icons/Lens.svg" alt="">Esplora</a>
@@ -48,24 +49,7 @@
                     </table>
                     <?php endif?>
                 </section>
-                <div id="map<?php echo $post["idPostIntervento"]; ?>" class="openmap"></div>
-            </div>
-            <script>
-                const map<?php echo $post["idPostIntervento"]; ?> = L.map('map<?php echo $post["idPostIntervento"]; ?>', {
-                    center: [<?php echo $post["PosizioneLongitudine"]?>, <?php echo $post["PosizioneLatitudine"]?>],
-                    zoom: 50
-                });
-                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                }).addTo(map<?php echo $post["idPostIntervento"]; ?>);
-                var heart = L.icon({
-                iconUrl: '../res/MapPointer.svg',
-                iconSize:     [38, 38], // size of the icon
-                iconAnchor:   [19, 38], // point of the icon which will correspond to marker's location
-                popupAnchor:  [0, -38] // point from which the popup should open relative to the iconAnchor
-            });
-                const marker<?php echo $post["idPostIntervento"]; ?> = L.marker([<?php echo $post["PosizioneLongitudine"]?>, <?php echo $post["PosizioneLatitudine"]?>],{icon: heart}).addTo(map<?php echo $post["idPostIntervento"]; ?>).bindPopup("<?php echo $post["Indirizzo"]?>");;
-            </script>
+            <?php insertmap($post["idPostIntervento"],$post["PosizioneLongitudine"],$post["PosizioneLatitudine"],$post["Indirizzo"]); ?> 
             <footer>
                 <button type="button" onclick="openPopup()" class="buttonSalva"><img class="iconButton" src="../Icons/Heart.svg" alt="">Salva</button><input type="button" class="buttonPartecipa" name="Partecipa" value="Partecipa"><button type="button" class="buttonPartecipanti" onclick="openPopup()" data-progress-text="Partecipa" data-complete-text="Al completo"><span class="button__progress"></span><span class="button__text">Partecipanti 2/10</span></button>
                 <div id="popup">

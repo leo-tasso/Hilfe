@@ -17,20 +17,18 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
         integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
         crossorigin="" />
-    <!-- TODO extract scripts -->
-    <script>
-        /* Set the width of the sidebar to 250px (show it) */
-        function openNav() {
-            document.getElementById("mySidepanel").style.width = "250px";
-        }
-        /* Set the width of the sidebar to 0 (hide it) */
-        function closeNav() {
-            document.getElementById("mySidepanel").style.width = "0";
-        }
-    </script>
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
         integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
         crossorigin=""></script>
+        <?php
+    if(isset($templateParams["js"])):
+        foreach($templateParams["js"] as $script):
+    ?>
+        <script src="<?php echo "../js/".$script; ?>"></script>
+    <?php
+        endforeach;
+    endif;
+    ?>
 </head>
 
 <body>
@@ -83,14 +81,5 @@
         <footer class="footer">
         <p>Progetto di Tecnologie Web - A.A. 2023/2024</p>
     </footer>
-    <?php
-    if(isset($templateParams["js"])):
-        foreach($templateParams["js"] as $script):
-    ?>
-        <script src="<?php echo $script; ?>"></script>
-    <?php
-        endforeach;
-    endif;
-    ?>
 </body>
 </html>
