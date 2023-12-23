@@ -53,11 +53,16 @@
                     center: [<?php echo $post["PosizioneLongitudine"]?>, <?php echo $post["PosizioneLatitudine"]?>],
                     zoom: 50
                 });
-//TODO add specific pointer 
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 }).addTo(map);
-                const marker1 = L.marker([<?php echo $post["PosizioneLongitudine"]?>, <?php echo $post["PosizioneLatitudine"]?>]).addTo(map);
+                var heart = L.icon({
+                iconUrl: '../res/MapPointer.svg',
+                iconSize:     [38, 38], // size of the icon
+                iconAnchor:   [19, 38], // point of the icon which will correspond to marker's location
+                popupAnchor:  [0, -38] // point from which the popup should open relative to the iconAnchor
+            });
+                const marker1 = L.marker([<?php echo $post["PosizioneLongitudine"]?>, <?php echo $post["PosizioneLatitudine"]?>],{icon: heart}).addTo(map).bindPopup("<?php echo $post["Indirizzo"]?>");;
             </script>
             <footer>
                 <button type="button" onclick="openPopup()" class="buttonSalva"><img class="iconButton" src="../Icons/Heart.svg" alt="">Salva</button><input type="button" class="buttonPartecipa" name="Partecipa" value="Partecipa"><button type="button" class="buttonPartecipanti" onclick="openPopup()" data-progress-text="Partecipa" data-complete-text="Al completo"><span class="button__progress"></span><span class="button__text">Partecipanti 2/10</span></button>
