@@ -4,16 +4,18 @@
         <title>HILFE - Login</title>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="../LogoRes/1x/HeartHands.png">
         <link href="../css/style.css" rel="stylesheet" type="text/css" />
         <link href="../css/styleLogin.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
         <header> 
             <nav class="topbar">
-                <img class="logo" src="../LogoRes/1x/LogoHeart.png" alt="logo HILFE" />
+                <a href="home.html" class="logoContainer">
+                    <img class="logo" src="../LogoRes/1x/LogoHeart.png" alt="logo HILFE" />
+                </a>
                 <nav class="desktopbar">
                     <a href="home.html">Home</a>
-                    <a href="follow.html">Seguiti</a>
                     <a href="annunciSalvati.html">Salvati</a>
                     <a href="profiloUtente.html">Profilo</a>
                     <a href="privacy.html">Privacy</a>
@@ -22,7 +24,9 @@
                         <p>1</p>
                     </div>
                 </nav>
-                <a class="profiloBarra" id="profiloBarra" href="profiloUtente.html">
+                <a class="profiloBarra" id="profiloBarra" href="profiloUtente.html"> 
+                    <img src="../fotoProfiloIniziale.jpg" alt="" class="fotoProfilo">
+                </a>
                 <div class="buttonLogin">
                     <a class="b1" href="login.html">Login</a>
                     <a class="b2" href="registrazione.html">Registrati</a>
@@ -53,7 +57,7 @@
                         <div class="ricordami">
                             <input type="checkbox" id="ricordami" name="ricordami" value="Ricordami"><label for="ricordami">Ricordami</label> 
                         </div>
-                        <a href="#">Password dimenticata?</a><br/>
+                        <a href="#" class="dimenticata">Password dimenticata?</a><br/>
                     </div>
                     <footer>
                         <a class="log" href="login.html">Login</a>
@@ -62,8 +66,6 @@
                     </footer>
                 </form>
             </section>
-        </main><footer>
-            <p>Progetto di Tecnologie Web - A.A. 2023/2024</p>
-        </footer>
+        </main>
     </body>
 </html>
