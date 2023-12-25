@@ -18,21 +18,18 @@ aside {
 }
 
 @media screen and (min-width: 768px) {
-    .leftAside{
-        width: 20%;
-        max-width: 200px;
-    }
-
     aside, .leftAside {
         width: 20%;
         max-width: 200px;
-        display: inline-block;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         background-color: var(--hilfeRed);
         border-radius: 10pt;
         margin: 5pt;
         vertical-align: top;
-        text-align: left;
-        padding-left: 10pt;
+        padding: 0 10pt;
         height: fit-content;
     }
 

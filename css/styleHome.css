@@ -325,6 +325,47 @@ h3 {
         width: 60%;
         margin: 10px;
     }
+
+    .partenzaContainer{
+        margin:0;
+        padding:0;
+        color:white;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .partenzaContainer input{
+        width:70%;
+        margin-right: 5pt;
+    }
+
+    .rangeContainer{
+        display:flex;
+        flex-direction: row;
+        margin-top: 5pt;
+    }
+
+    .rangeContainer span{
+        color:white;
+    }
+
+    .rangeContainer input{
+        width:80%;
+    }
+
+    .rangeValue, .partenza{
+        color:white;
+    }
+
+    .vai{
+        background-color: var(--hilfeBlue);
+        color:white;
+        border-radius: 15pt;
+        border: 1px solid white;
+        font-size: 14pt;
+        margin-bottom: 5pt;
+        width:50%;
+    }
 }
 
 
