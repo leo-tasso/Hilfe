@@ -82,7 +82,7 @@
                 rangeValue.textContent = rangeInput.value;
             });
         </script>
-        <h3>Raggio di ricerca</h3>
+        <h2>Raggio di ricerca</h2>
         <div class="partenzaContainer">
             <label for="partenza">Da: </label>
             <input type="text" id="partenza"/>
@@ -90,14 +90,14 @@
         <div class="rangeContainer">
             <label for="range" hidden>Distanza</label>
             <input id="range" type="range" min="0" max="100"/>
-            <span id="rangeValue">50</span>
+            <span id="rangeValue">50km</span>
         </div>
         <button type="button" class="vai">Vai</button>
     </aside>
     <main class="articles">
         <article>
             <header>
-                <h2>Titolo post</h2>
+                <h1>Titolo post</h1>
                 <div class="infoUtente">
                     <a href="profiloUtente.html"  class="nomeAutore">Lupo Lucio</a>
                     <a href="profiloUtente.html"><img class="profilo" id="profilo" src="../fotoProfiloIniziale.jpg" alt="profilo"></a>
@@ -156,7 +156,7 @@
             <footer>
                 <button type="button" onclick="openPopup()" class="buttonSalva"><img class="iconButton" src="../Icons/Heart.svg" alt="">Salva</button><input type="button" class="buttonPartecipa" name="Partecipa" value="Partecipa"><button type="button" class="buttonPartecipanti" onclick="openPopup()" data-progress-text="Partecipa" data-complete-text="Al completo"><span class="button__progress"></span><span class="button__text">Partecipanti 2/10</span></button>
                 <div id="popup">
-                    <h3>Utenti partecipanti</h3>
+                    <h1 class="titoloPopup">Utenti partecipanti</h1>
                     <a href="profiloUtente.html" class="infoUser">
                         <img src="../fotoProfiloIniziale.jpg" alt="Profilo 1">
                         <div class="profile">
@@ -188,7 +188,7 @@
         </article>
         <article>
             <header>
-                <h2>Titolo post</h2>
+                <h1>Titolo post</h1>
                 <div class="infoUtente">
                     <a href="profiloUtente.html" class="nomeAutore">Milo Cotogno</a>
                     <a href="profiloUtente.html"><img class="profilo" id="profilo2"  src="../fotoProfiloIniziale.jpg" alt="profilo"></a>
@@ -209,7 +209,7 @@
         </article>
         <button type="button" class="buttonAltriPost">Altri Post</button>
     </main><aside>
-        <h3>Profili suggeriti</h3>
+        <h2>Profili suggeriti</h2>
         <a href="profiloUtente.html" class="infoUser">
             <img src="../fotoProfiloIniziale.jpg" alt="Profilo 1">
             <div class="profile">

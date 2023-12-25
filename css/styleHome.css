@@ -8,6 +8,12 @@
     background-position: center center; /**per centrare l'immagine**/
 }
 
+.titoloPopup{
+    font-size: 13pt;
+    color:var(--hilfeRed);
+    font-weight: bold;
+}
+
 .newPostContainer{
     width: 100%;
     max-width: 700px;
@@ -271,7 +277,7 @@ article>footer>a {
 }
 
 h3 {
-    font-size: 11pt;
+    font-size: 15pt;
     font-weight: bold;
     color: white;
     padding: 5pt;
@@ -332,16 +338,23 @@ h3 {
         color:white;
         display: flex;
         justify-content: space-between;
+        align-items: center;
     }
 
     .partenzaContainer input{
-        width:70%;
-        margin-right: 5pt;
+        width:80%;
+        border-radius: 10pt;
+        border:none;
+        box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.9);
+        padding:5pt 3pt;
+
     }
 
     .rangeContainer{
         display:flex;
         flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
         margin-top: 5pt;
     }
 
@@ -361,7 +374,7 @@ h3 {
         background-color: var(--hilfeBlue);
         color:white;
         border-radius: 15pt;
-        border: 1px solid white;
+        border: 2px solid white;
         font-size: 14pt;
         margin-bottom: 5pt;
         width:50%;
