@@ -51,7 +51,7 @@
                 </section>
             <?php insertmap($post["idPostIntervento"],$post["PosizioneLongitudine"],$post["PosizioneLatitudine"],$post["Indirizzo"]); ?> 
             <footer>
-                <button type="button" onclick="openPopup()" class="buttonSalva"><img class="iconButton" src="../Icons/Heart.svg" alt="">Salva</button><input type="button" class="buttonPartecipa" name="Partecipa" value="Partecipa"><button type="button" class="buttonPartecipanti" onclick="openPopup()" data-progress-text="Partecipa" data-complete-text="Al completo"><span class="button__progress"></span><span class="button__text">Partecipanti 2/10</span></button>
+                <button type="button" class="buttonSalva" id="buttonSalva<?php echo $post["idPostIntervento"]?>" onclick="toggleSalva(<?php echo $post["idPostIntervento"]?>)"><?php if($dbh->isPostSaved($post["idPostIntervento"])){echo '<img class="iconButton" src="../Icons/Heart.svg" alt="">Salvato';}else{echo '<img class="iconButton" src="../Icons/HeartEmpty.svg" alt="">Salva';}?></button><input type="button" class="buttonPartecipa" name="Partecipa" value="Partecipa"><button type="button" class="buttonPartecipanti" onclick="openPopup()" data-progress-text="Partecipa" data-complete-text="Al completo"><span class="button__progress"></span><span class="button__text">Partecipanti 2/10</span></button>
                 <div id="popup">
                     <h3>Utenti partecipanti</h3>
                     <a href="profiloUtente.html" class="infoUser">

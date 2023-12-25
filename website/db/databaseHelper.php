@@ -9,4 +9,9 @@ interface DatabaseHelper{
     public function getProfilePic($id);
     public function getNotification();
     public function getSuggestedUsers($n);
+    public function isPostSaved($n);
+    public function isPartecipating($n);
+    public function savePost($id,$set);
+
+
 }

@@ -132,7 +132,7 @@ class DatabaseHelperMySql implements DatabaseHelper
                 $limitValue = $n - count($suggestedUsers);
                 $params = array_merge([$_SESSION["idUser"], $_SESSION["idUser"], $_SESSION["idUser"]], array_column($suggestedUsers, 'idUser'));
                 $params = array_merge($params, [$limitValue]);
-                $types = 'iii'.str_repeat('s', count($suggestedUsers)) .'i';
+                $types = 'iii' . str_repeat('s', count($suggestedUsers)) . 'i';
                 $stmt->bind_param($types, ...$params);
                 $stmt->execute();
                 $result = $stmt->get_result();
@@ -146,15 +146,15 @@ class DatabaseHelperMySql implements DatabaseHelper
                 $params = array_merge(array_column($suggestedUsers, 'idUser'), [$_SESSION["idUser"], $limitValue]);
                 $types = str_repeat('s', count($suggestedUsers)) . 'ii';
                 $stmt->bind_param($types, ...$params);
-            
+
                 $stmt->execute();
                 $result = $stmt->get_result();
                 $entries = $result->fetch_all(MYSQLI_ASSOC);
-            
+
                 foreach ($entries as $key => $entry) {
                     $entries[$key]["Motivazione"] = CUTE_PHRASES[array_rand(CUTE_PHRASES)];
                 }
-            
+
                 $suggestedUsers = array_merge($suggestedUsers, $entries);
             }
 
@@ -174,6 +174,47 @@ class DatabaseHelperMySql implements DatabaseHelper
 
             $suggestedUsers = array_merge($suggestedUsers, $entries);
             return $suggestedUsers;
+        }
+    }
+    public function isPostSaved($id)
+    {
+        if (isLogged()) {
+            $stmt = $this->db->prepare("SELECT * FROM Postsalvati WHERE idUser = ? AND idPostInterventi = ?");
+            $stmt->bind_param('ii', $_SESSION["idUser"], $id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return count($result->fetch_all(MYSQLI_ASSOC)) > 0;
+        } else {
+            return false;
+        }
+    }
+    public function isPartecipating($id)
+    {
+        if (isLogged()) {
+            $stmt = $this->db->prepare("SELECT * FROM Interventi WHERE idUser = ? AND idPostInterventi = ?");
+            $stmt->bind_param('ii', $_SESSION["idUser"], $id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return count($result->fetch_all(MYSQLI_ASSOC)) > 0;
+        } else {
+            return false;
+        }
+    }
+    public function savePost($id, $set)
+    {
+        if (isLogged()) {
+            if ($set == true) {
+                $stmt = $this->db->prepare("INSERT INTO Postsalvati (idPostInterventi, idUser) VALUES (?, ?)");
+                $stmt->bind_param('ii', $id, $_SESSION["idUser"]);
+                $stmt->execute();
+            } else {
+                $stmt = $this->db->prepare("DELETE FROM  Postsalvati WHERE idPostInterventi = ? AND idUser = ?");
+                $stmt->bind_param('ii', $id, $_SESSION["idUser"]);
+                $stmt->execute();
+            }
+            return $this->isPostSaved($id);
+        } else {
+            return false;
         }
     }
 }
