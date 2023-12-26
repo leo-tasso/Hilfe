@@ -7,6 +7,8 @@
         <link rel="icon" type="image/x-icon" href="../LogoRes/1x/LogoNuovo.png">
         <link href="../css/style.css" rel="stylesheet" type="text/css"/>
         <link href="../css/styleUserProfile.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/styleArticle.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/styleLayoutDesktop.css" rel="stylesheet" type="text/css"/>
         <script>
             /* Set the width of the sidebar to 250px (show it) */
             function openNav() {
@@ -40,82 +42,126 @@
                 </div>
                 <button class="openbtn" onclick="openNav()">&#9776; </button>
             </nav>
-            <article>
-                <h1>Lino Fabbri</h1>
-                <ul>
-                    <li><img src="../Lino.jpeg" alt=""/><li><a href="followers.html">Followers: </a></li><li><a href="follow.html">Follow:</a></li><li><a href="statistiche.html">Partecipazioni:</a></li><li><a href="infoUtente.html">Altre informazioni...</a></li>
-                </ul>
-                <input type="button" name="Segui" value="Segui">
-            </article>
-            <aside>
-                <h2>Biografia</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nulla elit, efficitur ut semper et, tempus faucibus sapien. Nunc euismod, felis non mattis fermentum, nibh arcu mollis augue, id euismod lectus turpis ultricies sem. Nunc cursus a nunc sit amet scelerisque. Curabitur nec suscipit nisi. Ut sit amet purus cursus, ullamcorper dolor sit amet, pharetra eros. Nunc sollicitudin pharetra justo.</p>
-            </aside>
-        </header>
-        <main>
-            <article>
-                <header>
-                    <h2>Titolo post</h2>
-                    <div class="infoUtente">
-                        <p class="nomeAutore">Lupo Lucio</p>
-                        <input class="profilo" type="image" src="../fotoProfiloIniziale.jpg" alt="profilo">
-                    </div>
+            <section class="infoUtenteProfilo">
+                <header class="topInfo">
+                    <h1 class="nomeUtente">Lino Fabbri</h1>
+                    <input class="segui" type="button" name="Segui" value="Segui">
                 </header>
-                <section lang="zxx">
-                    <p class="date">gg/mm/aaaa</p>
-                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                        aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum."</p>
-                    <p class="time">Data e ora dell'incontro</p>
-                    <p class="people">Persone necessarie: 10</p>
-                    <table>
-                        <tr>
-                            <th>Materiale necessario</th>
-                            <th>Quantità</th>
-                        </tr>
-                        <tr>
-                            <td>Badile</td>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <td>Stivali di gomma</td>
-                            <td>1 paio</td>
-                        </tr>
-                        <tr>
-                            <td>Secchio</td>
-                            <td>1</td>
-                        </tr>
-                    </table>
-                </section>
-                <div id="map" class="openmap"></div>
-                <script>
-                    const map = L.map('map', {
-                        center: [-29.50, 145],
-                        zoom: 3.5
-                    });
-    
-                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' }).addTo(map);
-    
-    
-                    const marker1 = L.marker([-37.699450, 176.279420]).addTo(map);
-                    const marker2 = L.marker([-27.643310, 153.305140]).addTo(map);
-                    const marker3 = L.marker([-33.956330, 122.150270]).addTo(map);
-                    const marker4 = L.marker([-34.962390, 117.391220]).addTo(map);
-                    const marker5 = L.marker([-17.961210, 122.214820]).addTo(map);
-                    const marker6 = L.marker([-16.505960, 151.751520]).addTo(map);
-                    const marker7 = L.marker([-22.594400, 167.484440]).addTo(map);
-                    const marker8 = L.marker([-37.977000, 177.057000]).addTo(map);
-                </script>
-                
-                <footer>
-                    <button type="button" class="buttonSalva"><i class="fa fa-fw fa-heart"></i> Salva</button><input type="button" class="buttonPartecipa" name="Partecipa" value="Partecipa"><button type="button" class="buttonPartecipanti" data-progress-text="Partecipa" data-complete-text="Al completo"><div class="button__progress"></div><span class="button__text">Partecipanti 2/10</span>
-                </footer>
-            </article>
-        </main><aside>
+                <div class="mainInfo">
+                    <img class="fotoProfiloPrincipale" src="../Lino.jpeg" alt=""/>
+                    <div class="bio">
+                        <h2>Biografia</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nulla elit, efficitur ut semper et, tempus faucibus sapien. Nunc euismod, felis non mattis fermentum, nibh arcu mollis augue, id euismod lectus turpis ultricies sem. Nunc cursus a nunc sit amet scelerisque. Curabitur nec suscipit nisi. Ut sit amet purus cursus, ullamcorper dolor sit amet, pharetra eros. Nunc sollicitudin pharetra justo.</p>
+                    </div>
+                </div>
+                <aside class="bottomInfo">
+                    <ul>
+                        <li><a href="followers.html">Followers: </a></li><li><a href="follow.html">Follow:</a></li><li><a href="statistiche.html">Partecipazioni:</a></li>
+                    </ul>
+                </aside>
+            </section>
+        </header>
+        <div class="centralContent">
+            <main class="articles">
+                <article>
+                    <header>
+                        <h1>Titolo post</h1>
+                        <div class="infoUtente">
+                            <a href="profiloUtente.html"  class="nomeAutore">Lupo Lucio</a>
+                            <a href="profiloUtente.html"><img class="profilo" id="profilo" src="../fotoProfiloIniziale.jpg" alt="profilo"></a>
+                        </div>
+                    </header>
+                    <div class="content">
+                    <section lang="zxx">
+                        <h3>Dettagli Annuncio</h3>
+                        <p class="date">gg/mm/aaaa</p>
+                        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                            culpa qui officia deserunt mollit anim id est laborum."</p>
+                        <p class="time">Data e ora dell'incontro</p>
+                        <p class="people">Persone necessarie: 10</p>
+                        <table>
+                            <tr>
+                                <th>Materiale necessario</th>
+                                <th>Quantità</th>
+                            </tr>
+                            <tr>
+                                <td>Badile</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>Stivali di gomma</td>
+                                <td>1 paio</td>
+                            </tr>
+                            <tr>
+                                <td>Secchio</td>
+                                <td>1</td>
+                            </tr>
+                        </table>
+                    </section>
+                    <div id="map" class="openmap"></div>
+                    </div>
+                    <script>
+                        const map = L.map('map', {
+                            center: [-29.50, 145],
+                            zoom: 3.5
+                        });
+        
+                        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' }).addTo(map);
+        
+        
+                        const marker1 = L.marker([-37.699450, 176.279420]).addTo(map);
+                        const marker2 = L.marker([-27.643310, 153.305140]).addTo(map);
+                        const marker3 = L.marker([-33.956330, 122.150270]).addTo(map);
+                        const marker4 = L.marker([-34.962390, 117.391220]).addTo(map);
+                        const marker5 = L.marker([-17.961210, 122.214820]).addTo(map);
+                        const marker6 = L.marker([-16.505960, 151.751520]).addTo(map);
+                        const marker7 = L.marker([-22.594400, 167.484440]).addTo(map);
+                        const marker8 = L.marker([-37.977000, 177.057000]).addTo(map);
+                    </script>
+                    <footer>
+                        <button type="button" onclick="openPopup()" class="buttonSalva"><img class="iconButton" src="../Icons/Heart.svg" alt="">Salva</button><input type="button" class="buttonPartecipa" name="Partecipa" value="Partecipa"><button type="button" class="buttonPartecipanti" onclick="openPopup()" data-progress-text="Partecipa" data-complete-text="Al completo"><span class="button__progress"></span><span class="button__text">Partecipanti 2/10</span></button>
+                        <div id="popup">
+                            <h1 class="titoloPopup">Utenti partecipanti</h1>
+                            <a href="profiloUtente.html" class="infoUser">
+                                <img src="../fotoProfiloIniziale.jpg" alt="Profilo 1">
+                                <div class="profile">
+                                <span>Luna Fabbri</span>
+                                <p class="amici">Ti Segue - n followers comuni</p></div>
+                            </a>
+                            <a href="profiloUtente.html" class="infoUser">
+                                <img src="../fotoProfiloIniziale.jpg" alt="Profilo 1">
+                                <div class="profile">
+                                <span>Lupo Lucio</span>
+                                <p class="amici"> Ti segue - n followers comuni</p></div>
+                            </a>
+                            <button class="closePopup" onclick="closePopup()">Indietro</button>
+                        </div>
+                        <div id="overlay"></div>
+                        <script>
+        
+                            function openPopup() {
+                              document.getElementById("popup").style.display = "block";
+                              document.getElementById("overlay").style.display = "block";
+                            }
+                        
+                            function closePopup() {
+                              document.getElementById("popup").style.display = "none";
+                              document.getElementById("overlay").style.display = "none";
+                            }
+                          </script>
+                    </footer>
+                </article>
+        </main><aside class="rightAside">
+            <h2>Altre informazioni</h2>
+            <ul>
+                <li><a href="followers.html">Followers: </a></li><li><a href="follow.html">Follow:</a></li><li><a href="statistiche.html">Partecipazioni:</a></li><li><a href="infoUtente.html">Altre informazioni...</a></li>
+            </ul>
         </aside>
-        <footer>
+        </div>
+        <footer class="footer">
             <p>Progetto di Tecnologie Web - A.A. 2023/2024</p>
         </footer>
     </body>

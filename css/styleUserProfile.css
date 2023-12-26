@@ -1,274 +1,98 @@
-body>header>article:not(ul){
-    display: inline-block;
+.profilo{
+    float:right;
+    border: 2px solid var(--hilfeRed);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat; /**non ripete l'immagine nel caso il bottone fosse più grande dell'immagine**/
+    background-position: center center; /**per centrare l'immagine**/
 }
 
 /**immagine profilo**/
-body>header>article>ul>li img{
-    max-height: 100px;
+.fotoProfiloPrincipale{
+    height: 150px;
+    width: auto;
     max-width: 100%;
-    display: inline;
-    float:left;
-    margin-right: 20pt;
+    
     border-radius: 50%;
     border:4px solid white;
 }
 
 /**modifica bottone Segui**/
-header>article>input{
+.segui{
     border-radius:5px;
     border: 2px solid white;
     float:right;
     padding:5px 15px;
-    background-color: #f4c03e;
+    background-color:var(--hilfeRed);
     color: white;
     font-weight: bold;
     font-size:12pt;  
-    box-shadow: 0px 6px 5px 1px #e79417;
+    box-shadow: 0px 6px 5px 1px var(--hilfeRed);
 }
 
 /**passaggio sopra a bottone segui**/
-header>article>input:hover{
+.segui:hover{
     background-color: white;
     color:#087e8b;
 }
 
-body>header>article{
-    background-color: #f4c03e;
-    border-radius: 10pt;
-    padding: 10pt;
-    margin-top:10pt;
-    width:90%;
+body{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
 }
-
-body>header>article>ul>li a{
-    color:white;
-    text-decoration: none;
-    font-size: 10pt;
-}
-
-body>header>article>ul>li a:hover{
-    color:#087e8b;
-    text-decoration: underline;
-}
-
 /**nome utente**/
-body>header h1{
+.nomeUtente{
     font-size: 24pt;
     color:white;
     margin:0;
 }
 
-
-header ul, footer ul, nav ul, article li{
-    list-style: none;
-}
-
-body>main>article{
-    margin: 20px;
-    border: 3px solid  #087e8b;
-    padding: 10px;
-    border-radius: 10px;
-    margin: 5%;
-    width:90%;
-    font-size: 10pt;
-}
-
-/**qui modifico stile bio**/
-body>header>aside{
-    margin-top:10px;
-    background-color: white;
-    border-top:3px solid #fcdc4d;
-    border-bottom:3px solid #fcdc4d;
-    width: 100%;
-}
-
-/**modifica titolo biografia**/
-body>header>aside h2{
-    font-size: 10pt;
-    color: rgb(48, 46, 46);
-}
-
-body>header>aside p{
-    font-size: 9pt;
-    text-align:justify;
-}
-
-
-article>header>h2{
-    font-size: 15pt;
-}
-
-article>header>p{
-    font-size: 10pt;
-}
-
-article>footer>ul>li{
-    display: inline-block;
-
-}
-
-article>footer a{
-    background-color: white;
-    border-radius: 5px;
-    font-size: 10pt;
-    text-decoration: none;
-    color: rgb(48, 46, 46);
-    border-style:solid;
-}
-
-nav a:hover{
-    color:#087e8b;
-    background-color: white;
-    font-weight: bold;
-}
-
-main>article>section>p{
+.infoUtenteProfilo{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--hilfeRed);
     margin:5pt;
+    border-radius: 10pt;
 }
 
-article>header .infoUtente, article>header p, article>header h2{
-    display:inline-block;
+.topInfo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 5pt;
+    padding: 3pt;
 }
 
-article>header h2{
-    margin-top:15pt;
+.mainInfo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding:5pt;
 }
 
-article>header .infoUtente{
-    float:right;
-    vertical-align: top;
-}
-
-.infoUtente p{
-    margin-right: 5pt;
-}
-
-/**per modificare stile della tabella**/
-table {
-    border-collapse: collapse;
-    width: 70%;
-    margin: 5pt auto;
-}
-
-td,
-th {
-    border: 1px solid #ddd;
-    padding: 2pt;
-    font-size: 9pt;
-}
-
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-th {
-    padding: 5pt;
-    text-align: left;
-    background-color: #087e8b;
+.bio{
+    padding:0;
+    margin:0;
+    display: flex;
+    flex-direction: column;
     color: white;
+    width:60%;
+    text-align: justify;
 }
 
-/**posiziona tab in alto**/
-header>div {
-    margin: 10pt auto 0 auto;
-    text-align: center;
+.bottomInfo ul{
+    padding:5pt;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-between;
 }
 
-body>main>article {
-    border: 3px solid #087e8b;
-    padding: 5px;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 700px;
-    margin-bottom: 10pt;
-    margin-left: 5%;
-}
-
-body>main>article p {
+.bottomInfo li a{
+    color:white;
+    text-decoration: none;
     font-size: 10pt;
 }
-
-.date, .infoUtente p{
-    font-size: 8pt;
-}
-
-.time, .people{
-    font-weight: bold;
-}
-
-h2 {
-    font-size: 13pt;
-    font-weight: bold;
-}
-
-article>footer {
-    text-align: center;
-}
-
-article>footer>input {
-    background-color: #087e8b;
-    color: white;
-}
-
-article>footer>a {
-    text-decoration: none;
-    color: white;
-    background-image: linear-gradient(to right, #087e8b, #0e4c53);
-}
-
-.openmap {
-    width: 400px;
-    height: 400px;
-    z-index: 0;
-    margin: 5pt auto;
-    border: 2px solid #087e8b;
-    border-radius: 10pt;
-    /**tondeggiante o quadrata?**/
-}
-
-.buttonPartecipa, .buttonPartecipanti, .buttonSalva{
-    font-size: 9pt;
-    font-family: "Fira Sans", sans-serif;
-    padding: 5pt;
-    cursor: pointer;
-    overflow: hidden;
-    position: relative;
-    border:1px solid white;
-    color: #ffffff;
-}
-
-.buttonSalva{
-    background: #f4c03e;
-    border-top-left-radius: 10pt;
-    border-bottom-left-radius: 10pt;
-    margin-right: 0;
-}
-
-.buttonPartecipa{
-    background: #087e8b;
-    margin-left: 0;
-    margin-right: 0;
-}
-
-.buttonPartecipanti {
-    background: #087e8b;
-    border-top-right-radius: 10pt;
-    border-bottom-right-radius: 10pt;
-    min-width: 50px;
-    margin-left:0;
-}
-
-.button__progress {
-    position: absolute;
-    height: 100%;
-    width: 0%;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.2);
-    transition: width 0.3s;
-}
-
-.button__text {
-    position: relative;
-}
-
