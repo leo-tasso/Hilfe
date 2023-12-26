@@ -11,14 +11,11 @@
     float:left;
 }
 
-.ricerca{
-    display: inline-block;
-    background-color: var(--hilfeBlue);
-    padding-top: 5pt;
-    padding-bottom: 5pt;
+.search{
     margin:0 5pt;
-    text-align: center;
-    border-radius: 7pt;
+    text-align: left;
+    border-radius: 15pt;
+    border: 1px solid grey;
 }
 
 .ricerca input{
@@ -89,11 +86,15 @@ h1{
 
 @media screen and (min-width: 768px) {
     .followers{
-        width:60%;
-        margin:10pt;
+        width:50%;
         box-shadow: 2px 2px 4px grey;
         border-radius: 10pt;
+        margin:5pt;
         background-color: white;
+    }
+
+    .centralContent{
+        align-items: flex-start;
     }
 
 }
