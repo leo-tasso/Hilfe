@@ -1,5 +1,5 @@
 
-window.onload = function() {
+window.onload = function () {
     updateAllButtons();
 };
 function updateAllButtons() {
@@ -76,9 +76,24 @@ function togglePartecipa(idPost, maxPeople) {
     });
 }
 
-function openPopup() {
+function openPopup(idPost) {
     document.getElementById("popup").style.display = "block";
     document.getElementById("overlay").style.display = "block";
+    $.ajax({
+        url: "../utils/manageButtons.php",
+        type: "POST",
+        data: {
+            id: idPost,
+            action: 'participants'
+        },
+        success: function (response) {
+            let participateButton = document.getElementById("buttonPartecipa" + idPost);
+            document.getElementById("popup").innerHTML = "<h3>Utenti partecipanti</h3>" + response.participants + '<button class="closePopup" onclick="closePopup()">Indietro</button>';
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
 }
 
 function closePopup() {

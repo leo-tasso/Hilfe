@@ -180,7 +180,7 @@ class DatabaseHelperMySql implements DatabaseHelper
             $stmt = $this->db->prepare("SELECT * FROM PostSalvati WHERE idUser = ? AND idPostInterventi = ?");
             $stmt->bind_param('ii', $_SESSION["idUser"], $id);
             $stmt->execute();
-            $result = $stmt->get_result();   
+            $result = $stmt->get_result();
             return count($result->fetch_all(MYSQLI_ASSOC)) > 0;
         } else {
             return false;
@@ -224,7 +224,7 @@ class DatabaseHelperMySql implements DatabaseHelper
                 $stmt->execute();
             } else {
                 $stmt = $this->db->prepare("DELETE FROM  Interventi WHERE idPostInterventi = ? AND idUser = ?");
-                $stmt->bind_param('ii', $id, $_SESSION["idUser"]);  
+                $stmt->bind_param('ii', $id, $_SESSION["idUser"]);
                 $stmt->execute();
             }
             return $this->isParticipating($id);
@@ -232,12 +232,76 @@ class DatabaseHelperMySql implements DatabaseHelper
             return false;
         }
     }
-    public function getParticipants($id){
+    public function getParticipants($id)
+    {
         $stmt = $this->db->prepare("SELECT * FROM Interventi where idPostInterventi = ?");
         $stmt->bind_param('i', $id);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function addDescription($users)
+    {
+        $suggestedUsers = [];
+
+        if (isLogged()) {
+            foreach ($users as $user) {
+                $userData = $this->getUserFromId($user)[0];
+                if ($user == $_SESSION["idUser"]) {
+                    $userData["seiTu"] = 1;
+                }
+                else if ($this->followsMe($user)) {
+                    $userData["seguace"] = 1;
+                } else if ($this->followInCommon($user) > 0) {
+                    $userData["NumSeguitiInComune"] = $this->followInCommon($user);
+                } else {
+                    $userData["Motivazione"] = CUTE_PHRASES[array_rand(CUTE_PHRASES)];
+                }
+                $suggestedUsers[] = $userData;
+            }
+            return $suggestedUsers;
+        } else {
+            foreach ($users as $user) {
+                $userData = $this->getUserFromId($user);
+                $userData["Motivazione"] = CUTE_PHRASES[array_rand(CUTE_PHRASES)];
+                $suggestedUsers[] = $userData;
+            }
+            return $suggestedUsers;
+        }
+    }
+
+    public function followsMe($otherUserId)
+    {
+        if (isLogged()) {
+            $stmt = $this->db->prepare("SELECT COUNT(*) FROM Seguiti WHERE idSeguito = ? AND idSeguace = ?");
+            $stmt->bind_param('ii', $_SESSION["idUser"], $otherUserId);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $count = $result->fetch_row()[0];
+            return $count > 0;
+        } else {
+            return false;
+        }
+    }
+
+    public function followInCommon($otherUserId)
+    {
+        if (isLogged()) {
+            $stmt = $this->db->prepare("
+                SELECT COUNT(s1.idSeguito) AS NumSeguitiInComune
+                FROM Seguiti s1
+                JOIN Seguiti s2 ON s1.idSeguito = s2.idSeguito AND s1.idSeguace = s2.idSeguace
+                WHERE s1.idSeguace = ? AND s2.idSeguace = ?
+            ");
+            $stmt->bind_param('ii', $_SESSION["idUser"], $otherUserId);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $count = $result->fetch_row()[0];
+            return $count;
+        } else {
+            return 0;
+        }
     }
 }
 

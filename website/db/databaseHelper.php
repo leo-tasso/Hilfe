@@ -14,7 +14,7 @@ interface DatabaseHelper{
     public function isParticipating($n);
     public function participatePost($id,$set);
     public function getParticipants($id);
-
-
-
+    public function addDescription($users);
+    public function followsMe($otherUserId);
+    public function followInCommon($otherUserId);
 }

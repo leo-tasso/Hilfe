@@ -32,6 +32,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header('Content-Type: application/json');
             echo json_encode($response);
             break;
+        case 'participants':
+            $participants = $dbh->getParticipants($id);
+            $idUsers = array_column($participants, 'idUser');
+            $users = $dbh->addDescription($idUsers);
+            ob_start();
+            foreach ($users as $user) {
+                require  '../template/profilePreview.php';
+            }
+            $response = array('participants' =>  ob_get_clean());
+            header('Content-Type: application/json');
+            echo json_encode($response);
+            break;
     }
 } else {
     http_response_code(405);

@@ -51,7 +51,7 @@
                 </section>
             <?php insertmap($post["idPostIntervento"],$post["PosizioneLongitudine"],$post["PosizioneLatitudine"],$post["Indirizzo"]); ?> 
             <footer>
-                <button type="button" class="buttonSalva" id="buttonSalva<?php echo $post["idPostIntervento"]?>" onclick="toggleSalva(<?php echo $post["idPostIntervento"]?>,<?php echo $post["PersoneRichieste"];?>)"><img class="iconButton" src="../Icons/HeartEmpty.svg" alt="">Salva</button><button type="button" class="buttonPartecipa" id="buttonPartecipa<?php echo $post["idPostIntervento"]?>" name="Partecipa" onclick="togglePartecipa(<?php echo $post["idPostIntervento"]?>,<?php echo $post["PersoneRichieste"];?>)">Partecipa</button><button type="button" class="buttonPartecipanti" onclick="openPopup()" data-progress-text="Partecipa" data-complete-text="Al completo"><span id="progress<?php echo $post["idPostIntervento"]?>" class="button__progress"></span><span id="partecipaLablel<?php echo $post["idPostIntervento"]?>" class="button__text">Partecipanti 0/0</span></button>
+                <button type="button" class="buttonSalva" id="buttonSalva<?php echo $post["idPostIntervento"]?>" onclick="toggleSalva(<?php echo $post["idPostIntervento"]?>,<?php echo $post["PersoneRichieste"];?>)"><img class="iconButton" src="../Icons/HeartEmpty.svg" alt="">Salva</button><button type="button" class="buttonPartecipa" id="buttonPartecipa<?php echo $post["idPostIntervento"]?>" name="Partecipa" onclick="togglePartecipa(<?php echo $post["idPostIntervento"]?>,<?php echo $post["PersoneRichieste"];?>)">Partecipa</button><button type="button" class="buttonPartecipanti" onclick="openPopup(<?php echo $post["idPostIntervento"]?>)" data-progress-text="Partecipa" data-complete-text="Al completo"><span id="progress<?php echo $post["idPostIntervento"]?>" class="button__progress"></span><span id="partecipaLablel<?php echo $post["idPostIntervento"]?>" class="button__text">Partecipanti 0/0</span></button>
                 <div id="popup">
                     <h3>Utenti partecipanti</h3>
                     <a href="profiloUtente.html" class="infoUser">
@@ -80,18 +80,7 @@
     <aside>
         <h3>Profili suggeriti</h3>
         <?php foreach($dbh->getSuggestedUsers(START_SUGGESTED_USERS) as $user):?>
-        <a href="profiloUtente.php/<?php echo $user["idUser"] ?>" class="infoUser">
-            <img src="../<?php echo $dbh->getProfilePic($user["idUser"]);?>" alt="immagine profilo di <?php echo $user["Name"] ?> <?php echo $user["Surname"] ?>">
-            <div class="profile">
-                <span><?php echo $user["Name"] ?> <?php echo $user["Surname"] ?></span>
-                <p class="amici"><?php 
-                if(isset($user["seguace"])){ echo "Ti Segue";} 
-                if(isset($user["seguace"]) && isset($user["NumSeguitiInComune"])){ echo " - ";}
-                if(isset($user["NumSeguitiInComune"])){ echo $user["NumSeguitiInComune"]." Seguiti in comune";}
-                if(isset($user["Motivazione"])){ echo $user["Motivazione"];}
-                ?></p>
-            </div>
-        </a>
+            <?php require 'profilePreview.php';?>
         <?php endforeach;?>
     </aside>
 </div>
