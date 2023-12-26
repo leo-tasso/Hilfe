@@ -3,7 +3,27 @@ main{
     flex-direction: column;
 }
 
-#titolo, #annuncio{
+.container{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.colonna1, .colonna2{
+    width: 100%;
+}
+
+div{
+    margin:0;
+    padding:0;
+}
+
+#titolo{
+    margin-top:0;
+}
+
+#titolo, #annuncio,.giorno, .luogo, .pers, .ora{
     width:100%;
     margin-bottom: 10pt;
 }
@@ -25,12 +45,14 @@ textarea::placeholder{
     width: 80%;
 }
 
-.giorno, .luogo, .pers{
-    display: flex;
-    font-size: 10pt;
-    margin: 10pt 0; 
+.giorno, .luogo, .pers, .ora{
+    display: flex; 
     align-items: center;
     justify-content: space-between;
+}
+
+label{
+    font-size: 12pt;
 }
 
 .giorno input, .luogo input{
@@ -150,11 +172,12 @@ h1{
 
 textarea{
     resize: none;
-    height: 50%;
+    width: 100%;
+    height: 150px;
 }
 
 #numero{
-    width: 20pt;
+    width:20pt;
     text-align: center;
 }
 
@@ -164,7 +187,25 @@ textarea{
         display: flex;
         flex-direction:row;
         justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .centralContent{
+        display: flex;
         align-items: center;
+        justify-content: center;
+        margin: 0;
+    }
+
+    .form{
+        width: 90%;
+    }
+
+    main{
+        width: 80%;
+        box-shadow: 2px 2px 4px grey;
+        background-color: white;
+        border-radius: 10pt;
     }
 
     .form>footer{
@@ -175,6 +216,10 @@ textarea{
 
     #titolo, textarea, .luogo input, .giorno input, #oggetto{
         padding:5pt 2pt;
+    }
+
+   #titolo{
+        margin-bottom: 0;
     }
 
     .pubblica, .annulla{
@@ -188,23 +233,19 @@ textarea{
     }
 
     .colonna1, .colonna2{
+        display: flex;
+        flex-direction: column;
+        align-self: flex-start;
+        justify-content: center;
         width:48%;
-        padding-bottom: 0;
     }
 
     .colonna2{
-        width:48%; 
+        padding-top: 13pt; 
     }
 
     .giorno, .luogo, .pers{
         font-size: 12pt;
     }
 
-    .form{
-        box-shadow: 2px 2px 4px grey;
-        background-color: white;
-        border-radius: 10pt;
-        padding:10pt;
-        margin:auto;
-    }
 }
