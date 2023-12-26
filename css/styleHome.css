@@ -65,73 +65,6 @@ main>article section>p{
     margin:5pt;
 }
 
-section>h3{
-    color: var(--hilfeGrey);
-    margin:0;
-}
-
-.articles header{
-    display:flex;
-    justify-content:space-between;
-    align-items: center;
-}
-
-article>header {
-    margin: 0 15px;
-}
-
-article>header h2{
-    margin-top:15pt;
-}
-
-article>header .infoUtente{
-    display:flex;
-    align-items: center;
-    margin-left: auto;
-}
-
-.infoUtente{
-    margin:0;
-    text-decoration: none;
-    color: var(--hilfeGrey);  
-}
-
-.nomeAutore{
-    margin-right: 5pt;
-    text-decoration: none;
-    color: var(--hilfeGrey);
-}
-
-/**per modificare stile della tabella**/
-table {
-    border-collapse: collapse;
-    width: 70%;
-    margin: 10pt auto;
-}
-
-td,
-th {
-    border: 1px solid #ddd;
-    padding: 2pt;
-    font-size: 9pt;
-}
-
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-th {
-    padding: 5pt;
-    text-align: left;
-    background-color: var(--hilfeBlue);
-    color: white;
-}
-
-/**posiziona tab in alto**/
-.newPostContainer {
-    margin: 10pt auto 0 auto;
-    text-align: center;
-}
 
 .navbar a {
     background-color: var(--hilfeRed);
@@ -159,141 +92,6 @@ th {
 .navbar a:hover {
     /**deve cambiare colore una volta cliccato**/
     background-color: var(--hilfeBlue);
-}
-
-body>header>ul i{
-    float:right;
-}
-
-body main article {
-    padding: 5px;
-    border-radius: 10px;
-    margin-bottom: 10pt;
-    color: var(--hilfeGrey);
-    text-align: left;
-    background-color: white;
-    box-shadow: 2px 2px 4px grey;
-}
-
-body main article p {
-    font-size: 10pt;
-}
-
-.date, .infoUtente p{
-    font-size: 8pt;
-}
-
-.time, .people, .phoneNumber{
-    font-weight: bold;
-}
-
-h2 {
-    font-size: 19pt;
-    font-weight: bold;
-}
-
-article>footer {
-    margin: 10px;
-    text-align: center;
-}
-
-article>footer>input {
-    background-color: var(--hilfeBlue);
-    color: white;
-}
-
-article>footer>a {
-    text-decoration: none;
-    color: white;
-    background-image: linear-gradient(to right, var(--hilfeBlue), #0e4c53);
-}
-
-.openmap {
-    width: 85%;
-    height: 200px;
-    z-index: 0;
-    margin: 5pt auto;
-    border: 2px solid var(--hilfeRed);
-    border-radius: 10pt;
-}
-
-
-.buttonPartecipa, .buttonPartecipanti, .buttonSalva, .buttonAltriPost{
-    font-size: 9pt;
-    font-family: "Fira Sans", sans-serif;
-    padding: 5pt;
-    cursor: pointer;
-    overflow: hidden;
-    position: relative;
-    border:1px solid white;
-    color: #ffffff;
-}
-
-.buttonSalva{
-    background: var(--hilfeRed);
-    border-top-left-radius: 10pt;
-    border-bottom-left-radius: 10pt;
-    margin-right: 0;
-}
-
-.buttonPartecipa{
-    background: var(--hilfeBlue);
-    margin-left: 0;
-    margin-right: 0;
-}
-
-.buttonPartecipanti {
-    background: color-mix(in srgb,var(--hilfeBlue),#000 30%); 
-    border-top-right-radius: 10pt;
-    border-bottom-right-radius: 10pt;
-    min-width: 50px;
-    margin-left:0;
-}
-.buttonSalva:hover{
-    background: var(--hilfeBlue);
-}
-
-/*.buttonPartecipanti:hover, commentare la regola sopra se il pulsante è premibile */
-.buttonPartecipa:hover{
-    background: var(--hilfeRed);
-}
-
-.buttonPartecipanti:hover {
-    background: color-mix(in srgb,var(--hilfeRed),#000 30%); 
-}
-
-.button__progress {
-    position: absolute;
-    height: 100%;
-    width: 0%;
-    top: 0;
-    left: 0;
-    background: var(--hilfeBlue);
-    transition: width 0.3s;
-    border-radius: 0 10pt 10pt 0;
-}
-
-.button__text {
-    position: relative;
-}
-
-h3 {
-    font-size: 15pt;
-    font-weight: bold;
-    color: white;
-    padding: 5pt;
-}
-
-.buttonAltriPost{
-    margin: 10px auto ;
-    font-size: large;
-    background: var(--hilfeRed);
-    border-radius: 13pt;
-    width: 20%;
-}
-
-.buttonAltriPost:hover{
-    background: var(--hilfeBlue);
 }
 
 .leftAside{
@@ -359,7 +157,6 @@ h3 {
     cursor: pointer;
 }
 
-
 /**media query per dispositivi non mobile**/
 @media screen and (min-width: 768px) {
 
@@ -370,36 +167,8 @@ h3 {
         float: left;
         margin:0px 5px;
     }
-
-    body>header>ul {
-        display: inline-block;
-    }
-
-    body>header>ul a {
-        float: right;
-        width: 50%;
-        text-align: center;
-    }
-
-    .content{
-        display:flex;
-        width: 100%;
-    }
-
-    .openmap{
-        width: 40%;
-        height:auto;
-        margin: 10px;
-    }
-
-    .content>section{
-        width: 60%;
-        margin: 10px;
-    }
-
     
 }
-
 
 
 /**CSS per il pop up**/ 
