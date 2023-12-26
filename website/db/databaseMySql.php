@@ -167,11 +167,9 @@ class DatabaseHelperMySql implements DatabaseHelper
             $stmt->execute();
             $result = $stmt->get_result();
             $entries = $result->fetch_all(MYSQLI_ASSOC);
-
             foreach ($entries as $key => $entry) {
                 $entries[$key]["Motivazione"] = CUTE_PHRASES[array_rand(CUTE_PHRASES)];
             }
-
             $suggestedUsers = array_merge($suggestedUsers, $entries);
             return $suggestedUsers;
         }
@@ -179,10 +177,10 @@ class DatabaseHelperMySql implements DatabaseHelper
     public function isPostSaved($id)
     {
         if (isLogged()) {
-            $stmt = $this->db->prepare("SELECT * FROM Postsalvati WHERE idUser = ? AND idPostInterventi = ?");
+            $stmt = $this->db->prepare("SELECT * FROM PostSalvati WHERE idUser = ? AND idPostInterventi = ?");
             $stmt->bind_param('ii', $_SESSION["idUser"], $id);
             $stmt->execute();
-            $result = $stmt->get_result();
+            $result = $stmt->get_result();   
             return count($result->fetch_all(MYSQLI_ASSOC)) > 0;
         } else {
             return false;
@@ -204,11 +202,11 @@ class DatabaseHelperMySql implements DatabaseHelper
     {
         if (isLogged()) {
             if ($set == true) {
-                $stmt = $this->db->prepare("INSERT INTO Postsalvati (idPostInterventi, idUser) VALUES (?, ?)");
+                $stmt = $this->db->prepare("INSERT INTO PostSalvati (idPostInterventi, idUser) VALUES (?, ?)");
                 $stmt->bind_param('ii', $id, $_SESSION["idUser"]);
                 $stmt->execute();
             } else {
-                $stmt = $this->db->prepare("DELETE FROM  Postsalvati WHERE idPostInterventi = ? AND idUser = ?");
+                $stmt = $this->db->prepare("DELETE FROM  PostSalvati WHERE idPostInterventi = ? AND idUser = ?");
                 $stmt->bind_param('ii', $id, $_SESSION["idUser"]);
                 $stmt->execute();
             }
