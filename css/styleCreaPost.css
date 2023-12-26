@@ -8,8 +8,8 @@ main{
     margin-bottom: 10pt;
 }
 
-textarea, form>input{
-    border:1px solid #d74444;
+textarea, form input{
+    border:2px solid var(--hilfeRed);
     border-radius: 3pt;
     padding: 3pt 5pt;
 }
@@ -42,7 +42,7 @@ textarea::placeholder{
 h1{
     width: 100%;
     font-size: 20pt;
-    color:#087e8b;
+    color:var(--hilfeBlue);
     text-align: center;
     margin-bottom: 0;
 }
@@ -50,7 +50,7 @@ h1{
 
 .form h2{
     font-size: 13pt;
-    color:#087e8b;
+    color:var(--hilfeBlue);
     margin-left: 2pt;
 }
 
@@ -77,13 +77,13 @@ h1{
 
 .meno{
     margin-right:50pt;
-    background-color: #d74444;
+    background-color: var(--hilfeRed);
     padding:2pt 7pt;
 }
 
 .piu{
     margin-left: 50pt;
-    background-color: #087e8b;
+    background-color: var(--hilfeBlue);
     padding:2pt 6pt;
 }
 
@@ -103,7 +103,7 @@ h1{
 }
 
 .aggiungi{
-    background-color: #d74444;
+    background-color: var(--hilfeRed);
     border-radius: 10pt;
     border:none;
     color: white;
@@ -123,11 +123,11 @@ h1{
 }
 
 .annulla{
-    background-color: #d74444; 
+    background-color: var(--hilfeRed); 
 }
 
 .pubblica{
-    background-color: #087e8b;
+    background-color: var(--hilfeBlue);
 }
 
 .form>footer{
@@ -138,18 +138,19 @@ h1{
 }
 
 .aggiungi:hover, .meno:active, .meno:hover, .annulla:hover{
-    background-color: #087e8b;
+    background-color: var(--hilfeBlue);
     color:white;
 }
 
 
 .piu:active, .pubblica:hover, .piu:hover{
-    background-color: #d74444;
+    background-color: var(--hilfeRed);
     color: white;
 }
 
 textarea{
     resize: none;
+    height: 50%;
 }
 
 #numero{
@@ -164,7 +165,6 @@ textarea{
         flex-direction:row;
         justify-content: space-between;
         align-items: center;
-        background-color: aqua;
     }
 
     .form>footer{
