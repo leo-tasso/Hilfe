@@ -8,6 +8,17 @@
     background-position: center center; /**per centrare l'immagine**/
 }
 
+.centralContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.articles{
+    width: 95%;
+}
+
 /**immagine profilo**/
 .fotoProfiloPrincipale{
     height: 150px;
@@ -53,7 +64,7 @@ body{
     display: flex;
     flex-direction: column;
     background-color: var(--hilfeRed);
-    margin:5pt;
+    margin:5pt 5pt 10pt 5pt;
     border-radius: 10pt;
 }
 
@@ -80,6 +91,18 @@ body{
     flex-direction: column;
     color: white;
     width:60%;
+}
+
+.bio h2, .bio p{
+    margin:0;
+    padding:0;
+}
+
+.bio h2{
+    text-align: left;
+}
+
+.bio p{
     text-align: justify;
 }
 
@@ -88,11 +111,15 @@ body{
     display: flex;
     flex-direction: row;
     list-style: none;
-    justify-content: space-between;
+    justify-content:center;
 }
 
 .bottomInfo li a{
-    color:white;
+    color:var(--hilfeBlue);
     text-decoration: none;
-    font-size: 10pt;
+    font-size: 11pt;
+    background-color: white;
+    padding:5pt;
+    border:1px solid grey;
+    font-weight: bold;
 }
