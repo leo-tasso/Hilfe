@@ -1,20 +1,76 @@
-function toggleSalva(idPost) {
+
+window.onload = function() {
+    updateAllButtons();
+};
+function updateAllButtons() {
+    let articles = document.querySelectorAll("article");
+    articles.forEach(article => {
+        let articleParams = article.id.split(',');
+        updateButtons(articleParams[0], articleParams[1]);
+    });
+}
+function updateButtons(idPost, maxPeople) {
     $.ajax({
         url: "../utils/manageButtons.php",
         type: "POST",
         data: {
-            id: idPost
+            id: idPost,
+            action: 'update'
         },
-        success: function(response) {
-            let button = document.getElementById("buttonSalva"+idPost);
-            if(response.status == "saved"){
-            button.innerHTML =  '<img class="iconButton" src="../Icons/Heart.svg" alt="">Salvato';
+        success: function (response) {
+            let participateButton = document.getElementById("buttonPartecipa" + idPost);
+            if (response.statusParticipate == "partecipa") {
+                participateButton.setAttribute("value", "Abbandona");
             }
-            if(response.status == "unsaved"){
-                button.innerHTML =  '<img class="iconButton" src="../Icons/HeartEmpty.svg" alt="">Salva';
-                }
+            if (response.statusParticipate == "nonPartecipa") {
+                participateButton.setAttribute("value", "Partecipa");
+            }
+            document.getElementById("partecipaLablel" + idPost).innerHTML = "Partecipanti: " + response.participants + "/" + maxPeople;
+            document.getElementById("progress" + idPost).style.width = response.participants > maxPeople ? "100%" : response.participants / maxPeople * 100 + "%";
+
+            let salvaButton = document.getElementById("buttonSalva" + idPost);
+            if (response.statusSaved == "saved") {
+                salvaButton.innerHTML = '<img class="iconButton" src="../Icons/Heart.svg" alt="">Salvato';
+            }
+            if (response.statusSaved == "unsaved") {
+                salvaButton.innerHTML = '<img class="iconButton" src="../Icons/HeartEmpty.svg" alt="">Salva';
+            }
         },
-        error: function(error) {
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+function toggleSalva(idPost, maxPeople) {
+    $.ajax({
+        url: "../utils/manageButtons.php",
+        type: "POST",
+        data: {
+            id: idPost,
+            action: 'salva'
+        },
+        success: function (response) {
+            updateButtons(idPost, maxPeople);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+function togglePartecipa(idPost, maxPeople) {
+    $.ajax({
+        url: "../utils/manageButtons.php",
+        type: "POST",
+        data: {
+            id: idPost,
+            action: 'partecipa'
+        },
+        success: function (response) {
+            updateButtons(idPost, maxPeople);
+        },
+        error: function (error) {
             console.log(error);
         }
     });

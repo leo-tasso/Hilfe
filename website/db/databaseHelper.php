@@ -10,8 +10,11 @@ interface DatabaseHelper{
     public function getNotification();
     public function getSuggestedUsers($n);
     public function isPostSaved($n);
-    public function isPartecipating($n);
     public function savePost($id,$set);
+    public function isParticipating($n);
+    public function participatePost($id,$set);
+    public function getParticipants($id);
+
 
 
 }

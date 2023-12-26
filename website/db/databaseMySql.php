@@ -188,7 +188,7 @@ class DatabaseHelperMySql implements DatabaseHelper
             return false;
         }
     }
-    public function isPartecipating($id)
+    public function isParticipating($id)
     {
         if (isLogged()) {
             $stmt = $this->db->prepare("SELECT * FROM Interventi WHERE idUser = ? AND idPostInterventi = ?");
@@ -216,6 +216,30 @@ class DatabaseHelperMySql implements DatabaseHelper
         } else {
             return false;
         }
+    }
+    public function participatePost($id, $set)
+    {
+        if (isLogged()) {
+            if ($set == true) {
+                $stmt = $this->db->prepare("INSERT INTO Interventi (idPostInterventi, idUser) VALUES (?, ?)");
+                $stmt->bind_param('ii', $id, $_SESSION["idUser"]);
+                $stmt->execute();
+            } else {
+                $stmt = $this->db->prepare("DELETE FROM  Interventi WHERE idPostInterventi = ? AND idUser = ?");
+                $stmt->bind_param('ii', $id, $_SESSION["idUser"]);  
+                $stmt->execute();
+            }
+            return $this->isParticipating($id);
+        } else {
+            return false;
+        }
+    }
+    public function getParticipants($id){
+        $stmt = $this->db->prepare("SELECT * FROM Interventi where idPostInterventi = ?");
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 }
 

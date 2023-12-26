@@ -14,7 +14,7 @@
     <main class="articles">
 
 <?php foreach($templateParams["helpPosts"] as $post): ?>
-        <article>
+        <article id="<?php echo $post["idPostIntervento"]; ?>, <?php echo $post["PersoneRichieste"]; ?>">
             <header>
                 <h2><?php echo $post["TitoloPost"]; ?></h2>
                 <div class="infoUtente">
@@ -51,7 +51,7 @@
                 </section>
             <?php insertmap($post["idPostIntervento"],$post["PosizioneLongitudine"],$post["PosizioneLatitudine"],$post["Indirizzo"]); ?> 
             <footer>
-                <button type="button" class="buttonSalva" id="buttonSalva<?php echo $post["idPostIntervento"]?>" onclick="toggleSalva(<?php echo $post["idPostIntervento"]?>)"><?php if($dbh->isPostSaved($post["idPostIntervento"])){echo '<img class="iconButton" src="../Icons/Heart.svg" alt="">Salvato';}else{echo '<img class="iconButton" src="../Icons/HeartEmpty.svg" alt="">Salva';}?></button><input type="button" class="buttonPartecipa" name="Partecipa" value="Partecipa"><button type="button" class="buttonPartecipanti" onclick="openPopup()" data-progress-text="Partecipa" data-complete-text="Al completo"><span class="button__progress"></span><span class="button__text">Partecipanti 2/10</span></button>
+                <button type="button" class="buttonSalva" id="buttonSalva<?php echo $post["idPostIntervento"]?>" onclick="toggleSalva(<?php echo $post["idPostIntervento"]?>,<?php echo $post["PersoneRichieste"];?>)"><img class="iconButton" src="../Icons/HeartEmpty.svg" alt="">Salva</button><input type="button" class="buttonPartecipa" id="buttonPartecipa<?php echo $post["idPostIntervento"]?>" name="Partecipa" value="Partecipa"  onclick="togglePartecipa(<?php echo $post["idPostIntervento"]?>,<?php echo $post["PersoneRichieste"];?>)"><button type="button" class="buttonPartecipanti" onclick="openPopup()" data-progress-text="Partecipa" data-complete-text="Al completo"><span id="progress<?php echo $post["idPostIntervento"]?>" class="button__progress"></span><span id="partecipaLablel<?php echo $post["idPostIntervento"]?>" class="button__text">Partecipanti 0/0</span></button>
                 <div id="popup">
                     <h3>Utenti partecipanti</h3>
                     <a href="profiloUtente.html" class="infoUser">

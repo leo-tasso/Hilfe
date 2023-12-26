@@ -258,7 +258,7 @@ article>footer>a {
 .button__progress {
     position: absolute;
     height: 100%;
-    width: 50%;
+    width: 0%;
     top: 0;
     left: 0;
     background: var(--hilfeBlue);
