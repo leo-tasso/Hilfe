@@ -1,7 +1,6 @@
 main{
     display: flex;
     flex-direction: column;
-
 }
 
 #titolo, #annuncio{
@@ -21,9 +20,9 @@ textarea::placeholder{
 
 .form{
     display: flex;
+    margin:auto;
     flex-direction: column;
-    margin: 10pt 5%;
-    width: 90%;
+    width: 80%;
 }
 
 .giorno, .luogo, .pers{
@@ -165,6 +164,7 @@ textarea{
         flex-direction:row;
         justify-content: space-between;
         align-items: center;
+        background-color: aqua;
     }
 
     .form>footer{
@@ -176,13 +176,15 @@ textarea{
     #titolo, textarea, .luogo input, .giorno input, #oggetto{
         padding:5pt 2pt;
     }
+
     .pubblica, .annulla{
-        padding: 7pt 50pt;
+        padding: 2% 7%;
         font-size: 13pt;
         margin-top: 0;
     }
+
     .annulla{
-        margin-right: 40pt;
+        margin-right: 10%;
     }
 
     .colonna1, .colonna2{
@@ -199,8 +201,10 @@ textarea{
     }
 
     .form{
-        border:2px solid #ce421f;
+        box-shadow: 2px 2px 4px grey;
+        background-color: white;
         border-radius: 10pt;
         padding:10pt;
+        margin:auto;
     }
 }

@@ -8,6 +8,7 @@
     background-position: center center; /**per centrare l'immagine**/
 }
 
+
 .titoloPopup{
     font-size: 13pt;
     color:var(--hilfeRed);
@@ -295,6 +296,70 @@ h3 {
     background: var(--hilfeBlue);
 }
 
+.leftAside{
+    background-color: var(--hilfeRed);
+    color:white;
+    width:90%;
+    margin-bottom:10pt;
+    border-radius: 10pt;
+}
+
+.partenzaContainer{
+    margin:0;
+    padding:0;
+    color:white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:80%;
+}
+
+.partenzaContainer input{
+    width:80%;
+    border-radius: 10pt;
+    border:none;
+    box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.9);
+    padding:5pt 3pt;
+
+}
+
+.rangeContainer{
+    display:flex;
+    flex-direction: row;
+    width: 80%;
+    justify-content: space-between;
+    margin-top: 5pt;
+}
+
+.rangeContainer span{
+    color:white;
+}
+
+.rangeContainer input{
+    width:80%;
+}
+
+.rangeValue, .partenza{
+    color:white;
+}
+
+.vai{
+    background-color: var(--hilfeBlue);
+    color:white;
+    border-radius: 15pt;
+    border: 2px solid white;
+    font-size: 14pt;
+    margin-bottom: 5pt;
+    width:50%;
+}
+
+.vai:hover{
+    background-color: white;
+    color:var(--hilfeRed);
+    cursor: pointer;
+}
+
+
 /**media query per dispositivi non mobile**/
 @media screen and (min-width: 768px) {
 
@@ -332,53 +397,7 @@ h3 {
         margin: 10px;
     }
 
-    .partenzaContainer{
-        margin:0;
-        padding:0;
-        color:white;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .partenzaContainer input{
-        width:80%;
-        border-radius: 10pt;
-        border:none;
-        box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.9);
-        padding:5pt 3pt;
-
-    }
-
-    .rangeContainer{
-        display:flex;
-        flex-direction: row;
-        width: 100%;
-        justify-content: space-between;
-        margin-top: 5pt;
-    }
-
-    .rangeContainer span{
-        color:white;
-    }
-
-    .rangeContainer input{
-        width:80%;
-    }
-
-    .rangeValue, .partenza{
-        color:white;
-    }
-
-    .vai{
-        background-color: var(--hilfeBlue);
-        color:white;
-        border-radius: 15pt;
-        border: 2px solid white;
-        font-size: 14pt;
-        margin-bottom: 5pt;
-        width:50%;
-    }
+    
 }
 
 
