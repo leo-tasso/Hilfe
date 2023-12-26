@@ -6,7 +6,7 @@ function updateAllButtons() {
     let articles = document.querySelectorAll("article");
     articles.forEach(article => {
         let articleParams = article.id.split(',');
-        updateButtons(articleParams[0], articleParams[1]);
+        updateButtons(articleParams[0], articleParams[1].replace(/\s/g, ''));
     });
 }
 function updateButtons(idPost, maxPeople) {
