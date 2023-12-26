@@ -8,6 +8,7 @@
     <link rel="icon" type="image/x-icon" href="../LogoRes/1x/HeartHands.png">
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
     <link href="../css/styleLayoutDesktop.css" rel="stylesheet" type="text/css" />
+    <link href="../css/styleFollowersSeguiti.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
         integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
         crossorigin="" />
@@ -62,15 +63,14 @@
             <button class="openbtn" onclick="openNav()">&#9776; </button>
         </header>
     <div class="centralContent">
-    <aside class="leftAside"></aside>
-    <main>
-
-
-
-
-
-    </main><aside>
-        <h3>Profili suggeriti</h3>
+    <main class="followers_seguiti">
+        <h1>I tuoi seguiti</h1>
+        <input class="search" type="search" placeholder="Cerca utente...">
+        <ul class="elencoFollowers_seguiti"> <!-- da valutare se lasciare o meno il nome utente separato dal testo-->
+            <li class="follower"><a href="profiloUtente.html"><img src="../fotoProfiloIniziale.jpg" alt="Foto profilo"><div class="infoUtente"><span>Luna Fabbri</span><p class="testo">10 followers in comune</p></div></a></li><li class="follower"><a href="profiloUtente.html"><img src="../fotoProfiloIniziale.jpg" alt="Foto profilo"><div class="infoUtente"><span>Lupo Lucio</span><p class="testo">15 followers in comune</p></div></a></li><li class="follower"><a href="profiloUtente.html"><img src="../fotoProfiloIniziale.jpg" alt="Foto profilo"><div class="infoUtente"><span>Milo Cotogno</span><p class="testo">10 followers in comune</p></div></a></li><li class="follower"><a href="profiloUtente.html"><img src="../fotoProfiloIniziale.jpg" alt="Foto profilo"><div class="infoUtente"><span>Paolo Bonolis</span><p class="testo">10 followers in comune</p></div></a></li>
+        </ul>
+    </main><aside class="rightAside">
+        <h2>Profili suggeriti</h2>
         <a href="profiloUtente.html" class="infoUser">
             <img src="../fotoProfiloIniziale.jpg" alt="Profilo 1">
             <div class="profile">
