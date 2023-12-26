@@ -20,10 +20,10 @@ function updateButtons(idPost, maxPeople) {
         success: function (response) {
             let participateButton = document.getElementById("buttonPartecipa" + idPost);
             if (response.statusParticipate == "partecipa") {
-                participateButton.setAttribute("value", "Abbandona");
+                participateButton.innerHTML = "Abbandona"
             }
             if (response.statusParticipate == "nonPartecipa") {
-                participateButton.setAttribute("value", "Partecipa");
+                participateButton.innerHTML = "Partecipa"
             }
             document.getElementById("partecipaLablel" + idPost).innerHTML = "Partecipanti: " + response.participants + "/" + maxPeople;
             document.getElementById("progress" + idPost).style.width = response.participants > maxPeople ? "100%" : response.participants / maxPeople * 100 + "%";
