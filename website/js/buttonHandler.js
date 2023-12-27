@@ -17,6 +17,11 @@ function updateAllButtons(startButton) {
     });
 }
 function updateAllMaps(startMapId) {
+    let maps = document.querySelectorAll(".openmap");
+    maps.forEach(map => {
+        let children =  Array.from(map.children);
+        children.forEach(child => { child.remove(); });
+    });
     let articles = document.querySelectorAll("article");
     articles.forEach(article => {
         let articleParams = article.id.split(',');
@@ -148,7 +153,7 @@ function morePosts() {
         success: function (response) {
             document.querySelector(".buttonAltriPost").remove();
             document.querySelector(".articles").innerHTML += response.articles + ' <button type="button" class="buttonAltriPost" onclick="morePosts()">Altri Post</button>';
-            updateAllMaps(startPost);
+            updateAllMaps(0);
             updateAllButtons(startPost);
         },
         error: function (error) {
@@ -158,20 +163,24 @@ function morePosts() {
 }
 
 function activateMap(id, lon, lat, label) {
-    const map = L.map('map' + id, {
+    let mapContainerId = 'map' + id;
+    let map = L.map(mapContainerId, {
         center: [lon, lat],
         zoom: 50
     });
+
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
-    var heart = L.icon({
+
+    let heart = L.icon({
         iconUrl: '../res/MapPointer.svg',
-        iconSize: [38, 38], // size of the icon
-        iconAnchor: [19, 38], // point of the icon which will correspond to marker's location
-        popupAnchor: [0, -38] // point from which the popup should open relative to the iconAnchor
+        iconSize: [38, 38],
+        iconAnchor: [19, 38],
+        popupAnchor: [0, -38]
     });
-    const marker = L.marker([lon, lat], {
-        icon: heart
-    }).addTo(map).bindPopup(label);
+
+    L.marker([lon, lat], { icon: heart })
+        .addTo(map)
+        .bindPopup(label);
 }
