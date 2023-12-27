@@ -9,13 +9,14 @@
                 <li><label for="password">Password</label><input type="password" id="password" name="password" placeholder="Password"></li>
             </ul>
             <div class="options">
+                <?php if (isset($_GET["error"])) echo '<p class="error">Impossibile accedere</p>' ?>
                 <a href="#" class="dimenticata">Password dimenticata?</a><br />
                 <div class="ricordami">
                     <input type="checkbox" id="ricordami" name="ricordami" value="Ricordami"><label for="ricordami">Ricordami</label>
                 </div>
             </div>
             <footer>
-                <a class="log" href="login.html">Login</a>
+                <input class="log" type="submit" value="Login"></input>
                 <p>oppure</p>
                 <a class="registrati" href="registrazione.html">Registrati</a>
             </footer>

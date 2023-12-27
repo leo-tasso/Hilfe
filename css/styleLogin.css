@@ -1,26 +1,27 @@
-body{
+body {
     display: flex;
     flex-direction: column;
     margin: 0;
     padding: 0;
-    min-height: 100vh; /* Altezza minima del corpo pari al 100% della viewport height */
+    min-height: 100dvh;
+    /* Altezza minima del corpo pari al 100% della viewport height */
     position: relative;
 }
 
-main>section{
-    width:80%;
+main>section {
+    width: 80%;
 }
 
-main{
+main {
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin:5%;
+    margin: 0;
+    flex: 1;
 }
 
-.form>ul{
+.form>ul {
     width: 100%;
-    padding:0;
+    padding: 0;
     display: flex;
     list-style: none;
     flex-direction: column;
@@ -28,106 +29,118 @@ main{
     align-items: center;
 }
 
-.form li label{
+.form li label {
     align-self: flex-start;
 }
 
-.form>ul input{
+.form>ul input {
+    font-size: xx-large;
     padding: 5px;
     width: 100%;
 }
 
-.form>ul li{
+.form>ul li {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 80%;
     justify-content: center;
-    color:var(--hilfeBlue);
+    color: var(--hilfeBlue);
     font-size: 15pt;
     margin-bottom: 5pt;
 }
 
 
-.ricordami{
+.ricordami {
     display: flex;
-    flex-direction:row;
+    flex-direction: row;
     align-items: center;
+    font-size: larger;
+    accent-color: var(--hilfeBlue);
 }
 
-.options{
+.options {
     align-self: center;
     width: 80%;
     font-size: 10pt;
-    color:var(--hilfeBlue);
+    color: var(--hilfeBlue);
     display: flex;
-    flex-direction:row;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
 }
 
-.form>div input{
+.form>div input {
     margin: 0 5pt;
 }
 
-.form>div a{
-    float:right;
-    margin-left: auto;
-    color:var(--hilfeBlue);
+.form>div a {
+    float: left;
+    margin-left: 0;
+    color: var(--hilfeBlue);
 }
 
 
-input[type="text"], input[type="password"]{
+input[type="text"],
+input[type="password"] {
     border: 2px solid var(--hilfeRed);
     border-radius: 5pt;
-    padding:5pt;
+    padding: 5pt;
 }
 
-.form{
+.form {
     display: flex;
     flex-direction: column;
 }
 
 .form>footer {
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 5pt;
 }
 
-.form>footer p{
+.form>footer p {
     font-size: 10pt;
 }
 
-.log, .registrati{
-    color:white;
-    padding:10pt;
+.log,
+.registrati {
+    color: white;
+    padding: 10pt;
     border: none;
     border-radius: 15pt;
     font-size: 15pt;
-    width:80%;
+    width: 80%;
     text-align: center;
     text-decoration: none;
 }
 
-.log:hover, .registrati:hover{
-   background-color: gray;
+.error {
+    color: red;
+    font-size: large;
 }
 
-.log{
+.log:hover,
+.registrati:hover {
+    background-color: gray;
+}
+
+.log {
     background-color: var(--hilfeRed);
 }
 
-.registrati{
+.registrati {
     background-color: var(--hilfeBlue);
 }
 
-main>section>header{
-    display:flex;
+main>section>header {
+    display: flex;
 }
 
-.logo2{
-    height:40px; 
+.logo2 {
+    display: none;
+    height: 40px;
     margin: 10pt auto;
 }
 
@@ -136,58 +149,66 @@ main>section>header{
     main {
         text-align: center;
         border-radius: 10pt;
-        width:50%;
-        padding:20pt;
-        margin:auto;
+        width: 50%;
+        padding: 20pt;
+        margin: auto;
         background-color: white;
         box-shadow: 2px 2px 4px grey;
+        flex: 0;
     }
 
-    .logo2{
-        content: url('../LogoRes/LogoHeart.png');
+    .logo2 {
+        display: block;
     }
 
-    .form footer a{
-        width:90%;
+    .form footer input {
+        width: 50%;
     }
 
-    .form>ul li{
-        display:flex;
-        flex:1;
+    .form>ul li {
+        display: flex;
+        flex: 1;
         align-items: center;
         flex-direction: row;
         justify-content: space-between;
-        margin-bottom: 5%;
+        margin-bottom: 15px;
     }
 
-    .form ul label{
+    .form>ul li:last-of-type {
+        margin-bottom: 0%;
+    }
+
+    .form ul label {
         margin-right: 5%;
     }
 
-    .form ul input{
-        width:70%;
+    .form ul input {
+        width: 70%;
+        font-size: medium;
     }
 
 
-    .form ul{
-       padding:0;
+    .form ul {
+        padding: 0;
     }
 
-    .ricordami, .dimenticata{
+    .ricordami,
+    .dimenticata {
         align-self: flex-end;
     }
 
-    .dimenticata{
+    .dimenticata {
         font-size: 8pt;
     }
 
-    .registrati, .form>footer p{
+    .registrati,
+    .form>footer p {
         display: none;
     }
 
-    .options{
+    .options {
         width: 80%;
-        display:flex;
+        display: flex;
         flex-direction: column;
     }
 }
