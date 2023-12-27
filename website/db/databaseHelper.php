@@ -1,6 +1,7 @@
 <?php
-interface DatabaseHelper{
-    public function getHelpPosts($n);
+interface DatabaseHelper
+{
+    public function getHelpPosts($n, $startId, $lat, $long, $radius);
     public function getUserFromId($id);
     public function getProfilePicPathFromId($id);
     public function getAuthorFromHelpPost($id);
@@ -10,9 +11,9 @@ interface DatabaseHelper{
     public function getNotification();
     public function getSuggestedUsers($n);
     public function isPostSaved($n);
-    public function savePost($id,$set);
+    public function savePost($id, $set);
     public function isParticipating($n);
-    public function participatePost($id,$set);
+    public function participatePost($id, $set);
     public function getParticipants($id);
     public function addDescription($users);
     public function followsMe($otherUserId);

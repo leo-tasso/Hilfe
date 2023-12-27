@@ -12,10 +12,18 @@ class DatabaseHelperMySql implements DatabaseHelper
         }
     }
 
-    public function getHelpPosts($n)
+    public function getHelpPosts($n, $startId, $lat, $long, $radius)
     {
-        $stmt = $this->db->prepare("SELECT * FROM PostInterventi LIMIT ?");
-        $stmt->bind_param('i', $n);
+        $earthRadius = 6371;
+        $radius = ($radius > 99) ? $radius * 10000 : $radius; //if greater than 99 becomes unlimited
+        $latRange = rad2deg($radius / $earthRadius);
+        $longRange = rad2deg($radius / ($earthRadius * cos(deg2rad($lat))));
+        $stmt = $this->db->prepare("SELECT * FROM PostInterventi WHERE idPostIntervento > ? AND PosizioneLongitudine BETWEEN ? AND ? AND PosizioneLatitudine BETWEEN ? AND ? LIMIT ?");
+        $longMinus = $long - $longRange;
+        $longPlus = $long + $longRange;
+        $latMinus = $lat - $latRange;
+        $latPlus = $lat + $latRange;
+        $stmt->bind_param('iiiiii', $startId, $longMinus, $longPlus, $latMinus, $latPlus, $n);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -250,8 +258,7 @@ class DatabaseHelperMySql implements DatabaseHelper
                 $userData = $this->getUserFromId($user)[0];
                 if ($user == $_SESSION["idUser"]) {
                     $userData["seiTu"] = 1;
-                }
-                else if ($this->followsMe($user)) {
+                } else if ($this->followsMe($user)) {
                     $userData["seguace"] = 1;
                 } else if ($this->followInCommon($user) > 0) {
                     $userData["NumSeguitiInComune"] = $this->followInCommon($user);
