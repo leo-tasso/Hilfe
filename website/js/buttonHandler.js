@@ -157,7 +157,7 @@ function morePosts() {
             }
             else {
                 if (document.getElementById("nessunRisultato") == null) {
-                    document.querySelector(".articles").innerHTML += '<p id="nessunRisultato">Nessun post trovato</p>';
+                    document.querySelector(".articles").innerHTML += '<p id="nessunRisultato">Nessun altro post trovato</p>';
                 }
             }
         },
