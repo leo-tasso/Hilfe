@@ -10,12 +10,15 @@
     width: 15px;
     float:left;
 }
-
+.search:focus{
+    outline: none;
+    border: 0px solid transparent;
+}
 .search{
     margin:0 5pt;
     text-align: left;
     border-radius: 15pt;
-    border: 1px solid grey;
+    border: 0px solid transparent;
 }
 
 .ricerca input{
@@ -80,6 +83,7 @@ h1{
 
 .elencoFollowers_seguiti{
     padding:0pt;
+    margin-top: 0;
     list-style: none;
 }
 
