@@ -280,7 +280,7 @@ class DatabaseHelperMySql implements DatabaseHelper
             return $suggestedUsers;
         } else {
             foreach ($users as $user) {
-                $userData = $this->getUserFromId($user);
+                $userData = $this->getUserFromId($user)[0];
                 $userData["Motivazione"] = CUTE_PHRASES[array_rand(CUTE_PHRASES)];
                 $suggestedUsers[] = $userData;
             }
