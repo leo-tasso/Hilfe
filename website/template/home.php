@@ -50,7 +50,7 @@
                     <h3>Dettagli Annuncio</h3>
                     <p class="date"><?php echo $post["DataPubblicazione"]; ?></p>
                     <p><?php echo $post["DescrizionePost"]; ?></p>
-                    <p class="time"><?php echo $post["DataIntervento"]; ?></p>
+                    <p class="time">Data intervento: <?php echo $post["DataIntervento"]; ?></p>
                     <?php if($autore["PhoneNumber"]!=null):?>
                     <p class="phoneNumber">Numero di telefono: <?php echo $autore["PhoneNumber"]; ?></p>
                     <?php endif ?>
