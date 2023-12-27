@@ -5,7 +5,7 @@ if(isset($_POST['name'], $_POST['password'])) {
    $password = $_POST['password']; // Recupero la password criptata.
    if($dbh->login($email, $password) == true) {
       // Login eseguito
-      header('Location: ./profile.php');
+      header('Location: ../profile.php');
    } else {
       // Login fallito
       header('Location: ../login.php?error=1');
