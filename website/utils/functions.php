@@ -16,4 +16,26 @@ function nameSurnameFromuserId($id){
 function isLogged(){
     return isset($_SESSION['idUser']) && !empty($_SESSION['idUser']);
 }
+function getCoordinates($address) {
+    $email = EMAIL;
+    $address = urlencode($address);
+    $url = "https://nominatim.openstreetmap.org/search?format=json&limit=1&q={$address}&email={$email}";
+
+    $response = file_get_contents($url);
+
+    if ($response !== false) {
+        $data = json_decode($response, true);
+
+        if (!empty($data) && isset($data[0])) {
+            $latitude = $data[0]['lat'];
+            $longitude = $data[0]['lon'];
+
+            return ['latitude' => $latitude, 'longitude' => $longitude];
+        } else {
+            return null; 
+        }
+    } else {
+        return null;
+    }
+}
 ?>
