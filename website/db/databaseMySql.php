@@ -303,6 +303,19 @@ class DatabaseHelperMySql implements DatabaseHelper
             return 0;
         }
     }
+    public function getAddress()
+    {
+        if (isLogged()) {
+            $stmt = $this->db->prepare("SELECT Address, AddressLat, AddressLong FROM User WHERE idUser = ?");
+            $stmt->bind_param('i', $_SESSION["idUser"]);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $lines = $result->fetch_all(MYSQLI_ASSOC);
+            return $lines[0];
+        } else {
+            return "Roma, Piazza del Colosseo 1";
+        }
+    }
 }
 
 

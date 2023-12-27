@@ -17,4 +17,5 @@ interface DatabaseHelper{
     public function addDescription($users);
     public function followsMe($otherUserId);
     public function followInCommon($otherUserId);
+    public function getAddress();
 }
