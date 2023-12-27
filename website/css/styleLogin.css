@@ -3,7 +3,7 @@ body{
     flex-direction: column;
     margin: 0;
     padding: 0;
-    min-height: 100vh; /* Altezza minima del corpo pari al 100% della viewport height */
+    min-height: 100dvh; /* Altezza minima del corpo pari al 100% della viewport height */
     position: relative;
 }
 
@@ -13,9 +13,9 @@ main>section{
 
 main{
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin:5%;
+    margin:0;
+    flex: 1;
 }
 
 .form>ul{
@@ -33,6 +33,7 @@ main{
 }
 
 .form>ul input{
+    font-size: xx-large;
     padding: 5px;
     width: 100%;
 }
@@ -53,6 +54,8 @@ main{
     display: flex;
     flex-direction:row;
     align-items: center;
+    font-size: larger;
+    accent-color: var(--hilfeBlue);
 }
 
 .options{
@@ -71,8 +74,8 @@ main{
 }
 
 .form>div a{
-    float:right;
-    margin-left: auto;
+    float:left;
+    margin-left: 0;
     color:var(--hilfeBlue);
 }
 
@@ -127,6 +130,7 @@ main>section>header{
 }
 
 .logo2{
+    display: none;
     height:40px; 
     margin: 10pt auto;
 }
@@ -141,14 +145,15 @@ main>section>header{
         margin:auto;
         background-color: white;
         box-shadow: 2px 2px 4px grey;
+        flex: 0;
     }
 
     .logo2{
-        content: url('../LogoRes/LogoHeart.png');
+        display: block;
     }
 
     .form footer a{
-        width:90%;
+        width:50%;
     }
 
     .form>ul li{
@@ -157,7 +162,10 @@ main>section>header{
         align-items: center;
         flex-direction: row;
         justify-content: space-between;
-        margin-bottom: 5%;
+        margin-bottom: 15px;
+    }
+    .form>ul li:last-of-type{
+        margin-bottom: 0%;
     }
 
     .form ul label{
@@ -166,6 +174,7 @@ main>section>header{
 
     .form ul input{
         width:70%;
+        font-size: medium;
     }
 
 
