@@ -37,8 +37,7 @@ h1{
 }
 
 .follower{
-    border-bottom: 1px solid grey;
-
+    border-top: 1px solid grey;
 }
 
 .follower img{
