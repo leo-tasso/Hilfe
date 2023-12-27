@@ -20,4 +20,8 @@ interface DatabaseHelper
     public function followsMe($otherUserId);
     public function followInCommon($otherUserId);
     public function getAddress();
+    public function login($email, $password);
+    public function checkbrute($user_id);
+    public function login_check();
+
 }
