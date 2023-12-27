@@ -10,12 +10,15 @@
     width: 15px;
     float:left;
 }
-
+.search:focus{
+    outline: none;
+    border: 0px solid transparent;
+}
 .search{
     margin:0 5pt;
     text-align: left;
     border-radius: 15pt;
-    border: 1px solid grey;
+    border: 0px solid transparent;
 }
 
 .ricerca input{
@@ -35,8 +38,6 @@ h1{
 
 .follower{
     border-top: 1px solid grey;
-    border-bottom: 1px solid grey;
-
 }
 
 .follower img{
@@ -81,6 +82,7 @@ h1{
 
 .elencoFollowers_seguiti{
     padding:0pt;
+    margin-top: 0;
     list-style: none;
 }
 
@@ -89,12 +91,12 @@ h1{
         width:50%;
         box-shadow: 2px 2px 4px grey;
         border-radius: 10pt;
-        margin:5pt;
         background-color: white;
     }
 
     .centralContent{
         align-items: flex-start;
+        margin-top: 10pt;
     }
 
 }

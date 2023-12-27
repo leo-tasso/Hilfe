@@ -33,6 +33,7 @@ h2{
         justify-content: center;
         flex-direction: row;
         align-items: flex-start;
+        margin-top: 10pt;
     }
 
     .rightAside, .leftAside {
@@ -44,13 +45,13 @@ h2{
         align-items: center;
         background-color: var(--hilfeRed);
         border-radius: 10pt;
-        margin: 5pt;
+        margin-left: 5pt;
         vertical-align: top;
         padding: 0 10pt;
         height: fit-content;
     }
 
-    
+
     .infoUser {
         width:90%;
         display: flex;

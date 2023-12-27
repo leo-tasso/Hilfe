@@ -14,6 +14,7 @@
     flex-direction: column;
     width: 100%;
     background-color: white;
+    
 }
 
 h1{
@@ -27,7 +28,7 @@ h1{
     display: flex;
     flex-direction: row;
     align-items: center;
-    border-bottom: 1px solid var(--hilfeGrey);
+    border-top: 1px solid var(--hilfeGrey);
     background-color: rgb(206, 200, 200);
     padding:5pt;
 }
@@ -58,7 +59,6 @@ h1{
 
     .notificheMain{
         width:60%;
-        margin:10pt;
         box-shadow: 2px 2px 4px grey;
         border-radius: 10pt;
     }
