@@ -14,7 +14,7 @@
 
         <h2>Raggio di ricerca</h2>
         <div class="partenzaContainer">
-            <label for="partenza">Da: </label>
+            <label for="partenza">Da:</label>
             <input type="text" id="partenza" placeholder="<?php echo $dbh->getAddress()["Address"]?>"/>
         </div>
         <div class="rangeContainer">
@@ -29,7 +29,7 @@
             const rangeValue = document.getElementById('rangeValue');
     
             rangeInput.addEventListener('input', function() {
-                rangeValue.textContent = rangeInput.value==100?"Illimitato":rangeInput.value+"km";
+                rangeValue.textContent = rangeInput.value==100?"Illimit.":rangeInput.value+"km";
             });
         </script>
     </aside>
@@ -38,7 +38,7 @@
 <?php foreach($templateParams["helpPosts"] as $post): ?>
         <article id="<?php echo $post["idPostIntervento"]; ?>, <?php echo $post["PersoneRichieste"]; ?>">
             <header>
-                <h2><?php echo $post["TitoloPost"]; ?></h2>
+                <h1><?php echo $post["TitoloPost"]; ?></h1>
                 <div class="infoUtente">
                     <a href="profiloUtente.html" class="nomeAutore"><?php $autore = $dbh->getAuthorFromHelpPost($post["idPostIntervento"])[0];
                     echo $autore["Name"]." ".$autore["Surname"] ?></a>
