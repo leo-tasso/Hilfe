@@ -89,12 +89,12 @@ h1{
         width:50%;
         box-shadow: 2px 2px 4px grey;
         border-radius: 10pt;
-        margin:5pt;
         background-color: white;
     }
 
     .centralContent{
         align-items: flex-start;
+        margin-top: 10pt;
     }
 
 }
