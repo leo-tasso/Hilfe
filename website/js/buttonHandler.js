@@ -1,5 +1,4 @@
-let Lat = 0.0;
-let Long = 0.0;
+let address = "";
 let startPost = 0;
 let range = 100;
 
@@ -145,8 +144,7 @@ function morePosts() {
         type: "POST",
         data: {
             startId: startPost,
-            lat: Lat,
-            long: Long,
+            address: address,
             range: range,
             action: 'morePosts'
         },
@@ -183,4 +181,29 @@ function activateMap(id, lon, lat, label) {
     L.marker([lon, lat], { icon: heart })
         .addTo(map)
         .bindPopup(label);
+}
+
+function updatePosts() {
+    startPost = 0;
+    address = document.getElementById("partenza").value;
+    range = document.getElementById("range").value;
+    $.ajax({
+        url: "../utils/manageButtons.php",
+        type: "POST",
+        data: {
+            startId: startPost,
+            address: address,
+            range: range,
+            action: 'morePosts'
+        },
+        success: function (response) {
+            document.querySelector(".buttonAltriPost").remove();
+            document.querySelector(".articles").innerHTML = response.articles + ' <button type="button" class="buttonAltriPost" onclick="morePosts()">Altri Post</button>';
+            updateAllMaps(0);
+            updateAllButtons(startPost);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
 }

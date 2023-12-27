@@ -23,9 +23,16 @@
 }
 
 .articles {
+    width: 80%;
     max-width: 700px;
     margin: 0 10px;
     text-align: center;
+}
+
+.articles>p{
+    width: 100%;
+    font-size: large;
+    color: var(--hilfeGrey);
 }
 
 .newPost {
@@ -115,6 +122,7 @@ main>article section>p {
 }
 
 .partenzaContainer input {
+    font-family: "Helvetica";
     width: 100%;
     border-radius: 10pt;
     border: none;

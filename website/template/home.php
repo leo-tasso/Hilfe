@@ -21,7 +21,7 @@
             <input id="range" type="range" min="0" max="100" value="100" />
             <span id="rangeValue">Illimit.</span>
         </div>
-        <button type="button" class="vai">Vai</button>
+        <button type="button" class="vai" onclick="updatePosts()">Vai</button>
         <script>
             // Aggiungi un gestore di eventi per aggiornare il numero accanto alla barra di intervallo
             const rangeInput = document.getElementById('range');

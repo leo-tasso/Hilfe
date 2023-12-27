@@ -51,15 +51,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             break;
         case 'morePosts':
             $startId = isset($_POST['startId']) ? $_POST['startId'] : '';
-            $lat = isset($_POST['lat']) ? $_POST['lat'] : '';
-            $long = isset($_POST['long']) ? $_POST['long'] : '';
+            $address = isset($_POST['address']) ? $_POST['address'] : '';
             $range = isset($_POST['range']) ? $_POST['range'] : '';
-            $articles = $dbh->getHelpPosts($START_POST_NUMBER, $startId, $lat, $long, $range);
-            ob_start();
-            foreach ($articles as $post) {
-                include '../template/article.php';
+            if ($address == "") {
+                $addressLine = $dbh->getAddress();
+                $lat = $addressLine["AddressLat"];
+                $long = $addressLine["AddressLong"];
+            } else {
+                $coordinates = getCoordinates($address);
+                $lat = $coordinates["latitude"];
+                $long = $coordinates["longitude"];
             }
-            $response = array('articles' =>  ob_get_clean());
+            $articles = $dbh->getHelpPosts($START_POST_NUMBER, $startId, $lat, $long, $range);
+            if (count($articles) > 0) {
+                ob_start();
+                foreach ($articles as $post) {
+                    include '../template/article.php';
+                }
+                $response = array('articles' =>  ob_get_clean());
+            }
+            else{
+                $response = array('articles' => '<p>Nessun post trovato</p>');
+            }
             header('Content-Type: application/json');
             echo json_encode($response);
             break;

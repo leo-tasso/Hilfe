@@ -23,7 +23,7 @@ class DatabaseHelperMySql implements DatabaseHelper
         $longPlus = $long + $longRange;
         $latMinus = $lat - $latRange;
         $latPlus = $lat + $latRange;
-        $stmt->bind_param('iiiiii', $startId, $longMinus, $longPlus, $latMinus, $latPlus, $n);
+        $stmt->bind_param('iddddi', $startId,  $latMinus, $latPlus, $longMinus, $longPlus, $n);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -328,7 +328,10 @@ class DatabaseHelperMySql implements DatabaseHelper
             $lines = $result->fetch_all(MYSQLI_ASSOC);
             return $lines[0];
         } else {
-            return "Roma, Piazza del Colosseo 1";
+            $result["Address"] = "Roma, Piazza del Colosseo 1";
+            $result["AddressLat"] = 0.0;
+            $result["AddressLong"] = 0.0;
+            return $result;
         }
     }
 }
