@@ -77,8 +77,8 @@
 
         <button type="button" class="buttonAltriPost">Altri Post</button>
     </main>
-    <aside>
-        <h3>Profili suggeriti</h3>
+    <aside class="rightAside">
+        <h2>Profili suggeriti</h2>
         <?php foreach($dbh->getSuggestedUsers(START_SUGGESTED_USERS) as $user):?>
             <?php require 'profilePreview.php';?>
         <?php endforeach;?>

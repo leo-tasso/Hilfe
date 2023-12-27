@@ -1,10 +1,6 @@
-.footer{
-    text-align: center;
-}
-
 .profilo{
     float:right;
-    border: 2px solid var(--hilfeYellow);
+    border: 2px solid var(--hilfeRed);
     border-radius: 50%;
     width: 40px;
     height: 40px;
@@ -12,9 +8,11 @@
     background-position: center center; /**per centrare l'immagine**/
 }
 
-.centralContent {
-    display: flex;
-    justify-content: center;
+
+.titoloPopup{
+    font-size: 13pt;
+    color:var(--hilfeRed);
+    font-weight: bold;
 }
 
 .newPostContainer{
@@ -67,76 +65,9 @@ main>article section>p{
     margin:5pt;
 }
 
-section>h3{
-    color: var(--hilfeGrey);
-    margin:0;
-}
-
-.articles header{
-    display:flex;
-    justify-content:space-between;
-    align-items: center;
-}
-
-article>header {
-    margin: 0 15px;
-}
-
-article>header h2{
-    margin-top:15pt;
-}
-
-article>header .infoUtente{
-    display:flex;
-    align-items: center;
-    margin-left: auto;
-}
-
-.infoUtente{
-    margin:0;
-    text-decoration: none;
-    color: var(--hilfeGrey);  
-}
-
-.nomeAutore{
-    margin-right: 5pt;
-    text-decoration: none;
-    color: var(--hilfeGrey);
-}
-
-/**per modificare stile della tabella**/
-table {
-    border-collapse: collapse;
-    width: 70%;
-    margin: 10pt auto;
-}
-
-td,
-th {
-    border: 1px solid #ddd;
-    padding: 2pt;
-    font-size: 9pt;
-}
-
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-th {
-    padding: 5pt;
-    text-align: left;
-    background-color: var(--hilfeBlue);
-    color: white;
-}
-
-/**posiziona tab in alto**/
-.newPostContainer {
-    margin: 10pt auto 0 auto;
-    text-align: center;
-}
 
 .navbar a {
-    background-color: var(--hilfeYellow);
+    background-color: var(--hilfeRed);
     padding: 5pt;
     text-decoration: none;
     color: white;
@@ -163,150 +94,67 @@ th {
     background-color: var(--hilfeBlue);
 }
 
-body>header>ul i{
-    float:right;
-}
-
-body main article {
-    /*border: 3px solid var(--hilfeYellow);*/
-    padding: 5px;
-    border-radius: 10px;
-    margin-bottom: 10pt;
-    color: var(--hilfeGrey);
-    text-align: left;
-    background-color: white;
-    box-shadow: 2px 2px 4px grey;
-}
-
-body main article p {
-    font-size: 10pt;
-}
-
-.date, .infoUtente p{
-    font-size: 8pt;
-}
-
-.time, .people, .phoneNumber{
-    font-weight: bold;
-}
-
-h2 {
-    font-size: 19pt;
-    font-weight: bold;
-}
-
-article>footer {
-    margin: 10px;
-    text-align: center;
-}
-
-article>footer>input {
-    background-color: var(--hilfeBlue);
-    color: white;
-}
-
-article>footer>a {
-    text-decoration: none;
-    color: white;
-    background-image: linear-gradient(to right, var(--hilfeBlue), #0e4c53);
-}
-
-.openmap {
-    width: 85%;
-    height: 200px;
-    z-index: 0;
-    margin: 5pt auto;
-    border: 2px solid var(--hilfeYellow);
+.leftAside{
+    background-color: var(--hilfeRed);
+    color:white;
+    width:90%;
+    margin-bottom:10pt;
     border-radius: 10pt;
 }
 
-/**modifica dello pannello dei profili suggeriti**/
-aside {
-    display: none;
-}
-
-.buttonPartecipa, .buttonPartecipanti, .buttonSalva, .buttonAltriPost{
-    font-size: 9pt;
-    font-family: "Fira Sans", sans-serif;
-    padding: 5pt;
-    cursor: pointer;
-    overflow: hidden;
-    position: relative;
-    border:1px solid white;
-    color: #ffffff;
-}
-
-.buttonSalva{
-    background: var(--hilfeYellow);
-    border-top-left-radius: 10pt;
-    border-bottom-left-radius: 10pt;
-    margin-right: 0;
-}
-
-.buttonPartecipa{
-    background: var(--hilfeBlue);
-    margin-left: 0;
-    margin-right: 0;
-}
-
-.buttonPartecipanti {
-    background: color-mix(in srgb,var(--hilfeBlue),#000 30%); 
-    border-top-right-radius: 10pt;
-    border-bottom-right-radius: 10pt;
-    min-width: 50px;
-    margin-left:0;
-}
-.buttonSalva:hover{
-    background: var(--hilfeBlue);
-}
-
-/*.buttonPartecipanti:hover, commentare la regola sopra se il pulsante è premibile */
-.buttonPartecipa:hover{
-    background: var(--hilfeYellow);
-}
-
-.buttonPartecipanti:hover {
-    background: color-mix(in srgb,var(--hilfeYellow),#000 30%); 
-}
-
-.button__progress {
-    position: absolute;
-    height: 100%;
-    width: 0%;
-    top: 0;
-    left: 0;
-    background: var(--hilfeBlue);
-    transition: width 0.3s;
-    border-radius: 0 10pt 10pt 0;
-}
-
-.button__text {
-    position: relative;
-}
-
-
-.footer p{
+.partenzaContainer{
+    margin:0;
+    padding:0;
     color:white;
-    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:80%;
 }
 
-h3 {
-    font-size: 11pt;
-    font-weight: bold;
-    color: white;
-    padding: 5pt;
+.partenzaContainer input{
+    width:80%;
+    border-radius: 10pt;
+    border:none;
+    box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.9);
+    padding:5pt 3pt;
+
 }
 
-.buttonAltriPost{
-    margin: 10px auto ;
-    font-size: large;
-    background: var(--hilfeYellow);
-    border-radius: 13pt;
-    width: 20%;
+.rangeContainer{
+    display:flex;
+    flex-direction: row;
+    width: 80%;
+    justify-content: space-between;
+    margin-top: 5pt;
 }
 
-.buttonAltriPost:hover{
-    background: var(--hilfeBlue);
+.rangeContainer span{
+    color:white;
+}
+
+.rangeContainer input{
+    width:80%;
+}
+
+.rangeValue, .partenza{
+    color:white;
+}
+
+.vai{
+    background-color: var(--hilfeBlue);
+    color:white;
+    border-radius: 15pt;
+    border: 2px solid white;
+    font-size: 14pt;
+    margin-bottom: 5pt;
+    width:50%;
+}
+
+.vai:hover{
+    background-color: white;
+    color:var(--hilfeRed);
+    cursor: pointer;
 }
 
 /**media query per dispositivi non mobile**/
@@ -319,213 +167,7 @@ h3 {
         float: left;
         margin:0px 5px;
     }
-
-    .leftAside{
-        width: 20%;
-        max-width: 200px;
-    }
-
-    aside, .leftAside {
-        width: 20%;
-        max-width: 200px;
-        display: inline-block;
-        background-color: var(--hilfeYellow);
-        border-radius: 10pt;
-        margin: 5pt;
-        vertical-align: top;
-        text-align: left;
-        padding-left: 10pt;
-        height: fit-content;
-    }
-
-    .infoUser {
-        width:90%;
-        display: flex;
-        margin-bottom: 10px;
-        border-bottom: 1px solid white;
-        text-decoration: none;
-        color: white;
-    }
-
-    .infoUser p {
-        margin: 5px 0;
-    }
-
-
-    .infoUser img {
-        width: 30px; /* Puoi regolare la larghezza dell'immagine a tuo piacimento */
-        height:30px;
-        border-radius: 50%;
-        float:left; 
-        margin-right: 3pt;
-         
-    }
     
-    .profile{
-        display:inline-block;
-    }
-
-    .profile span{
-        width:100%;
-        text-decoration: none;
-        color:white;
-        font-size: 9pt;
-        margin-top: 2pt;
-        font-weight: bold;
-    }
-
-    .profile span:hover{
-        
-        color:lightgray;
-    }
-
-    .profile p{
-        color:white;
-        width: 100%;
-    }
-
-    .amici{
-        font-size: 8pt;
-    }
-
-    aside ul {
-        list-style: none;
-    }
-
-    aside>ul {
-        display: inline-block;
-    }
-
-    aside a {
-        float: left;
-    }
-
-    aside>ul>li a {
-        text-decoration: none;
-        color: white;
-        font-size: 10pt;
-    }
-
-    body>header>ul {
-        display: inline-block;
-    }
-
-    body>header>ul a {
-        float: right;
-        width: 50%;
-        text-align: center;
-    }
-
-    .content{
-        display:flex;
-        width: 100%;
-    }
-
-    .openmap{
-        width: 40%;
-        height:auto;
-        margin: 10px;
-    }
-
-    .content>section{
-        width: 60%;
-        margin: 10px;
-    }
 }
 
 
-
-/**CSS per il pop up**/ 
-#popup h3{
-    color:var(--hilfeYellow);
-    font-weight: bold;
-}
-
-#popup .infoUser {
-    width:90%;
-    display: flex;
-    margin-bottom: 10px;
-    border-bottom: 1px solid var(--hilfeGrey);
-    text-decoration: none;
-    color: grey;
-}
-
-#popup .infoUser p {
-    margin: 5px 0;
-}
-
-
-#popup .infoUser img {
-    width: 30px; /* Puoi regolare la larghezza dell'immagine a tuo piacimento */
-    height:30px;
-    border-radius: 50%;
-    float:left; 
-    margin-right: 3pt;
-    border: 2px solid var(--hilfeYellow);
-     
-}
-
-#popup .profile{
-    display:flex;
-    flex-direction: column;
-    justify-content: left;
-}
-
-#popup .profile span{
-    width:100%;
-    text-decoration: none;
-    color:grey;
-    font-size: 10pt;
-    margin-top: 2pt;
-    font-weight: bold;
-}
-#popup .profile span:hover{
-    color:var(--hilfeYellow);
-}
-
-#popup .profile p{
-    color:grey;
-    width: 100%;
-}
-
-#popup .amici{
-    font-size: 8pt;
-}
-
-#popup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    z-index: 9999;
-  }
-
-  #overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 9998;
-  }
-
-  .closePopup{
-    background-color: var(--hilfeYellow);
-    color: white;
-    border: 2px solid white;
-    padding: 5pt 10pt;
-    width:100%;
-    border-radius: 5pt;
-  }
-
-  .closePopup:hover{
-    background-color: var(--hilfeBlue);
-    cursor:pointer;
-  }

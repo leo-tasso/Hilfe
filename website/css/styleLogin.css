@@ -1,9 +1,3 @@
-main, footer{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 body{
     display: flex;
     flex-direction: column;
@@ -13,53 +7,47 @@ body{
     position: relative;
 }
 
-body>footer{
-    background-color: #087e8b;
-    color:white;
-    padding:2pt;
-    margin:20pt;
-    text-align: center;
-    font-size: 10pt;
-    position: absolute; /* o fixed */
-    bottom: 0;
-    width: 100%;
-}
-
-.profilo{
-    float:right;
-    border: 2px solid #f4c03e;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    background-repeat: no-repeat; /**non ripete l'immagine nel caso il bottone fosse più grande dell'immagine**/
-    background-position: center center; /**per centrare l'immagine**/
-}
-
-.form>ul{
-    display: flex;
-    list-style: none;
-    flex-direction: column;
-    margin-bottom: 0;
-    align-items: center;
-}
-
-.form>ul input{
-    flex: 1; /* Distribuisce lo spazio in modo uniforme tra gli input */
-    max-width: 300px; /* Imposta una larghezza massima per gli input (opzionale) */
-    padding: 5px;
-    margin-right: 5pt;
+main>section{
     width:80%;
 }
 
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:5%;
+}
+
+.form>ul{
+    width: 100%;
+    padding:0;
+    display: flex;
+    list-style: none;
+    flex-direction: column;
+    margin-bottom: 10pt;
+    align-items: center;
+}
+
+.form li label{
+    align-self: flex-start;
+}
+
+.form>ul input{
+    padding: 5px;
+    width: 100%;
+}
+
 .form>ul li{
-    color:#087e8b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    justify-content: center;
+    color:var(--hilfeBlue);
     font-size: 15pt;
     margin-bottom: 5pt;
 }
 
-label[for="name"], label[for="password"]{
-    margin: 10pt;
-}
 
 .ricordami{
     display: flex;
@@ -67,13 +55,15 @@ label[for="name"], label[for="password"]{
     align-items: center;
 }
 
-.form>div{
+.options{
+    align-self: center;
+    width: 80%;
     font-size: 10pt;
-    color:#087e8b;
+    color:var(--hilfeBlue);
     display: flex;
     flex-direction:row;
     align-items: center;
-    padding: 0 30pt;
+    justify-content: space-between;
 }
 
 .form>div input{
@@ -83,12 +73,12 @@ label[for="name"], label[for="password"]{
 .form>div a{
     float:right;
     margin-left: auto;
-    color:#087e8b;
+    color:var(--hilfeBlue);
 }
 
 
 input[type="text"], input[type="password"]{
-    border: 2px solid #f4c03e;
+    border: 2px solid var(--hilfeRed);
     border-radius: 5pt;
     padding:5pt;
 }
@@ -101,6 +91,7 @@ input[type="text"], input[type="password"]{
 .form>footer {
     display:flex;
     flex-direction: column;
+    align-items: center;
     margin-top: 5pt;
 }
 
@@ -113,7 +104,7 @@ input[type="text"], input[type="password"]{
     padding:10pt;
     border: none;
     border-radius: 15pt;
-    font-size: 12pt;
+    font-size: 15pt;
     width:80%;
     text-align: center;
     text-decoration: none;
@@ -124,11 +115,11 @@ input[type="text"], input[type="password"]{
 }
 
 .log{
-    background-color: #f4c03e;
+    background-color: var(--hilfeRed);
 }
 
 .registrati{
-    background-color: #087e8b;
+    background-color: var(--hilfeBlue);
 }
 
 main>section>header{
@@ -143,13 +134,17 @@ main>section>header{
 @media screen and (min-width: 768px) {
 
     main {
-        display: flex;
-        justify-content: center;
-        border: 1px solid grey;
+        text-align: center;
         border-radius: 10pt;
-        width:60%;
+        width:50%;
         padding:20pt;
-        margin:50px auto;
+        margin:auto;
+        background-color: white;
+        box-shadow: 2px 2px 4px grey;
+    }
+
+    .logo2{
+        content: url('../LogoRes/LogoHeart.png');
     }
 
     .form footer a{
@@ -159,22 +154,40 @@ main>section>header{
     .form>ul li{
         display:flex;
         flex:1;
+        align-items: center;
         flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 5%;
     }
 
-    .form li input{
-        height: 15pt;
+    .form ul label{
+        margin-right: 5%;
     }
+
+    .form ul input{
+        width:70%;
+    }
+
 
     .form ul{
        padding:0;
     }
 
-    .ricordami{
-        margin-right: 5pt;
+    .ricordami, .dimenticata{
+        align-self: flex-end;
+    }
+
+    .dimenticata{
+        font-size: 8pt;
     }
 
     .registrati, .form>footer p{
         display: none;
+    }
+
+    .options{
+        width: 80%;
+        display:flex;
+        flex-direction: column;
     }
 }
