@@ -55,6 +55,14 @@ class DatabaseHelperMySql implements DatabaseHelper
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+    public function getHelpPost($id)
+    {
+        $stmt = $this->db->prepare("SELECT * FROM PostInterventi WHERE idPostIntervento = ?");
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 
     public function getMaterialFromHelpPost($id)
     {

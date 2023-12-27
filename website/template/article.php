@@ -1,3 +1,4 @@
+<?php require_once('map.php'); ?>
 <article id="<?php echo $post["idPostIntervento"]; ?>, <?php echo $post["PersoneRichieste"]; ?>">
     <header>
         <h1><?php echo $post["TitoloPost"]; ?></h1>
@@ -33,14 +34,15 @@
                 </table>
             <?php endif ?>
         </section>
-        <?php insertmap($post["idPostIntervento"], $post["PosizioneLongitudine"], $post["PosizioneLatitudine"], $post["Indirizzo"]); ?>
-        <footer>
-            <button type="button" class="buttonSalva" id="buttonSalva<?php echo $post["idPostIntervento"] ?>" onclick="toggleSalva(<?php echo $post["idPostIntervento"] ?>,<?php echo $post["PersoneRichieste"]; ?>)"><img class="iconButton" src="../Icons/HeartEmpty.svg" alt="">Salva</button><button type="button" class="buttonPartecipa" id="buttonPartecipa<?php echo $post["idPostIntervento"] ?>" name="Partecipa" onclick="togglePartecipa(<?php echo $post["idPostIntervento"] ?>,<?php echo $post["PersoneRichieste"]; ?>)">Partecipa</button><button type="button" class="buttonPartecipanti" onclick="openPopup(<?php echo $post["idPostIntervento"] ?>)" data-progress-text="Partecipa" data-complete-text="Al completo"><span id="progress<?php echo $post["idPostIntervento"] ?>" class="button__progress"></span><span id="partecipaLablel<?php echo $post["idPostIntervento"] ?>" class="button__text">Partecipanti 0/0</span></button>
-            <div id="popup">
-                <h3>Utenti partecipanti</h3>
-                <button class="closePopup" onclick="closePopup()">Indietro</button>
-            </div>
-            <div id="overlay"></div>
-        </footer>
+        <?php insertmap($post["idPostIntervento"]) ?>
+    </div>
+    <footer>
+        <button type="button" class="buttonSalva" id="buttonSalva<?php echo $post["idPostIntervento"] ?>" onclick="toggleSalva(<?php echo $post["idPostIntervento"] ?>,<?php echo $post["PersoneRichieste"]; ?>)"><img class="iconButton" src="../Icons/HeartEmpty.svg" alt="">Salva</button><button type="button" class="buttonPartecipa" id="buttonPartecipa<?php echo $post["idPostIntervento"] ?>" name="Partecipa" onclick="togglePartecipa(<?php echo $post["idPostIntervento"] ?>,<?php echo $post["PersoneRichieste"]; ?>)">Partecipa</button><button type="button" class="buttonPartecipanti" onclick="openPopup(<?php echo $post["idPostIntervento"] ?>)" data-progress-text="Partecipa" data-complete-text="Al completo"><span id="progress<?php echo $post["idPostIntervento"] ?>" class="button__progress"></span><span id="partecipaLablel<?php echo $post["idPostIntervento"] ?>" class="button__text">Partecipanti 0/0</span></button>
+        <div id="popup">
+            <h3>Utenti partecipanti</h3>
+            <button class="closePopup" onclick="closePopup()">Indietro</button>
+        </div>
+        <div id="overlay"></div>
+    </footer>
 </article>
 <?php $templateParams["lastLoaded"] = $post["idPostIntervento"]; ?>

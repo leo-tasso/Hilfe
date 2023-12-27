@@ -1,4 +1,3 @@
-<?php include 'map.php'; ?>
 <header class="newPostContainer">
     <div class="navbar">
         <a class="default" href="#"><img class="icon" src="../Icons/Lens.svg" alt="">Esplora</a>
@@ -19,8 +18,8 @@
         </div>
         <div class="rangeContainer">
             <label for="range" hidden>Distanza</label>
-            <input id="range" type="range" min="0" max="100" />
-            <span id="rangeValue">50km</span>
+            <input id="range" type="range" min="0" max="100" value="100" />
+            <span id="rangeValue">Illimit.</span>
         </div>
         <button type="button" class="vai">Vai</button>
         <script>
@@ -35,11 +34,11 @@
     </aside>
     <main class="articles">
 
-        <?php foreach ($dbh->getHelpPosts($START_POST_NUMBER, 0, 0, 0, 100) as $post) : ?>
+        <?php foreach ($dbh->getHelpPosts($START_POST_NUMBER, $templateParams["lastLoaded"], $templateParams["lat"], $templateParams["long"], $templateParams["range"]) as $post) : ?>
             <?php include 'article.php'; ?>
         <?php endforeach; ?>
 
-        <button type="button" class="buttonAltriPost">Altri Post</button>
+        <button type="button" class="buttonAltriPost" onclick="morePosts()">Altri Post</button>
     </main>
     <aside class="rightAside">
         <h2>Profili suggeriti</h2>

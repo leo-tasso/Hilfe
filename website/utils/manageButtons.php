@@ -32,6 +32,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header('Content-Type: application/json');
             echo json_encode($response);
             break;
+        case 'getPost':
+            $response = array('post' => $dbh->getHelpPost($id)[0]);
+            header('Content-Type: application/json');
+            echo json_encode($response);
+            break;
         case 'participants':
             $participants = $dbh->getParticipants($id);
             $idUsers = array_column($participants, 'idUser');
@@ -41,6 +46,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 require  '../template/profilePreview.php';
             }
             $response = array('participants' =>  ob_get_clean());
+            header('Content-Type: application/json');
+            echo json_encode($response);
+            break;
+        case 'morePosts':
+            $startId = isset($_POST['startId']) ? $_POST['startId'] : '';
+            $lat = isset($_POST['lat']) ? $_POST['lat'] : '';
+            $long = isset($_POST['long']) ? $_POST['long'] : '';
+            $range = isset($_POST['range']) ? $_POST['range'] : '';
+            $articles = $dbh->getHelpPosts($START_POST_NUMBER, $startId, $lat, $long, $range);
+            ob_start();
+            foreach ($articles as $post) {
+                include '../template/article.php';
+            }
+            $response = array('articles' =>  ob_get_clean());
             header('Content-Type: application/json');
             echo json_encode($response);
             break;

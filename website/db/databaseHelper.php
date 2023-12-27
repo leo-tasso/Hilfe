@@ -4,6 +4,7 @@ interface DatabaseHelper
     public function getHelpPosts($n, $startId, $lat, $long, $radius);
     public function getUserFromId($id);
     public function getProfilePicPathFromId($id);
+    public function getHelpPost($id);
     public function getAuthorFromHelpPost($id);
     public function getMaterialFromHelpPost($id);
     public function getSelfProfilePic();
