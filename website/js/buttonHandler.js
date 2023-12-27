@@ -18,7 +18,7 @@ function updateAllButtons(startButton) {
 function updateAllMaps(startMapId) {
     let maps = document.querySelectorAll(".openmap");
     maps.forEach(map => {
-        let children =  Array.from(map.children);
+        let children = Array.from(map.children);
         children.forEach(child => { child.remove(); });
     });
     let articles = document.querySelectorAll("article");
@@ -150,7 +150,9 @@ function morePosts() {
         },
         success: function (response) {
             document.querySelector(".buttonAltriPost").remove();
-            document.querySelector(".articles").innerHTML += response.articles + ' <button type="button" class="buttonAltriPost" onclick="morePosts()">Altri Post</button>';
+            if (response.articles != '') {
+                document.querySelector(".articles").innerHTML += response.articles + ' <button type="button" class="buttonAltriPost" onclick="morePosts()">Altri Post</button>';
+            }
             updateAllMaps(0);
             updateAllButtons(startPost);
         },
@@ -198,7 +200,7 @@ function updatePosts() {
         },
         success: function (response) {
             document.querySelector(".buttonAltriPost").remove();
-            document.querySelector(".articles").innerHTML = response.articles + ' <button type="button" class="buttonAltriPost" onclick="morePosts()">Altri Post</button>';
+            document.querySelector(".articles").innerHTML = response.articles == '' ? "<p>Nessun post trovato</p>" : response.articles + ' <button type="button" class="buttonAltriPost" onclick="morePosts()">Altri Post</button>';
             updateAllMaps(0);
             updateAllButtons(startPost);
         },

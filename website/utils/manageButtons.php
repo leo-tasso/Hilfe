@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $response = array('articles' =>  ob_get_clean());
             }
             else{
-                $response = array('articles' => '<p>Nessun post trovato</p>');
+                $response = array('articles' => '');
             }
             header('Content-Type: application/json');
             echo json_encode($response);
