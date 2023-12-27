@@ -149,12 +149,17 @@ function morePosts() {
             action: 'morePosts'
         },
         success: function (response) {
-            document.querySelector(".buttonAltriPost").remove();
-            if (response.articles != '') {
+            if (response.articles != "") {
+                document.querySelector(".buttonAltriPost").remove();
                 document.querySelector(".articles").innerHTML += response.articles + ' <button type="button" class="buttonAltriPost" onclick="morePosts()">Altri Post</button>';
+                updateAllMaps(0);
+                updateAllButtons(startPost);
             }
-            updateAllMaps(0);
-            updateAllButtons(startPost);
+            else {
+                if (document.getElementById("nessunRisultato") == null) {
+                    document.querySelector(".articles").innerHTML += '<p id="nessunRisultato">Nessun post trovato</p>';
+                }
+            }
         },
         error: function (error) {
             console.log(error);
