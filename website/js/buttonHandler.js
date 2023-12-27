@@ -214,3 +214,7 @@ function updatePosts() {
         }
     });
 }
+
+function toLoginPage() {
+    window.location.href = "../login.php";
+}
