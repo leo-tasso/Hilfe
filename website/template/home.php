@@ -76,20 +76,6 @@
                 <button type="button" class="buttonSalva" id="buttonSalva<?php echo $post["idPostIntervento"]?>" onclick="toggleSalva(<?php echo $post["idPostIntervento"]?>,<?php echo $post["PersoneRichieste"];?>)"><img class="iconButton" src="../Icons/HeartEmpty.svg" alt="">Salva</button><button type="button" class="buttonPartecipa" id="buttonPartecipa<?php echo $post["idPostIntervento"]?>" name="Partecipa" onclick="togglePartecipa(<?php echo $post["idPostIntervento"]?>,<?php echo $post["PersoneRichieste"];?>)">Partecipa</button><button type="button" class="buttonPartecipanti" onclick="openPopup(<?php echo $post["idPostIntervento"]?>)" data-progress-text="Partecipa" data-complete-text="Al completo"><span id="progress<?php echo $post["idPostIntervento"]?>" class="button__progress"></span><span id="partecipaLablel<?php echo $post["idPostIntervento"]?>" class="button__text">Partecipanti 0/0</span></button>
                 <div id="popup">
                     <h3>Utenti partecipanti</h3>
-                    <a href="profiloUtente.html" class="infoUser">
-                        <img src="../fotoProfiloIniziale.jpg" alt="Profilo 1">
-                        <div class="profile">
-                            <span>Luna Fabbri</span>
-                            <p class="amici">Ti Segue - n followers comuni</p>
-                        </div>
-                    </a>
-                    <a href="profiloUtente.html" class="infoUser">
-                        <img src="../fotoProfiloIniziale.jpg" alt="Profilo 1">
-                        <div class="profile">
-                            <span>Lupo Lucio</span>
-                            <p class="amici"> Ti segue - n followers comuni</p>
-                        </div>
-                    </a>
                     <button class="closePopup" onclick="closePopup()">Indietro</button>
                 </div>
                 <div id="overlay"></div>
