@@ -117,7 +117,8 @@ function openPopup(idPost) {
             action: 'participants'
         },
         success: function (response) {
-            document.getElementById("popup").innerHTML = "<h3>Utenti partecipanti</h3>" + response.participants + '<button class="closePopup" onclick="closePopup()">Indietro</button>';
+            let displayString = response.participants == "" ? "<p>Nessun Partecipante</p>" : response.participants;
+            document.getElementById("popup").innerHTML = "<h3>Utenti partecipanti</h3>" + displayString + '<button class="closePopup" onclick="closePopup()">Indietro</button>';
         },
         error: function (error) {
             console.log(error);
@@ -128,6 +129,7 @@ function openPopup(idPost) {
 function closePopup() {
     document.getElementById("popup").style.display = "none";
     document.getElementById("overlay").style.display = "none";
+    document.getElementById("popup").innerHTML = "";
 }
 
 function morePosts() {
