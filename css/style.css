@@ -40,8 +40,14 @@ body {
 .infoFooter{
   display: flex;
   flex-direction: column;
-  justify-content: right;
+  text-align: right;
   color:white;
+  margin-top:0;
+}
+
+.infoFooter p{
+  margin:0;
+  padding-right: 0;
 }
 
 .linkFooter{
@@ -52,6 +58,7 @@ body {
 
 .linkFooter a{
   color:white;
+  margin-left: 10pt;
 }
 
 
