@@ -24,5 +24,6 @@ interface DatabaseHelper
     public function checkbrute($user_id);
     public function login_check();
     public function getFollowing($id);
+    public function getFollower($id);
 
 }

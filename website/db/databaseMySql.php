@@ -441,6 +441,13 @@ class DatabaseHelperMySql implements DatabaseHelper
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+    public function getFollower($id){
+        $stmt = $this->db->prepare("SELECT * FROM Seguiti WHERE idSeguito = ?");
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
     
 }
 
