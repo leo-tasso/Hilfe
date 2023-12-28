@@ -5,7 +5,7 @@
         <input id="search" class="search" type="search" placeholder="Cerca...">
         <ul id="elencoFollowers_seguiti" class="elencoFollowers_seguiti">
             <?php
-            $followingIds = array_column($dbh->getFollower(isset($_GET["id"]) ? $_GET["id"] : 1), 'idSeguito');
+            $followingIds = array_column($dbh->getFollower(isset($_GET["id"]) ? $_GET["id"] : 1), 'idSeguace');
             foreach ($dbh->addDescription($followingIds) as $user) : ?>
                 <li class="follower"><a href="profiloUtente.php?id=<?php echo $user["idUser"] ?>"><img src="../<?php echo $dbh->getProfilePic($user["idUser"]); ?>" alt="Foto profilo">
                         <div class="infoUtente"><span><?php echo $user["Name"] . " " . $user["Surname"] ?></span>
