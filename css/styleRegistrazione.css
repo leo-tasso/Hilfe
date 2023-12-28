@@ -1,0 +1,45 @@
+.centralContent{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.colonna1{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.colonna2{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cambiaFoto{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.cambiaFoto img{
+    width:150px; 
+    
+}
+
+.modifica{
+
+}
+
+.buttonsAndConditions{
+
+}
+
+.buttons{
+
+}
+
+.conditions{
+
+}
