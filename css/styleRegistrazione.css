@@ -1,25 +1,49 @@
 .centralContent{
     display:flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
     margin-left: 5pt;
+    background-color: white;
+    max-width: 700px;
 }
 
-.colonna1{
+.colonna1, .colonna2{
     display:flex;
     flex-direction: column;
     justify-content: center;
+    width: 90%;
+    margin:0 auto;
+    padding:0;
 }
 
-.colonna2{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
+.name, .surname, .date, .email, .pass{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 5pt;
+    align-items: center;
+}
+
+form ul{
+    list-style: none;
+    line-height: 30pt;
+}
+
+form ul li input{
+    padding:5pt;
+    width: 60%;
+    border:2px solid var(--hilfeRed);
+    border-radius: 5pt;
+}
+
+form ul li label{
+    color:black;
 }
 
 main>h1{
     color:var(--hilfeBlue);
     font-size: 20pt;
+    text-align: center;
    
 }
 
@@ -34,6 +58,7 @@ main>h1{
 .cambiaFoto img{
     width:30%; 
     border-radius: 50%;
+    border:2px solid var(--hilfeBlue);
 }
 
 .modifica{
@@ -49,13 +74,31 @@ main>h1{
 }
 
 .buttonsAndConditions{
-
+    font-size: 9pt;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.buttons{
+.crea{
+    align-self: center;
+    margin:5pt 0;
+    background-color: var(--hilfeRed);
+    color:white;
+    border:none;
+    width: 50%;
+    padding:10pt;
+    border-radius: 15pt;
+    font-size: 12pt;
 
 }
 
 .conditions{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 
+.conditions a{
+    color:var(--hilfeBlue)
 }
