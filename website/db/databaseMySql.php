@@ -364,7 +364,7 @@ class DatabaseHelperMySql implements DatabaseHelper
                         $_SESSION['login_string'] = hash('sha512', $password . $user_browser);
                         if ($remember) {
                             $token = generateUniqueToken();
-                            setcookie('remember_token', $token, time() + (365 * 24 * 3600), '/'); 
+                            setcookie('remember_token', $token, time() + (365 * 24 * 3600), '/');
                             $this->saveToken($user_id, $token);
                         }
                         // Login eseguito con successo.
@@ -455,31 +455,51 @@ class DatabaseHelperMySql implements DatabaseHelper
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    public function saveToken($user_id, $token){
+    public function saveToken($user_id, $token)
+    {
         $now = time();
         $stmt = $this->db->prepare("INSERT INTO Token (idUser, TokenValue, CreationTime) VALUES (?, ?, '$now')");
         $stmt->bind_param('is', $user_id, $token);
         $stmt->execute();
     }
-    public function loginWithToken($token){
+    public function loginWithToken($token)
+    {
         $stmt = $this->db->prepare("SELECT * FROM Token WHERE TokenValue = ?");
         $stmt->bind_param('s', $token);
         $stmt->execute();
         $result = $stmt->get_result();
         $lines = $result->fetch_all(MYSQLI_ASSOC);
-        if(count($lines) == 1){
+        if (count($lines) == 1) {
             $user_browser = $_SERVER['HTTP_USER_AGENT']; // Recupero il parametro 'user-agent' relativo all'utente corrente.
             $_SESSION['idUser'] = $lines[0]["idUser"];
             $_SESSION['username'] = $this->getUserFromId($lines[0]["idUser"])[0]["Username"];
             $_SESSION['login_string'] = hash('sha512', $this->getUserFromId($lines[0]["idUser"])[0]["Password"] . $user_browser);
         }
     }
-    public function checkToken() {
+    public function checkToken()
+    {
         if (!isLogged()) {
             if (isset($_COOKIE['remember_token'])) {
                 $this->loginWithToken($_COOKIE['remember_token']);
             }
         }
+    }
+    public function getNotifications()
+    {
+        if (isLogged()) {
+            $stmt = $this->db->prepare("SELECT * FROM Notifica WHERE idUser = ? ORDER BY idNotifica DESC ");
+            $stmt->bind_param('i', $_SESSION["idUser"]);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $this->markNotificationsAsRead($_SESSION["idUser"]);
+            return $result->fetch_all(MYSQLI_ASSOC);
+        } else return false;
+    }
+    private function markNotificationsAsRead($id)
+    {
+        $updateStmt = $this->db->prepare("UPDATE Notifica SET Letta = 1 WHERE idUser = ?");
+        $updateStmt->bind_param('i', $id);
+        $updateStmt->execute();
     }
 }
 
