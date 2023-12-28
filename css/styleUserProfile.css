@@ -95,6 +95,7 @@ body{
 .bottomInfo ul{
     width: 60%;
     line-height: 5pt;
+    max-width: 300px;
 }
 
 .bottomInfo ul li{
