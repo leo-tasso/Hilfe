@@ -22,15 +22,6 @@
             <span id="rangeValue">Illimit.</span>
         </div>
         <button type="button" class="vai" onclick="updatePosts()">Vai</button>
-        <script>
-            // Aggiungi un gestore di eventi per aggiornare il numero accanto alla barra di intervallo
-            const rangeInput = document.getElementById('range');
-            const rangeValue = document.getElementById('rangeValue');
-
-            rangeInput.addEventListener('input', function() {
-                rangeValue.textContent = rangeInput.value == 100 ? "Illimit." : rangeInput.value + "km";
-            });
-        </script>
     </aside>
     <main class="articles">
 

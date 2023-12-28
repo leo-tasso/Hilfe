@@ -2,12 +2,13 @@
 require_once 'bootstrap.php';
 
 $templateParams["title"] = "Hilfe-Home";
-$templateParams["css"][0] = "styleHome.css";
-$templateParams["css"][1] = "styleLayoutDesktop.css";
-$templateParams["css"][2] = "styleArticle.css";
-$templateParams["js"][0] = "../js/sidebar.js";
-$templateParams["js"][1] = "https://code.jquery.com/jquery-3.6.4.min.js";
-$templateParams["js"][2] = "../js/buttonHandler.js";
+$templateParams["css"][] = "styleHome.css";
+$templateParams["css"][] = "styleLayoutDesktop.css";
+$templateParams["css"][] = "styleArticle.css";
+$templateParams["js"][] = "../js/sidebar.js";
+$templateParams["js"][] = "https://code.jquery.com/jquery-3.6.4.min.js";
+$templateParams["js"][] = "../js/buttonHandler.js";
+$templateParams["js"][] = "../js/updateRangeBar.js";
 $templateParams["page"] = "home.php";
 $templateParams["lastLoaded"] = 0;
 $templateParams["lat"] = 0;
