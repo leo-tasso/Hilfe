@@ -456,7 +456,8 @@ class DatabaseHelperMySql implements DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC);
     }
     public function saveToken($user_id, $token){
-        $stmt = $this->db->prepare("INSERT INTO Token (idUser, TokenValue) VALUES (?, ?)");
+        $now = time();
+        $stmt = $this->db->prepare("INSERT INTO Token (idUser, TokenValue, CreationTime) VALUES (?, ?, '$now')");
         $stmt->bind_param('is', $user_id, $token);
         $stmt->execute();
     }
