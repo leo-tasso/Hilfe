@@ -3,6 +3,14 @@ section>h3{
     margin:0;
 }
 
+.penna{
+    margin-left: 3pt;
+    background-color:var(--hilfeRed);
+    width:20px;
+    padding:5pt;
+    border-radius: 10pt;
+}
+
 .articles header{
     display:flex;
     justify-content:space-between;
