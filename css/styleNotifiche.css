@@ -1,4 +1,4 @@
-.notifica>img{
+.notifica>img, .notificaDaLeggere>img{
     border: 2px solid var(--hilfeRed);
     border-radius: 50%;
     width: 40px;
@@ -24,7 +24,7 @@ h1{
     margin-bottom: 0;
 }
 
-.notifica{
+.notifica, .notificaDaLeggere{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -33,7 +33,21 @@ h1{
     padding:5pt;
 }
 
-.notifica:hover, .notifica:active{
+.topNotifica{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin:0;
+    padding:0;
+}
+
+.topNotifica p{
+    font-size: 8pt;
+    margin-right: 5pt;
+}
+
+.notifica:hover, .notifica:active, .notificaDaLeggere:hover, .notificaDaLeggere:active{
     background-color: white;
 }
 
@@ -50,6 +64,10 @@ h1{
     padding:0;
     list-style: none;
     margin-bottom: 0;
+}
+
+.testo{
+    margin-top: 0;
 }
 
 @media screen and (min-width: 768px) {
