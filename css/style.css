@@ -22,10 +22,8 @@ body {
 .footer {
   background-color: var(--hilfeBlue);
   color: white;
-  text-align: center;
   width: 100%;
   font-size: 8pt;
-  padding: 10px;
   height: 50px;
   display: flex;
   flex-direction: row;
@@ -35,13 +33,16 @@ body {
 .footer img{
   width: 40px;
   height: auto;
+  padding:2pt 5pt;
 }
 
 .infoFooter{
   display: flex;
   flex-direction: column;
-  justify-content: right;
+  text-align: right;
   color:white;
+  margin:0;
+  padding:0 5pt;
 }
 
 .linkFooter{
@@ -52,6 +53,7 @@ body {
 
 .linkFooter a{
   color:white;
+  margin-left: 5pt;
 }
 
 
