@@ -19,6 +19,7 @@
     text-align: left;
     border-radius: 15pt;
     border: 0px solid transparent;
+    color: var(--hilfeGrey);
 }
 
 .ricerca input{
