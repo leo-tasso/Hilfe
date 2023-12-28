@@ -93,6 +93,10 @@ main>h1{
 
 }
 
+.crea:hover, .modifica:hover{
+    background-color: var(--hilfeBlue);
+}
+
 .conditions{
     display: flex;
     flex-direction: row;
