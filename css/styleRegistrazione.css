@@ -1,7 +1,8 @@
 .centralContent{
     display:flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
+    margin-left: 5pt;
 }
 
 .colonna1{
@@ -16,19 +17,34 @@
     justify-content: center;
 }
 
+main>h1{
+    color:var(--hilfeBlue);
+    font-size: 20pt;
+   
+}
+
 .cambiaFoto{
     display:flex;
     flex-direction: row;
-    justify-content: center;
-
+    justify-content: space-around;
+    margin-bottom: 10pt;
+    align-items: center;
 }
 
 .cambiaFoto img{
-    width:150px; 
-    
+    width:30%; 
+    border-radius: 50%;
 }
 
 .modifica{
+    width: 50%;
+    padding:0;
+    height:20pt;
+    border-radius: 10pt;
+    border:none;
+    background-color: var(--hilfeRed);
+    color:white;
+    font-weight: bold;
 
 }
 

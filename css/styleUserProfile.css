@@ -37,7 +37,7 @@
     color: var(--hilfeRed);
     font-weight: bold;
     font-size:12pt;  
-    box-shadow: 0px 6px 5px 1px var(--hilfeRed);
+    box-shadow: 0px 6px 5px 1px black;
 }
 
 /**passaggio sopra a bottone segui**/
@@ -70,7 +70,7 @@ body{
     display: flex;
     flex-direction: column;
     background-color: var(--hilfeRed);
-    border-radius: 10pt;
+    border-radius: 20pt;
 
 }
 
@@ -116,7 +116,6 @@ body{
 .bio h2, .bio p{
     margin:0;
     padding:0;
-    color: grey;
 }
 
 .bio h2{
@@ -126,6 +125,7 @@ body{
 
 .bio p{
     text-align: justify;
+    color: var(--hilfeGrey);
 }
 
 .bottomInfo ul{
