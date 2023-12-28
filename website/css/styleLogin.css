@@ -39,6 +39,11 @@ main {
     width: 100%;
 }
 
+.form>ul input:focus {
+    border: 2px solid var(--hilfeBlue);
+    outline: none;
+}
+
 .form>ul li {
     display: flex;
     flex-direction: column;
@@ -121,9 +126,12 @@ input[type="password"] {
     font-size: large;
 }
 
-.log:hover,
+.log:hover {
+    background-color: var(--hilfeBlue);
+}
+
 .registrati:hover {
-    background-color: gray;
+    background-color: var(--hilfeRed);
 }
 
 .log {
