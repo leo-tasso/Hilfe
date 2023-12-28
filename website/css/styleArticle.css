@@ -193,12 +193,12 @@ h3 {
 }
 
 /**CSS per il pop up**/ 
-#popup h3{
+.popup h3{
     color:var(--hilfeRed);
     font-weight: bold;
 }
 
-#popup .infoUser {
+.popup .infoUser {
     width:90%;
     display: flex;
     margin-bottom: 10px;
@@ -207,12 +207,12 @@ h3 {
     color: grey;
 }
 
-#popup .infoUser p {
+.popup .infoUser p {
     margin: 5px 0;
 }
 
 
-#popup .infoUser img {
+.popup .infoUser img {
     width: 30px; /* Puoi regolare la larghezza dell'immagine a tuo piacimento */
     height:30px;
     border-radius: 50%;
@@ -222,13 +222,13 @@ h3 {
      
 }
 
-#popup .profile{
+.popup .profile{
     display:flex;
     flex-direction: column;
     justify-content: left;
 }
 
-#popup .profile span{
+.popup .profile span{
     width:100%;
     text-decoration: none;
     color:grey;
@@ -236,20 +236,20 @@ h3 {
     margin-top: 2pt;
     font-weight: bold;
 }
-#popup .profile span:hover{
+.popup .profile span:hover{
     color:var(--hilfeRed);
 }
 
-#popup .profile p{
+.popup .profile p{
     color:grey;
     width: 100%;
 }
 
-#popup .amici{
+.popup .amici{
     font-size: 8pt;
 }
 
-#popup {
+.popup {
     display: none;
     position: fixed;
     top: 50%;
@@ -262,7 +262,7 @@ h3 {
     z-index: 9999;
   }
 
-  #overlay {
+  .overlay {
     display: none;
     position: fixed;
     top: 0;
