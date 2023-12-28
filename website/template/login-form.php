@@ -10,7 +10,7 @@
             </ul>
             <div class="options">
                 <?php if (isset($_GET["error"])) echo '<p class="error">Impossibile accedere</p>' ?>
-                <a href="#" class="dimenticata">Password dimenticata?</a><br />
+                <a href="#" class="dimenticata" onclick="alert('Contatta l\'amministratore di sistema')">Password dimenticata?</a><br />
                 <div class="ricordami">
                     <input type="checkbox" id="ricordami" checked name="ricordami" value="Ricordami"><label for="ricordami">Ricordami</label>
                 </div>
