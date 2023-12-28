@@ -28,5 +28,6 @@ interface DatabaseHelper
     public function saveToken($user_id, $token);
     public function loginWithToken($token);
     public function checkToken();
+    public function getNotifications();
 
 }
