@@ -6,4 +6,5 @@ require_once("config.php");
 require_once("secrets.php");
 require_once("db/databaseMySql.php");
 require_once("utils/functions.php");
+$dbh->checkToken();
 ?>

@@ -336,7 +336,7 @@ class DatabaseHelperMySql implements DatabaseHelper
             return $result;
         }
     }
-    public function login($email, $password)
+    public function login($email, $password, $remember)
     {
         // Usando statement sql 'prepared' non sarà possibile attuare un attacco di tipo SQL injection.
         if ($stmt = $this->db->prepare("SELECT idUser, Username, Password, Salt FROM User WHERE Email = ? OR Username = ? LIMIT 1")) {
@@ -362,6 +362,11 @@ class DatabaseHelperMySql implements DatabaseHelper
                         $username = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $username); // ci proteggiamo da un attacco XSS
                         $_SESSION['username'] = $username;
                         $_SESSION['login_string'] = hash('sha512', $password . $user_browser);
+                        if ($remember) {
+                            $token = generateUniqueToken();
+                            setcookie('remember_token', $token, time() + (365 * 24 * 3600), '/'); 
+                            $this->saveToken($user_id, $token);
+                        }
                         // Login eseguito con successo.
                         return true;
                     } else {
@@ -405,11 +410,11 @@ class DatabaseHelperMySql implements DatabaseHelper
             $login_string = $_SESSION['login_string'];
             $username = $_SESSION['username'];
             $user_browser = $_SERVER['HTTP_USER_AGENT']; // reperisce la stringa 'user-agent' dell'utente.
-            if ($stmt = $this->db->prepare("SELECT password FROM User WHERE idUser = ? LIMIT 1")) {
+            if ($stmt = $this->db->prepare("SELECT Password FROM User WHERE idUser = ? LIMIT 1")) {
                 $stmt->bind_param('i', $user_id); // esegue il bind del parametro '$user_id'.
                 $stmt->execute(); // Esegue la query creata.
-                $stmt->store_result();
-                $password = "";
+                $result = $stmt->get_result();
+                $password = $result->fetch_all(MYSQLI_ASSOC)["Password"];
                 if ($stmt->num_rows == 1) { // se l'utente esiste
                     $stmt->bind_result($password); // recupera le variabili dal risultato ottenuto.
                     $stmt->fetch();
@@ -434,21 +439,47 @@ class DatabaseHelperMySql implements DatabaseHelper
             return false;
         }
     }
-    public function getFollowing($id){
+    public function getFollowing($id)
+    {
         $stmt = $this->db->prepare("SELECT * FROM Seguiti WHERE idSeguace = ?");
         $stmt->bind_param('i', $id);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    public function getFollower($id){
+    public function getFollower($id)
+    {
         $stmt = $this->db->prepare("SELECT * FROM Seguiti WHERE idSeguito = ?");
         $stmt->bind_param('i', $id);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    
+    public function saveToken($user_id, $token){
+        $stmt = $this->db->prepare("INSERT INTO Token (idUser, TokenValue) VALUES (?, ?)");
+        $stmt->bind_param('is', $user_id, $token);
+        $stmt->execute();
+    }
+    public function loginWithToken($token){
+        $stmt = $this->db->prepare("SELECT * FROM Token WHERE TokenValue = ?");
+        $stmt->bind_param('s', $token);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $lines = $result->fetch_all(MYSQLI_ASSOC);
+        if(count($lines) == 1){
+            $user_browser = $_SERVER['HTTP_USER_AGENT']; // Recupero il parametro 'user-agent' relativo all'utente corrente.
+            $_SESSION['idUser'] = $lines[0]["idUser"];
+            $_SESSION['username'] = $this->getUserFromId($lines[0]["idUser"])[0]["Username"];
+            $_SESSION['login_string'] = hash('sha512', $this->getUserFromId($lines[0]["idUser"])[0]["Password"] . $user_browser);
+        }
+    }
+    public function checkToken() {
+        if (!isLogged()) {
+            if (isset($_COOKIE['remember_token'])) {
+                $this->loginWithToken($_COOKIE['remember_token']);
+            }
+        }
+    }
 }
 
 

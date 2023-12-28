@@ -38,4 +38,7 @@ function getCoordinates($address) {
         return null;
     }
 }
+function generateUniqueToken() {
+    return bin2hex(random_bytes(32)); // Generates a 64-character hex token
+}
 ?>

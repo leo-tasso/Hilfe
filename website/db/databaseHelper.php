@@ -20,10 +20,13 @@ interface DatabaseHelper
     public function followsMe($otherUserId);
     public function followInCommon($otherUserId);
     public function getAddress();
-    public function login($email, $password);
+    public function login($email, $password, $remember);
     public function checkbrute($user_id);
     public function login_check();
     public function getFollowing($id);
     public function getFollower($id);
+    public function saveToken($user_id, $token);
+    public function loginWithToken($token);
+    public function checkToken();
 
 }
