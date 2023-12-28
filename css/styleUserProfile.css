@@ -37,7 +37,7 @@
     color: var(--hilfeRed);
     font-weight: bold;
     font-size:12pt;  
-    box-shadow: 0px 6px 5px 1px black;
+    box-shadow: 0px 6px 5px 1px #79000b;
 }
 
 /**passaggio sopra a bottone segui**/
