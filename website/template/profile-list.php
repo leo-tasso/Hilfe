@@ -12,7 +12,7 @@ $user = $dbh->getUserFromId($source);
     <div class="mainInfo">
         <header class="topInfo">
             <h1 class="nomeUtente"><?php echo $user["Name"]." ".$user["Surname"]?></h1>
-            <input class="segui <?php if($dbh->isFollowing($source)){echo "seguito";}?>" type="button" name="Segui" value="<?php if($dbh->isFollowing($source)){echo "Seguito";}else{echo "Segui";}?>" onclick=<?php if(isLogged()) {echo "\"toggleFollow(".$source.")\"";}else{echo "toLoginPage()";}?>>
+            <input class="segui <?php if($dbh->isFollowing($source)){echo "seguito";}?>" type="button" name="Segui" value="<?php if(isLogged() && $source == $_SESSION["idUser"]){echo "Sei tu <3";}else if($dbh->isFollowing($source)){echo "Seguito";}else{echo "Segui";}?>" <?php if(!isLogged() || $source != $_SESSION["idUser"]) { if(isLogged()) {echo "onclick=\"toggleFollow(".$source.")\"";}else{echo "onclick=\"toLoginPage()\"";}}?>>
         </header>
         <div class="bottomInfo">
             <img class="fotoProfiloPrincipale" src="../<?php echo $dbh->getProfilePic($source); ?>" alt="Foto profilo di <?php echo $user["Name"]." ".$user["Surname"]?>" />
