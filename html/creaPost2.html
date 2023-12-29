@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <title>HILFE - Crea post</title>
+        <meta charset="UTF-8"/>
+        <!-- link to add favicon-->
+        <link rel="icon" type="image/x-icon" href="../LogoRes/1x/HeartHands.png">
+        <link href="../css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/styleCreaPost2.css" rel="stylesheet" type="text/css"/>
+        <script>
+            /* Set the width of the sidebar to 250px (show it) */
+            function openNav() {
+            document.getElementById("mySidepanel").style.width = "250px";
+            }
+
+            /* Set the width of the sidebar to 0 (hide it) */
+            function closeNav() {
+            document.getElementById("mySidepanel").style.width = "0";
+            }
+        </script> 
+    </head>
+    <body>
+        <header> 
+            <nav class="topbar">
+                <a href="home.html" class="logoContainer">
+                    <img class="logo" src="../LogoRes/1x/LogoHeart.png" alt="logo HILFE" />
+                </a>
+                <nav class="desktopbar">
+                    <a href="home.html">Home</a>
+                    <a href="annunciSalvati.html">Salvati</a>
+                    <a href="profiloUtente.html">Profilo</a>
+                    <a href="privacy.html">Privacy</a>
+                    <div class="notifiche">
+                        <a href="notifiche.html">Notifiche</a>
+                        <p>1</p>
+                    </div>
+                </nav>
+                <a class="profiloBarra" id="profiloBarra" href="profiloUtente.html">
+                <div class="buttonLoginLogout">
+                    <a class="b1" href="login.html">Login</a>
+                    <a class="b2" href="registrazione.html">Registrati</a>
+                    <button type="button" class="b3">Logout</button>
+                </div>
+                <div id="mySidepanel" class="sidepanel">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="login.html"><img class="icon" src="../Icons/Door.svg" alt="">Login</a>
+                    <a href="profiloUtente.html"><img class="icon" src="../Icons/Profile.svg" alt="">Il mio profilo</a>
+                    <a href="privacy.html"><img class="icon" src="../Icons/Lock.svg" alt="">Privacy</a>
+                    <a href="annunciSalvati.html"><img class="icon" src="../Icons/Pin.svg" alt="">Annunci salvati</a>
+                    <div class="notifiche">
+                        <a href="notifiche.html"><img class="icon" src="../Icons/Bell.svg" alt="">Notifiche</a>
+                        <p>1</p>
+                    </div>
+                </div>
+                <button class="openbtn" onclick="openNav()">&#9776; </button>
+            </nav>
+        </header>
+        <div class="centralContent">
+        <main>
+            <h1>Crea Post</h1>
+            <section>
+                <form class="form" action="#" method="POST">
+                    <div class="container">
+                        <div class="colonna1">
+                            <label for="titolo" hidden>Titolo</label><br/>
+                            <input type="text" id="titolo" name="titolo" placeholder="Titolo"/>
+                            <label for="annuncio" hidden>Testo annuncio</label><br/>
+                            <textarea id="annuncio" placeholder="Testo annuncio"></textarea>
+                        </div>
+                        <div class="colonna2">
+                            <h2>Carica immagine:</h2>
+                            <div class="caricamento">
+                                <input type="file" name="file" id="file" accept="image/*">
+                                <input class="carica" type="submit" name="submit" value="Carica +">
+                            </div>
+                        </div>
+                    </div>
+                    <footer>
+                        <input class="annulla" type="button" name="Annulla" value="Annulla">
+                        <input class="pubblica" type="button" name="Pubblica" value="Pubblica">
+                    </footer>
+                </form>
+            </section>
+        </main>
+    </div>
+        <footer class="footer">
+            <img src="../LogoRes/HeartHands.png" alt="logo"/>
+            <div class="infoFooter">
+                <p>©Hilfe 2024</p>
+                <div class="linkFooter">
+                    <a href="privacy.html">Privacy</a>
+                    <a href="informativa.html">Informativa cookie</a>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
