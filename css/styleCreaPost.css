@@ -43,7 +43,8 @@ textarea::placeholder{
     display: flex;
     margin:auto;
     flex-direction: column;
-    width: 80%;
+    align-items: justify;
+    width: 90%;
 }
 
 .giorno, .luogo, .pers, .ora{
