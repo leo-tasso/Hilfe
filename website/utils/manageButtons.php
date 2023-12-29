@@ -26,6 +26,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header('Content-Type: application/json');
             echo json_encode($response);
             break;
+        case 'follow':
+            $dbh->follow($id);
+            $count= count($dbh->getFollower($id));
+            if ($dbh->isFollowing($id)) {
+                $response = array('status' => 'follows', 'counter' => $count);
+            } else {
+                $response = array('status' => 'notFollows', 'counter' => $count);
+            }
+            header('Content-Type: application/json');
+            echo json_encode($response);
+            break;
         case 'update':
             $participants = count($dbh->getParticipants($id));
             $response = array('statusParticipate' => $dbh->isparticipating($id) ? 'partecipa' : 'nonPartecipa', 'statusSaved' => $dbh->isPostSaved($id) ? 'saved' : 'unsaved', 'participants' => $participants);
@@ -69,8 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     include '../template/article.php';
                 }
                 $response = array('articles' =>  ob_get_clean());
-            }
-            else{
+            } else {
                 $response = array('articles' => '');
             }
             header('Content-Type: application/json');

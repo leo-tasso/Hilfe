@@ -110,6 +110,23 @@ function togglePartecipa(idPost, maxPeople) {
     });
 }
 
+function toggleFollow(idUser) {
+    $.ajax({
+        url: "../utils/manageButtons.php",
+        type: "POST",
+        data: {
+            id: idUser,
+            action: 'follow'
+        },
+        success: function (response) {
+            updateFollow(response);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
 function openPopup(idPost) {
     document.getElementById("popup").style.display = "block";
     document.getElementById("overlay").style.display = "block";
@@ -217,4 +234,17 @@ function updatePosts() {
 
 function toLoginPage() {
     window.location.href = "../login.php";
+}
+
+function updateFollow(result){
+    let button = document.getElementsByClassName("segui")[0];
+    if(result.status=="follows"){
+        button.classList.add("seguito");
+        button.value = "Seguito"
+    }
+    else{
+        button.classList.remove("seguito");
+        button.value = "Segui"
+    }
+    document.getElementById("followersCount").innerHTML= result.counter;
 }

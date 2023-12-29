@@ -18,6 +18,7 @@ interface DatabaseHelper
     public function getParticipants($id);
     public function addDescription($users);
     public function followsMe($otherUserId);
+    public function isFollowing($id);
     public function followInCommon($otherUserId);
     public function getAddress();
     public function login($email, $password, $remember);
@@ -25,9 +26,12 @@ interface DatabaseHelper
     public function login_check();
     public function getFollowing($id);
     public function getFollower($id);
+    public function getParticipations($id);
     public function saveToken($user_id, $token);
     public function loginWithToken($token);
     public function checkToken();
     public function getNotifications();
+    public function getPostsFromUser($id);
+    public function follow($id);
 
 }

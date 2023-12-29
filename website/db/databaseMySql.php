@@ -35,7 +35,12 @@ class DatabaseHelperMySql implements DatabaseHelper
         $stmt->bind_param('i', $id);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
+        $result = $result->fetch_all(MYSQLI_ASSOC);
+        if (count($result) > 0) {
+            return $result[0];
+        } else {
+            return false;
+        }
     }
 
     public function getProfilePicPathFromId($id)
@@ -265,7 +270,7 @@ class DatabaseHelperMySql implements DatabaseHelper
 
         if (isLogged()) {
             foreach ($users as $user) {
-                $userData = $this->getUserFromId($user)[0];
+                $userData = $this->getUserFromId($user);
                 if ($user == $_SESSION["idUser"]) {
                     $userData["seiTu"] = 1;
                 } else if ($this->followsMe($user)) {
@@ -280,7 +285,7 @@ class DatabaseHelperMySql implements DatabaseHelper
             return $suggestedUsers;
         } else {
             foreach ($users as $user) {
-                $userData = $this->getUserFromId($user)[0];
+                $userData = $this->getUserFromId($user);
                 $userData["Motivazione"] = CUTE_PHRASES[array_rand(CUTE_PHRASES)];
                 $suggestedUsers[] = $userData;
             }
@@ -455,6 +460,14 @@ class DatabaseHelperMySql implements DatabaseHelper
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+    public function getParticipations($id)
+    {
+        $stmt = $this->db->prepare("SELECT * FROM PostInterventi,Interventi WHERE idPostIntervento = idPostInterventi AND idUser = ?");
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
     public function saveToken($user_id, $token)
     {
         $now = time();
@@ -472,8 +485,8 @@ class DatabaseHelperMySql implements DatabaseHelper
         if (count($lines) == 1) {
             $user_browser = $_SERVER['HTTP_USER_AGENT']; // Recupero il parametro 'user-agent' relativo all'utente corrente.
             $_SESSION['idUser'] = $lines[0]["idUser"];
-            $_SESSION['username'] = $this->getUserFromId($lines[0]["idUser"])[0]["Username"];
-            $_SESSION['login_string'] = hash('sha512', $this->getUserFromId($lines[0]["idUser"])[0]["Password"] . $user_browser);
+            $_SESSION['username'] = $this->getUserFromId($lines[0]["idUser"])["Username"];
+            $_SESSION['login_string'] = hash('sha512', $this->getUserFromId($lines[0]["idUser"])["Password"] . $user_browser);
         }
     }
     public function checkToken()
@@ -500,6 +513,44 @@ class DatabaseHelperMySql implements DatabaseHelper
         $updateStmt = $this->db->prepare("UPDATE Notifica SET Letta = 1 WHERE idUser = ?");
         $updateStmt->bind_param('i', $id);
         $updateStmt->execute();
+    }
+    public function getPostsFromUser($id)
+    {
+        $stmt = $this->db->prepare("SELECT * FROM PostInterventi WHERE Autore_idUser = ? ORDER BY idPostIntervento DESC ");
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function isFollowing($id)
+    {
+        if (isLogged()) {
+            $stmt = $this->db->prepare("SELECT * FROM Seguiti WHERE idSeguace = ? AND idSeguito = ? ");
+            $stmt->bind_param('ii',  $_SESSION["idUser"], $id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return count($result->fetch_all(MYSQLI_ASSOC)) == 1;
+        }
+        else{
+            return false;
+        }
+    }
+    public function follow($id)
+    {
+        if (isLogged()) {
+            if (!$this->isFollowing($id)) {
+                $stmt = $this->db->prepare("INSERT INTO Seguiti (idSeguace, idSeguito) VALUES (?, ?)");
+                $stmt->bind_param('ii',  $_SESSION["idUser"], $id);
+                $stmt->execute();
+            } else {
+                $stmt = $this->db->prepare("DELETE FROM  Seguiti WHERE idSeguace = ? AND idSeguito = ?");
+                $stmt->bind_param('ii',  $_SESSION["idUser"], $id);
+                $stmt->execute();
+            }
+            return $this->isFollowing($id);
+        } else {
+            return false;
+        }
     }
 }
 

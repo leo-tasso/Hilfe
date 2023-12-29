@@ -6,6 +6,7 @@
             <a href="profiloUtente.html" class="nomeAutore"><?php $autore = $dbh->getAuthorFromHelpPost($post["idPostIntervento"])[0];
                                                             echo $autore["Name"] . " " . $autore["Surname"] ?></a>
             <a href="profiloUtente.html"><img class="profilo" id="profilo<?php echo $post["Autore_idUser"];?>" src="../<?php echo $dbh->getProfilePic($post["Autore_idUser"]); ?>" alt="profilo"></a>
+            <?php if(isLogged() && $post["Autore_idUser"]==$_SESSION["idUser"]){echo '<a href="creaPost.html"><img class="penna" src="../Icons/Pen.svg" alt="modifica Post"></a>';}?>
         </div>
     </header>
     <div class="content">
