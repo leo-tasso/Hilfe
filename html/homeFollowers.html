@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>HILFE - Home page</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="../LogoRes/1x/HeartHands.png">
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../css/styleHome.css" rel="stylesheet" type="text/css" />
+    <link href="../css/styleLayoutDesktop.css" rel="stylesheet" type="text/css" />
+    <link href="../css/styleArticle.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+    <script>
+        /* Set the width of the sidebar to 250px (show it) */
+        function openNav() {
+            document.getElementById("mySidepanel").style.width = "250px";
+        }
+        /* Set the width of the sidebar to 0 (hide it) */
+        function closeNav() {
+            document.getElementById("mySidepanel").style.width = "0";
+        }
+    </script>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+</head>
+<body>
+        <header class="topbar">
+            <a href="home.html" class="logoContainer">
+                <img class="logo" src="../LogoRes/1x/LogoHeart.png" alt="logo HILFE" />
+            </a>
+            <nav class="desktopbar">
+                <a href="home.html">Home</a>
+                <a href="annunciSalvati.html">Salvati</a>
+                <a href="profiloUtente.html">Profilo</a>
+                <a href="privacy.html">Privacy</a>
+                <div class="notifiche">
+                    <a href="notifiche.html">Notifiche</a>
+                    <p>1</p>
+                </div>
+            </nav>
+            <a class="profiloBarra" id="profiloBarra" href="profiloUtente.html"> 
+                <img src="../fotoProfiloIniziale.jpg" alt="" class="fotoProfilo">
+            </a>
+            <div class="buttonLoginLogout">
+                <a class="b1" href="login.html">Login</a>
+                <a class="b2" href="registrazione.html">Registrati</a>
+                <button type="button" class="b3">Logout</button>
+            </div>
+            <div id="mySidepanel" class="sidepanel">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="login.html"><img class="icon" src="../Icons/Door.svg" alt="">Login</a>
+                <a href="profiloUtente.html"><img class="icon" src="../Icons/Profile.svg" alt="">Il mio profilo</a>
+                <a href="privacy.html"><img class="icon" src="../Icons/Lock.svg" alt="">Privacy</a>
+                <a href="annunciSalvati.html"><img class="icon" src="../Icons/Pin.svg" alt="">Annunci salvati</a>
+                <div class="notifiche">
+                    <a href="notifiche.html"><img class="icon" src="../Icons/Bell.svg" alt="">Notifiche</a>
+                    <p>1</p>
+                </div>
+            </div>
+            <button class="openbtn" onclick="openNav()">&#9776; </button>
+        </header>
+        <header class="newPostContainer">
+        <div class="navbar">
+            <a href="#"><img class="icon" src="../Icons/Lens.svg" alt="" >Esplora</a>
+            <a class="default" href="#"><img class="icon" src="../Icons/Profile.svg" alt="">Followers</a>
+        </div>
+        <div class="newPost">
+            <img src="../fotoProfiloIniziale.jpg" alt="Profilo 1" class="profilo">
+            <a href="creaPost.html">Vuoi condividere un pensiero? ✍ Crea post</a>
+        </div>
+        </header>
+    <div class="centralContent">
+    <aside class="leftAside"></aside>
+    <main class="articles">
+        <article class="tipo2">
+            <header>
+                <h1>Titolo post</h1>
+                <div class="infoUtente">
+                    <a href="profiloUtente.html"  class="nomeAutore">Lupo Lucio</a>
+                    <a href="profiloUtente.html"><img class="profilo" id="profilo" src="../fotoProfiloIniziale.jpg" alt="profilo"></a>
+                </div>
+            </header>
+            <div class="content">
+            <section lang="zxx">
+                <p class="date">gg/mm/aaaa</p>
+                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum."</p>
+            </section>
+            <footer>
+                <button type="button" class="miPiace"><img class="iconButton" src="../Icons/Heart.svg" alt="">Mi piace</button><button type="button" class="vediCommenti">Vedi commenti</button><button type="button" class="commenta" >Commenta</button>
+                <h3 class="sezioneCommenti">Commenti</h3>
+                <form class="formCommenti" action="#" method="POST">
+                    <label for="commenta"hidden>Commenta</label>
+                    <input type="text" id="commenta" placeholder="Commenta" name="commenta">
+                </form>
+                <ul class="commenti">
+                    <li class="commento">
+                        <a href="profiloUtente.html"><img class="profilo" id="profilo" src="../fotoProfiloIniziale.jpg" alt="profilo"></a>
+                        <div class="infoCommento">
+                            <a href="profiloUtente.html"  class="nomeAutore">Milo Cotogno</a>
+                            <p>Inserisci qui il testo del commento. </p>
+                        </div>
+                    </li>
+                    <li class="commento">
+                        <a href="profiloUtente.html"><img class="profilo" id="profilo" src="../fotoProfiloIniziale.jpg" alt="profilo"></a>
+                        <div class="infoCommento">
+                            <a href="profiloUtente.html"  class="nomeAutore">Milo Cotogno</a>
+                            <p>Inserisci qui il testo del commento. </p>
+                        </div>
+                    </li>
+                </ul>
+            </footer>
+        </article>
+        <button type="button" class="buttonAltriPost">Altri Post</button>
+    </main><aside class="rightAside">
+        <h2>Profili suggeriti</h2>
+        <a href="profiloUtente.html" class="infoUser">
+            <img src="../fotoProfiloIniziale.jpg" alt="Profilo 1">
+            <div class="profile">
+            <span>Luna Fabbri</span>
+            <p class="amici">Ti Segue - n followers comuni</p></div>
+        </a>
+        <a href="profiloUtente.html" class="infoUser">
+            <img src="../fotoProfiloIniziale.jpg" alt="Profilo 1">
+            <div class="profile">
+            <span>Lupo Lucio</span>
+            <p class="amici"> Ti segue - n followers comuni</p></div>
+        </a>
+        <a href="profiloUtente.html" class="infoUser">
+            <img src="../fotoProfiloIniziale.jpg" alt="Profilo 1">
+            <div class="profile">
+            <span>Milo Cotogno</span>
+            <p class="amici">n followers comuni</p></div>    
+        </a>
+        <a href="profiloUtente.html" class="infoUser">
+            <img src="../fotoProfiloIniziale.jpg" alt="Profilo 1">
+            <div class="profile">
+            <span>Gigio Bagigio</span>
+            <p class="amici">Ti segue - n followers comuni</p></div>
+        </a>
+    </aside>
+    </div>
+    <footer class="footer">
+        <img src="../LogoRes/HeartHands.png" alt="logo"/>
+            <div class="infoFooter">
+                <p>©Hilfe 2024</p>
+                <div class="linkFooter">
+                    <a href="privacy.html">Privacy</a>
+                    <a href="informativa.html">Informativa cookie</a>
+                </div>
+            </div>
+    </footer>
+</body>
+</html>
