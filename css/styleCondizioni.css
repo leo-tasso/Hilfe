@@ -31,5 +31,11 @@ p{
 }
 
 @media screen and (min-width: 768px){
-    
+    main{
+        width: 80%;
+        background-color: white;
+        box-shadow: 2px 2px 4px grey;
+        margin:20pt auto;
+        border-radius: 10pt;
+    }
 }
