@@ -324,18 +324,32 @@ h3 {
 
   .tipo2 .formCommenti{
     width: 100%;
+    display: flex;
     margin:0;
     padding:0;
-    justify-content: center;
+    justify-content: space-between;
   }
 
   #commenta{
-    width: 100%;
-    align-self: center;
+    width: 90%;
     padding:0;
     margin-bottom:0;
     border:none;
     border-bottom: 1px solid var(--hilfeGrey);
+  }
+
+  .pubblicaCommento{
+    background-color: var(--hilfeRed);
+    border: none;
+    border-radius: 5pt;
+    color:white;
+    font-weight: bold;
+    padding:2pt 5pt;
+  }
+
+  .pubblicaCommento:hover{
+    background-color: var(--hilfeBlue);
+    cursor: pointer;
   }
 
   .tipo2 h3{
