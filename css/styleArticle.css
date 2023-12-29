@@ -122,7 +122,7 @@ article>footer>a {
 }
 
 
-.buttonPartecipa, .buttonPartecipanti, .buttonSalva, .buttonAltriPost{
+.buttonPartecipa, .buttonPartecipanti, .buttonSalva, .buttonAltriPost, .miPiace, .vediCommenti, .commenta{
     font-size: 9pt;
     font-family: "Fira Sans", sans-serif;
     padding: 5pt;
@@ -133,7 +133,7 @@ article>footer>a {
     color: #ffffff;
 }
 
-.buttonSalva{
+.buttonSalva, .miPiace{
     background: var(--hilfeRed);
     border-top-left-radius: 10pt;
     border-bottom-left-radius: 10pt;
@@ -153,7 +153,7 @@ article>footer>a {
     min-width: 50px;
     margin-left:0;
 }
-.buttonSalva:hover{
+.buttonSalva:hover, .miPiace:hover{
     background: var(--hilfeBlue);
 }
 
@@ -295,6 +295,78 @@ h3 {
     cursor:pointer;
   }
 
+  /**css per post di tipo2**/ 
+  .tipo2 .fotoPost{
+    width:90%;
+    margin:10pt auto;
+    border-radius: 10pt;
+  }
+
+  .tipo2 section{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .miPiace{
+    border-radius: 10pt;
+    width: 40%;
+    margin: 5pt auto;
+  }
+
+  .tipo2 footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    padding: 3pt;
+  }
+
+  .tipo2 .formCommenti{
+    width: 100%;
+    margin:0;
+    padding:0;
+    justify-content: center;
+  }
+
+  #commenta{
+    width: 100%;
+    align-self: center;
+    padding:0;
+    margin-bottom:0;
+    border:none;
+    border-bottom: 1px solid var(--hilfeGrey);
+  }
+
+  .tipo2 h3{
+    color:var(--hilfeRed);
+    font-size: 12pt;
+    margin:5pt 0;
+    padding:0;
+  }
+
+  .commenti{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content:left;
+    padding:2pt;
+  }
+
+  .commenti li{
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid var(--hilfeGrey);
+    margin-top:0; 
+    padding:5pt;
+
+  }
+
+  .commenti li img{
+    margin-right: 5pt;
+  }
+
+  
 
 @media screen and (min-width: 768px) {
 
