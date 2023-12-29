@@ -1,0 +1,172 @@
+.centralContent{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 5pt;
+    max-width: 700px;
+}
+
+.colonna1, .colonna2{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+    margin:0 auto;
+    padding:0;
+}
+
+.name, .surname, .date, .email, .pass{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 5pt;
+    align-items: center;
+}
+
+form ul{
+    list-style: none;
+}
+
+form ul li input{
+    padding:5pt;
+    width: 60%;
+    border:2px solid var(--hilfeRed);
+    border-radius: 5pt;
+}
+
+form ul li label{
+    color:black;
+}
+
+main>h1{
+    color:var(--hilfeBlue);
+    font-size: 20pt;
+    text-align: center;
+   
+}
+
+.cambiaFoto{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 10pt;
+    align-items: center;
+}
+
+.cambiaFoto img{
+    width:30%; 
+    border-radius: 50%;
+    border:2px solid var(--hilfeBlue);
+}
+
+.modifica{
+    width: 50%;
+    padding:0;
+    height:20pt;
+    border-radius: 10pt;
+    border:none;
+    background-color: var(--hilfeRed);
+    color:white;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+
+.buttonsAndConditions{
+    font-size: 9pt;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.crea{
+    align-self: center;
+    margin:5pt 0;
+    background-color: var(--hilfeRed);
+    color:white;
+    border:none;
+    width: 50%;
+    padding:10pt;
+    border-radius: 15pt;
+    font-size: 12pt;
+    cursor: pointer;
+
+}
+
+.crea:hover, .modifica:hover{
+    background-color: var(--hilfeBlue);
+}
+
+.conditions{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.conditions a{
+    color:var(--hilfeBlue)
+}
+
+@media screen and (min-width: 768px) {
+    .centralContent{
+        justify-content: center;
+        align-self: center;
+        width: 80%;
+        padding: 0;
+
+    }
+    main{
+        justify-content: center;
+        align-self: center;
+        width: 90%;
+        padding: 10pt;
+        border-radius: 10pt;
+        background-color: white;
+        box-shadow: 2px 2px 4px grey;
+    }
+
+    .form{
+        display: flex;
+        flex-direction:column;
+        justify-content: center;
+        padding:0;
+    }
+
+    .colonne{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-end;
+    }
+
+    .colonna1, .colonna2{
+        width: 45%;
+        padding:0;
+        margin:0 auto;
+    }
+
+    .colonna2{
+        padding:0;
+    }
+
+    .cambiaFoto{
+        justify-content: space-between;
+    }
+
+    form ul li label{
+        margin:0;
+        padding:0;
+        width: 30%;
+    }
+
+    h1{
+        margin:0;
+        padding:0;
+    }
+
+    .conditions{
+        margin-top: 10pt;
+    }
+
+
+}

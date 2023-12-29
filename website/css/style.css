@@ -22,10 +22,8 @@ body {
 .footer {
   background-color: var(--hilfeBlue);
   color: white;
-  text-align: center;
   width: 100%;
   font-size: 8pt;
-  padding: 10px;
   height: 50px;
   display: flex;
   flex-direction: row;
@@ -35,13 +33,16 @@ body {
 .footer img{
   width: 40px;
   height: auto;
+  padding:2pt 5pt;
 }
 
 .infoFooter{
   display: flex;
   flex-direction: column;
-  justify-content: right;
+  text-align: right;
   color:white;
+  margin:0;
+  padding:0 5pt;
 }
 
 .linkFooter{
@@ -52,6 +53,7 @@ body {
 
 .linkFooter a{
   color:white;
+  margin-left: 5pt;
 }
 
 
@@ -96,9 +98,7 @@ body>header,
   margin: 0;
 }
 
-
-
-.buttonLogin {
+.buttonLoginLogout{
   display: none;
 }
 
@@ -250,7 +250,7 @@ body>header>nav {
     display: flex;
   }
 
-  .buttonLogin {
+  .buttonLoginLogout {
     margin-right: 15px;
     min-width: fit-content;
     width: 30%;
@@ -258,18 +258,23 @@ body>header>nav {
     justify-content: flex-end;
   }
 
-  .buttonLogin>a>img {
+  .buttonLoginLogout>a>img {
     margin-right: 0;
   }
 
   /**modifica i bottoni/link login e registrati**/
 
   .b1,
-  .b2 {
+  .b2 , .b3{
     padding: 5pt;
     margin-left: 2pt;
     border-radius: 5pt;
     text-decoration: none;
+    font-size: 12pt;
+  }
+
+  .b1, .b2{
+    display: none;
   }
 
   .b1 {
@@ -278,11 +283,12 @@ body>header>nav {
     border: 2px solid var(--hilfeRed);
   }
 
-  .b2 {
+  .b2, .b3 {
     background-color: var(--hilfeBlue);
     color: white;
     border: 2px solid var(--hilfeBlue);
   }
+
 
   .b1:hover {
     background-color: var(--hilfeBlue);
@@ -290,7 +296,7 @@ body>header>nav {
     border: 2px solid transparent;
   }
 
-  .b2:hover {
+  .b2:hover, .b3:hover {
     background-color: var(--hilfeRed);
     color: white;
     border: 2px solid var(--hilfeRed);

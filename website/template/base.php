@@ -53,11 +53,12 @@
             <a class="profiloBarra" id="profiloBarra" href="profiloUtente.html"> 
                 <img src="../<?php echo $dbh->getSelfProfilePic();?>" alt="" class="fotoProfilo">
             </a>
-            <div class="buttonLogin">
+            <div class="buttonLoginLogout">
                 <?php if(isLogged()):?>
                     <a href="profiloUtente.html"> 
                     <img src="../<?php echo $dbh->getSelfProfilePic();?>" alt="" class="fotoProfilo">
                     </a>
+                    <button type="button" class="b3">Logout</button>
                     <?php else:?>
                 <a class="b1" href="login.php">Login</a>
                 <a class="b2" href="registrazione.php">Registrati</a>
@@ -85,7 +86,14 @@
     }
     ?>
         <footer class="footer">
-        <p>Progetto di Tecnologie Web - A.A. 2023/2024</p>
+        <img src="../res/HeartHands.svg" alt="logo"/>
+            <div class="infoFooter">
+                <p>©Hilfe 2024</p>
+                <div class="linkFooter">
+                    <a href="privacy.html">Privacy</a>
+                    <a href="informativa.html">Informativa cookie</a>
+                </div>
+            </div>
     </footer>
 </body>
 </html>
