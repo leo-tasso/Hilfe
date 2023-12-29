@@ -14,6 +14,7 @@
     align-items: center;
     width: 100%;
     max-width: 700px;
+    margin:0 auto;
 }
 
 .articles{
@@ -50,7 +51,6 @@
 body{
     display:flex;
     flex-direction: column;
-    align-items: center;
 }
 
 /**nome utente**/
@@ -147,6 +147,9 @@ body{
 }
 
 @media screen and (min-width: 768px) {
+    .body{
+        width: 100%;
+    }
     .articles{
         width:80%;
     }
