@@ -46,15 +46,15 @@
                 <?php endif; ?>
             </div>
         </nav>
-        <a class="profiloBarra" id="profiloBarra" href="profiloUtente.html">
+        <a class="profiloBarra" id="profiloBarra" href="profile.php">
             <img src="../<?php echo $dbh->getSelfProfilePic(); ?>" alt="" class="fotoProfilo">
         </a>
         <div class="buttonLoginLogout">
             <?php if (isLogged()) : ?>
                 <?php if ($_SERVER['REQUEST_URI'] == "/profile.php" || $_SERVER['REQUEST_URI'] == "/profile.php?id=" . $_SESSION["idUser"]) : ?>
-                    <button type="button" class="b3">Logout</button>
+                    <button type="button" class="b3" onclick="logout()">Logout</button>
                 <?php else : ?>
-                    <a href="profiloUtente.html">
+                    <a href="profile.php">
                         <img src="../<?php echo $dbh->getSelfProfilePic(); ?>" alt="" class="fotoProfilo">
                     </a>
                 <?php endif; ?>

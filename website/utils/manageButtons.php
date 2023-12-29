@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             break;
         case 'follow':
             $dbh->follow($id);
-            $count= count($dbh->getFollower($id));
+            $count = count($dbh->getFollower($id));
             if ($dbh->isFollowing($id)) {
                 $response = array('status' => 'follows', 'counter' => $count);
             } else {
@@ -83,6 +83,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             } else {
                 $response = array('articles' => '');
             }
+            header('Content-Type: application/json');
+            echo json_encode($response);
+            break;
+        case 'logout':
+            $_SESSION = array();
+            $params = session_get_cookie_params();
+            setcookie('remember_token', '', time() - 3600, '/');
+            session_destroy();
+            $response = array('result' => 'success');
             header('Content-Type: application/json');
             echo json_encode($response);
             break;

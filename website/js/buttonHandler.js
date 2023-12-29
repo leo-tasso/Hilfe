@@ -184,6 +184,22 @@ function morePosts() {
     });
 }
 
+function logout() {
+    $.ajax({
+        url: "../utils/manageButtons.php",
+        type: "POST",
+        data: {
+            action: 'logout'
+        },
+        success: function (response) {
+            window.location.href = "/index.php";
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
 function activateMap(id, lon, lat, label) {
     let mapContainerId = 'map' + id;
     let map = L.map(mapContainerId, {
