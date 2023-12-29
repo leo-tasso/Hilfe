@@ -331,7 +331,7 @@ h3 {
   }
 
   #commenta{
-    width: 90%;
+    width: 95%;
     padding:0;
     margin-bottom:0;
     border:none;
@@ -380,6 +380,23 @@ h3 {
     margin-right: 5pt;
   }
 
+  .infoCommento{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .infoCommento a{
+    font-size: 12pt;
+    font-weight: bold;
+    margin-bottom: 0;
+  }
+
+  .infoCommento p{
+    margin-top: 0;
+    font-size: 10pt;
+  }
+
   
 
 @media screen and (min-width: 768px) {
@@ -389,16 +406,34 @@ h3 {
         width: 100%;
     }
 
-    .openmap{
+    .openmap, .fotoPost{
         width: 40%;
         height:auto;
         margin: 10px;
     }
 
     .content>section{
-        width: 60%;
+        width: 1000%;
         margin: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
     }
+
+   .text{
+    display: flex;
+    flex-direction: column;
+    margin:0;
+    padding:0;
+   }
+
+   .tipo2 .fotoPost{
+    width: 50%;
+    height: auto;
+    margin-left: 10pt;
+   }
+
 
     
 }
