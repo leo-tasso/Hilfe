@@ -1,5 +1,4 @@
 <main>
-    <section>
         <header>
             <img class="logo2" src="../res/HeartHands.svg" alt="logo HILFE" />
         </header>
@@ -16,10 +15,9 @@
                 </div>
             </div>
             <footer>
-                <input class="log" type="submit" value="Login"></input>
+                <input class="log" type="submit" value="Login">
                 <p>oppure</p>
                 <a class="registrati" href="registrazione.html">Registrati</a>
             </footer>
         </form>
-    </section>
 </main>
