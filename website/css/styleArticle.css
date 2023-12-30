@@ -412,13 +412,8 @@ h3 {
         margin: 10px;
     }
 
-    section{
-        width:50%;
-    }
-
-    .tipo2 .content>section{
+    .tipo2 .content{
         width: 100%;
-        margin: 10px;
         display: flex;
         flex-direction: row;
         justify-content: space-around;
