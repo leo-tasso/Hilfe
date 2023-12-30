@@ -56,6 +56,7 @@ main>h1{
 .cambiaFoto img{
     width:30%; 
     border-radius: 50%;
+    aspect-ratio: 1 / 1;
     border:2px solid var(--hilfeBlue);
 }
 
@@ -101,6 +102,7 @@ main>h1{
     display: flex;
     flex-direction: row;
     justify-content: center;
+    accent-color: var(--hilfeBlue);
 }
 
 .conditions a{
