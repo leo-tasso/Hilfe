@@ -1,0 +1,121 @@
+/**raggruppo in questo foglio di stile tutto il codice che riguarda la disposizione generale degli elementi e il layout versione desktop (aside compreso)**/ 
+.centralContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h3{
+    font-size: 11pt;
+}
+
+h2{
+    font-size: 15pt;
+    font-weight: bold;
+    color: white;
+    padding: 5pt;
+}
+
+/**modifica dello pannello dei profili suggeriti**/
+.rightAside {
+    display: none;
+}
+
+.leftAside{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+    .centralContent{
+        justify-content: center;
+        flex-direction: row;
+        align-items: flex-start;
+        margin-top: 10pt;
+    }
+
+    .rightAside, .leftAside {
+        width: 20%;
+        max-width: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--hilfeRed);
+        border-radius: 10pt;
+        margin-left: 5pt;
+        vertical-align: top;
+        padding: 0 10pt;
+        height: fit-content;
+    }
+
+
+    .infoUser {
+        width:90%;
+        display: flex;
+        margin-bottom: 10px;
+        border-bottom: 1px solid white;
+        text-decoration: none;
+        color: white;
+    }
+
+    .infoUser p {
+        margin: 5px 0;
+    }
+
+    .infoUser img {
+        width: 30px; /* Puoi regolare la larghezza dell'immagine a tuo piacimento */
+        height:30px;
+        border-radius: 50%;
+        float:left; 
+        margin-right: 3pt;
+         
+    }
+    
+    .profile{
+        display:inline-block;
+    }
+
+    .profile span{
+        width:100%;
+        text-decoration: none;
+        color:white;
+        font-size: 9pt;
+        margin-top: 2pt;
+        font-weight: bold;
+    }
+
+    .profile span:hover{
+        
+        color:lightgray;
+    }
+
+    .profile p{
+        color:white;
+        width: 100%;
+    }
+
+    .amici{
+        font-size: 8pt;
+    }
+
+    aside ul {
+        list-style: none;
+    }
+
+    aside>ul {
+        display: inline-block;
+    }
+
+    aside a {
+        float: left;
+    }
+
+    aside>ul>li a {
+        text-decoration: none;
+        color: white;
+        font-size: 10pt;
+    }
+}

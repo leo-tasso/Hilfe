@@ -1,0 +1,330 @@
+:root {
+  --hilfeGrey: #595959;
+  --hilfeRed: #bb0112;
+  --hilfeBlue: #087e8b;
+}
+
+body {
+  font-family: "Helvetica";
+  margin: 1pt;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f2ee;
+}
+
+.centralContent {
+  flex: 1;
+}
+
+.footer {
+  background-color: var(--hilfeBlue);
+  color: white;
+  width: 100%;
+  font-size: 8pt;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.footer img{
+  width: 40px;
+  height: auto;
+  padding:2pt 5pt;
+}
+
+.infoFooter{
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  color:white;
+  margin:0;
+  padding:0 5pt;
+}
+
+.linkFooter{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.linkFooter a{
+  color:white;
+  margin-left: 5pt;
+}
+
+
+body>header,
+.footer {
+  box-sizing: border-box;
+}
+
+.icon {
+  width: 12px;
+  margin-right: 3pt;
+}
+
+.iconButton {
+  width: 10px;
+  margin-right: 5pt;
+}
+
+
+/**modifica bottoni menù slidebar**/
+.sidepanel>a,
+.sidepanel div {
+  border: 1px solid white;
+}
+
+.notifiche {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+
+}
+
+/**modifica pallino notifiche**/
+.notifiche p {
+  background-color: white;
+  color: grey;
+  padding: 2pt 4pt;
+  border-radius: 50%;
+  font-size: 9pt;
+  margin: 0;
+}
+
+.buttonLoginLogout{
+  display: none;
+}
+
+.topbar {
+  background-color: white;
+  border-bottom: 1.5px solid #989898;
+}
+
+
+body>header>nav {
+  display: inline-block;
+}
+
+.logoContainer {
+  width: fit-content;
+  min-width: fit-content;
+}
+
+/**immagine logo barra in alto**/
+.logo {
+  height: 40px;
+  /**modificare in base a logo nuovo**/
+  text-align: center;
+}
+
+.fotoProfilo {
+  margin: 5px 15px 5px 0;
+  float: right;
+  border: 2px solid var(--hilfeRed);
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+}
+
+
+/**css per menu con icona animata**/
+/* The sidepanel menu */
+.sidepanel {
+  height: 100%;
+  /* Specify a height */
+  width: 40%;
+  /* 0 width - change this with JavaScript */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Stay on top */
+  top: 0;
+  left: 0;
+  float: right;
+  background-color: var(--hilfeBlue);
+  /* Black*/
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+  padding-top: 60px;
+  /* Place content 60px from the top */
+  transition: 0.5s;
+  /* 0.5 second transition effect to slide in the sidepanel */
+}
+
+/* The sidepanel links */
+.sidepanel a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 10pt;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidepanel>a:hover,
+.sidepanel>div:hover {
+  background-color: var(--hilfeRed);
+}
+
+/* Position and style the close button (top right corner) */
+.sidepanel .closebtn {
+  position: absolute;
+  top: 0;
+  right: 0px;
+  font-size: 15px;
+  margin-left: 30px;
+  padding: 5px;
+}
+
+.sidepanel {
+  float: left;
+}
+
+/* Style the button that is used to open the sidepanel */
+.openbtn {
+  float: left;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: white;
+  color: var(--hilfeGrey);
+  padding: 5px 15px;
+  border: none;
+  border-radius: 13px;
+  order: -1;
+  margin-left: 15px;
+}
+
+.desktopbar {
+  display: none;
+}
+
+.openbtn:hover {
+  background-color: var(--hilfeBlue);
+  color: white;
+}
+
+#navbar {
+  z-index: 999;
+}
+
+#mySidepanel {
+  width: 0;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .logoContainer {
+    margin-left: 15px;
+    width: 30%;
+  }
+
+  .openbtn {
+    display: none;
+  }
+
+  .notifiche p {
+    background-color: var(--hilfeRed);
+    color: white;
+    padding: 2pt 4pt;
+    margin-left: 2pt;
+  }
+
+  /**è la foto profilo della barra -> una volta che l'utente si sarà loggato 
+  ricomparirà la foto profilo e il div buttonLoginLogout scomparirà**/
+  .profiloBarra {
+    display: none;
+  }
+
+  .topbar:not(.sidepanel, .openbtn) {
+    display: flex;
+  }
+
+  .buttonLoginLogout {
+    margin-right: 15px;
+    min-width: fit-content;
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .buttonLoginLogout>a>img {
+    margin-right: 0;
+  }
+
+  /**modifica i bottoni/link login e registrati**/
+
+  .b1,
+  .b2 , .b3{
+    padding: 5pt;
+    margin-left: 2pt;
+    border-radius: 5pt;
+    text-decoration: none;
+    font-size: 12pt;
+  }
+
+  .b1 {
+    background-color: white;
+    color: var(--hilfeGrey);
+    border: 2px solid var(--hilfeRed);
+  }
+
+  .b2, .b3 {
+    background-color: var(--hilfeBlue);
+    color: white;
+    border: 2px solid var(--hilfeBlue);
+  }
+
+
+  .b1:hover {
+    background-color: var(--hilfeBlue);
+    color: white;
+    border: 2px solid transparent;
+  }
+
+  .b2:hover, .b3:hover {
+    background-color: var(--hilfeRed);
+    color: white;
+    border: 2px solid var(--hilfeRed);
+  }
+
+  .desktopbar {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 50%;
+    margin: 10pt 0;
+  }
+
+  .profilo {
+    margin-bottom: 2pt;
+  }
+
+  .desktopbar>a,
+  .desktopbar>div>a {
+    margin-left: 15pt;
+    text-decoration: none;
+  }
+
+  .desktopbar a,
+  .desktopbar>div>a {
+    color: var(--hilfeGrey);
+  }
+
+  .desktopbar a:hover,
+  .desktopbar>div>a:hover {
+    color: var(--hilfeRed);
+  }
+}
