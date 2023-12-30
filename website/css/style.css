@@ -242,6 +242,8 @@ body>header>nav {
     margin-left: 2pt;
   }
 
+  /**è la foto profilo della barra -> una volta che l'utente si sarà loggato 
+  ricomparirà la foto profilo e il div buttonLoginLogout scomparirà**/
   .profiloBarra {
     display: none;
   }
@@ -271,10 +273,6 @@ body>header>nav {
     border-radius: 5pt;
     text-decoration: none;
     font-size: 12pt;
-  }
-
-  .b1, .b2{
-    display: none;
   }
 
   .b1 {

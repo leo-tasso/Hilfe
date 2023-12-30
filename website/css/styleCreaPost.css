@@ -1,6 +1,11 @@
 main{
     display: flex;
     flex-direction: column;
+    background-color: white;
+    width: 90%;
+    margin:10pt auto;
+    box-shadow: 2px 2px 4px grey;
+    border-radius: 10pt;
 }
 
 .container{
@@ -8,7 +13,7 @@ main{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    max-width: 700px;
+    max-width: 900px;
 }
 
 .colonna1, .colonna2{
@@ -24,15 +29,19 @@ div{
     margin-top:0;
 }
 
-#titolo, #annuncio,.giorno, .luogo, .pers, .ora{
+#titolo, textarea{
+    padding:0;
+    height: 20px;
+}
+
+#titolo,.giorno, .luogo, .numPersone, .ora{
     width:100%;
-    margin-bottom: 10pt;
 }
 
 textarea, form input{
     border:2px solid var(--hilfeRed);
     border-radius: 3pt;
-    padding: 3pt 5pt;
+    margin-bottom: 10pt;
 }
 
 textarea::placeholder{
@@ -43,13 +52,12 @@ textarea::placeholder{
     display: flex;
     margin:auto;
     flex-direction: column;
-    align-items: justify;
     width: 90%;
 }
 
-.giorno, .luogo, .pers, .ora{
+.giorno, .luogo, .numPersone, .ora, .persone{
     display: flex; 
-    align-items: center;
+    flex-direction: row;
     justify-content: space-between;
 }
 
@@ -80,33 +88,35 @@ h1{
 
 .numPersone{
     display: flex;
+    align-items: center;
     width:100%;
     justify-content: space-between;
 }
 
+.numPersone input{
+    height: 25px;
+}
+
 .persone{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    width:70%;
+    max-width: 200px;
 }
 
 .meno, .piu{
     border-radius: 50%;
     font-size: 15pt;
+    height: 30px;
     border: 2px solid white;
     color:white;
     cursor: pointer;
 }
 
 .meno{
-    margin-right:50pt;
     background-color: var(--hilfeRed);
     padding:2pt 7pt;
 }
 
 .piu{
-    margin-left: 50pt;
     background-color: var(--hilfeBlue);
     padding:2pt 6pt;
 }
@@ -138,12 +148,13 @@ h1{
 }
 
 .pubblica, .annulla{
-    padding: 10pt 40pt;
+    padding: 10pt 0;
     border-radius: 15pt;
     border:none;
     color: white;
     font-size: 12pt;
     cursor: pointer;
+    width: 60%;
 }
 
 .annulla{
@@ -157,8 +168,9 @@ h1{
 .form>footer{
     margin: 10pt auto;
     display: flex;
+    align-items: center;
+    flex-direction: column;
     width: 100%;
-    justify-content:space-around;
 }
 
 .aggiungi:hover, .meno:active, .meno:hover, .annulla:hover{
@@ -183,13 +195,14 @@ textarea{
     text-align: center;
 }
 
-
 @media screen and (min-width: 768px) {
     .container{
+        width: 100%;
         display: flex;
         flex-direction:row;
         justify-content: space-between;
         align-items: flex-start;
+        margin: 0 auto;
     }
 
     .centralContent{
@@ -200,19 +213,17 @@ textarea{
     }
 
     .form{
-        width: 90%;
+        width: 95%;
     }
 
     main{
         width: 80%;
-        box-shadow: 2px 2px 4px grey;
-        background-color: white;
-        border-radius: 10pt;
     }
 
     .form>footer{
         width:100%; 
         display: flex;
+        flex-direction: row;
         justify-content: center;
     }
 
