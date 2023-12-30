@@ -27,12 +27,12 @@ form ul{
     list-style: none;
 }
 
-textarea{
+.textarea{
     resize: none;
     height: 100px;
 }
 
-form ul li input, textarea{
+form ul li input, .textarea{
     padding:5pt;
     width: 60%;
     border:2px solid var(--hilfeRed);
@@ -158,7 +158,7 @@ main>h1{
         padding-top: 20pt;
     }
 
-    textarea{
+    .textarea{
         height: 150px;
     }
 
