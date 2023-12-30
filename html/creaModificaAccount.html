@@ -67,11 +67,11 @@
                             <img src="../fotoProfiloIniziale.jpg" alt="foto profilo"/>
                             <button type="button" class="modifica">Modifica foto</button>
                         </li>
-                        <li class="name">
+                        <li class="nome">
                             <label for="name">Nome:</label>
                             <input type="text" id="name" name="nome" placeholder="Nome">
                         </li>
-                        <li class="surname">
+                        <li class="cognome">
                             <label for="surname">Cognome:</label>
                             <input type="text" id="surname" name="cognome" placeholder="Cognome">
                         </li>
@@ -79,15 +79,27 @@
                             <label for="user">Username:</label>
                             <input type="text" id="user" name="Username" placeholder="Username">
                         </li>
-                    </ul>
-                    <ul class="colonna2">
-                        <li class="date">
+                        <li class="luogo">
+                            <label for="indirizzo">Indirizzo:</label>
+                            <input type="text" id="indirizzo" name="fname"/>
+                        </li>
+                        <li class="data">
                             <label for="data">Data di nascita:</label>
                             <input type="date" id="data" name="data">
                         </li>
                         <li class="email">
                             <label for="mail">E-mail:</label>
                             <input type="text" id="mail" name="email" placeholder="E-mail">
+                        </li>
+                    </ul>
+                    <ul class="colonna2">
+                        <li class="tel">
+                            <label for="cell">Cellulare:</label>
+                            <input type="tel" id="cell" name="cellulare" placeholder="Cellulare" minlength="10" maxlength="10">
+                        </li>
+                        <li class="bio">
+                            <label for="bio">Biografia:</label><br/>
+                            <textarea id="bio"></textarea>
                         </li>
                         <li class="pass">
                             <label for="password">Password:</label>
