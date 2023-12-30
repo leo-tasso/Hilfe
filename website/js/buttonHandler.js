@@ -252,6 +252,10 @@ function toLoginPage() {
     window.location.href = "../login.php";
 }
 
+function toProfileEditPage() {
+    window.location.href = "../ProfileEdit.php";
+}
+
 function updateFollow(result){
     let button = document.getElementsByClassName("segui")[0];
     if(result.status=="follows"){
