@@ -122,7 +122,7 @@ article>footer>a {
 }
 
 
-.buttonPartecipa, .buttonPartecipanti, .buttonSalva, .buttonAltriPost, .miPiace, .vediCommenti, .commenta{
+.buttonPartecipa, .buttonPartecipanti, .buttonSalva, .buttonAltriPost, .miPiace, .vediCommenti, .commenta, .buttonRimuovi{
     font-size: 9pt;
     font-family: "Fira Sans", sans-serif;
     padding: 5pt;
@@ -133,11 +133,18 @@ article>footer>a {
     color: #ffffff;
 }
 
-.buttonSalva, .miPiace{
-    background: var(--hilfeRed);
+.buttonSalva, .miPiace, .buttonRimuovi{
     border-top-left-radius: 10pt;
     border-bottom-left-radius: 10pt;
     margin-right: 0;
+}
+
+.buttonRimuovi{
+    background-color: var(--hilfeGrey);
+}
+
+.buttonSalva, .miPiace{
+    background: var(--hilfeRed);
 }
 
 .buttonPartecipa{
@@ -153,7 +160,7 @@ article>footer>a {
     min-width: 50px;
     margin-left:0;
 }
-.buttonSalva:hover, .miPiace:hover{
+.buttonSalva:hover, .miPiace:hover, .buttonRimuovi:hover{
     background: var(--hilfeBlue);
 }
 
@@ -410,6 +417,10 @@ h3 {
         width: 50%;
         height:auto;
         margin: 10px;
+    }
+
+    .content>section{
+        width: 50%;
     }
 
     .tipo2 .content{
