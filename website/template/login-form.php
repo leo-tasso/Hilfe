@@ -16,7 +16,7 @@
                 </div>
             </div>
             <footer>
-                <input class="log" type="submit" value="Login"></input>
+                <input class="log" type="submit" value="Login">
                 <p>oppure</p>
                 <a class="registrati" href="registrazione.html">Registrati</a>
             </footer>
