@@ -20,7 +20,7 @@
                         </li>
                         <li class="username">
                             <label for="username">Username:</label>
-                            <input type="text" id="username" name="username" required placeholder="Username">
+                            <input type="text" id="username" name="username" autocomplete="username" required placeholder="Username">
                         </li>
                         <li class="date">
                             <label for="data">Data di nascita:</label>
