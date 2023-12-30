@@ -1,7 +1,6 @@
 <div class="centralContent">
     <main>
         <h1>Crea account</h1>
-        <section>
             <form action="../utils/registrationHandler.php" enctype="multipart/form-data" method="POST">
                 <div class="colonne">
                     <ul class="colonna1">
@@ -24,7 +23,7 @@
                         </li>
                         <li class="date">
                             <label for="data">Data di nascita:</label>
-                            <input type="date" id="data" name="data" required placeholder="Data di nascita" min="<?php echo date('Y-m-d', strtotime('-150 years')); ?>" max="<?php echo date('Y-m-d', strtotime('-18 years')); ?>">
+                            <input type="date" id="data" name="data" required min="<?php echo date('Y-m-d', strtotime('-150 years')); ?>" max="<?php echo date('Y-m-d', strtotime('-18 years')); ?>">
                         </li>
                     </ul>
                     <ul class="colonna2">
@@ -53,6 +52,5 @@
                     <input class="crea" type="submit" name="Crea account" value="Crea account" onclick="return validateForm()">
                 </footer>
             </form>
-        </section>
     </main>
 </div>
