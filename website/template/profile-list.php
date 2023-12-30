@@ -34,7 +34,6 @@ $user = $dbh->getUserFromId($source);
         <p><?php echo $user["Bio"]?></p>
     </aside>
 </section>
-</header>
 <div class="centralContent">
     <main class="articles">
         <?php
