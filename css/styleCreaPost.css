@@ -6,6 +6,7 @@ main{
     margin:10pt auto;
     box-shadow: 2px 2px 4px grey;
     border-radius: 10pt;
+    max-width: 900px;
 }
 
 .container{
@@ -13,7 +14,7 @@ main{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    max-width: 900px;
+    
 }
 
 .colonna1, .colonna2{
