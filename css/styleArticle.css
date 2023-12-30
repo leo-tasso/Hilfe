@@ -407,13 +407,17 @@ h3 {
     }
 
     .openmap, .fotoPost{
-        width: 40%;
+        width: 50%;
         height:auto;
         margin: 10px;
     }
 
-    .content>section{
-        width: 1000%;
+    section{
+        width:50%;
+    }
+
+    .tipo2 .content>section{
+        width: 100%;
         margin: 10px;
         display: flex;
         flex-direction: row;
@@ -434,6 +438,9 @@ h3 {
     margin-left: 10pt;
    }
 
+   .sectionCommenti{
+    width: 100%;
+   }
 
     
 }

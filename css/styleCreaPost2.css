@@ -1,204 +1,25 @@
-main{
-    display: flex;
-    flex-direction: column;
-}
-
-div{
-    margin:0;
-    padding:0;
-}
-
-.container{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 700px;
-    justify-content: center;
-}
-
-main section{
-    width: 100%;
-    margin:0;
-    padding:0;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.colonna1, .colonna2{
-    padding:0;
-    width: 80%;
-}
-
-.colonna1{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-
-textarea, #titolo{
-    border:2px solid var(--hilfeRed);
-    border-radius: 3pt;
-    padding: 3pt 5pt;
-    width: 100%;
-}
-
-textarea::placeholder{
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.form{
-    display: flex;
-    margin:auto;
-    flex-direction: column;
-    align-items: justify;
-    width: 90%;
-}
-
-label{
-    font-size: 12pt;
-}
-
-h1{
-    width: 100%;
-    font-size: 20pt;
-    color:var(--hilfeBlue);
-    text-align: center;
-    margin-bottom: 0;
-}
-
-.form h2{
-    font-size: 13pt;
-    color:var(--hilfeBlue);
-    margin-left: 2pt;
-}
-
-.pubblica, .annulla{
-    padding: 10pt 40pt;
-    border-radius: 15pt;
-    border:none;
-    color: white;
-    font-size: 12pt;
-    cursor: pointer;
-    margin-top:10pt;
-}
-
-.annulla{
-    background-color: var(--hilfeRed); 
-}
-.annulla:hover{
-    background-color: var(--hilfeBlue);
-    color:white;
-}
-
-.pubblica:hover{
-    background-color: var(--hilfeRed);
-    color: white;
-}
-
-.pubblica{
-    background-color: var(--hilfeBlue);
-}
-
-textarea{
-    resize: none;
-    width: 100%;
-    height: 150px;
-}
-
-.form>footer{
-    margin: 10pt auto;
-    display: flex;
-    flex-direction: column;
-    max-width: 50%;
-    justify-content:space-around;
-}
-
-/**css crea post 2**/
 .caricamento{
     display: flex;
     flex-direction: column;
 }
 
-#file{
-    border: none;
-    background-color: white;
-    padding:5pt;
-    color:var(--hilfeGrey);
-    border-radius: 5pt;
-    margin-bottom: 5pt;
-    border:2px solid var(--hilfeRed);
+.file{
+    border:2px solid var(--hilfeBlue);
+    padding:3pt;
+    border-radius: 10pt;
+    width: 90%;
 }
 
 .carica{
-    width: 50%;
-    align-self: center;
-    border-radius: 5pt;
-    background-color: var(--hilfeBlue);
-    color: white;
-    border:none;
-    padding:3pt;
-}
-
-.carica:hover{
+    width: 40%;
     background-color: var(--hilfeRed);
-    cursor: pointer;
+    color:white;
+    font-size: 10pt;
+    border-radius: 10pt;
 }
 
-
-@media screen and (min-width: 768px) {
-    .container{
-        display: flex;
-        flex-direction:row;
-        justify-content: space-between;
-        align-items: flex-start;
-    }
-
-    .centralContent{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0;
-    }
-
-    .form{
-        width: 90%;
-    }
-
-    main{
-        width: 80%;
-        box-shadow: 2px 2px 4px grey;
-        background-color: white;
-        border-radius: 10pt;
-    }
-
-    .form>footer{
-        width:100%; 
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-    }
-
-   #titolo{
-        margin-bottom: 0;
-    }
-
-    .pubblica, .annulla{
-        font-size: 13pt;
-        margin-top: 0;
-    }
-
-    .annulla{
-        margin-right: 10%;
-    }
-
-    .colonna1, .colonna2{
-        display: flex;
-        flex-direction: column;
-        align-self: flex-start;
-        justify-content: center;
-        width:48%;
+@media screen and (min-width: 768px){
+    .colonna2{
+        padding:0;
     }
 }
