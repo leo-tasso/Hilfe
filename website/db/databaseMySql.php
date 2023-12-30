@@ -530,8 +530,7 @@ class DatabaseHelperMySql implements DatabaseHelper
             $stmt->execute();
             $result = $stmt->get_result();
             return count($result->fetch_all(MYSQLI_ASSOC)) == 1;
-        }
-        else{
+        } else {
             return false;
         }
     }
@@ -548,6 +547,40 @@ class DatabaseHelperMySql implements DatabaseHelper
                 $stmt->execute();
             }
             return $this->isFollowing($id);
+        } else {
+            return false;
+        }
+    }
+    public function registerUser($nome, $cognome, $username, $data, $email, $password, $profilePic)
+    {
+        $stmt = $this->db->prepare("INSERT INTO User (idUser,Name,Surname,Username,Birthday,salt,Email,Password,FotoProfilo) VALUES (?,?,?,?,?,?,?,?,?)");
+        $salt = generateRandomString(5);
+        $newid = $this->getNewUserId();
+        $password = hash('sha512', $password . $salt);
+        $stmt->bind_param('issssssss', $newid, $nome, $cognome, $username, $data, $salt, $email, $password, $profilePic);
+        return $stmt->execute();
+    }
+    private function getNewUserId()
+    {
+        $stmt = $this->db->prepare("SELECT idUser FROM User ORDER BY idUser DESC LIMIT 1");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result = $result->fetch_all(MYSQLI_ASSOC);
+        if (count($result) > 0) {
+            return $result[0]["idUser"] + 1;
+        } else {
+            return false;
+        }
+    }
+    public function checkRepetitions($username, $email)
+    {
+        $stmt = $this->db->prepare("SELECT * FROM User WHERE Email = ? OR Username = ?");
+        $stmt->bind_param('ss', $email, $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result = $result->fetch_all(MYSQLI_ASSOC);
+        if (count($result) > 0) {
+            return true;
         } else {
             return false;
         }
