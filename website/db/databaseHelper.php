@@ -33,6 +33,7 @@ interface DatabaseHelper
     public function getNotifications();
     public function getPostsFromUser($id);
     public function follow($id);
-    public function registerUser($nome, $cognome, $username, $data, $email, $password, $profilePic);
+    public function registerUser($nome, $cognome, $username, $data, $email, $password, $profilePic, $phone, $addr, $bio);
+    public function updateUser($nome, $cognome, $username, $data, $email, $password, $profilePic, $phone, $addr, $bio);
     public function checkRepetitions($username, $email);
 }
