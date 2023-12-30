@@ -15,7 +15,7 @@
     padding:0;
 }
 
-.name, .surname, .date, .email, .pass{
+.name, .surname, .date, .email, .pass, .username{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
