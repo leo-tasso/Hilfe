@@ -9,7 +9,8 @@
             <?php if(isLogged() && $post["Autore_idUser"]==$_SESSION["idUser"]){echo '<a href="creaPost.html"><img class="penna" src="../Icons/Pen.svg" alt="modifica Post"></a>';}?>
         </div>
     </header>
-    <section class="content">
+    <div class="content">
+        <section lang="ita">
             <h3>Dettagli Annuncio</h3>
             <p class="date"><?php echo $post["DataPubblicazione"]; ?></p>
             <p><?php echo $post["DescrizionePost"]; ?></p>
@@ -33,8 +34,9 @@
                     <?php endforeach ?>
                 </table>
             <?php endif ?>
+        </section>
         <?php insertmap($post["idPostIntervento"]) ?>
-    </section>
+    </div>
     <footer>
         <button type="button" class="buttonSalva" id="buttonSalva<?php echo $post["idPostIntervento"] ?>" onclick=<?php if(isLogged()) {echo "\"toggleSalva(".$post["idPostIntervento"]." ,".$post["PersoneRichieste"].")\"";}else{echo "toLoginPage()";}?>><img class="iconButton" src="../Icons/HeartEmpty.svg" alt="">Salva</button><button type="button" class="buttonPartecipa" id="buttonPartecipa<?php echo $post["idPostIntervento"] ?>" name="Partecipa" onclick=<?php if(isLogged()) {echo "\"togglePartecipa(".$post["idPostIntervento"]." ,".$post["PersoneRichieste"].")\"";}else{echo "toLoginPage()";}?>>Partecipa</button><button type="button" class="buttonPartecipanti" onclick=<?php echo "\"openPopup(".$post["idPostIntervento"].")\""?> data-progress-text="Partecipa" data-complete-text="Al completo"><span id="progress<?php echo $post["idPostIntervento"] ?>" class="button__progress"></span><span id="partecipaLablel<?php echo $post["idPostIntervento"] ?>" class="button__text">Partecipanti 0/0</span></button>
     </footer>
