@@ -127,6 +127,7 @@ main>h1{
         align-self: center;
         width: 90%;
         padding: 10pt;
+        margin:10pt;
         border-radius: 10pt;
         background-color: white;
         box-shadow: 2px 2px 4px grey;
