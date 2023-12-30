@@ -5,7 +5,7 @@ if(isLogged()){
 ?>
 <div class="centralContent">
     <main>
-        <h1><?php if(isLogged()){echo "Crea account";}else{echo "Modifica account";}?></h1>
+        <h1><?php if(!isLogged()){echo "Crea account";}else{echo "Modifica account";}?></h1>
             <form action="../utils/profileHandler.php" enctype="multipart/form-data" method="POST">
                 <div class="colonne">
                     <ul class="colonna1">
@@ -66,7 +66,7 @@ if(isLogged()){
                     <?php if (isset($_GET["error"])) {
                         echo '<p class="error">' . $_GET["error"] . "</p>";
                     } ?>
-                    <input class="crea" type="submit" name="Crea account" value="Crea account" onclick="return validateForm()">
+                    <input class="crea" type="submit" name="Crea account" value="<?php if(!isLogged()){echo "Crea account";}else{echo "Modifica account";}?>" onclick="return validateForm()">
                 </footer>
             </form>
     </main>
