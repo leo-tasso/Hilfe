@@ -551,13 +551,68 @@ class DatabaseHelperMySql implements DatabaseHelper
             return false;
         }
     }
-    public function registerUser($nome, $cognome, $username, $data, $email, $password, $profilePic)
+    public function registerUser($nome, $cognome, $username, $data, $email, $password, $profilePic, $phone, $addr, $bio)
     {
-        $stmt = $this->db->prepare("INSERT INTO User (idUser,Name,Surname,Username,Birthday,salt,Email,Password,FotoProfilo) VALUES (?,?,?,?,?,?,?,?,?)");
+        $stmt = $this->db->prepare("INSERT INTO User (idUser, Name, Surname, Username, Birthday, salt, Email, Password, FotoProfilo, PhoneNumber, Address, Bio) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
+
         $salt = generateRandomString(5);
         $newid = $this->getNewUserId();
         $password = hash('sha512', $password . $salt);
-        $stmt->bind_param('issssssss', $newid, $nome, $cognome, $username, $data, $salt, $email, $password, $profilePic);
+
+        // Use variables for parameters that might be NULL
+        $profilePicValue = ($profilePic === null) ? null : $profilePic;
+        $phoneValue = ($phone === null) ? null : $phone;
+        $addrValue = ($addr === null) ? null : $addr;
+        $bioValue = ($bio === null) ? null : $bio;
+
+        // Bind the parameters using variables
+        $stmt->bind_param(
+            'isssssssssss',
+            $newid,
+            $nome,
+            $cognome,
+            $username,
+            $data,
+            $salt,
+            $email,
+            $password,
+            $profilePicValue,
+            $phoneValue,
+            $addrValue,
+            $bioValue
+        );
+
+        return $stmt->execute();
+    }
+    public function updateUser($nome, $cognome, $username, $data, $email, $password, $profilePic, $phone, $addr, $bio)
+    {
+        $stmt = $this->db->prepare("UPDATE User SET Name=?, Surname=?, Username=?, Birthday=?, salt=?, Email=?, Password=?, FotoProfilo=?, PhoneNumber=?, Address=?, Bio=? WHERE Username = ?");
+        $salt = generateRandomString(5);
+        $password = hash('sha512', $password . $salt);
+
+        // Use variables for parameters that might be NULL
+        $profilePicValue = ($profilePic === null) ? null : $profilePic;
+        $phoneValue = ($phone === null) ? null : $phone;
+        $addrValue = ($addr === null) ? null : $addr;
+        $bioValue = ($bio === null) ? null : $bio;
+
+        // Bind the parameters using variables
+        $stmt->bind_param(
+            'ssssssssssss',
+            $nome,
+            $cognome,
+            $username,
+            $data,
+            $salt,
+            $email,
+            $password,
+            $profilePicValue,
+            $phoneValue,
+            $addrValue,
+            $bioValue,
+            $username
+        );
+
         return $stmt->execute();
     }
     private function getNewUserId()
