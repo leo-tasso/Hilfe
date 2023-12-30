@@ -1,5 +1,4 @@
 <main>
-    <section>
         <header>
             <img class="logo2" src="../res/HeartHands.svg" alt="logo HILFE" />
         </header>
@@ -21,5 +20,4 @@
                 <a class="registrati" href="registrazione.html">Registrati</a>
             </footer>
         </form>
-    </section>
 </main>
