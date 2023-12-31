@@ -624,7 +624,31 @@ class DatabaseHelperMySql implements DatabaseHelper
         if (count($result) > 0) {
             return $result[0]["idUser"] + 1;
         } else {
-            return false;
+            return 1;
+        }
+    }
+    private function getNewPostHelpId()
+    {
+        $stmt = $this->db->prepare("SELECT idPostIntervento FROM PostInterventi ORDER BY idPostIntervento DESC LIMIT 1");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result = $result->fetch_all(MYSQLI_ASSOC);
+        if (count($result) > 0) {
+            return $result[0]["idPostIntervento"] + 1;
+        } else {
+            return 1;
+        }
+    }
+    private function newMateraileId()
+    {
+        $stmt = $this->db->prepare("SELECT idMateriale FROM Materiale ORDER BY idMateriale DESC LIMIT 1");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result = $result->fetch_all(MYSQLI_ASSOC);
+        if (count($result) > 0) {
+            return $result[0]["idMateriale"] + 1;
+        } else {
+            return 1;
         }
     }
     public function checkRepetitions($username, $email)
@@ -639,6 +663,95 @@ class DatabaseHelperMySql implements DatabaseHelper
         } else {
             return false;
         }
+    }
+    public function updatePostHelp($id, $titolo, $testo, $indirizzo, $giorno, $ora, $personeRichieste, $oggetto, $quantita)
+    {
+        $stmt = $this->db->prepare("UPDATE PostInterventi SET TitoloPost=?, DescrizionePost=?, DataIntervento=?, PosizioneLongitudine=?, PosizioneLatitudine=?, Indirizzo=?, PersoneRichieste=? WHERE idPostIntervento=?");
+
+        $data = $giorno . " " . $ora;
+        $coordinates = getCoordinates($indirizzo);
+
+        // Bind the parameters using variables
+        $stmt->bind_param(
+            'ssdddsii',
+            $titolo,
+            $testo,
+            $data,
+            $coordinates["latitude"],
+            $coordinates["longitude"],
+            $indirizzo,
+            $personeRichieste,
+            $id
+        );
+
+        $stmt->execute();
+
+        $stmt = $this->db->prepare("DELETE FROM  Materiale WHERE idPostIntervento = ?");
+        $stmt->bind_param('i', $id);
+        $outcome = $stmt->execute();
+
+        $oggettoValue = ($oggetto === null) ? null : $oggetto;
+        $quanittaValue = ($quantita === null) ? null : $quantita;
+        $idmateriale = $this->newMateraileId();
+        if ($oggettoValue !== null) {
+
+            foreach ($oggettoValue as $key => $value) {
+                $stmt = $this->db->prepare("INSERT INTO materiale (idMateriale,DescrizioneMateriale,Unita,idPostIntervento) VALUES (?,?,?,?)");
+                $stmt->bind_param(
+                    'isii',
+                    $idmateriale,
+                    $oggettoValue[$key],
+                    $quanittaValue[$key],
+                    $id
+                );
+                $stmt->execute();
+                $idmateriale++;
+            }
+        }
+        return $outcome;
+    }
+    public function newPostHelp($titolo, $testo, $indirizzo, $giorno, $ora, $personeRichieste, $oggetto, $quantita)
+    {
+        $stmt = $this->db->prepare("INSERT INTO PostInterventi (idPostIntervento, TitoloPost,DescrizionePost,DataIntervento,DataPubblicazione,PersoneRichieste,PosizioneLongitudine,PosizioneLatitudine,Indirizzo,Autore_idUser) VALUES (?,?,?,?,?,?,?,?,?,?)");
+        $data = $giorno . " " . $ora;
+        $oggettoValue = ($oggetto === null) ? null : $oggetto;
+        $quanittaValue = ($quantita === null) ? null : $quantita;
+        $id = $this->getNewPostHelpId();
+        $now = date('Y-m-d H:i:s');
+        $autore = $_SESSION["idUser"];
+        $coordinates = getCoordinates($indirizzo);
+        // Bind the parameters using variables
+        $stmt->bind_param(
+            'issssiddsi',
+            $id,
+            $titolo,
+            $testo,
+            $data,
+            $now,
+            $personeRichieste,
+            $coordinates["latitude"],
+            $coordinates["longitude"],
+            $indirizzo,
+            $autore
+        );
+
+        $outcome = $stmt->execute();
+
+        $idmateriale = $this->newMateraileId();
+        if ($oggettoValue !== null) {
+            for ($i = 0; $i < count($oggettoValue); $i++) {
+                $stmt = $this->db->prepare("INSERT INTO materiale (idMateriale,DescrizioneMateriale,Unita,idPostIntervento) VALUES (?,?,?,?)");
+                $stmt->bind_param(
+                    'isii',
+                    $oggettoValue[$i],
+                    $quanittaValue[$i],
+                    $id
+                );
+                $stmt->execute();
+                $idmateriale++;
+            }
+        }
+        return $outcome;
     }
 }
 

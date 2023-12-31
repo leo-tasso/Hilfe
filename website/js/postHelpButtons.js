@@ -16,7 +16,7 @@ function decrement() {
 function addMaterial() {
     let newId = getLastNumber() + 1;
     var newElement = document.createElement("div");
-    newElement.innerHTML = '<label for= "oggetto' + newId + '" hidden> Oggetto </label> <input type="text" required  class="oggetto" id="oggetto' + newId + '" name="oggetto" placeholder="Oggetto" /> <label for="quantita' + newId + '" hidden>Quantità</label> <input type="number" required class="quantita" id="quantita' + newId + '" name="quantità" min="0" max="99" value="1" onchange="checkVariation(this)"/>';
+    newElement.innerHTML = '<label for= "oggetto' + newId + '" hidden> Oggetto </label> <input type="text" required  class="oggetto" id="oggetto' + newId + '" name="oggetto[' + newId + ']" placeholder="Oggetto" /> <label for="quantita" hidden>Quantità</label> <input type="number" required class="quantita" id="quantita' + newId + '" name="quantita[' + newId + ']" min="0" max="99" value="1" onchange="checkVariation(this)"/>';
     newElement.classList.add("materiale");
     var container = document.querySelector('.colonna2');
     var aggiungiButton = document.querySelector('.aggiungi');

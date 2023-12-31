@@ -14,12 +14,14 @@ if (isset($_GET["id"])) {
             <form class="form" action="../utils/postHelpHandler.php" enctype="multipart/form-data" method="POST">
                 <div class="container">
                     <div class="colonna1">
+                    <?php if (isset($_GET["id"])) {echo '<input type="hidden" id="additionalVar" name="id" value="'.$_GET["id"].'"> ';}?>
+
                         <label for="titolo" hidden>Titolo</label><br />
                         <input type="text" id="titolo" class="titolo" name="titolo"  required placeholder="Titolo" <?php if (isset($_GET["id"])) {
                                                                                                                 echo "value=\"" . $post["TitoloPost"] . "\"";
                                                                                                             } ?> />
                         <label for="annuncio" hidden>Testo annuncio</label><br />
-                        <input class="testo" type="textarea" id="annuncio" required  placeholder="Testo annuncio" <?php if (isset($_GET["id"])) {
+                        <input class="testo" type="textarea" id="annuncio" required name="testo" placeholder="Testo annuncio" <?php if (isset($_GET["id"])) {
                                                                                                                 echo "value=\"" . $post["DescrizionePost"] . "\"";
                                                                                                             } ?>>
                         <div class="luogo">
@@ -47,7 +49,7 @@ if (isset($_GET["id"])) {
                             <div class="persone">
                                 <button class="meno" type="button" onclick="decrement()">-</button>
                                 <label for="numero" hidden>Numero</label>
-                                <input type="text"  required class="numero" id="numero" value=<?php if (isset($_GET["id"])) {
+                                <input type="text" name="personeRichieste" required class="numero" id="numero" value=<?php if (isset($_GET["id"])) {
                                                                             echo "\"" . $post["PersoneRichieste"] . "\"";
                                                                         } else {
                                                                             echo "\"5\"";
@@ -61,9 +63,9 @@ if (isset($_GET["id"])) {
                             foreach ($dbh->getMaterialFromHelpPost($_GET["id"]) as $material) : ?>
                                 <div class="materiale">
                                     <label for="oggetto<?php echo $counter ?>" hidden>Oggetto</label>
-                                    <input type="text" class="oggetto"  required id="oggetto<?php echo $counter ?>" name="oggetto" placeholder="Oggetto" <?php echo "value=\"" . $material["DescrizioneMateriale"] . "\""; ?> />
+                                    <input type="text" class="oggetto"  required id="oggetto<?php echo $counter ?>" name="oggetto[<?php echo $counter ?>]" placeholder="Oggetto" <?php echo "value=\"" . $material["DescrizioneMateriale"] . "\""; ?> />
                                     <label for="quantita<?php echo $counter ?>" hidden>Quantità</label>
-                                    <input type="number" class="quantita"  required id="quantita<?php echo $counter ?>" name="quantità" min="0" max="99" <?php echo "value=\"" . $material["Unita"] . "\""; ?> onchange="checkVariation(this)" />
+                                    <input type="number" class="quantita"  required id="quantita<?php echo $counter ?>" name="quantita[<?php echo $counter ?>]" min="0" max="99" <?php echo "value=\"" . $material["Unita"] . "\""; ?> onchange="checkVariation(this)" />
                                 </div>
                                 <?php $counter++; ?>
                         <?php endforeach;
@@ -71,9 +73,9 @@ if (isset($_GET["id"])) {
                             echo '
                         <div class="materiale">
                             <label for="oggetto" hidden>Oggetto</label>
-                            <input type="text" class="oggetto" id="oggetto" required name="oggetto" placeholder="Oggetto" />
+                            <input type="text" class="oggetto" id="oggetto" required name="oggetto[0]" placeholder="Oggetto" />
                             <label for="quantita" hidden>Quantità</label>
-                            <input type="number"  class="quantita" id="quantita" required name="quantità" min="0" max="99" value="1" onchange="checkVariation(this)"/>
+                            <input type="number"  class="quantita" id="quantita" required name="quantita[0]" min="0" max="99" value="1" onchange="checkVariation(this)"/>
                         </div>';
                         } ?>
                         <input class="aggiungi" type="button" name="Aggiungi+" value="Aggiungi+" onclick="addMaterial()">

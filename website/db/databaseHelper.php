@@ -36,4 +36,6 @@ interface DatabaseHelper
     public function registerUser($nome, $cognome, $username, $data, $email, $password, $profilePic, $phone, $addr, $bio);
     public function updateUser($nome, $cognome, $username, $data, $email, $password, $profilePic, $phone, $addr, $bio);
     public function checkRepetitions($username, $email);
+    public function updatePostHelp($id, $titolo, $testo, $indirizzo, $giorno, $ora, $personeRichieste, $oggetto, $quantita);
+    public function newPostHelp($titolo, $testo, $indirizzo, $giorno, $ora, $personeRichieste, $oggetto, $quantita);
 }
