@@ -1,9 +1,14 @@
 main{
     padding:10pt;
+    width: 80%;
+    background-color: white;
+    box-shadow: 2px 2px 4px grey;
+    margin:20pt auto;
+    border-radius: 10pt;
 }
 
 h1{
-    font-size: 25pt;
+    font-size: 20pt;
     text-align: center;
 }
 
@@ -16,8 +21,13 @@ h2{
 
 h3{
     color:var(--hilfeRed);
-    font-size: 12pt;
+    font-size: 13pt;
     margin-bottom: 0;
+}
+
+h4{
+    font-size: 12pt;
+    color:var(--hilfeGrey);
 }
 
 p{
@@ -31,11 +41,21 @@ p{
 }
 
 @media screen and (min-width: 768px){
-    main{
-        width: 80%;
-        background-color: white;
-        box-shadow: 2px 2px 4px grey;
-        margin:20pt auto;
-        border-radius: 10pt;
+    h1{
+        font-size: 25pt;
     }
+
+    h2{
+        font-size: 20pt;
+    }
+
+    h3{
+        font-size: 15pt;
+    }
+
+    h4{
+        font-size: 12pt;
+    }
+
+
 }

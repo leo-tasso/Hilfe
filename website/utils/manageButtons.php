@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo json_encode($response);
             break;
         case 'getPost':
-            $response = array('post' => $dbh->getHelpPost($id)[0]);
+            $response = array('post' => $dbh->getHelpPost($id));
             header('Content-Type: application/json');
             echo json_encode($response);
             break;
