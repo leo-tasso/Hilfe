@@ -11,24 +11,34 @@ if (isset($_POST['nome'], $_POST['cognome'], $_POST['data'], $_POST['email'], $_
    $addr = isset($_POST['addr']) && $_POST['addr'] != "" ? $_POST['addr'] : null;
    $phone = isset($_POST['phone']) && $_POST['phone'] != "" ? $_POST['phone'] : null;
    $bio = isset($_POST['bio']) && $_POST['bio'] != "" ? $_POST['bio'] : null;
-   echo var_dump($_FILES["profilePic"]);
    if (!isLogged() && $dbh->checkRepetitions($username, $email)) {
       header('Location: ../registration.php?error="email o username già presenti"');
    } else if (!isLogged()) {
-      if ($dbh->registerUser($nome, $cognome, $username, $data, $email, $password, $profilePic["name"], $phone, $addr, $bio)) {
-         if ($profilePic != null) {
-            uploadImage(UPLOAD_DIR_PROF_PIC, $_FILES["profilePic"]);
-         }
+      if ($dbh->registerUser($nome, $cognome, $username, $data, $email, $password, $profilePic, $phone, $addr, $bio)) {
          $dbh->login($email, $password, false);
-         header('Location: ../profile.php');
+         if ($profilePic != null) {
+            $result = uploadImage(UPLOAD_DIR_PROF_PIC, $_FILES["profilePic"]);
+            if ($result[0] == 0) {
+               header('Location: ../profileEdit.php?error='.$result[1]);
+            } else header('Location: ../profile.php');
+         } else
+            header('Location: ../profile.php');
       }
    } else if ($dbh->getUserFromId($_SESSION["idUser"])["Username"] == $username) {
-      if ($dbh->updateUser($nome, $cognome, $username, $data, $email, $password, $profilePic["name"], $phone, $addr, $bio)) {
-         if ($profilePic != null) {
-            uploadImage(UPLOAD_DIR_PROF_PIC, $_FILES["profilePic"]);
-         }
+      $oldPic = false;
+      if($profilePic === null){
+         $oldPic = true;
+         $profilePic = $dbh->getUserFromId($_SESSION["idUser"])["FotoProfilo"];
+      }
+      if ($dbh->updateUser($nome, $cognome, $username, $data, $email, $password, $profilePic, $phone, $addr, $bio)) {
          $dbh->login($email, $password, false);
-         header('Location: ../profile.php');
+         if ($profilePic != null && !$oldPic) {
+            $result = uploadImage(UPLOAD_DIR_PROF_PIC, $_FILES["profilePic"]);
+            if ($result[0] == 0) {
+               header('Location: ../profileEdit.php?error='.$result[1]);
+            } else header('Location: ../profile.php');
+         } else
+            header('Location: ../profile.php');
       }
    } else {
       header('Location: ../registration.php');

@@ -10,7 +10,7 @@ if(isLogged()){
                 <div class="colonne">
                     <ul class="colonna1">
                         <li class="cambiaFoto">
-                            <img id="profileImage" src="../res/profilePictures/fotoProfiloIniziale.jpg" alt="foto profilo" />
+                            <img id="profileImage" <?php if($user!=null){echo 'src="../'.$dbh->getProfilePic($user["idUser"]).'"';}else{echo 'src="../res/profilePictures/fotoProfiloIniziale.jpg"';} ?> alt="foto profilo" />
                             <input type="file" id="fileInput" style="display: none;" onchange="loadPhoto(this)" name="profilePic">
                             <button type="button" class="modifica" onclick="document.getElementById('fileInput').click()">Modifica foto</button>
                         </li>
@@ -32,7 +32,7 @@ if(isLogged()){
                         </li>
                         <li class="data">
                             <label for="data">Data di nascita:</label>
-                            <input type="date" id="data" name="data" required min="<?php echo date('Y-m-d', strtotime('-150 years')); ?>" max="<?php echo date('Y-m-d', strtotime('-18 years')); ?> <?php if(isLogged()){echo "value=\"".$user["Birthday"]."\"";}?>">
+                            <input type="date" id="data" name="data" required min="<?php echo date('Y-m-d', strtotime('-150 years')); ?>" max="<?php echo date('Y-m-d', strtotime('-18 years')); ?>" <?php if(isLogged()){echo "value=\"".$user["Birthday"]."\"";}?>>
                         </li>
                         <li class="email">
                             <label for="mail">E-mail:</label>
@@ -46,7 +46,7 @@ if(isLogged()){
                         </li>
                         <li class="bio">
                             <label for="bio">Biografia:</label><br/>
-                            <input  class="textarea" type="textarea" placeholder="Biografia"  id="bio" <?php if(isLogged() && isset($user["Bio"])){echo "value=\"".$user["Bio"]."\"";}?>>
+                            <input  class="textarea" type="textarea" placeholder="Biografia"  name="bio" id="bio" <?php if(isLogged() && isset($user["Bio"])){echo "value=\"".$user["Bio"]."\"";}?>>
                         </li>
                         <li class="pass">
                             <label for="password">Password:</label>
@@ -63,11 +63,9 @@ if(isLogged()){
                         <input id="autorizzazione" type="checkbox" name="autorizzazione privacy" value="Autorizzazione privacy" />
                         <label for="autorizzazione"><a href="privacy.html">Accetto le condizioni, i termini d'uso e l'informativa per la privacy</a></label>
                     </div>
-                    <?php if (isset($_GET["error"])) {
-                        echo '<p class="error">' . $_GET["error"] . "</p>";
-                    } ?>
                     <input class="crea" type="submit" name="Crea account" value="<?php if(!isLogged()){echo "Crea account";}else{echo "Modifica account";}?>" onclick="return validateForm()">
                 </footer>
             </form>
+            <?php if (isset($_GET["error"])) echo '<p class="error">'.$_GET["error"].'</p>' ?>
     </main>
 </div>

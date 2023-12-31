@@ -5,6 +5,7 @@ interface DatabaseHelper
     public function getUserFromId($id);
     public function getProfilePicPathFromId($id);
     public function getHelpPost($id);
+    public function getInfoPost($id);
     public function getAuthorFromHelpPost($id);
     public function getMaterialFromHelpPost($id);
     public function getSelfProfilePic();
@@ -38,4 +39,6 @@ interface DatabaseHelper
     public function checkRepetitions($username, $email);
     public function updatePostHelp($id, $titolo, $testo, $indirizzo, $giorno, $ora, $personeRichieste, $oggetto, $quantita);
     public function newPostHelp($titolo, $testo, $indirizzo, $giorno, $ora, $personeRichieste, $oggetto, $quantita);
+    public function updatePostInfo($id,$titolo,$testo,$postImg);
+    public function createPostInfo($titolo,$testo,$postImg);
 }

@@ -68,7 +68,14 @@ class DatabaseHelperMySql implements DatabaseHelper
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC)[0];
     }
-
+    public function getInfoPost($id)
+    {
+        $stmt = $this->db->prepare("SELECT * FROM PostComunicazioni WHERE idPostComunicazione = ?");
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC)[0];
+    }
     public function getMaterialFromHelpPost($id)
     {
         $stmt = $this->db->prepare("SELECT * FROM Materiale WHERE idPostIntervento = ?");
@@ -752,6 +759,55 @@ class DatabaseHelperMySql implements DatabaseHelper
             }
         }
         return $outcome;
+    }
+    public function updatePostInfo($id, $titolo, $testo, $postImg)
+    {
+        $stmt = $this->db->prepare("UPDATE PostComunicazioni SET TitoloPost=?, DescrizionePost=?, Foto=?, DataPubblicazione=? WHERE idPostIntervento=?");
+
+        $now = date('Y-m-d H:i:s');
+
+        // Bind the parameters using variables
+        $stmt->bind_param(
+            'ssssi',
+            $titolo,
+            $testo,
+            $postImg,
+            $now,
+            $id
+        );
+
+        return $stmt->execute();
+    }
+    public function createPostInfo($titolo, $testo, $postImg)
+    {
+        $stmt = $this->db->prepare("INSERT INTO PostComunicazioni (idPostComunicazione,idUser,TitoloPost,DescrizionePost,Foto,DataPubblicazione) VALUES (?,?,?,?,?,?)");
+        $id = $this->getNewPostInfoId();
+        $now = date('Y-m-d H:i:s');
+        $autore = $_SESSION["idUser"];
+        $stmt->bind_param(
+            'iissss',
+            $id,
+            $autore,
+            $titolo,
+            $testo,
+            $postImg,
+            $now
+        );
+
+        return $stmt->execute();
+    }
+
+    private function getNewPostInfoId()
+    {
+        $stmt = $this->db->prepare("SELECT idPostComunicazione FROM PostComunicazioni ORDER BY idPostComunicazione DESC LIMIT 1");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result = $result->fetch_all(MYSQLI_ASSOC);
+        if (count($result) > 0) {
+            return $result[0]["idPostComunicazione"] + 1;
+        } else {
+            return 1;
+        }
     }
 }
 
