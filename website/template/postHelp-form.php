@@ -71,9 +71,9 @@ if (isset($_GET["id"])) {
                             echo '
                         <div class="materiale">
                             <label for="oggetto" hidden>Oggetto</label>
-                            <input type="text" id="oggetto" required name="oggetto" placeholder="Oggetto" />
+                            <input type="text" class="oggetto" id="oggetto" required name="oggetto" placeholder="Oggetto" />
                             <label for="quantita" hidden>Quantità</label>
-                            <input type="number" id="quantita" required name="quantità" min="0" max="99" value="1" onchange="checkVariation(this)"/>
+                            <input type="number"  class="quantita" id="quantita" required name="quantità" min="0" max="99" value="1" onchange="checkVariation(this)"/>
                         </div>';
                         } ?>
                         <input class="aggiungi" type="button" name="Aggiungi+" value="Aggiungi+" onclick="addMaterial()">
