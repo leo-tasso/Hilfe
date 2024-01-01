@@ -41,4 +41,10 @@ interface DatabaseHelper
     public function newPostHelp($titolo, $testo, $indirizzo, $giorno, $ora, $personeRichieste, $oggetto, $quantita);
     public function updatePostInfo($id,$titolo,$testo,$postImg);
     public function createPostInfo($titolo,$testo,$postImg);
+    public function getInfoPosts($number,$startId, $iduser);
+    public function getAuthorFromInfoPost($idPost);
+    public function isLiking($id);
+    public function like($id);
+    public function getComments($id);
+    public function postComment($id, $text);
 }

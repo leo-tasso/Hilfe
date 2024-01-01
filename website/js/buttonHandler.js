@@ -4,6 +4,7 @@ let range = 100;
 
 window.onload = function () {
     updateAllButtons(0);
+    updateAllInfoButtons(0);
     updateAllMaps(0);
 };
 function updateAllButtons(startButton) {
@@ -12,6 +13,16 @@ function updateAllButtons(startButton) {
         let articleParams = article.id.split(',');
         if (articleParams[0] > startButton) {
             updateButtons(articleParams[0], articleParams[1].replace(/\s/g, ''));
+        }
+    });
+}
+function updateAllInfoButtons(startButton) {
+    let articles = document.querySelectorAll("article");
+    articles.forEach(article => {
+        let PostId = parseInt(article.id.replace('comunicazione', ''), 10);
+        if (PostId > startButton) {
+            updateLikeButton(PostId);
+            updateComments(PostId);
         }
     });
 }
@@ -76,6 +87,29 @@ function updateButtons(idPost, maxPeople) {
     });
 }
 
+function updateLikeButton(idPost) {
+    $.ajax({
+        url: "../utils/manageButtons.php",
+        type: "POST",
+        data: {
+            id: idPost,
+            action: 'updateLike'
+        },
+        success: function (response) {
+            let likeButton = document.getElementById("buttonMiPiace" + idPost);
+            if (response.statusLike == "liking") {
+                likeButton.innerHTML = '<img class="iconButton" src="../Icons/Heart.svg" alt="">Non mi piace più'
+            }
+            if (response.statusLike == "notLiking") {
+                likeButton.innerHTML = '<img class="iconButton" src="../Icons/HeartEmpty.svg" alt="">Mi Piace'
+            }
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
 function toggleSalva(idPost, maxPeople) {
     $.ajax({
         url: "../utils/manageButtons.php",
@@ -86,6 +120,23 @@ function toggleSalva(idPost, maxPeople) {
         },
         success: function (response) {
             updateButtons(idPost, maxPeople);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+function toggleLike(idPost) {
+    $.ajax({
+        url: "../utils/manageButtons.php",
+        type: "POST",
+        data: {
+            id: idPost,
+            action: 'like'
+        },
+        success: function (response) {
+            updateLikeButton(idPost);
         },
         error: function (error) {
             console.log(error);
@@ -184,6 +235,70 @@ function morePosts() {
     });
 }
 
+function updateComments(idArticle){
+    let commentList = document.querySelector("#comunicazione"+idArticle+" .commenti");
+    $.ajax({
+        url: "../utils/manageButtons.php",
+        type: "POST",
+        data: {
+            id: idArticle,
+            action: 'getComments',
+        },
+        success: function (response) {
+            commentList.innerHTML = response.comments;
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+
+}
+
+function publish(idArticle){
+    $.ajax({
+        url: "../utils/manageButtons.php",
+        type: "POST",
+        data: {
+            id: idArticle,
+            action: 'postComment',
+            comment: document.getElementById('commenta' + idArticle).value
+        },
+        success: function (response) {
+            updateComments(idArticle);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+function moreInfoPosts() {
+    startPost = parseInt(document.querySelector('article:last-of-type').id.replace('comunicazione', ''), 10);
+
+    $.ajax({
+        url: "../utils/manageButtons.php",
+        type: "POST",
+        data: {
+            startId: startPost,
+            action: 'moreInfoPosts'
+        },
+        success: function (response) {
+            if (response.articles != "") {
+                document.querySelector(".buttonAltriPost").remove();
+                document.querySelector(".articles").innerHTML += response.articles + ' <button type="button" class="buttonAltriPost" onclick="moreInfoPosts()">Altri Post</button>';
+                updateAllInfoButtons(startPost);
+            }
+            else {
+                if (document.getElementById("nessunRisultato") == null) {
+                    document.querySelector(".articles").innerHTML += '<p id="nessunRisultato">Nessun altro post trovato</p>';
+                }
+            }
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
 function logout() {
     $.ajax({
         url: "../utils/manageButtons.php",
@@ -267,4 +382,10 @@ function updateFollow(result){
         button.value = "Segui"
     }
     document.getElementById("followersCount").innerHTML= result.counter;
+}
+function publishOnEnter(event, postId) {
+    if (event.key === 'Enter') {
+        event.preventDefault(); // Prevent the default form submission
+        document.getElementById('publishButton' + postId).click();
+    }
 }

@@ -95,6 +95,53 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header('Content-Type: application/json');
             echo json_encode($response);
             break;
+        case 'updateLike':
+            $response = array('statusLike' => $dbh->isLiking($id) ? 'liking' : 'notLiking');
+            header('Content-Type: application/json');
+            echo json_encode($response);
+            break;
+        case 'like':
+            $dbh->like($id);
+            $response = array('status' => $dbh->isLiking($id));
+            header('Content-Type: application/json');
+            echo json_encode($response);
+            break;
+        case 'getComments':
+            $comments = $dbh->getComments($id);
+            if (count($comments) > 0) {
+                ob_start();
+                foreach ($comments as $comment) {
+                    include '../template/comment.php';
+                }
+                $response = array('comments' =>  ob_get_clean());
+            } else {
+                $response = array('comments' => '');
+            }
+            header('Content-Type: application/json');
+            echo json_encode($response);
+            break;
+        case 'postComment':
+            $text = $_POST['comment'];
+            $dbh->postComment($id, $text);
+            $response = array('status' => 'ok');
+            header('Content-Type: application/json');
+            echo json_encode($response);
+            break;
+        case 'moreInfoPosts':
+            $startId = isset($_POST['startId']) ? $_POST['startId'] : '';
+            $articles = $dbh->getInfoPosts($START_POST_NUMBER, $startId, $_SESSION["idUser"]);
+            if (count($articles) > 0) {
+                ob_start();
+                foreach ($articles as $post) {
+                    include '../template/article.php';
+                }
+                $response = array('articles' =>  ob_get_clean());
+            } else {
+                $response = array('articles' => '');
+            }
+            header('Content-Type: application/json');
+            echo json_encode($response);
+            break;
     }
 } else {
     http_response_code(405);

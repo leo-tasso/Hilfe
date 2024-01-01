@@ -58,7 +58,15 @@ class DatabaseHelperMySql implements DatabaseHelper
         $stmt->bind_param('i', $id);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
+        return $result->fetch_all(MYSQLI_ASSOC)[0];
+    }
+    public function getAuthorFromInfoPost($id)
+    {
+        $stmt = $this->db->prepare("SELECT * FROM User, PostComunicazioni WHERE PostComunicazioni.idUser = User.idUser AND idPostComunicazione = ?");
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC)[0];
     }
     public function getHelpPost($id)
     {
@@ -807,6 +815,77 @@ class DatabaseHelperMySql implements DatabaseHelper
             return $result[0]["idPostComunicazione"] + 1;
         } else {
             return 1;
+        }
+    }
+    public function getInfoPosts($number, $startId, $iduser)
+    {
+        $follows = $this->getFollowing($iduser);
+        if (count($follows) == 0) return [];
+        $selectedUserIdsString = implode(',', array_fill(0, count($follows), '?'));
+        $stmt = $this->db->prepare("SELECT * FROM PostComunicazioni WHERE idPostComunicazione > ? AND idUser IN ($selectedUserIdsString) LIMIT ?");
+        $params = array_merge([$startId], array_column($follows, 'idSeguito'), [$number]);
+        $types = 'i' . str_repeat('s', count($follows)) . 'i';
+        $stmt->bind_param($types, ...$params);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function isLiking($id)
+    {
+        if (isLogged()) {
+            $stmt = $this->db->prepare("SELECT * FROM `Like` WHERE idEmettitore = ? AND PostRelativo = ? ");
+            $stmt->bind_param('ii',  $_SESSION["idUser"], $id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return count($result->fetch_all(MYSQLI_ASSOC)) >= 1;
+        } else {
+            return false;
+        }
+    }
+    public function like($id)
+    {
+        if (isLogged()) {
+            $set = !$this->isLiking($id);
+            if ($set == true) {
+                $stmt = $this->db->prepare("INSERT INTO `Like` (PostRelativo, idEmettitore) VALUES (?, ?)");
+                $stmt->bind_param('ii', $id, $_SESSION["idUser"]);
+                $stmt->execute();
+            } else {
+                $stmt = $this->db->prepare("DELETE FROM  `Like` WHERE PostRelativo = ? AND idEmettitore = ?");
+                $stmt->bind_param('ii', $id, $_SESSION["idUser"]);
+                $stmt->execute();
+            }
+            return $this->isLiking($id);
+        } else {
+            return false;
+        }
+    }
+    public function getComments($id)
+    {
+        if (isLogged()) {
+            $stmt = $this->db->prepare("SELECT * FROM Commento WHERE RelativoA = ? ");
+            $stmt->bind_param('i', $id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            return [];
+        }
+    }
+    public function postComment($id, $text)
+    {
+        if (isLogged()) {
+            $stmt = $this->db->prepare("INSERT INTO Commento (Autore,RelativoA,Testo) VALUES (?,?,?) ON DUPLICATE KEY UPDATE Testo = VALUES(Testo)");
+            $autore = $_SESSION["idUser"];
+            $stmt->bind_param(
+                'iis',
+                $autore,
+                $id,
+                $text
+            );
+            return $stmt->execute();
+        } else {
+            return false;
         }
     }
 }

@@ -1,9 +1,10 @@
 <?php require_once('map.php'); ?>
+<?php if(isset($post["idPostIntervento"])):?>
 <article id="<?php echo $post["idPostIntervento"]; ?>,<?php echo $post["PersoneRichieste"]; ?>">
     <header>
         <h1><?php echo $post["TitoloPost"]; ?></h1>
         <div class="infoUtente">
-            <a href="profiloUtente.html" class="nomeAutore"><?php $autore = $dbh->getAuthorFromHelpPost($post["idPostIntervento"])[0];
+            <a href="profiloUtente.html" class="nomeAutore"><?php $autore = $dbh->getAuthorFromHelpPost($post["idPostIntervento"]);
                                                             echo $autore["Name"] . " " . $autore["Surname"] ?></a>
             <a href="profiloUtente.html"><img class="profilo" id="profilo<?php echo $post["Autore_idUser"];?>" src="../<?php echo $dbh->getProfilePic($post["Autore_idUser"]); ?>" alt="profilo"></a>
             <?php if(isLogged() && $post["Autore_idUser"]==$_SESSION["idUser"]){echo '<a href="creaPost.html"><img class="penna" src="../Icons/Pen.svg" alt="modifica Post"></a>';}?>
@@ -43,3 +44,37 @@
 </article>
 <?php require_once('popupOverlay.php');?>
 <?php $templateParams["lastLoaded"] = $post["idPostIntervento"]; ?>
+<?php else:?>
+    <article class="tipo2" id="<?php echo "comunicazione".$post["idPostComunicazione"]; ?>">
+    <header>
+        <h1><?php echo $post["TitoloPost"]; ?></h1>
+        <div class="infoUtente">
+            <a href="profiloUtente.html" class="nomeAutore"><?php $autore = $dbh->getAuthorFromInfoPost($post["idPostComunicazione"]);
+                                                            echo $autore["Name"] . " " . $autore["Surname"] ?></a>
+            <a href="profiloUtente.html"><img class="profilo" id="profilo<?php echo $post["idUser"];?>" src="../<?php echo $dbh->getProfilePic($post["idUser"]); ?>" alt="profilo"></a>
+            <?php if(isLogged() && $post["idUser"]==$_SESSION["idUser"]){echo '<a href="creaPost.html"><img class="penna" src="../Icons/Pen.svg" alt="modifica Post"></a>';}?>
+        </div>
+    </header>
+            <section class="content">
+                <h3>Dettagli Annuncio</h3>
+                <div class="text">
+                <p class="date"><?php echo $post["DataPubblicazione"]; ?></p>
+                <p><?php echo $post["DescrizionePost"]; ?></p>
+                </div>
+                <img class="fotoPost" src="<?php echo UPLOAD_DIR_POSTINFO_PIC.$post["Foto"];?>" alt="foto post"/>
+            </section>
+            <footer>
+            <button type="button" class="miPiace" id="buttonMiPiace<?php echo $post["idPostComunicazione"] ?>" onclick=<?php if(isLogged()) {echo "\"toggleLike(".$post["idPostComunicazione"].")\"";}else{echo "toLoginPage()";}?>><img class="iconButton" src="../Icons/HeartEmpty.svg" alt="">Mi piace</button>
+                <section class="sectionCommenti">
+                <h3 class="sezioneCommenti">Commenti</h3>
+                <form class="formCommenti" action="#" method="POST">
+                    <label for="commenta<?php echo $post["idPostComunicazione"] ?>" hidden>Commenta</label>
+                    <input type="text" class="commentaField" id="commenta<?php echo $post["idPostComunicazione"] ?>" placeholder="Commenta" name="commenta" onkeydown="publishOnEnter(event, <?php echo $post["idPostComunicazione"] ?>)">
+                    <button class="pubblicaCommento" type="button" id="publishButton<?php echo $post["idPostComunicazione"] ?>" value="pubblica" onclick="publish(<?php echo $post["idPostComunicazione"] ?>)">&uarr;</button>
+                </form>
+                <ul class="commenti">
+                </ul>
+            </section>
+            </footer>
+        </article>
+    <?php endif;?>
