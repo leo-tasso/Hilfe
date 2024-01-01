@@ -66,13 +66,14 @@
                     <div class="container">
                         <div class="colonna1">
                             <label for="titolo" hidden>Titolo</label><br/>
-                            <input type="text" id="titolo" name="titolo" placeholder="Titolo"/>
+                            <input  class="titolo" type="text" id="titolo" name="titolo" placeholder="Titolo"/>
                             <label for="annuncio" hidden>Testo annuncio</label><br/>
-                            <textarea id="annuncio" placeholder="Testo annuncio"></textarea>
+                            <textarea class="testo" id="annuncio" placeholder="Testo annuncio"></textarea>
                         </div>
                         <div class="colonna2">
                             <h2>Carica immagine:</h2>
                             <div class="caricamento">
+                                <img class="postPhoto" id="postPhoto" src="../res/postInfoPics/">
                                 <input class="file" type="file" name="file" accept="image/*">
                                 <input class="carica" type="submit" name="submit" value="Carica +">
                             </div>
