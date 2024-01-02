@@ -1,6 +1,6 @@
 <?php require_once('map.php'); ?>
 <?php if(isset($post["idPostIntervento"])):?>
-<article id="<?php echo $post["idPostIntervento"]; ?>,<?php echo $post["PersoneRichieste"]; ?>">
+<article class="HelpPost" id="<?php echo $post["idPostIntervento"]; ?>,<?php echo $post["PersoneRichieste"]; ?>">
     <header>
         <h1><?php echo $post["TitoloPost"]; ?></h1>
         <div class="infoUtente">
@@ -47,7 +47,7 @@
 <?php $templateParams["lastLoadedHelp"] = $post["idPostIntervento"]; ?>
 
 <?php else:?>
-    <article class="tipo2" id="<?php echo "comunicazione".$post["idPostComunicazione"]; ?>">
+    <article class="tipo2 InfoPost" id="<?php echo "comunicazione".$post["idPostComunicazione"]; ?>">
     <header>
         <h1><?php echo $post["TitoloPost"]; ?></h1>
         <div class="infoUtente">

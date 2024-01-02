@@ -2,13 +2,19 @@ let address = "";
 let startPost = 0;
 let range = 100;
 
-window.onload = function () {
+function updateEverything() {
+    updateJustButtons();
+    updateAllMaps(0);
+}
+function updateJustButtons(){
     updateAllButtons(0);
     updateAllInfoButtons(0);
-    updateAllMaps(0);
-};
+    setTimeout(updateJustButtons, 2000); 
+}
+
+window.onload = updateEverything;
 function updateAllButtons(startButton) {
-    let articles = document.querySelectorAll("article");
+    let articles = document.querySelectorAll(".HelpPost");
     articles.forEach(article => {
         let articleParams = article.id.split(',');
         if (articleParams[0] > startButton) {
@@ -17,7 +23,7 @@ function updateAllButtons(startButton) {
     });
 }
 function updateAllInfoButtons(startButton) {
-    let articles = document.querySelectorAll("article");
+    let articles = document.querySelectorAll(".InfoPost");
     articles.forEach(article => {
         let PostId = parseInt(article.id.replace('comunicazione', ''), 10);
         if (PostId > startButton) {
