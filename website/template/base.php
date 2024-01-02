@@ -34,7 +34,7 @@
         </a>
         <nav class="desktopbar">
             <a href="index.php">Home</a>
-            <a href="annunciSalvati.php">Salvati</a>
+            <a href="savedPosts.php">Salvati</a>
             <a href="profile.php">Profilo</a>
             <a href="privacy.php">Privacy</a>
             <div class="notifiche">
@@ -68,7 +68,7 @@
             <a href="login.php"><img class="icon" src="../Icons/Door.svg" alt="">Login</a>
             <a href="profile.php"><img class="icon" src="../Icons/Profile.svg" alt="">Il mio profilo</a>
             <a href="privacy.php"><img class="icon" src="../Icons/Lock.svg" alt="">Privacy</a>
-            <a href="annunciSalvati.php"><img class="icon" src="../Icons/Pin.svg" alt="">Annunci salvati</a>
+            <a href="savedPosts.php"><img class="icon" src="../Icons/Pin.svg" alt="">Annunci salvati</a>
             <div class="notifiche">
                 <a href="notifications.php"><img class="icon" src="../Icons/Bell.svg" alt="">Notifiche</a>
                 <?php
@@ -89,8 +89,8 @@
         <div class="infoFooter">
             <p>©Hilfe 2024</p>
             <div class="linkFooter">
-                <a href="privacy.html">Privacy</a>
-                <a href="informativa.html">Informativa cookie</a>
+                <a href="privacy.php#privacy">Privacy</a>
+                <a href="privacy.php#termini">Informativa cookie</a>
             </div>
         </div>
     </footer>

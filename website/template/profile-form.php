@@ -61,7 +61,7 @@ if(isLogged()){
                 <footer class="buttonsAndConditions">
                     <div class="conditions">
                         <input id="autorizzazione" type="checkbox" name="autorizzazione privacy" value="Autorizzazione privacy" />
-                        <label for="autorizzazione"><a href="privacy.html">Accetto le condizioni, i termini d'uso e l'informativa per la privacy</a></label>
+                        <label for="autorizzazione"><a href="privacy.php">Accetto le condizioni, i termini d'uso e l'informativa per la privacy</a></label>
                     </div>
                     <input class="crea" type="submit" name="Crea account" value="<?php if(!isLogged()){echo "Crea account";}else{echo "Modifica account";}?>" onclick="return validateForm()">
                 </footer>

@@ -888,11 +888,23 @@ class DatabaseHelperMySql implements DatabaseHelper
             return false;
         }
     }
-    public function getParticipatingPosts( $lastLoadedHelp)
+    public function getParticipatingPosts($lastLoadedHelp)
     {
         if (isLogged()) {
             $stmt = $this->db->prepare("SELECT * FROM PostInterventi,Interventi WHERE idPostIntervento = idPostInterventi AND idPostIntervento > ? AND idUser = ?");
             $stmt->bind_param('ii', $lastLoadedHelp,  $_SESSION['idUser']);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            return [];
+        }
+    }
+    public function getSavedPosts()
+    {
+        if (isLogged()) {
+            $stmt = $this->db->prepare("SELECT * FROM PostInterventi,PostSalvati WHERE idPostIntervento = idPostInterventi AND idUser = ?");
+            $stmt->bind_param('i',  $_SESSION['idUser']);
             $stmt->execute();
             $result = $stmt->get_result();
             return $result->fetch_all(MYSQLI_ASSOC);
