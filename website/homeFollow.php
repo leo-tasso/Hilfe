@@ -1,6 +1,8 @@
 <?php
 require_once 'bootstrap.php';
-
+if(!isLogged()){
+    header('Location: ../profile.php');
+}
 $templateParams["title"] = "Hilfe-Home Follow";
 $templateParams["css"][] = "styleHome.css";
 $templateParams["css"][] = "styleLayoutDesktop.css";

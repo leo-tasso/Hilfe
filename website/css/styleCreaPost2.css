@@ -18,6 +18,12 @@
     border-radius: 10pt;
 }
 
+.fotoCaricata{
+    margin: 5pt auto;
+    width: 200px;
+    border: 1px solid grey;
+}
+
 @media screen and (min-width: 768px){
     .colonna2{
         padding:0;

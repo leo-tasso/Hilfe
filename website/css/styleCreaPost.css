@@ -162,7 +162,7 @@ h1 {
 }
 
 .pubblica,
-.annulla {
+.annulla , .cancella{
     padding: 10pt 0;
     border-radius: 15pt;
     border: none;
@@ -172,7 +172,7 @@ h1 {
     width: 60%;
 }
 
-.annulla {
+.annulla, .cancella {
     background-color: var(--hilfeRed);
 }
 
@@ -191,7 +191,8 @@ h1 {
 .aggiungi:hover,
 .meno:active,
 .meno:hover,
-.annulla:hover {
+.annulla:hover,
+.cancella:hover{
     background-color: var(--hilfeBlue);
     color: white;
 }
@@ -244,7 +245,7 @@ h1 {
         width: 100%;
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-around;
     }
 
     .titolo,
@@ -259,17 +260,12 @@ h1 {
         margin-bottom: 0;
     }
 
+    .annulla, 
     .pubblica,
-    .annulla {
-        padding: 2% 7%;
-        font-size: 13pt;
-        margin-top: 0;
+    .cancella{
+        width: 30%;
     }
-
-    .annulla {
-        margin-right: 10%;
-    }
-
+    
     .colonna1,
     .colonna2 {
         display: flex;

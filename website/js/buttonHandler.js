@@ -6,10 +6,10 @@ function updateEverything() {
     updateJustButtons();
     updateAllMaps(0);
 }
-function updateJustButtons(){
+function updateJustButtons() {
     updateAllButtons(0);
     updateAllInfoButtons(0);
-    setTimeout(updateJustButtons, 2000); 
+    setTimeout(updateJustButtons, 2000);
 }
 
 window.onload = updateEverything;
@@ -241,8 +241,8 @@ function morePosts() {
     });
 }
 
-function updateComments(idArticle){
-    let commentList = document.querySelector("#comunicazione"+idArticle+" .commenti");
+function updateComments(idArticle) {
+    let commentList = document.querySelector("#comunicazione" + idArticle + " .commenti");
     $.ajax({
         url: "../utils/manageButtons.php",
         type: "POST",
@@ -260,7 +260,7 @@ function updateComments(idArticle){
 
 }
 
-function publish(idArticle){
+function publish(idArticle) {
     $.ajax({
         url: "../utils/manageButtons.php",
         type: "POST",
@@ -276,7 +276,26 @@ function publish(idArticle){
             console.log(error);
         }
     });
+    document.getElementById('commenta' + idArticle).value = "";
 }
+
+function deleteComment(idComment) {
+    $.ajax({
+        url: "../utils/manageButtons.php",
+        type: "POST",
+        data: {
+            id: idComment,
+            action: 'deleteComment',
+        },
+        success: function (response) {
+            updateAllInfoButtons(0);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
 function moreInfoPosts() {
     startPost = parseInt(document.querySelector('article:last-of-type').id.replace('comunicazione', ''), 10);
 
@@ -359,7 +378,7 @@ function updatePosts() {
         },
         success: function (response) {
             let altriPostButton = document.querySelector(".buttonAltriPost");
-            altriPostButton!==null?altriPostButton.remove():{};
+            altriPostButton !== null ? altriPostButton.remove() : {};
             document.querySelector(".articles").innerHTML = response.articles == '' ? "<p>Nessun post trovato</p>" : response.articles + ' <button type="button" class="buttonAltriPost" onclick="morePosts()">Altri Post</button>';
             updateAllMaps(0);
             updateAllButtons(startPost);
@@ -378,17 +397,17 @@ function toProfileEditPage() {
     window.location.href = "../profileEdit.php";
 }
 
-function updateFollow(result){
+function updateFollow(result) {
     let button = document.getElementsByClassName("segui")[0];
-    if(result.status=="follows"){
+    if (result.status == "follows") {
         button.classList.add("seguito");
         button.value = "Seguito"
     }
-    else{
+    else {
         button.classList.remove("seguito");
         button.value = "Segui"
     }
-    document.getElementById("followersCount").innerHTML= result.counter;
+    document.getElementById("followersCount").innerHTML = result.counter;
 }
 function publishOnEnter(event, postId) {
     if (event.key === 'Enter') {

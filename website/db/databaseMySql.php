@@ -1009,6 +1009,24 @@ class DatabaseHelperMySql implements DatabaseHelper
             return [];
         }
     }
+    public function deleteComment($id)
+    {
+        if (isLogged() && $this->getCommentFromId($id)["Autore"] == $_SESSION["idUser"]) {
+            $stmt = $this->db->prepare("DELETE FROM  Commento WHERE idCommento = ?");
+            $stmt->bind_param('i', $id);
+            return $stmt->execute();
+        } else {
+            return false;
+        }
+    }
+    public function getCommentFromId($id)
+    {
+        $stmt = $this->db->prepare("SELECT * FROM  Commento WHERE idCommento = ?");
+        $stmt->bind_param('i',  $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC)[0];
+    }
 }
 
 
