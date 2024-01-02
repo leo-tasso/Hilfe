@@ -35,10 +35,10 @@ $user = $dbh->getUserFromId($source);
         <div class="bottomInfo">
             <img class="fotoProfiloPrincipale" src="../<?php echo $dbh->getProfilePic($source); ?>" alt="Foto profilo di <?php echo $user["Name"] . " " . $user["Surname"] ?>" />
             <ul>
-                <li><a href="followers.php?id=<?php echo $source ?>">Followers:</a>
+                <li><a href="follower.php?id=<?php echo $source ?>">Followers:</a>
                     <p id="followersCount"><?php echo count($dbh->getFollower($source)); ?></p>
                 </li>
-                <li><a href="followed.php?id=<?php echo $source ?>">Follow:</a>
+                <li><a href="following.php?id=<?php echo $source ?>">Follow:</a>
                     <p id="followedCount"><?php echo count($dbh->getFollowing($source)); ?></p>
                 </li>
                 <li><a href="particiations.php?id=<?php echo $source ?>">Partecipazioni:</a>

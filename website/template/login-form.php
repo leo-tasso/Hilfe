@@ -17,7 +17,7 @@
             <footer>
                 <input class="log" type="submit" value="Login">
                 <p>oppure</p>
-                <a class="registrati" href="registrazione.html">Registrati</a>
+                <a class="registrati" href="profileEdit.php">Registrati</a>
             </footer>
         </form>
 </main>

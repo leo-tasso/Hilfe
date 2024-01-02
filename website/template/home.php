@@ -1,11 +1,11 @@
 <header class="newPostContainer">
     <div class="navbar">
         <a class="default" href="#"><img class="icon" src="../Icons/Lens.svg" alt="">Esplora</a>
-        <a href="#"><img class="icon" src="../Icons/Profile.svg" alt="">Followers</a>
+        <a href="homeFollow.php"><img class="icon" src="../Icons/Profile.svg" alt="">Followers</a>
     </div>
     <div class="newPost">
         <img src="../<?php echo $dbh->getSelfProfilePic(); ?>" alt="Profilo 1" class="profilo">
-        <a href="creaPost.html">Hai bisogno di aiuto?🛟 Nuovo post</a>
+        <a href="postHelpEdit.php">Hai bisogno di aiuto?🛟 Nuovo post</a>
     </div>
 </header>
 <div class="centralContent">

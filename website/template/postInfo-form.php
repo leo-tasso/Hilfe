@@ -32,7 +32,7 @@ if (isset($_GET["id"])) {
                             <img id="postPhoto" src="../res/postInfoPics/<?php if ($post != null) {
                                                                             echo $post["Foto"];
                                                                         } else {
-                                                                            echo 'defaultPic.img';
+                                                                            echo 'defaultPic.jpg';
                                                                         } ?>" alt="foto post" />
                             <input type="file" id="fileInput" style="display: none;" onchange="loadPhoto(this)" name="postImg" value="defaultPic.img">
                             <button type="button" class="carica" onclick="document.getElementById('fileInput').click()">Cambia foto</button>

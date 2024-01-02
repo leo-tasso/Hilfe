@@ -35,10 +35,10 @@
         <nav class="desktopbar">
             <a href="index.php">Home</a>
             <a href="annunciSalvati.php">Salvati</a>
-            <a href="profiloUtente.php">Profilo</a>
+            <a href="profile.php">Profilo</a>
             <a href="privacy.php">Privacy</a>
             <div class="notifiche">
-                <a href="notifiche.php">Notifiche</a>
+                <a href="notifications.php">Notifiche</a>
                 <?php
                 $notifications = $dbh->getNotification();
                 if (count($notifications) > 0) : ?>
@@ -66,11 +66,11 @@
         <div id="mySidepanel" class="sidepanel">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="login.php"><img class="icon" src="../Icons/Door.svg" alt="">Login</a>
-            <a href="profiloUtente.php"><img class="icon" src="../Icons/Profile.svg" alt="">Il mio profilo</a>
+            <a href="profile.php"><img class="icon" src="../Icons/Profile.svg" alt="">Il mio profilo</a>
             <a href="privacy.php"><img class="icon" src="../Icons/Lock.svg" alt="">Privacy</a>
             <a href="annunciSalvati.php"><img class="icon" src="../Icons/Pin.svg" alt="">Annunci salvati</a>
             <div class="notifiche">
-                <a href="notifiche.php"><img class="icon" src="../Icons/Bell.svg" alt="">Notifiche</a>
+                <a href="notifications.php"><img class="icon" src="../Icons/Bell.svg" alt="">Notifiche</a>
                 <?php
                 if (count($notifications) > 0) : ?>
                     <p><?php echo count($notifications); ?></p>

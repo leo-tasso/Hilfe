@@ -4,10 +4,10 @@
     <header>
         <h1><?php echo $post["TitoloPost"]; ?></h1>
         <div class="infoUtente">
-            <a href="profiloUtente.html" class="nomeAutore"><?php $autore = $dbh->getAuthorFromHelpPost($post["idPostIntervento"]);
+            <a href="profile.php?id=<?php echo $post["Autore_idUser"];?>" class="nomeAutore"><?php $autore = $dbh->getAuthorFromHelpPost($post["idPostIntervento"]);
                                                             echo $autore["Name"] . " " . $autore["Surname"] ?></a>
-            <a href="profiloUtente.html"><img class="profilo" id="profilo<?php echo $post["Autore_idUser"];?>" src="../<?php echo $dbh->getProfilePic($post["Autore_idUser"]); ?>" alt="profilo"></a>
-            <?php if(isLogged() && $post["Autore_idUser"]==$_SESSION["idUser"]){echo '<a href="creaPost.html"><img class="penna" src="../Icons/Pen.svg" alt="modifica Post"></a>';}?>
+            <a href="profile.php?id=<?php echo $post["Autore_idUser"];?>"><img class="profilo" id="profilo<?php echo $post["Autore_idUser"];?>" src="../<?php echo $dbh->getProfilePic($post["Autore_idUser"]); ?>" alt="profilo"></a>
+            <?php if(isLogged() && $post["Autore_idUser"]==$_SESSION["idUser"]){echo '<a href="postHelp-form.php?id=<?php echo $post["idPostIntervento"];?>"><img class="penna" src="../Icons/Pen.svg" alt="modifica Post"></a>';}?>
         </div>
     </header>
     <div class="content">
@@ -49,10 +49,10 @@
     <header>
         <h1><?php echo $post["TitoloPost"]; ?></h1>
         <div class="infoUtente">
-            <a href="profiloUtente.html" class="nomeAutore"><?php $autore = $dbh->getAuthorFromInfoPost($post["idPostComunicazione"]);
+            <a href="profile.php?id=<?php echo $post["idUser"];?>" class="nomeAutore"><?php $autore = $dbh->getAuthorFromInfoPost($post["idPostComunicazione"]);
                                                             echo $autore["Name"] . " " . $autore["Surname"] ?></a>
-            <a href="profiloUtente.html"><img class="profilo" id="profilo<?php echo $post["idUser"];?>" src="../<?php echo $dbh->getProfilePic($post["idUser"]); ?>" alt="profilo"></a>
-            <?php if(isLogged() && $post["idUser"]==$_SESSION["idUser"]){echo '<a href="creaPost.html"><img class="penna" src="../Icons/Pen.svg" alt="modifica Post"></a>';}?>
+            <a href="profile.php?id=<?php echo $post["idUser"];?>"><img class="profilo" id="profilo<?php echo $post["idUser"];?>" src="../<?php echo $dbh->getProfilePic($post["idUser"]); ?>" alt="profilo"></a>
+            <?php if(isLogged() && $post["idUser"]==$_SESSION["idUser"]){echo '<a href="postInfo-form.php?id=<?php echo $post["idPostComunicazione"];?>"><img class="penna" src="../Icons/Pen.svg" alt="modifica Post"></a>';}?>
         </div>
     </header>
             <section class="content">
@@ -70,7 +70,7 @@
                 <form class="formCommenti" action="#" method="POST">
                     <label for="commenta<?php echo $post["idPostComunicazione"] ?>" hidden>Commenta</label>
                     <input type="text" class="commentaField" id="commenta<?php echo $post["idPostComunicazione"] ?>" placeholder="Commenta" name="commenta" onkeydown="publishOnEnter(event, <?php echo $post["idPostComunicazione"] ?>)">
-                    <button class="pubblicaCommento" type="button" id="publishButton<?php echo $post["idPostComunicazione"] ?>" value="pubblica" onclick="publish(<?php echo $post["idPostComunicazione"] ?>)">&uarr;</button>
+                    <button class="pubblicaCommento" type="button" id="publishButton<?php echo $post["idPostComunicazione"] ?>" value="pubblica" onclick="publish(<?php echo $post["idPostComunicazione"] ?>)"><img class="iconButton" src="../Icons/SendArrow.svg" alt=""></button>
                 </form>
                 <ul class="commenti">
                 </ul>

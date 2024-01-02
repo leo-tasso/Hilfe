@@ -1,7 +1,7 @@
 <?php
 require_once 'bootstrap.php';
 
-$templateParams["title"] = "Hilfe-Home";
+$templateParams["title"] = "Hilfe-Home Follow";
 $templateParams["css"][] = "styleHome.css";
 $templateParams["css"][] = "styleLayoutDesktop.css";
 $templateParams["css"][] = "styleArticle.css";
