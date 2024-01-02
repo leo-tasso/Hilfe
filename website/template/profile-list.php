@@ -1,10 +1,13 @@
 <?php
-$source = 1;
+$source = null;
 if (isLogged()) {
     $source = $_SESSION["idUser"];
 }
 if (isset($_GET["id"])) {
     $source = $_GET["id"];
+}
+if (isset($_GET["id"])) {
+    header('Location: ../registration.php');
 }
 $user = $dbh->getUserFromId($source);
 ?>
