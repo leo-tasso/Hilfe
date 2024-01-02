@@ -41,7 +41,7 @@ $user = $dbh->getUserFromId($source);
                 <li><a href="following.php?id=<?php echo $source ?>">Follow:</a>
                     <p id="followedCount"><?php echo count($dbh->getFollowing($source)); ?></p>
                 </li>
-                <li><a href="particiations.php?id=<?php echo $source ?>">Partecipazioni:</a>
+                <li><a href="participations.php?id=<?php echo $source ?>">Partecipazioni:</a>
                     <p id="particiationsCount"><?php echo count($dbh->getParticipations($source)); ?></p>
                 </li>
             </ul>

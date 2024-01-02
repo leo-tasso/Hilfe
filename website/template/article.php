@@ -44,6 +44,8 @@
 </article>
 <?php require_once('popupOverlay.php');?>
 <?php $templateParams["lastLoaded"] = $post["idPostIntervento"]; ?>
+<?php $templateParams["lastLoadedHelp"] = $post["idPostIntervento"]; ?>
+
 <?php else:?>
     <article class="tipo2" id="<?php echo "comunicazione".$post["idPostComunicazione"]; ?>">
     <header>
@@ -77,4 +79,6 @@
             </section>
             </footer>
         </article>
+        <?php $templateParams["lastLoaded"] = $post["idPostComunicazione"]; ?>
+        <?php $templateParams["lastLoadedInfo"] = $post["idPostComunicazione"]; ?>
     <?php endif;?>

@@ -47,4 +47,5 @@ interface DatabaseHelper
     public function like($id);
     public function getComments($id);
     public function postComment($id, $text);
+    public function getParticipatingPosts($lastLoadedHelp);
 }
