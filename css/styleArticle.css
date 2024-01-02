@@ -359,20 +359,34 @@ h3 {
     cursor: pointer;
   }
 
-  .titoloSezioneCommenti{
+  .eliminaCommento{
+    background-color: var(--hilfeGrey);
+    height: fit-content;
+    border-radius: 5pt;
+    border:none;
+    cursor:pointer;
+}
+
+.bin{
+    width: 15px;
+    margin-left:3pt;
+    padding:0;
+}
+
+.titoloSezioneCommenti{
     color:var(--hilfeRed);
     font-size: 12pt;
     margin:5pt 0;
     padding:0;
-  }
+}
 
-  .commenti{
+.commenti{
     list-style: none;
     display: flex;
     flex-direction: column;
     justify-content:left;
     padding:2pt;
-  }
+}
 
   .commenti li{
     display: flex;
@@ -385,12 +399,25 @@ h3 {
 
   .commenti li img{
     margin-right: 5pt;
+    float: left;
   }
+
+  .commento{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .fotoECommento{
+    width: 90%;
+  }
+
 
   .infoCommento{
     display: flex;
     flex-direction: column;
     text-align: left;
+    width: 80%;
   }
 
   .infoCommento a{
@@ -399,9 +426,14 @@ h3 {
     margin-bottom: 0;
   }
 
-  .infoCommento p{
+  .infoCommento p:not(.dataCommento){
     margin-top: 0;
     font-size: 10pt;
+  }
+
+  .dataCommento{
+    font-size: 8pt;
+    margin-top: 0;
   }
 
 
