@@ -102,23 +102,31 @@
                 <h3 class="sezioneCommenti">Commenti</h3>
                 <form class="formCommenti" action="#" method="POST">
                     <label for="commenta" hidden>Commenta</label>
-                    <input type="text" id="commenta" placeholder="Commenta" name="commenta">
+                    <input  class="commentaField" type="text" id="commenta" placeholder="Commenta" name="commenta">
                     <button class="pubblicaCommento" type="button" value="pubblica">&uarr;</button>
                 </form>
                 <ul class="commenti">
                     <li class="commento">
+                        <div class="fotoECommento">
                         <a href="profiloUtente.html"><img class="profilo" src="../fotoProfiloIniziale.jpg" alt="profilo"></a>
                         <div class="infoCommento">
                             <a href="profiloUtente.html"  class="nomeAutore">Milo Cotogno</a>
+                            <p class="dataCommento">gg/mm/aaa</p>
                             <p>Inserisci qui il testo del commento. </p>
                         </div>
+                        </div>
+                        <button class="eliminaCommento" type="button"><img class="bin" src="../Icons/Bin.svg" alt="cancella commento"></button>
                     </li>
                     <li class="commento">
+                        <div class="fotoECommento">
                         <a href="profiloUtente.html"><img class="profilo" src="../fotoProfiloIniziale.jpg" alt="profilo"></a>
                         <div class="infoCommento">
-                            <a href="profiloUtente.html"  class="nomeAutore">Milo Cotogno</a>
+                            <a href="profiloUtente.html"  class="nomeAutore">Lupo Lucio</a>
+                            <p class="dataCommento">gg/mm/aaa</p>
                             <p>Inserisci qui il testo del commento. </p>
                         </div>
+                        </div>
+                        <button class="eliminaCommento" type="button"><img class="bin" src="../Icons/Bin.svg" alt="cancella commento"></button>
                     </li>
                 </ul>
             </section>
