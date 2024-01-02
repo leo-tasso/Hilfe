@@ -358,7 +358,8 @@ function updatePosts() {
             action: 'morePosts'
         },
         success: function (response) {
-            document.querySelector(".buttonAltriPost").remove();
+            let altriPostButton = document.querySelector(".buttonAltriPost");
+            altriPostButton!==null?altriPostButton.remove():{};
             document.querySelector(".articles").innerHTML = response.articles == '' ? "<p>Nessun post trovato</p>" : response.articles + ' <button type="button" class="buttonAltriPost" onclick="morePosts()">Altri Post</button>';
             updateAllMaps(0);
             updateAllButtons(startPost);
