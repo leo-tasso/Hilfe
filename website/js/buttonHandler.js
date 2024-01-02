@@ -375,7 +375,7 @@ function toLoginPage() {
 }
 
 function toProfileEditPage() {
-    window.location.href = "../ProfileEdit.php";
+    window.location.href = "../profileEdit.php";
 }
 
 function updateFollow(result){

@@ -663,6 +663,18 @@ class DatabaseHelperMySql implements DatabaseHelper
 
         return $stmt->execute();
     }
+    private function getNewCommentId()
+    {
+        $stmt = $this->db->prepare("SELECT idCommento FROM Commento ORDER BY idCommento DESC LIMIT 1");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result = $result->fetch_all(MYSQLI_ASSOC);
+        if (count($result) > 0) {
+            return $result[0]["idCommento"] + 1;
+        } else {
+            return 1;
+        }
+    }
     private function getNewUserId()
     {
         $stmt = $this->db->prepare("SELECT idUser FROM User ORDER BY idUser DESC LIMIT 1");
@@ -944,13 +956,17 @@ class DatabaseHelperMySql implements DatabaseHelper
     public function postComment($id, $text)
     {
         if (isLogged()) {
-            $stmt = $this->db->prepare("INSERT INTO Commento (Autore,RelativoA,Testo) VALUES (?,?,?) ON DUPLICATE KEY UPDATE Testo = VALUES(Testo)");
+            $stmt = $this->db->prepare("INSERT INTO Commento (Autore,RelativoA,Testo,idCommento,DataPubblicazione) VALUES (?,?,?,?,?)");
             $autore = $_SESSION["idUser"];
+            $newid = $this->getNewCommentId();
+            $now = date('Y-m-d H:i:s');
             $stmt->bind_param(
-                'iis',
+                'iisis',
                 $autore,
                 $id,
-                $text
+                $text,
+                $newid,
+                $now
             );
             $res = $stmt->execute();
 
