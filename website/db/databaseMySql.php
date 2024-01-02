@@ -243,6 +243,17 @@ class DatabaseHelperMySql implements DatabaseHelper
                 $stmt = $this->db->prepare("INSERT INTO PostSalvati (idPostInterventi, idUser) VALUES (?, ?)");
                 $stmt->bind_param('ii', $id, $_SESSION["idUser"]);
                 $stmt->execute();
+
+                $stmtNotf = $this->db->prepare("INSERT INTO Notifica (idNotifica, idUser, TestoNotifica, Letta, DataCreazione, idUserGeneratore) VALUES (?,?,?,?,?,?)");
+                $newid = $this->getNewNotificationId();
+                $post = $this->getHelpPost($id);
+                $now = date('Y-m-d H:i:s');
+                $autore = $post['Autore_idUser'];
+                $testo = "Ha salvato un tuo annuccio";
+                $letta = 0;
+                $idRelativo = $_SESSION["idUser"];
+                $stmtNotf->bind_param('iisisi', $newid, $autore, $testo, $letta, $now, $idRelativo);
+                $stmtNotf->execute();
             } else {
                 $stmt = $this->db->prepare("DELETE FROM  PostSalvati WHERE idPostInterventi = ? AND idUser = ?");
                 $stmt->bind_param('ii', $id, $_SESSION["idUser"]);
@@ -260,10 +271,32 @@ class DatabaseHelperMySql implements DatabaseHelper
                 $stmt = $this->db->prepare("INSERT INTO Interventi (idPostInterventi, idUser) VALUES (?, ?)");
                 $stmt->bind_param('ii', $id, $_SESSION["idUser"]);
                 $stmt->execute();
+
+                $stmtNotf = $this->db->prepare("INSERT INTO Notifica (idNotifica, idUser, TestoNotifica, Letta, DataCreazione, idUserGeneratore) VALUES (?,?,?,?,?,?)");
+                $newid = $this->getNewNotificationId();
+                $post = $this->getHelpPost($id);
+                $now = date('Y-m-d H:i:s');
+                $autore = $post['Autore_idUser'];
+                $testo = "Parteciperà all'evento";
+                $letta = 0;
+                $idRelativo = $_SESSION["idUser"];
+                $stmtNotf->bind_param('iisisi', $newid, $autore, $testo, $letta, $now, $idRelativo);
+                $stmtNotf->execute();
             } else {
                 $stmt = $this->db->prepare("DELETE FROM  Interventi WHERE idPostInterventi = ? AND idUser = ?");
                 $stmt->bind_param('ii', $id, $_SESSION["idUser"]);
                 $stmt->execute();
+
+                $stmtNotf = $this->db->prepare("INSERT INTO Notifica (idNotifica, idUser, TestoNotifica, Letta, DataCreazione, idUserGeneratore) VALUES (?,?,?,?,?,?)");
+                $newid = $this->getNewNotificationId();
+                $post = $this->getHelpPost($id);
+                $now = date('Y-m-d H:i:s');
+                $autore = $post['Autore_idUser'];
+                $testo = "Non parteciperà più all'evento";
+                $letta = 0;
+                $idRelativo = $_SESSION["idUser"];
+                $stmtNotf->bind_param('iisisi', $newid, $autore, $testo, $letta, $now, $idRelativo);
+                $stmtNotf->execute();
             }
             return $this->isParticipating($id);
         } else {
@@ -642,6 +675,18 @@ class DatabaseHelperMySql implements DatabaseHelper
             return 1;
         }
     }
+    private function getNewNotificationId()
+    {
+        $stmt = $this->db->prepare("SELECT idNotifica FROM Notifica ORDER BY idNotifica DESC LIMIT 1");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result = $result->fetch_all(MYSQLI_ASSOC);
+        if (count($result) > 0) {
+            return $result[0]["idNotifica"] + 1;
+        } else {
+            return 1;
+        }
+    }
     private function getNewPostHelpId()
     {
         $stmt = $this->db->prepare("SELECT idPostIntervento FROM PostInterventi ORDER BY idPostIntervento DESC LIMIT 1");
@@ -723,6 +768,19 @@ class DatabaseHelperMySql implements DatabaseHelper
                 $idmateriale++;
             }
         }
+
+        foreach (array_column($this->getParticipants($id), 'idUser') as $user) {
+            $stmtNotf = $this->db->prepare("INSERT INTO Notifica (idNotifica, idUser, TestoNotifica, Letta, DataCreazione, idUserGeneratore) VALUES (?,?,?,?,?,?)");
+            $newid = $this->getNewNotificationId();
+            $now = date('Y-m-d H:i:s');
+            $idDestinatario = $_SESSION["idUser"];
+            $testo = "Ha modificato il post a cui partecipi";
+            $letta = 0;
+            $idRelativo = $user;
+            $stmtNotf->bind_param('iisisi', $newid, $idDestinatario, $testo, $letta, $now, $idRelativo);
+            $stmtNotf->execute();
+        }
+
         return $outcome;
     }
     public function newPostHelp($titolo, $testo, $indirizzo, $giorno, $ora, $personeRichieste, $oggetto, $quantita)
@@ -850,6 +908,17 @@ class DatabaseHelperMySql implements DatabaseHelper
                 $stmt = $this->db->prepare("INSERT INTO `Like` (PostRelativo, idEmettitore) VALUES (?, ?)");
                 $stmt->bind_param('ii', $id, $_SESSION["idUser"]);
                 $stmt->execute();
+
+                $stmtNotf = $this->db->prepare("INSERT INTO Notifica (idNotifica, idUser, TestoNotifica, Letta, DataCreazione, idUserGeneratore) VALUES (?,?,?,?,?,?)");
+                $newid = $this->getNewNotificationId();
+                $post = $this->getInfoPost($id);
+                $now = date('Y-m-d H:i:s');
+                $autore = $post['idUser'];
+                $testo = "Piace il tuo post";
+                $letta = 0;
+                $idRelativo = $_SESSION["idUser"];
+                $stmtNotf->bind_param('iisisi', $newid, $autore, $testo, $letta, $now, $idRelativo);
+                $stmtNotf->execute();
             } else {
                 $stmt = $this->db->prepare("DELETE FROM  `Like` WHERE PostRelativo = ? AND idEmettitore = ?");
                 $stmt->bind_param('ii', $id, $_SESSION["idUser"]);
@@ -883,7 +952,19 @@ class DatabaseHelperMySql implements DatabaseHelper
                 $id,
                 $text
             );
-            return $stmt->execute();
+            $res = $stmt->execute();
+
+            $stmtNotf = $this->db->prepare("INSERT INTO Notifica (idNotifica, idUser, TestoNotifica, Letta, DataCreazione, idUserGeneratore) VALUES (?,?,?,?,?,?)");
+            $newid = $this->getNewNotificationId();
+            $post = $this->getInfoPost($id);
+            $now = date('Y-m-d H:i:s');
+            $autore = $post['idUser'];
+            $testo = "Ha commentato il tuo post";
+            $letta = 0;
+            $idRelativo = $_SESSION["idUser"];
+            $stmtNotf->bind_param('iisisi', $newid, $autore, $testo, $letta, $now, $idRelativo);
+            $stmtNotf->execute();
+            return $res;
         } else {
             return false;
         }
