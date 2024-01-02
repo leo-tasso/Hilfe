@@ -7,7 +7,7 @@ if (isset($_POST['titolo'], $_POST['testo'], $_FILES["postImg"])) {
    $id = isset($_POST["id"]) ? $_POST["id"] : null;
 
    if (!islogged()) {
-      header('Location: ../registration.php');
+      header('Location: ../profileEdit.php');
    } else if ($id != null && islogged() && $id == $_SESSION["idUser"]) {
       if ($dbh->updatePostInfo($id, $titolo, $testo, $postImg["name"])) {
          $result = uploadImage(UPLOAD_DIR_POSTINFO_PIC, $_FILES["postImg"]);

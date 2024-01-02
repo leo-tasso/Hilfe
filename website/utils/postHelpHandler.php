@@ -12,7 +12,7 @@ if (isset($_POST['titolo'], $_POST['testo'], $_POST['indirizzo'], $_POST['giorno
    $id = isset($_POST["id"]) ? $_POST["id"] : null;
 
    if (!islogged()) {
-      header('Location: ../registration.php');
+      header('Location: ../profileEdit.php');
    } else if ($id != null && islogged() && $id == $_SESSION["idUser"]) {
       if ($dbh->updatePostHelp($_POST["id"], $_POST['titolo'], $_POST['testo'], $_POST['indirizzo'], $_POST['giorno'], $_POST['ora'], $_POST['personeRichieste'], $oggetto, $quantita)) {
          header('Location: ../profile.php');

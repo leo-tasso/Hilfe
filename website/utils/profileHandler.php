@@ -12,7 +12,7 @@ if (isset($_POST['nome'], $_POST['cognome'], $_POST['data'], $_POST['email'], $_
    $phone = isset($_POST['phone']) && $_POST['phone'] != "" ? $_POST['phone'] : null;
    $bio = isset($_POST['bio']) && $_POST['bio'] != "" ? $_POST['bio'] : null;
    if (!isLogged() && $dbh->checkRepetitions($username, $email)) {
-      header('Location: ../registration.php?error="email o username già presenti"');
+      header('Location: ../profileEdit.php?error="email o username già presenti"');
    } else if (!isLogged()) {
       if ($dbh->registerUser($nome, $cognome, $username, $data, $email, $password, $profilePic, $phone, $addr, $bio)) {
          $dbh->login($email, $password, false);
@@ -41,8 +41,8 @@ if (isset($_POST['nome'], $_POST['cognome'], $_POST['data'], $_POST['email'], $_
             header('Location: ../profile.php');
       }
    } else {
-      header('Location: ../registration.php');
+      header('Location: ../profileEdit.php');
    }
 } else {
-   header('Location: ../registration.php');
+   header('Location: ../profileEdit.php');
 }
