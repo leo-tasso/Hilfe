@@ -191,7 +191,8 @@ h1 {
 .aggiungi:hover,
 .meno:active,
 .meno:hover,
-.annulla:hover {
+.annulla:hover,
+.cancella:hover{
     background-color: var(--hilfeBlue);
     color: white;
 }
