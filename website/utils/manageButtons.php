@@ -140,11 +140,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo json_encode($response);
             break;
         case 'deleteInfoPost':
-                $dbh->deleteInfoPost($id);
-                $response = array('status' => 'ok');
-                header('Content-Type: application/json');
-                echo json_encode($response);
-                break;
+            $dbh->deleteInfoPost($id);
+            $response = array('status' => 'ok');
+            header('Content-Type: application/json');
+            echo json_encode($response);
+            break;
+        case 'deleteUser':
+            $dbh->deleteUser($id);
+            $response = array('status' => 'ok');
+            header('Content-Type: application/json');
+            echo json_encode($response);
+            break;
         case 'moreInfoPosts':
             $startId = isset($_POST['startId']) ? $_POST['startId'] : '';
             $articles = $dbh->getInfoPosts($START_POST_NUMBER, $startId, $_SESSION["idUser"]);

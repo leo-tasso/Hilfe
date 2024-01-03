@@ -49,6 +49,7 @@ interface DatabaseHelper
     public function postComment($id, $text);
     public function getParticipatingPosts($lastLoadedHelp);
     public function getSavedPosts();
+    public function deleteUser($id);
     public function deleteComment($id);
     public function getCommentFromId($id);
     public function deleteHelpPost($id);
