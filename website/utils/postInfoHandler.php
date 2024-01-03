@@ -8,7 +8,7 @@ if (isset($_POST['titolo'], $_POST['testo'], $_FILES["postImg"])) {
 
    if (!islogged()) {
       header('Location: ../profileEdit.php');
-   } else if ($id != null && islogged() && $id == $_SESSION["idUser"]) {
+   } else if ($id != null && islogged() && $dbh->getInfoPost($id)["idUser"] == $_SESSION["idUser"]) {
       if ($dbh->updatePostInfo($id, $titolo, $testo, $postImg["name"])) {
          $result = uploadImage(UPLOAD_DIR_POSTINFO_PIC, $_FILES["postImg"]);
          if ($result[0] == 0) {
