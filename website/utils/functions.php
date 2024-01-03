@@ -52,7 +52,7 @@ function uploadImage($path, $image){
     //Controllo se immagine è veramente un'immagine
     $imageSize = getimagesize($image["tmp_name"]);
     if($imageSize === false) {
-        $msg .= "File caricato non è un'immagine! ";
+        //$msg .= "File caricato non è un'immagine! ";
     }
     //Controllo dimensione dell'immagine < 500KB
     if ($image["size"] > $maxKB * 1024) {
