@@ -134,8 +134,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo json_encode($response);
             break;
         case 'deleteHelpPost':
-            $res = isLogged() && $dbh->getHelpPost($id)["Autore_idUser"] == $_SESSION["idUser"];
-            $response = array('status' => $res);
+            $response = array('status' => $dbh->deleteHelpPost($id));
             header('Content-Type: application/json');
             echo json_encode($response);
             break;
