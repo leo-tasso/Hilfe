@@ -46,7 +46,7 @@ if(isLogged()){
                         </li>
                         <li class="bio">
                             <label for="bio">Biografia:</label><br/>
-                            <textarea  class="textarea" placeholder="Biografia"  name="bio" id="bio" <?php if(isLogged() && isset($user["Bio"])){echo "value=\"".$user["Bio"]."\"";}?>></textarea>
+                            <textarea  class="bioInput" placeholder="Biografia"  name="bio" id="bio" <?php if(isLogged() && isset($user["Bio"])){echo "value=\"".$user["Bio"]."\"";}?>></textarea>
                         </li>
                         <li class="pass">
                             <label for="password">Password:</label>
