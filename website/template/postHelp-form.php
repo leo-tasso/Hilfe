@@ -82,8 +82,10 @@ if (isset($_GET["id"])) {
                     </div>
                 </div>
                 <footer>
-                    <input class="annulla" type="reset" name="Annulla" value="Annulla" onclick='window.location.href = "../index.php"'>
-                    <input class="pubblica" type="submit" name="Pubblica" value="Pubblica">
+                <input class="annulla" type="reset" name="Annulla" value="Annulla" onclick='window.location.href = "../index.php"'>
+
+                    <input class="cancella" type="button" name="Cancella" value="Cancella post">
+                    <input class="pubblica" type="submit" name="Pubblica" value="Pubblica" onclick="<?php if($post==null){echo 'window.location.href = "../index.php"';}else {echo 'deletePost('.$_GET["id"].')';}?>">
                 </footer>
             </form>
         </section>

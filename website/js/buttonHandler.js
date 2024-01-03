@@ -279,6 +279,23 @@ function publish(idArticle) {
     document.getElementById('commenta' + idArticle).value = "";
 }
 
+function deletePost(idPost){
+    $.ajax({
+        url: "../utils/manageButtons.php",
+        type: "POST",
+        data: {
+            id: idPost,
+            action: 'deletePost',
+        },
+        success: function (response) {
+            window.location.href = "../index.php";
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
 function deleteComment(idComment) {
     $.ajax({
         url: "../utils/manageButtons.php",
