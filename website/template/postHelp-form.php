@@ -82,7 +82,7 @@ if (isset($_GET["id"])) {
                     </div>
                 </div>
                 <footer>
-                    <input class="cancella" type="button" name="Cancella" value="Cancella post" onclick="<?php if($post==null){echo 'window.location.href = "../index.php"';}else {echo 'deleteHelpPost('.$_GET["id"].')';}?>">
+                    <input class="cancella" type="button" name="Cancella" value="Cancella post" onclick="<?php if($post==null){echo 'toHomePage()';}else {echo 'deleteHelpPost('.$_GET["id"].')';}?>">
                     <input class="pubblica" type="submit" name="Pubblica" value="Pubblica" >
                 </footer>
             </form>
