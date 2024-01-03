@@ -7,7 +7,7 @@
             <?php
             $followingIds = array_column($dbh->getFollower(isset($_GET["id"]) ? $_GET["id"] : 1), 'idSeguace');
             foreach ($dbh->addDescription($followingIds) as $user) : ?>
-                <li class="follower"><a href="profiloUtente.php?id=<?php echo $user["idUser"] ?>"><img src="../<?php echo $dbh->getProfilePic($user["idUser"]); ?>" alt="Foto profilo">
+                <li class="follower"><a href="profile.php?id=<?php echo $user["idUser"] ?>"><img src="../<?php echo $dbh->getProfilePic($user["idUser"]); ?>" alt="Foto profilo">
                         <div class="infoUtente"><span><?php echo $user["Name"] . " " . $user["Surname"] ?></span>
                             <p class="testo">
                                 <?php if (isset($user["seiTu"])) {
