@@ -63,7 +63,7 @@ if(isLogged()){
                         <input id="autorizzazione" type="checkbox" name="autorizzazione privacy" value="Autorizzazione privacy" />
                         <label for="autorizzazione"><a href="privacy.php">Accetto le condizioni, i termini d'uso e l'informativa per la privacy</a></label>
                     </div>
-                    <input class="cancella" type="button" name="Cancella" value="<?php if($user==null){echo 'Annulla';}else {echo 'Cancella Utente';}?> " onclick="<?php if($user==null){echo 'toHomePage()';}else {echo 'deleteUser('.$User["idUser"].')';}?>">
+                    <input class="cancella" type="button" name="Cancella" value="<?php if($user==null){echo 'Annulla';}else {echo 'Cancella Utente';}?> " onclick="<?php if($user==null){echo 'toHomePage()';}else {echo 'deleteUser('.$_SESSION["idUser"].')';}?>">
                     <input class="crea" type="submit" name="Crea account" value="<?php if(!isLogged()){echo "Crea account";}else{echo "Modifica account";}?>" onclick="return validateForm()">
                 </footer>
             </form>
