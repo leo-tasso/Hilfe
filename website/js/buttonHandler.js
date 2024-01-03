@@ -279,13 +279,30 @@ function publish(idArticle) {
     document.getElementById('commenta' + idArticle).value = "";
 }
 
-function deletePost(idPost){
+function deleteHelpPost(idPost){
     $.ajax({
         url: "../utils/manageButtons.php",
         type: "POST",
         data: {
             id: idPost,
-            action: 'deletePost',
+            action: 'deleteHelpPost',
+        },
+        success: function (response) {
+            window.location.href = "../index.php";
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+function deleteInfoPost(idPost){
+    $.ajax({
+        url: "../utils/manageButtons.php",
+        type: "POST",
+        data: {
+            id: idPost,
+            action: 'deleteInfoPost',
         },
         success: function (response) {
             window.location.href = "../index.php";

@@ -40,7 +40,7 @@ if (isset($_GET["id"])) {
                     </div>
                 </div>
                 <footer>
-                    <input class="annulla" type="reset" name="Annulla" value="Annulla" onclick='window.location.href = "../index.php"'>
+                    <input class="cancella" type="button" name="Cancella" value="Cancella post" onclick="<?php if($post==null){echo 'window.location.href = "../index.php"';}else {echo 'deleteInfoPost('.$_GET["id"].')';}?>">
                     <input class="pubblica" type="submit" name="Pubblica" value="Pubblica">
                 </footer>
             </form>
