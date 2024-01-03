@@ -753,12 +753,11 @@ class DatabaseHelperMySql implements DatabaseHelper
     }
     public function updatePostHelp($id, $titolo, $testo, $indirizzo, $giorno, $ora, $personeRichieste, $oggetto, $quantita)
     {
-        $stmt = $this->db->prepare("UPDATE PostInterventi SET TitoloPost=?, DescrizionePost=?, DataIntervento=?, PosizioneLongitudine=?, PosizioneLatitudine=?, Indirizzo=?, PersoneRichieste=? WHERE idPostIntervento=?");
+        $stmt = $this->db->prepare("UPDATE PostInterventi SET TitoloPost=?, DescrizionePost=?, DataIntervento=?, PosizioneLongitudine=?, PosizioneLatitudine=?, Indirizzo=?, PersoneRichieste=?, DataPubblicazione =? WHERE idPostIntervento=?");
 
         $data = $giorno . " " . $ora;
         $coordinates = getCoordinates($indirizzo);
-
-        // Bind the parameters using variables
+        $now = date('Y-m-d H:i:s');
         $stmt->bind_param(
             'ssdddsii',
             $titolo,
@@ -768,6 +767,7 @@ class DatabaseHelperMySql implements DatabaseHelper
             $coordinates["longitude"],
             $indirizzo,
             $personeRichieste,
+            $now,
             $id
         );
 
@@ -858,7 +858,7 @@ class DatabaseHelperMySql implements DatabaseHelper
     }
     public function updatePostInfo($id, $titolo, $testo, $postImg)
     {
-        $stmt = $this->db->prepare("UPDATE HilfeDb.PostComunicazioni SET TitoloPost=?, DescrizionePost=?, Foto=?, DataPubblicazione=? WHERE idPostIntervento=?");
+        $stmt = $this->db->prepare("UPDATE HilfeDb.PostComunicazioni SET TitoloPost=?, DescrizionePost=?, Foto=?, DataPubblicazione=? WHERE idPostComunicazione=?");
 
         $now = date('Y-m-d H:i:s');
 
