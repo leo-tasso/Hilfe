@@ -36,6 +36,7 @@
             <a href="index.php">Home</a>
             <a href="savedPosts.php">Salvati</a>
             <a href="profile.php">Profilo</a>
+            <a href="users.php">Utenti</a>
             <a href="privacy.php">Privacy</a>
             <div class="notifiche">
                 <a href="notifications.php">Notifiche</a>
@@ -71,6 +72,7 @@
             <a href="profile.php"><img class="icon" src="../Icons/Profile.svg" alt="">Il mio profilo</a>
             <a href="privacy.php"><img class="icon" src="../Icons/Lock.svg" alt="">Privacy</a>
             <a href="savedPosts.php"><img class="icon" src="../Icons/Pin.svg" alt="">Annunci salvati</a>
+            <a href="users.php"><img class="icon" src="../Icons/Profile.svg" alt="">Utenti</a>
             <div class="notifiche">
                 <a href="notifications.php"><img class="icon" src="../Icons/Bell.svg" alt="">Notifiche</a>
                 <?php

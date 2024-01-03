@@ -1074,6 +1074,12 @@ class DatabaseHelperMySql implements DatabaseHelper
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC)[0];
     }
+    public function getAllUsers(){
+        $stmt = $this->db->prepare("SELECT * FROM  User");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }
 
 
