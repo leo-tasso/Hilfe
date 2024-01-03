@@ -21,9 +21,9 @@ if (isset($_GET["id"])) {
                                                                                                                 echo "value=\"" . $post["TitoloPost"] . "\"";
                                                                                                             } ?> />
                         <label for="annuncio" hidden>Testo annuncio</label><br />
-                        <input class="testo" type="textarea" id="annuncio" required name="testo" placeholder="Testo annuncio" <?php if (isset($_GET["id"])) {
+                        <textarea class="testo" id="annuncio" required name="testo" placeholder="Testo annuncio" <?php if (isset($_GET["id"])) {
                                                                                                                 echo "value=\"" . $post["DescrizionePost"] . "\"";
-                                                                                                            } ?>>
+                                                                                                            } ?>></textarea>
                         <div class="luogo">
                             <label for="indirizzo">Indirizzo:</label>
                             <input type="text" id="indirizzo" required  name="indirizzo" <?php if (isset($_GET["id"])) {
