@@ -45,7 +45,7 @@ div {
     width: 100%;
 }
 
-form input {
+form input, .testo {
     border: 2px solid var(--hilfeRed);
     border-radius: 3pt;
     margin-bottom: 10pt;
