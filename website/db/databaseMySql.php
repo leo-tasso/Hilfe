@@ -1039,7 +1039,7 @@ class DatabaseHelperMySql implements DatabaseHelper
             $stmt->bind_param('i', $id);
             return $stmt->execute();
         } else {
-            return false;
+            return "user not logged or not owner";
         }
     }
     public function deleteInfoPost($id)
