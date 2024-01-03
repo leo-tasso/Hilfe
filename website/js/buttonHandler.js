@@ -418,6 +418,9 @@ function activateMap(id, lon, lat, label) {
 function updatePosts() {
     startPost = 0;
     address = document.getElementById("partenza").value;
+    if(address===null||address==""){
+        address = document.getElementById("partenza").placeholder;
+    }
     range = document.getElementById("range").value;
     $.ajax({
         url: "../utils/manageButtons.php",
