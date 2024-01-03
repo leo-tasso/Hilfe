@@ -46,24 +46,19 @@
                 <?php endif; ?>
             </div>
         </nav>
-        <?php if (!isLogged() || ($_SERVER['REQUEST_URI'] == "/profile.php" && $_SERVER['REQUEST_URI'] == "/profile.php?id=" . $_SESSION["idUser"])) : ?>
-        <a class="profiloBarra" id="profiloBarra" href="profile.php">
-            <img src="../<?php echo $dbh->getSelfProfilePic(); ?>" alt="" class="fotoProfilo">
-        </a>
-        <?php endif;?>
+
         <div class="buttonLoginLogout">
             <?php if (isLogged()) : ?>
                 <?php if ($_SERVER['REQUEST_URI'] == "/profile.php" || $_SERVER['REQUEST_URI'] == "/profile.php?id=" . $_SESSION["idUser"]) : ?>
                     <button type="button" class="b3" onclick="logout()">Logout</button>
-                <?php else : ?>
-                    <a href="profile.php">
-                        <img src="../<?php echo $dbh->getSelfProfilePic(); ?>" alt="" class="fotoProfilo">
-                    </a>
                 <?php endif; ?>
             <?php else : ?>
                 <a class="b1" href="login.php">Login</a>
                 <a class="b2" href="profileEdit.php">Registrati</a>
             <?php endif; ?>
+            <a class="profiloBarra" href="profile.php">
+                <img src="../<?php echo $dbh->getSelfProfilePic(); ?>" alt="" class="fotoProfilo">
+            </a>
         </div>
         <div id="mySidepanel" class="sidepanel">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
