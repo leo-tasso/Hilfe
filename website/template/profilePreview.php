@@ -1,4 +1,4 @@
-<a href="profile.php?=<?php echo $user["idUser"] ?>" class="infoUser">
+<a href="profile.php?id=<?php echo $user["idUser"] ?>" class="infoUser">
             <img src="../<?php echo $dbh->getProfilePic($user["idUser"]);?>" alt="immagine profilo di <?php echo $user["Name"] ?> <?php echo $user["Surname"] ?>">
             <div class="profile">
                 <span><?php echo $user["Name"] ?> <?php echo $user["Surname"] ?></span>
