@@ -65,7 +65,9 @@
         </div>
         <div id="mySidepanel" class="sidepanel">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="login.php"><img class="icon" src="../Icons/Door.svg" alt="">Login</a>
+            <?php if (isLogged() && ($_SERVER['REQUEST_URI'] == "/profile.php" || $_SERVER['REQUEST_URI'] == "/profile.php?id=" . $_SESSION["idUser"])) : ?>
+                    <a href="#" onclick="logout()"><img class="icon" src="../Icons/Door.svg" alt="">Logout</a>
+                    <?php endif;?>
             <a href="profile.php"><img class="icon" src="../Icons/Profile.svg" alt="">Il mio profilo</a>
             <a href="privacy.php"><img class="icon" src="../Icons/Lock.svg" alt="">Privacy</a>
             <a href="savedPosts.php"><img class="icon" src="../Icons/Pin.svg" alt="">Annunci salvati</a>
