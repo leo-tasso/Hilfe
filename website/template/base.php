@@ -46,9 +46,11 @@
                 <?php endif; ?>
             </div>
         </nav>
+        <?php if (!isLogged() || ($_SERVER['REQUEST_URI'] == "/profile.php" && $_SERVER['REQUEST_URI'] == "/profile.php?id=" . $_SESSION["idUser"])) : ?>
         <a class="profiloBarra" id="profiloBarra" href="profile.php">
             <img src="../<?php echo $dbh->getSelfProfilePic(); ?>" alt="" class="fotoProfilo">
         </a>
+        <?php endif;?>
         <div class="buttonLoginLogout">
             <?php if (isLogged()) : ?>
                 <?php if ($_SERVER['REQUEST_URI'] == "/profile.php" || $_SERVER['REQUEST_URI'] == "/profile.php?id=" . $_SESSION["idUser"]) : ?>
