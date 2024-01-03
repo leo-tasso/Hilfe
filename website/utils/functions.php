@@ -79,7 +79,7 @@ function uploadImage($path, $image){
     //Se non ci sono errori, sposto il file dalla posizione temporanea alla cartella di destinazione
     if(strlen($msg)==0){
         if(!move_uploaded_file($image["tmp_name"], $fullPath)){
-            $msg.= "Errore nel caricamento dell'immagine.". $image["error"];
+            $msg.= "Errore nel caricamento dell'immagine.". var_dump($image);
 
         }
         else{
