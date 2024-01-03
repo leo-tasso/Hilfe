@@ -1019,6 +1019,26 @@ class DatabaseHelperMySql implements DatabaseHelper
             return false;
         }
     }
+    public function deleteHelpPost($id)
+    {
+        if (isLogged() && $this->getHelpPost($id)["Autore_idUser"] == $_SESSION["idUser"]) {
+            $stmt = $this->db->prepare("DELETE FROM PostInterventi WHERE idPostIntervento = ?");
+            $stmt->bind_param('i', $id);
+            return $stmt->execute();
+        } else {
+            return false;
+        }
+    }
+    public function deleteInfoPost($id)
+    {
+        if (isLogged() && $this->getInfoPost($id)["Autore"] == $_SESSION["idUser"]) {
+            $stmt = $this->db->prepare("DELETE FROM PostComunicazioni WHERE idPostComunicazione = ?");
+            $stmt->bind_param('i', $id);
+            return $stmt->execute();
+        } else {
+            return false;
+        }
+    }
     public function getCommentFromId($id)
     {
         $stmt = $this->db->prepare("SELECT * FROM  Commento WHERE idCommento = ?");
