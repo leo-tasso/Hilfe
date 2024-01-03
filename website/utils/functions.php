@@ -45,7 +45,7 @@ function uploadImage($path, $image){
     $imageName = basename($image["name"]);
     $fullPath = $path.$imageName;
     
-    $maxKB = 500;
+    $maxKB = 5000;
     $acceptedExtensions = array("jpg", "jpeg", "png", "gif");
     $result = 0;
     $msg = "";
