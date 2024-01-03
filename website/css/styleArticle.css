@@ -444,6 +444,10 @@ h3 {
         width: 100%;
     }
 
+    .content>section{
+        width: 50%;
+    }
+
     .openmap, .fotoPost{
         width: 50%;
         height:auto;

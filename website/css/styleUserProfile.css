@@ -150,9 +150,10 @@ body{
 }
 
 @media screen and (min-width: 768px) {
-    .articles{
-        width:80%;
-    }
+    article{
+    width: 90%;
+    margin:5pt auto;
+   }
 
     .mainInfo{
         width: 60%;
