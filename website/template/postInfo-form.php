@@ -1,6 +1,9 @@
 <?php $post = null;
-if (isLogged() && isset($_GET["id"]) && $dbh->getInfoPost($_GET["id"])["idUser"]==$_GET["id"]) {
+if (isLogged() && isset($_GET["id"]) && $dbh->getInfoPost($_GET["id"])["idUser"]==$_SESSION["idUser"]) {
     $post = $dbh->getInfoPost($_GET["id"]);
+}
+else if(isset($_GET["id"])){
+    header('Location: ../index.php');
 }
 ?>
 <div class="centralContent">
