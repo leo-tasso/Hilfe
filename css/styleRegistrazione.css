@@ -27,12 +27,12 @@ form ul{
     list-style: none;
 }
 
-.textarea{
+.bioInput{
     resize: none;
     height: 100px;
 }
 
-form ul li input, .textarea{
+form ul li input, .bioInput{
     padding:5pt;
     width: 60%;
     border:2px solid var(--hilfeRed);
@@ -86,7 +86,6 @@ main>h1{
 }
 
 .crea, 
-.annulla, 
 .cancella{
     align-self: center;
     margin:5pt 0;
@@ -99,7 +98,7 @@ main>h1{
     cursor: pointer;
 }
 
-.annulla, .cancella{
+.cancella{
     background-color: var(--hilfeRed);
 }
 
@@ -107,7 +106,7 @@ main>h1{
     background-color: var(--hilfeBlue);
 }
 
-.annulla:hover, .cancella:hover{
+.cancella:hover{
     background-color: var(--hilfeBlue);
 }
 
@@ -176,7 +175,7 @@ main>h1{
         padding-top: 20pt;
     }
 
-    .textarea{
+    .bioInput{
         height: 150px;
     }
 
@@ -204,7 +203,6 @@ main>h1{
         justify-content: space-around;
     }
 
-    .annulla,
     .cancella,
     .crea{
         width: 30%;

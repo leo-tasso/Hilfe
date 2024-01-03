@@ -4,7 +4,7 @@
   --hilfeBlue: #087e8b;
 }
 
-input:focus {
+input:focus, textarea:focus {
   border: 2px solid var(--hilfeBlue);
   outline: none;
 }

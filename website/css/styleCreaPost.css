@@ -45,7 +45,7 @@ div {
     width: 100%;
 }
 
-form input {
+form input, .testo {
     border: 2px solid var(--hilfeRed);
     border-radius: 3pt;
     margin-bottom: 10pt;
@@ -161,7 +161,7 @@ h1 {
 }
 
 .pubblica,
-.annulla , .cancella{
+.cancella{
     padding: 10pt 0;
     border-radius: 15pt;
     border: none;
@@ -171,7 +171,7 @@ h1 {
     width: 60%;
 }
 
-.annulla, .cancella {
+.cancella {
     background-color: var(--hilfeRed);
 }
 
@@ -190,7 +190,6 @@ h1 {
 .aggiungi:hover,
 .meno:active,
 .meno:hover,
-.annulla:hover,
 .cancella:hover{
     background-color: var(--hilfeBlue);
     color: white;
@@ -259,7 +258,6 @@ h1 {
         margin-bottom: 0;
     }
 
-    .annulla, 
     .pubblica,
     .cancella{
         width: 30%;
