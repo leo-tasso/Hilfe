@@ -305,6 +305,7 @@ function deleteUser(idUser){
             action: 'deleteUser',
         },
         success: function (response) {
+            logout();
             window.location.href = "../index.php";
         },
         error: function (error) {
