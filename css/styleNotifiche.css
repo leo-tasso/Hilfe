@@ -32,7 +32,7 @@ h1{
     padding:5pt;
 }
 
-.notificaDaLeggere{
+.notifica{
     background-color: rgb(235, 229, 229);
 }
 
@@ -48,10 +48,6 @@ h1{
 .topNotifica p{
     font-size: 8pt;
     margin-right: 5pt;
-}
-
-.notifica:hover, .notifica:active, .notificaDaLeggere:hover, .notificaDaLeggere:active{
-    background-color: white;
 }
 
 .infoNotifica{
