@@ -1,5 +1,5 @@
 <?php $post = null;
-if (isset($_GET["id"])) {
+if (isLogged() && isset($_GET["id"]) && $dbh->getInfoPost($_GET["id"])["idUser"]==$_GET["id"]) {
     $post = $dbh->getInfoPost($_GET["id"]);
 }
 ?>
@@ -22,9 +22,9 @@ if (isset($_GET["id"])) {
                                                                                                 echo "value=\"" . $post["TitoloPost"] . "\"";
                                                                                             } ?> />
                         <label for="annuncio" hidden>Testo annuncio</label><br />
-                        <textarea class="testo" id="annuncio" required name="testo" placeholder="Testo annuncio" <?php if (isset($_GET["id"])) {
-                                                                                                                                    echo "value=\"" . $post["DescrizionePost"] . "\"";
-                                                                                                                                } ?>></textarea>
+                        <textarea class="testo" id="annuncio" required name="testo" placeholder="Testo annuncio" ><?php if (isset($_GET["id"])) {
+                                                                                                                                    echo $post["DescrizionePost"];
+                                                                                                                                } ?></textarea>
                     </div>
                     <div class="colonna2">
                         <h2>Carica immagine:</h2>
@@ -40,7 +40,7 @@ if (isset($_GET["id"])) {
                     </div>
                 </div>
                 <footer>
-                    <input class="cancella" type="button" name="Cancella" value="Cancella post" onclick="<?php if($post==null){echo 'window.location.href = "../index.php"';}else {echo 'deleteInfoPost('.$_GET["id"].')';}?>">
+                <input class="cancella" type="button" name="Cancella" value="<?php if($post==null){echo 'Annulla';}else {echo 'Cancella Post';}?> " onclick="<?php if($post==null){echo 'toHomePage()';}else {echo 'deleteInfoPost('.$_GET["id"].')';}?>">
                     <input class="pubblica" type="submit" name="Pubblica" value="Pubblica">
                 </footer>
             </form>

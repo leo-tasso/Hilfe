@@ -1,5 +1,5 @@
 <?php $post = null;
-if (isset($_GET["id"])) {
+if (isLogged() && isset($_GET["id"]) && $dbh->getHelpPost($_GET["id"])["Autore_idUser"]==$_GET["id"]) {
     $post = $dbh->getHelpPost($_GET["id"]);
 }
 ?>
@@ -8,7 +8,7 @@ if (isset($_GET["id"])) {
         <h1><?php if (!isset($_GET["id"])) {
                 echo "Crea post";
             } else {
-                echo "Modifica post";
+                echo "Modifica post",var_dump(explode(' ', $post["DataIntervento"])[0]);
             } ?></h1>
         <section>
             <form class="form" action="../utils/postHelpHandler.php" enctype="multipart/form-data" method="POST">
@@ -21,9 +21,9 @@ if (isset($_GET["id"])) {
                                                                                                                 echo "value=\"" . $post["TitoloPost"] . "\"";
                                                                                                             } ?> />
                         <label for="annuncio" hidden>Testo annuncio</label><br />
-                        <textarea class="testo" id="annuncio" required name="testo" placeholder="Testo annuncio" <?php if (isset($_GET["id"])) {
-                                                                                                                echo "value=\"" . $post["DescrizionePost"] . "\"";
-                                                                                                            } ?>></textarea>
+                        <textarea class="testo" id="annuncio" required name="testo" placeholder="Testo annuncio" ><?php if (isset($_GET["id"])) {
+                                                                                                                echo $post["DescrizionePost"];
+                                                                                                            } ?></textarea>
                         <div class="luogo">
                             <label for="indirizzo">Indirizzo:</label>
                             <input type="text" id="indirizzo" required  name="indirizzo" <?php if (isset($_GET["id"])) {
@@ -82,7 +82,7 @@ if (isset($_GET["id"])) {
                     </div>
                 </div>
                 <footer>
-                    <input class="cancella" type="button" name="Cancella" value="Cancella post" onclick="<?php if($post==null){echo 'toHomePage()';}else {echo 'deleteHelpPost('.$_GET["id"].')';}?>">
+                    <input class="cancella" type="button" name="Cancella" value="<?php if($post==null){echo 'Annulla';}else {echo 'Cancella Post';}?> " onclick="<?php if($post==null){echo 'toHomePage()';}else {echo 'deleteHelpPost('.$_GET["id"].')';}?>">
                     <input class="pubblica" type="submit" name="Pubblica" value="Pubblica" >
                 </footer>
             </form>

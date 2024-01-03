@@ -296,6 +296,23 @@ function deleteHelpPost(idPost){
     });
 }
 
+function deleteUser(idUser){
+    $.ajax({
+        url: "../utils/manageButtons.php",
+        type: "POST",
+        data: {
+            id: idUser,
+            action: 'deleteUser',
+        },
+        success: function (response) {
+            window.location.href = "../index.php";
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
 function deleteInfoPost(idPost){
     $.ajax({
         url: "../utils/manageButtons.php",

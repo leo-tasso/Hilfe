@@ -46,7 +46,7 @@ if(isLogged()){
                         </li>
                         <li class="bio">
                             <label for="bio">Biografia:</label><br/>
-                            <textarea  class="bioInput" placeholder="Biografia"  name="bio" id="bio" <?php if(isLogged() && isset($user["Bio"])){echo "value=\"".$user["Bio"]."\"";}?>></textarea>
+                            <textarea  class="bioInput" placeholder="Biografia"  name="bio" id="bio" ><?php if(isLogged() && isset($user["Bio"])){echo $user["Bio"];}?></textarea>
                         </li>
                         <li class="pass">
                             <label for="password">Password:</label>
@@ -63,6 +63,7 @@ if(isLogged()){
                         <input id="autorizzazione" type="checkbox" name="autorizzazione privacy" value="Autorizzazione privacy" />
                         <label for="autorizzazione"><a href="privacy.php">Accetto le condizioni, i termini d'uso e l'informativa per la privacy</a></label>
                     </div>
+                    <input class="cancella" type="button" name="Cancella" value="<?php if($user==null){echo 'Annulla';}else {echo 'Cancella Utente';}?> " onclick="<?php if($user==null){echo 'toHomePage()';}else {echo 'deleteUser('.$User["idUser"].')';}?>">
                     <input class="crea" type="submit" name="Crea account" value="<?php if(!isLogged()){echo "Crea account";}else{echo "Modifica account";}?>" onclick="return validateForm()">
                 </footer>
             </form>

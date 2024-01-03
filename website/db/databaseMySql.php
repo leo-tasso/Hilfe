@@ -828,6 +828,7 @@ class DatabaseHelperMySql implements DatabaseHelper
                 $stmt = $this->db->prepare("INSERT INTO materiale (idMateriale,DescrizioneMateriale,Unita,idPostIntervento) VALUES (?,?,?,?)");
                 $stmt->bind_param(
                     'isii',
+                    $idmateriale,
                     $oggettoValue[$i],
                     $quanittaValue[$i],
                     $id
@@ -1013,6 +1014,16 @@ class DatabaseHelperMySql implements DatabaseHelper
     {
         if (isLogged() && $this->getCommentFromId($id)["Autore"] == $_SESSION["idUser"]) {
             $stmt = $this->db->prepare("DELETE FROM  Commento WHERE idCommento = ?");
+            $stmt->bind_param('i', $id);
+            return $stmt->execute();
+        } else {
+            return false;
+        }
+    }
+    public function deleteUser($id)
+    {
+        if (isLogged() && $this->getUserFromId($id)["idUser"] == $_SESSION["idUser"]) {
+            $stmt = $this->db->prepare("DELETE FROM  User WHERE idUser = ?");
             $stmt->bind_param('i', $id);
             return $stmt->execute();
         } else {
