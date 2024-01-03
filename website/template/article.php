@@ -58,10 +58,12 @@
         </div>
     </header>
             <section class="content">
+                <div class="titleAndText">
                 <h3>Dettagli Annuncio</h3>
                 <div class="text">
                 <p class="date"><?php echo $post["DataPubblicazione"]; ?></p>
                 <p><?php echo $post["DescrizionePost"]; ?></p>
+                </div>
                 </div>
                 <img class="fotoPost" src="<?php echo UPLOAD_DIR_POSTINFO_PIC.$post["Foto"];?>" alt="foto post"/>
             </section>
