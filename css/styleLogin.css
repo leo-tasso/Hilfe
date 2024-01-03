@@ -40,11 +40,6 @@ main {
     width: 100%;
 }
 
-.form>ul input:focus {
-    border: 2px solid var(--hilfeBlue);
-    outline: none;
-}
-
 .form>ul li {
     display: flex;
     flex-direction: column;
