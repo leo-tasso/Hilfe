@@ -9,15 +9,16 @@ input:focus {
   outline: none;
 }
 
-.error{
-  color:var(--hilfeRed);
+.error {
+  color: var(--hilfeRed);
 }
 
-.warning{
-  color:var(--hilfeGrey);
+.warning {
+  color: var(--hilfeGrey);
 }
 
-.error, .warning{
+.error,
+.warning {
   font-size: 12pt;
   text-align: center;
 }
@@ -48,29 +49,29 @@ body {
   justify-content: space-between;
 }
 
-.footer img{
+.footer img {
   width: 40px;
   height: auto;
-  padding:2pt 5pt;
+  padding: 2pt 5pt;
 }
 
-.infoFooter{
+.infoFooter {
   display: flex;
   flex-direction: column;
   text-align: right;
-  color:white;
-  margin:0;
-  padding:0 5pt;
+  color: white;
+  margin: 0;
+  padding: 0 5pt;
 }
 
-.linkFooter{
+.linkFooter {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.linkFooter a{
-  color:white;
+.linkFooter a {
+  color: white;
   margin-left: 5pt;
 }
 
@@ -114,34 +115,6 @@ body>header,
   border-radius: 50%;
   font-size: 9pt;
   margin: 0;
-}
-
-.b1,
-.b2 , .b3{
-  padding: 5pt;
-  margin-left: 2pt;
-  border-radius: 5pt;
-  text-decoration: none;
-  font-size: 12pt;
-}
-
-
-.b2, .b3 {
-  background-color: var(--hilfeBlue);
-  color: white;
-  border: 2px solid var(--hilfeBlue);
-}
-
-
-.b2:hover, .b3:hover {
-  background-color: var(--hilfeRed);
-  color: white;
-  border: 2px solid var(--hilfeRed);
-}
-
-/**inizialmente è visibile la foto profilo generica nella barra in alto, una volta loggato, compare il button b3 al suo posto**/
-.b2, .b1{
-  display: none;
 }
 
 .topbar {
@@ -267,6 +240,10 @@ body>header>nav {
   align-items: center;
 }
 
+.buttonLoginLogout {
+  display: none;
+}
+
 @media screen and (min-width: 768px) {
   .logoContainer {
     margin-left: 15px;
@@ -290,8 +267,32 @@ body>header>nav {
     display: none;
   }
 
-  .topbar:not(.sidepanel, .openbtn), .b1, .b2{
+  .topbar:not(.sidepanel, .openbtn) {
     display: flex;
+  }
+
+  .b1,
+  .b2,
+  .b3 {
+    padding: 5pt;
+    margin-left: 2pt;
+    border-radius: 5pt;
+    text-decoration: none;
+    font-size: 12pt;
+  }
+
+  .b2,
+  .b3 {
+    background-color: var(--hilfeBlue);
+    color: white;
+    border: 2px solid var(--hilfeBlue);
+  }
+
+  .b2:hover,
+  .b3:hover {
+    background-color: var(--hilfeRed);
+    color: white;
+    border: 2px solid var(--hilfeRed);
   }
 
   .buttonLoginLogout {
@@ -307,7 +308,7 @@ body>header>nav {
   }
 
   /**modifica i bottoni/link login e registrati**/
-  
+
   .b1 {
     background-color: white;
     color: var(--hilfeGrey);
