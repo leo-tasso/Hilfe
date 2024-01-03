@@ -431,6 +431,10 @@ function toProfileEditPage() {
     window.location.href = "../profileEdit.php";
 }
 
+function toHomePage() {
+    window.location.href = "../index.php";
+}
+
 function updateFollow(result) {
     let button = document.getElementsByClassName("segui")[0];
     if (result.status == "follows") {
