@@ -15,6 +15,11 @@
     padding:0;
 }
 
+
+.bioInput{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 .nome, .cognome, .data, .email, .pass, .username, .luogo, .bio, .tel{
     display: flex;
     flex-direction: row;

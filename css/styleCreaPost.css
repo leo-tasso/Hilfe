@@ -51,7 +51,7 @@ form input, .testo {
     margin-bottom: 10pt;
 }
 
-.testo::placeholder {
+.testo{
     font-family: Arial, Helvetica, sans-serif;
 }
 
