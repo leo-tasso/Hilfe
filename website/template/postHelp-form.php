@@ -8,7 +8,7 @@ if (isLogged() && isset($_GET["id"]) && $dbh->getHelpPost($_GET["id"])["Autore_i
         <h1><?php if (!isset($_GET["id"])) {
                 echo "Crea post";
             } else {
-                echo "Modifica post", $post["DataIntervento"], var_dump($post["DataIntervento"]);
+                echo "Modifica post", var_dump($post);
             } ?></h1>
         <section>
             <form class="form" action="../utils/postHelpHandler.php" enctype="multipart/form-data" method="POST">
