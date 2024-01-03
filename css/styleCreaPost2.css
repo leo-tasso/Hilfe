@@ -16,12 +16,12 @@
     color:white;
     font-size: 10pt;
     border-radius: 10pt;
+    border:none;
 }
 
 .fotoCaricata{
     margin: 5pt auto;
     width: 200px;
-    
     border: 1px solid grey;
 }
 
