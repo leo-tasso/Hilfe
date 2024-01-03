@@ -858,11 +858,10 @@ class DatabaseHelperMySql implements DatabaseHelper
     }
     public function updatePostInfo($id, $titolo, $testo, $postImg)
     {
-        $stmt = $this->db->prepare("UPDATE PostComunicazioni SET TitoloPost=?, DescrizionePost=?, Foto=?, DataPubblicazione=? WHERE idPostIntervento=?");
+        $stmt = $this->db->prepare("UPDATE HilfeDb.PostComunicazioni SET TitoloPost=?, DescrizionePost=?, Foto=?, DataPubblicazione=? WHERE idPostIntervento=?");
 
         $now = date('Y-m-d H:i:s');
 
-        // Bind the parameters using variables
         $stmt->bind_param(
             'ssssi',
             $titolo,
@@ -876,7 +875,7 @@ class DatabaseHelperMySql implements DatabaseHelper
     }
     public function createPostInfo($titolo, $testo, $postImg)
     {
-        $stmt = $this->db->prepare("INSERT INTO PostComunicazioni (idPostComunicazione,idUser,TitoloPost,DescrizionePost,Foto,DataPubblicazione) VALUES (?,?,?,?,?,?)");
+        $stmt = $this->db->prepare("INSERT INTO HilfeDb.PostComunicazioni (idPostComunicazione,idUser,TitoloPost,DescrizionePost,Foto,DataPubblicazione) VALUES (?,?,?,?,?,?)");
         $id = $this->getNewPostInfoId();
         $now = date('Y-m-d H:i:s');
         $autore = $_SESSION["idUser"];
@@ -910,7 +909,7 @@ class DatabaseHelperMySql implements DatabaseHelper
         $follows = $this->getFollowing($iduser);
         if (count($follows) == 0) return [];
         $selectedUserIdsString = implode(',', array_fill(0, count($follows), '?'));
-        $stmt = $this->db->prepare("SELECT * FROM PostComunicazioni WHERE idPostComunicazione > ? AND idUser IN ($selectedUserIdsString) LIMIT ?");
+        $stmt = $this->db->prepare("SELECT * FROM HilfeDb.PostComunicazioni WHERE idPostComunicazione > ? AND idUser IN ($selectedUserIdsString) LIMIT ?");
         $params = array_merge([$startId], array_column($follows, 'idSeguito'), [$number]);
         $types = 'i' . str_repeat('s', count($follows)) . 'i';
         $stmt->bind_param($types, ...$params);
@@ -1060,7 +1059,7 @@ class DatabaseHelperMySql implements DatabaseHelper
     public function deleteInfoPost($id)
     {
         if (isLogged() && $this->getInfoPost($id)["idUser"] == $_SESSION["idUser"]) {
-            $stmt = $this->db->prepare("DELETE FROM PostComunicazioni WHERE idPostComunicazione = ?");
+            $stmt = $this->db->prepare("DELETE FROM HilfeDb.PostComunicazioni WHERE idPostComunicazione = ?");
             $stmt->bind_param('i', $id);
             return $stmt->execute();
         } else {
