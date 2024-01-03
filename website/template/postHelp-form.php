@@ -11,7 +11,7 @@ else if(isset($_GET["id"])){
         <h1><?php if (!isset($_GET["id"])) {
                 echo "Crea post";
             } else {
-                echo "Modifica post", var_dump($post);
+                echo "Modifica post";
             } ?></h1>
         <section>
             <form class="form" action="../utils/postHelpHandler.php" enctype="multipart/form-data" method="POST">
