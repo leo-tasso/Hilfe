@@ -568,7 +568,12 @@ class DatabaseHelperMySql implements DatabaseHelper
         $stmt->bind_param('i', $id);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
+        $postInterventi = $result->fetch_all(MYSQLI_ASSOC);
+        $stmt = $this->db->prepare("SELECT * FROM PostComunicazioni WHERE idUser = ? ORDER BY idPostComunicazione DESC ");
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $postComunicazioni = $stmt->get_result();
+        return array_merge($postInterventi,$postComunicazioni);
     }
     public function isFollowing($id)
     {
