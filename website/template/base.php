@@ -60,7 +60,7 @@
                 <?php endif; ?>
             <?php else : ?>
                 <a class="b1" href="login.php">Login</a>
-                <a class="b2" href="registrazione.php">Registrati</a>
+                <a class="b2" href="profileEdit.php">Registrati</a>
             <?php endif; ?>
         </div>
         <div id="mySidepanel" class="sidepanel">
