@@ -574,7 +574,16 @@ class DatabaseHelperMySql implements DatabaseHelper
         $stmtCom->execute();
         $result = $stmtCom->get_result();
         $postComunicazioni = $result->fetch_all(MYSQLI_ASSOC);
-        return array_merge($postInterventi,$postComunicazioni);
+        $allPosts= array_merge($postInterventi,$postComunicazioni);
+        function compareByDate($a, $b) {
+            $dateA = strtotime($a['DataPubblicazione']);
+            $dateB = strtotime($b['DataPubblicazione']);
+        
+            return $dateB - $dateA;
+        }
+        
+        usort($allPosts, 'compareByDate');
+        return $allPosts;
     }
     public function isFollowing($id)
     {
