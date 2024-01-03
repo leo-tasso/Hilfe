@@ -29,8 +29,11 @@ h1{
     flex-direction: row;
     align-items: center;
     border-top: 1px solid var(--hilfeGrey);
-    background-color: rgb(206, 200, 200);
     padding:5pt;
+}
+
+.notifica{
+    background-color: rgb(235, 229, 229);
 }
 
 .topNotifica{
@@ -45,10 +48,6 @@ h1{
 .topNotifica p{
     font-size: 8pt;
     margin-right: 5pt;
-}
-
-.notifica:hover, .notifica:active, .notificaDaLeggere:hover, .notificaDaLeggere:active{
-    background-color: white;
 }
 
 .infoNotifica{

@@ -1,4 +1,4 @@
-section>h3{
+section>h3, .titleAndText>h3{
     color: var(--hilfeGrey);
     margin:0;
 }
@@ -450,10 +450,6 @@ h3 {
         margin: 10px;
     }
 
-    .content>section{
-        width: 50%;
-    }
-
     .tipo2 .content{
         width: 100%;
         display: flex;
@@ -462,7 +458,7 @@ h3 {
         align-items: center;
     }
 
-   .text{
+    .text{
     display: flex;
     flex-direction: column;
     margin:0;
@@ -477,6 +473,11 @@ h3 {
 
    .sectionCommenti{
     width: 100%;
+   }
+
+   .titleAndText{
+    display: flex;
+    flex-direction: column;
    }
 
     
