@@ -24,3 +24,4 @@ if (isset($_POST['titolo'], $_POST['testo'], $_FILES["postImg"])) {
       header('Location: ../profile.php');
    }
 }
+echo var_dump($_POST['titolo'], $_POST['testo'], $_FILES["postImg"]);
