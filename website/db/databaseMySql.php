@@ -1034,8 +1034,8 @@ class DatabaseHelperMySql implements DatabaseHelper
     }
     public function deleteHelpPost($id)
     {
+        return "sono entrato";
         if (isLogged() && $this->getHelpPost($id)["Autore_idUser"] == $_SESSION["idUser"]) {
-            return "sono entrato";
             $stmt = $this->db->prepare("DELETE FROM PostInterventi WHERE idPostIntervento = ?");
             $stmt->bind_param('i', $id);
             return $stmt->execute();
