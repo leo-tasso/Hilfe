@@ -54,7 +54,7 @@
             <a href="profile.php?id=<?php echo $post["idUser"];?>" class="nomeAutore"><?php $autore = $dbh->getAuthorFromInfoPost($post["idPostComunicazione"]);
                                                             echo $autore["Name"] . " " . $autore["Surname"] ?></a>
             <a href="profile.php?id=<?php echo $post["idUser"];?>"><img class="profilo" id="profilo<?php echo $post["idUser"];?>" src="../<?php echo $dbh->getProfilePic($post["idUser"]); ?>" alt="profilo"></a>
-            <?php if(isLogged() && $post["idUser"]==$_SESSION["idUser"]){echo '<a href="postInfo-form.php?id=<?php echo $post["idPostComunicazione"];?>"><img class="penna" src="../Icons/Pen.svg" alt="modifica Post"></a>';}?>
+            <?php if(isLogged() && $post["idUser"]==$_SESSION["idUser"]){echo '<a href="postInfo-form.php?id='.$post["idPostComunicazione"].'"><img class="penna" src="../Icons/Pen.svg" alt="modifica Post"></a>';}?>
         </div>
     </header>
             <section class="content">
