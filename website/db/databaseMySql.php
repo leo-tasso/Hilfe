@@ -1050,7 +1050,7 @@ class DatabaseHelperMySql implements DatabaseHelper
     }
     public function deleteInfoPost($id)
     {
-        if (isLogged() && $this->getInfoPost($id)["Autore"] == $_SESSION["idUser"]) {
+        if (isLogged() && $this->getInfoPost($id)["idUser"] == $_SESSION["idUser"]) {
             $stmt = $this->db->prepare("DELETE FROM PostComunicazioni WHERE idPostComunicazione = ?");
             $stmt->bind_param('i', $id);
             return $stmt->execute();
