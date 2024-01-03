@@ -1,6 +1,9 @@
 <?php $post = null;
-if (isLogged() && isset($_GET["id"]) && $dbh->getHelpPost($_GET["id"])["Autore_idUser"]==$_GET["id"]) {
+if (isLogged() && isset($_GET["id"]) && $dbh->getHelpPost($_GET["id"])["Autore_idUser"]==$_SESSION["idUser"]) {
     $post = $dbh->getHelpPost($_GET["id"]);
+}
+else if(isset($_GET["id"])){
+    header('Location: ../index.php');
 }
 ?>
 <div class="centralContent">
@@ -8,7 +11,7 @@ if (isLogged() && isset($_GET["id"]) && $dbh->getHelpPost($_GET["id"])["Autore_i
         <h1><?php if (!isset($_GET["id"])) {
                 echo "Crea post";
             } else {
-                echo "Modifica post", var_dump($post);
+                echo "Modifica post";
             } ?></h1>
         <section>
             <form class="form" action="../utils/postHelpHandler.php" enctype="multipart/form-data" method="POST">
