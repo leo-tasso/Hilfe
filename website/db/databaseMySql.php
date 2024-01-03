@@ -825,12 +825,14 @@ class DatabaseHelperMySql implements DatabaseHelper
         $idmateriale = $this->newMateraileId();
         if ($oggettoValue !== null) {
             for ($i = 0; $i < count($oggettoValue); $i++) {
+                $valO =$oggettoValue[$i];
+                $valQ =$quanittaValue[$i];
                 $stmt = $this->db->prepare("INSERT INTO materiale (idMateriale,DescrizioneMateriale,Unita,idPostIntervento) VALUES (?,?,?,?)");
                 $stmt->bind_param(
                     'isii',
                     $idmateriale,
-                    $oggettoValue[$i],
-                    $quanittaValue[$i],
+                    $valO,
+                    $valQ,
                     $id
                 );
                 $stmt->execute();
