@@ -44,6 +44,6 @@ if (isset($_POST['nome'], $_POST['cognome'], $_POST['data'], $_POST['email'], $_
       header('Location: ../profileEdit.php?error="You are not the owner of the profile"');
    }
 } else {
-   echo var_dump($_POST['nome'], $_POST['cognome'], $_POST['data'], $_POST['email'], $_POST['password']);
-   header('Location: ../profileEdit.php?error="parameters unset"');
+   
+   header('Location: ../profileEdit.php?error="parameters unset'.var_dump($_POST['nome'], $_POST['cognome'], $_POST['data'], $_POST['email'], $_POST['password']).'"');
 }
