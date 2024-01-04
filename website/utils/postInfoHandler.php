@@ -3,7 +3,7 @@ require_once '../bootstrap.php';
 if (isset($_POST['titolo'], $_POST['testo'])) {
    $titolo = $_POST['titolo'];
    $testo = $_POST['testo'];
-   $postImg = isset($_FILES["postImg"])?$_FILES["postImg"] : null;
+   $postImg = isset($_FILES["postImg"])?$_FILES["postImg"]["name"] : null;
    $id = isset($_POST["id"]) ? $_POST["id"] : null;
 
    if (!islogged()) {
@@ -21,7 +21,7 @@ if (isset($_POST['titolo'], $_POST['testo'])) {
             $postImg = null;
          } 
       }
-      if ($dbh->updatePostInfo($id, $titolo, $testo, $postImg["name"])) {
+      if ($dbh->updatePostInfo($id, $titolo, $testo, $postImg)) {
          header('Location: ../profile.php');
       }
    } else {
