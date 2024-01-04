@@ -10,7 +10,7 @@ if (isset($_POST['titolo'], $_POST['testo'])) {
       header('Location: ../profileEdit.php');
    } else if ($id != null && islogged() && $dbh->getInfoPost($id)["idUser"] == $_SESSION["idUser"]) {
       $oldPic = false;
-      if ($postImg === null) {
+      if ($postImg === null || $postImg =="" || $postImg["name"] =="") {
          $oldPic = true;
          $postImg = $dbh->getInfoPost($id)["Foto"];
          echo "namephoto:".$postImg;
