@@ -13,7 +13,7 @@ if (isset($_POST['titolo'], $_POST['testo'])) {
       if ($postImg === null) {
          $oldPic = true;
          $postImg = $dbh->getInfoPost($id)["Foto"];
-         echo $dbh->getInfoPost($id)["Foto"];
+         echo "namephoto:".$postImg;
       }
       if ($postImg != null && !$oldPic) {
          $result = uploadImage(UPLOAD_DIR_POSTINFO_PIC, $_FILES["postImg"]);
