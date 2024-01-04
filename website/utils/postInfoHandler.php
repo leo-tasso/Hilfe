@@ -13,7 +13,6 @@ if (isset($_POST['titolo'], $_POST['testo'])) {
       if ($postImg === null || $postImg =="") {
          $oldPic = true;
          $postImg = $dbh->getInfoPost($id)["Foto"];
-         echo "namephoto:".$postImg;
       }
       if ($postImg != null && !$oldPic) {
          $result = uploadImage(UPLOAD_DIR_POSTINFO_PIC, $_FILES["postImg"]);
@@ -23,7 +22,7 @@ if (isset($_POST['titolo'], $_POST['testo'])) {
          } 
       }
       if ($dbh->updatePostInfo($id, $titolo, $testo, $postImg)) {
-         //header('Location: ../profile.php');
+         header('Location: ../profile.php');
       }
    } else {
       $result = uploadImage(UPLOAD_DIR_POSTINFO_PIC, $_FILES["postImg"]);
