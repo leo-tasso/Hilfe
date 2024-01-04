@@ -134,8 +134,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo json_encode($response);
             break;
         case 'deleteHelpPost':
-            $dbh->deleteHelpPost($id);
-            $response = array('status' => 'ok');
+            $response = array('status' => $dbh->deleteHelpPost($id));
             header('Content-Type: application/json');
             echo json_encode($response);
             break;

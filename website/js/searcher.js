@@ -4,11 +4,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const itemList = document.getElementById('elencoFollowers_seguiti');
     const items = itemList.getElementsByTagName('li');
 
-    // Add event listener to the search input
     searchInput.addEventListener('input', function () {
       const searchTerm = searchInput.value.toLowerCase();
 
-      // Loop through the items and hide/show based on the search term
       for (let i = 0; i < items.length; i++) {
         const itemText = items[i].innerText.toLowerCase();
         if (itemText.includes(searchTerm)) {

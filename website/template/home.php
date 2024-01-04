@@ -1,7 +1,7 @@
 <header class="newPostContainer">
     <div class="navbar">
         <a class="default" href="#"><img class="icon" src="../Icons/Lens.svg" alt="">Esplora</a>
-        <a href="homeFollow.php"><img class="icon" src="../Icons/Profile.svg" alt="">Followers</a>
+        <a href="homeFollow.php"><img class="icon" src="../Icons/Profile.svg" alt="">Seguiti</a>
     </div>
     <div class="newPost">
         <img src="../<?php echo $dbh->getSelfProfilePic(); ?>" alt="Profilo 1" class="profilo">

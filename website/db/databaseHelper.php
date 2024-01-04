@@ -54,5 +54,6 @@ interface DatabaseHelper
     public function getCommentFromId($id);
     public function deleteHelpPost($id);
     public function deleteInfoPost($id);
+    public function getAllUsers();
 
 }

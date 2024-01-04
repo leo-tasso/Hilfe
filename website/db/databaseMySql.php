@@ -180,9 +180,9 @@ class DatabaseHelperMySql implements DatabaseHelper
                 $limitValue = $n - count($suggestedUsers);
                 $selectedUserIdsString = implode(',', array_fill(0, count($suggestedUsers), '?'));
                 $notInClause = empty($selectedUserIdsString) ? '' : "idUser NOT IN ($selectedUserIdsString) AND";
-                $stmt = $this->db->prepare("SELECT * FROM User WHERE " . $notInClause . " idUser <> ? ORDER BY RAND() LIMIT ?");
-                $params = array_merge(array_column($suggestedUsers, 'idUser'), [$_SESSION["idUser"], $limitValue]);
-                $types = str_repeat('s', count($suggestedUsers)) . 'ii';
+                $stmt = $this->db->prepare("SELECT * FROM User WHERE " . $notInClause . " idUser <> ? AND idUser NOT IN (SELECT idSeguito FROM Seguiti WHERE idSeguace = ?) ORDER BY RAND() LIMIT ?");
+                $params = array_merge(array_column($suggestedUsers, 'idUser'), [$_SESSION["idUser"], $_SESSION["idUser"], $limitValue]);
+                $types = str_repeat('s', count($suggestedUsers)) . 'iii';
                 $stmt->bind_param($types, ...$params);
 
                 $stmt->execute();
@@ -568,7 +568,23 @@ class DatabaseHelperMySql implements DatabaseHelper
         $stmt->bind_param('i', $id);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
+        $postInterventi = $result->fetch_all(MYSQLI_ASSOC);
+        $stmtCom = $this->db->prepare("SELECT * FROM HilfeDb.PostComunicazioni WHERE idUser = ? ORDER BY idPostComunicazione DESC ");
+        $stmtCom->bind_param('i', $id);
+        $stmtCom->execute();
+        $result = $stmtCom->get_result();
+        $postComunicazioni = $result->fetch_all(MYSQLI_ASSOC);
+        $allPosts = array_merge($postInterventi, $postComunicazioni);
+        function compareByDate($a, $b)
+        {
+            $dateA = strtotime($a['DataPubblicazione']);
+            $dateB = strtotime($b['DataPubblicazione']);
+
+            return $dateB - $dateA;
+        }
+
+        usort($allPosts, 'compareByDate');
+        return $allPosts;
     }
     public function isFollowing($id)
     {
@@ -738,14 +754,13 @@ class DatabaseHelperMySql implements DatabaseHelper
     }
     public function updatePostHelp($id, $titolo, $testo, $indirizzo, $giorno, $ora, $personeRichieste, $oggetto, $quantita)
     {
-        $stmt = $this->db->prepare("UPDATE PostInterventi SET TitoloPost=?, DescrizionePost=?, DataIntervento=?, PosizioneLongitudine=?, PosizioneLatitudine=?, Indirizzo=?, PersoneRichieste=? WHERE idPostIntervento=?");
+        $stmt = $this->db->prepare("UPDATE PostInterventi SET TitoloPost=?, DescrizionePost=?, DataIntervento=?, PosizioneLongitudine=?, PosizioneLatitudine=?, Indirizzo=?, PersoneRichieste=?, DataPubblicazione =? WHERE idPostIntervento=?");
 
         $data = $giorno . " " . $ora;
         $coordinates = getCoordinates($indirizzo);
-
-        // Bind the parameters using variables
+        $now = date('Y-m-d H:i:s');
         $stmt->bind_param(
-            'ssdddsii',
+            'sssddsiii',
             $titolo,
             $testo,
             $data,
@@ -753,6 +768,7 @@ class DatabaseHelperMySql implements DatabaseHelper
             $coordinates["longitude"],
             $indirizzo,
             $personeRichieste,
+            $now,
             $id
         );
 
@@ -768,7 +784,7 @@ class DatabaseHelperMySql implements DatabaseHelper
         if ($oggettoValue !== null) {
 
             foreach ($oggettoValue as $key => $value) {
-                $stmt = $this->db->prepare("INSERT INTO materiale (idMateriale,DescrizioneMateriale,Unita,idPostIntervento) VALUES (?,?,?,?)");
+                $stmt = $this->db->prepare("INSERT INTO Materiale (idMateriale,DescrizioneMateriale,Unita,idPostIntervento) VALUES (?,?,?,?)");
                 $stmt->bind_param(
                     'isii',
                     $idmateriale,
@@ -825,12 +841,14 @@ class DatabaseHelperMySql implements DatabaseHelper
         $idmateriale = $this->newMateraileId();
         if ($oggettoValue !== null) {
             for ($i = 0; $i < count($oggettoValue); $i++) {
-                $stmt = $this->db->prepare("INSERT INTO materiale (idMateriale,DescrizioneMateriale,Unita,idPostIntervento) VALUES (?,?,?,?)");
+                $valO = $oggettoValue[$i];
+                $valQ = $quanittaValue[$i];
+                $stmt = $this->db->prepare("INSERT INTO Materiale (idMateriale,DescrizioneMateriale,Unita,idPostIntervento) VALUES (?,?,?,?)");
                 $stmt->bind_param(
                     'isii',
                     $idmateriale,
-                    $oggettoValue[$i],
-                    $quanittaValue[$i],
+                    $valO,
+                    $valQ,
                     $id
                 );
                 $stmt->execute();
@@ -841,11 +859,10 @@ class DatabaseHelperMySql implements DatabaseHelper
     }
     public function updatePostInfo($id, $titolo, $testo, $postImg)
     {
-        $stmt = $this->db->prepare("UPDATE PostComunicazioni SET TitoloPost=?, DescrizionePost=?, Foto=?, DataPubblicazione=? WHERE idPostIntervento=?");
+        $stmt = $this->db->prepare("UPDATE HilfeDb.PostComunicazioni SET TitoloPost=?, DescrizionePost=?, Foto=?, DataPubblicazione=? WHERE idPostComunicazione=?");
 
         $now = date('Y-m-d H:i:s');
 
-        // Bind the parameters using variables
         $stmt->bind_param(
             'ssssi',
             $titolo,
@@ -859,7 +876,7 @@ class DatabaseHelperMySql implements DatabaseHelper
     }
     public function createPostInfo($titolo, $testo, $postImg)
     {
-        $stmt = $this->db->prepare("INSERT INTO PostComunicazioni (idPostComunicazione,idUser,TitoloPost,DescrizionePost,Foto,DataPubblicazione) VALUES (?,?,?,?,?,?)");
+        $stmt = $this->db->prepare("INSERT INTO HilfeDb.PostComunicazioni (idPostComunicazione,idUser,TitoloPost,DescrizionePost,Foto,DataPubblicazione) VALUES (?,?,?,?,?,?)");
         $id = $this->getNewPostInfoId();
         $now = date('Y-m-d H:i:s');
         $autore = $_SESSION["idUser"];
@@ -893,7 +910,7 @@ class DatabaseHelperMySql implements DatabaseHelper
         $follows = $this->getFollowing($iduser);
         if (count($follows) == 0) return [];
         $selectedUserIdsString = implode(',', array_fill(0, count($follows), '?'));
-        $stmt = $this->db->prepare("SELECT * FROM PostComunicazioni WHERE idPostComunicazione > ? AND idUser IN ($selectedUserIdsString) LIMIT ?");
+        $stmt = $this->db->prepare("SELECT * FROM HilfeDb.PostComunicazioni WHERE idPostComunicazione > ? AND idUser IN ($selectedUserIdsString) LIMIT ?");
         $params = array_merge([$startId], array_column($follows, 'idSeguito'), [$number]);
         $types = 'i' . str_repeat('s', count($follows)) . 'i';
         $stmt->bind_param($types, ...$params);
@@ -1037,13 +1054,13 @@ class DatabaseHelperMySql implements DatabaseHelper
             $stmt->bind_param('i', $id);
             return $stmt->execute();
         } else {
-            return false;
+            return "user not logged or not owner";
         }
     }
     public function deleteInfoPost($id)
     {
-        if (isLogged() && $this->getInfoPost($id)["Autore"] == $_SESSION["idUser"]) {
-            $stmt = $this->db->prepare("DELETE FROM PostComunicazioni WHERE idPostComunicazione = ?");
+        if (isLogged() && $this->getInfoPost($id)["idUser"] == $_SESSION["idUser"]) {
+            $stmt = $this->db->prepare("DELETE FROM HilfeDb.PostComunicazioni WHERE idPostComunicazione = ?");
             $stmt->bind_param('i', $id);
             return $stmt->execute();
         } else {
@@ -1057,6 +1074,13 @@ class DatabaseHelperMySql implements DatabaseHelper
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC)[0];
+    }
+    public function getAllUsers()
+    {
+        $stmt = $this->db->prepare("SELECT * FROM  User");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 }
 

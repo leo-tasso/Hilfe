@@ -45,14 +45,14 @@ function uploadImage($path, $image){
     $imageName = basename($image["name"]);
     $fullPath = $path.$imageName;
     
-    $maxKB = 50000;
+    $maxKB = 5000;
     $acceptedExtensions = array("jpg", "jpeg", "png", "gif");
     $result = 0;
     $msg = "";
     //Controllo se immagine è veramente un'immagine
     $imageSize = getimagesize($image["tmp_name"]);
     if($imageSize === false) {
-        $msg .= "File caricato non è un'immagine! ";
+        //$msg .= "File caricato non è un'immagine! ";
     }
     //Controllo dimensione dell'immagine < 500KB
     if ($image["size"] > $maxKB * 1024) {
@@ -79,7 +79,8 @@ function uploadImage($path, $image){
     //Se non ci sono errori, sposto il file dalla posizione temporanea alla cartella di destinazione
     if(strlen($msg)==0){
         if(!move_uploaded_file($image["tmp_name"], $fullPath)){
-            $msg.= "Errore nel caricamento dell'immagine.".$image["tmp_name"].$fullPath;
+            $msg.= "Errore nel caricamento dell'immagine.";
+
         }
         else{
             $result = 1;

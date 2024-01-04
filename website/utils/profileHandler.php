@@ -14,35 +14,43 @@ if (isset($_POST['nome'], $_POST['cognome'], $_POST['data'], $_POST['email'], $_
    if (!isLogged() && $dbh->checkRepetitions($username, $email)) {
       header('Location: ../profileEdit.php?error="email o username già presenti"');
    } else if (!isLogged()) {
-      if ($dbh->registerUser($nome, $cognome, $username, $data, $email, $password, $profilePic, $phone, $addr, $bio)) {
-         $dbh->login($email, $password, false);
-         if ($profilePic != null) {
-            $result = uploadImage(UPLOAD_DIR_PROF_PIC, $_FILES["profilePic"]);
-            if ($result[0] == 0) {
-               header('Location: ../profileEdit.php?error='.$result[1]);
-            } else header('Location: ../profile.php');
-         } else
+      if ($profilePic != null) {
+         $result = uploadImage(UPLOAD_DIR_PROF_PIC, $_FILES["profilePic"]);
+         if ($result[0] == 0) {
+            header('Location: ../profileEdit.php?error=' . $result[1]);
+         } else if ($dbh->registerUser($nome, $cognome, $username, $data, $email, $password, $profilePic, $phone, $addr, $bio)) {
+            $dbh->login($email, $password, false);
             header('Location: ../profile.php');
-      }
+         } else
+            header('Location: ../profileEdit.php?error=RegistrazioneFallita');
+      } else if ($dbh->registerUser($nome, $cognome, $username, $data, $email, $password, $profilePic, $phone, $addr, $bio)) {
+         $dbh->login($email, $password, false);
+         header('Location: ../profile.php');
+      } else
+         header('Location: ../profileEdit.php?error=RegistrazioneFallita');
    } else if ($dbh->getUserFromId($_SESSION["idUser"])["Username"] == $username) {
       $oldPic = false;
-      if($profilePic === null){
+      if ($profilePic === null) {
          $oldPic = true;
          $profilePic = $dbh->getUserFromId($_SESSION["idUser"])["FotoProfilo"];
       }
+
+      if ($profilePic != null && !$oldPic) {
+         $result = uploadImage(UPLOAD_DIR_PROF_PIC, $_FILES["profilePic"]);
+         if ($result[0] == 0) {
+            header('Location: ../profileEdit.php?error=' . $result[1]);
+            $profilePic = null;
+         } 
+      }
       if ($dbh->updateUser($nome, $cognome, $username, $data, $email, $password, $profilePic, $phone, $addr, $bio)) {
-         $dbh->login($email, $password, false);
-         if ($profilePic != null && !$oldPic) {
-            $result = uploadImage(UPLOAD_DIR_PROF_PIC, $_FILES["profilePic"]);
-            if ($result[0] == 0) {
-               header('Location: ../profileEdit.php?error='.$result[1]);
-            } else header('Location: ../profile.php');
+            $dbh->login($email, $password, false);
+            header('Location: ../profile.php');
          } else
             header('Location: ../profile.php');
-      }
    } else {
-      header('Location: ../profileEdit.php');
+      header('Location: ../profileEdit.php?error="You are not the owner of the profile"');
    }
 } else {
-   header('Location: ../profileEdit.php');
+   echo var_dump($_POST);
+   //header('Location: ../profileEdit.php?error="parameters unset');
 }
