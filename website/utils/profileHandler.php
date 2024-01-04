@@ -23,7 +23,11 @@ if (isset($_POST['nome'], $_POST['cognome'], $_POST['data'], $_POST['email'], $_
             header('Location: ../profile.php');
          } else
             header('Location: ../profileEdit.php?error=RegistrazioneFallita');
-      }
+      } else if ($dbh->registerUser($nome, $cognome, $username, $data, $email, $password, $profilePic, $phone, $addr, $bio)) {
+         $dbh->login($email, $password, false);
+         header('Location: ../profile.php');
+      } else
+         header('Location: ../profileEdit.php?error=RegistrazioneFallita');
    } else if ($dbh->getUserFromId($_SESSION["idUser"])["Username"] == $username) {
       $oldPic = false;
       if ($profilePic === null) {
