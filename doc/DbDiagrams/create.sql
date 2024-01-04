@@ -245,8 +245,8 @@ CREATE TABLE IF NOT EXISTS `HilfeDb`.`Like` (
   CONSTRAINT `fk_Like_PostComunicazioni1`
     FOREIGN KEY (`PostRelativo`)
     REFERENCES `HilfeDb`.`PostComunicazioni` (`idPostComunicazione`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
