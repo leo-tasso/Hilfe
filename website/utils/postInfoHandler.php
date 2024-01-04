@@ -1,9 +1,9 @@
 <?php
 require_once '../bootstrap.php';
-if (isset($_POST['titolo'], $_POST['testo'], $_FILES["postImg"])) {
+if (isset($_POST['titolo'], $_POST['testo'])) {
    $titolo = $_POST['titolo'];
    $testo = $_POST['testo'];
-   $postImg = $_FILES["postImg"];
+   $postImg = isset($_FILES["postImg"])?$_FILES["postImg"] : null;
    $id = isset($_POST["id"]) ? $_POST["id"] : null;
 
    if (!islogged()) {
