@@ -760,7 +760,7 @@ class DatabaseHelperMySql implements DatabaseHelper
         $coordinates = getCoordinates($indirizzo);
         $now = date('Y-m-d H:i:s');
         $stmt->bind_param(
-            'ssdddsii',
+            'sssddsiii',
             $titolo,
             $testo,
             $data,
