@@ -4,6 +4,18 @@
   --hilfeBlue: #087e8b;
 }
 
+.profilo{
+  float:right;
+  border: 2px solid var(--hilfeRed);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat; /**non ripete l'immagine nel caso il bottone fosse più grande dell'immagine**/
+  background-position: center center; /**per centrare l'immagine**/
+  clip-path: inset(0);
+  object-fit: cover;
+}
+
 input:focus, textarea:focus {
   border: 2px solid var(--hilfeBlue);
   outline: none;
@@ -146,6 +158,8 @@ body>header>nav {
   border-radius: 50%;
   width: 35px;
   height: 35px;
+  clip-path: inset(0);
+  object-fit: cover;
 }
 
 

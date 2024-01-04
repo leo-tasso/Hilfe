@@ -71,7 +71,8 @@ h2{
         border-radius: 50%;
         float:left; 
         margin-right: 3pt;
-         
+        clip-path: inset(0);
+        object-fit: cover;
     }
     
     .profile{
