@@ -181,7 +181,7 @@ class DatabaseHelperMySql implements DatabaseHelper
                 $selectedUserIdsString = implode(',', array_fill(0, count($suggestedUsers), '?'));
                 $notInClause = empty($selectedUserIdsString) ? '' : "idUser NOT IN ($selectedUserIdsString) AND";
                 $stmt = $this->db->prepare("SELECT * FROM User WHERE " . $notInClause . " idUser <> ? AND idUser NOT IN (SELECT idSeguito FROM Seguiti WHERE idSeguace = ?) ORDER BY RAND() LIMIT ?");
-                $params = array_merge(array_column($suggestedUsers, 'idUser'), [$_SESSION["idUser"], $limitValue]);
+                $params = array_merge(array_column($suggestedUsers, 'idUser'), [$_SESSION["idUser"], $_SESSION["idUser"], $limitValue]);
                 $types = str_repeat('s', count($suggestedUsers)) . 'ii';
                 $stmt->bind_param($types, ...$params);
 
@@ -574,14 +574,15 @@ class DatabaseHelperMySql implements DatabaseHelper
         $stmtCom->execute();
         $result = $stmtCom->get_result();
         $postComunicazioni = $result->fetch_all(MYSQLI_ASSOC);
-        $allPosts= array_merge($postInterventi,$postComunicazioni);
-        function compareByDate($a, $b) {
+        $allPosts = array_merge($postInterventi, $postComunicazioni);
+        function compareByDate($a, $b)
+        {
             $dateA = strtotime($a['DataPubblicazione']);
             $dateB = strtotime($b['DataPubblicazione']);
-        
+
             return $dateB - $dateA;
         }
-        
+
         usort($allPosts, 'compareByDate');
         return $allPosts;
     }
@@ -840,8 +841,8 @@ class DatabaseHelperMySql implements DatabaseHelper
         $idmateriale = $this->newMateraileId();
         if ($oggettoValue !== null) {
             for ($i = 0; $i < count($oggettoValue); $i++) {
-                $valO =$oggettoValue[$i];
-                $valQ =$quanittaValue[$i];
+                $valO = $oggettoValue[$i];
+                $valQ = $quanittaValue[$i];
                 $stmt = $this->db->prepare("INSERT INTO Materiale (idMateriale,DescrizioneMateriale,Unita,idPostIntervento) VALUES (?,?,?,?)");
                 $stmt->bind_param(
                     'isii',
@@ -1074,7 +1075,8 @@ class DatabaseHelperMySql implements DatabaseHelper
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC)[0];
     }
-    public function getAllUsers(){
+    public function getAllUsers()
+    {
         $stmt = $this->db->prepare("SELECT * FROM  User");
         $stmt->execute();
         $result = $stmt->get_result();
