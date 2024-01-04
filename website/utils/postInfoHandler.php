@@ -22,7 +22,8 @@ if (isset($_POST['titolo'], $_POST['testo'])) {
          } 
       }
       if ($dbh->updatePostInfo($id, $titolo, $testo, $postImg)) {
-         header('Location: ../profile.php');
+         echo var_dump($id, $titolo, $testo, $postImg);
+         //header('Location: ../profile.php');
       }
    } else {
       $result = uploadImage(UPLOAD_DIR_POSTINFO_PIC, $_FILES["postImg"]);
