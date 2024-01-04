@@ -9,10 +9,18 @@ if (isset($_POST['titolo'], $_POST['testo'], $_FILES["postImg"])) {
    if (!islogged()) {
       header('Location: ../profileEdit.php');
    } else if ($id != null && islogged() && $dbh->getInfoPost($id)["idUser"] == $_SESSION["idUser"]) {
-      $result = uploadImage(UPLOAD_DIR_POSTINFO_PIC, $_FILES["postImg"]);
-      if ($result[0] == 0) {
-         header('Location: ../postInfoEdit.php?error=' . $result[1]);
-      } else 
+      $oldPic = false;
+      if ($postImg === null) {
+         $oldPic = true;
+         $postImg = $dbh->getInfoPost($id)["Foto"];
+      }
+      if ($postImg != null && !$oldPic) {
+         $result = uploadImage(UPLOAD_DIR_POSTINFO_PIC, $_FILES["postImg"]);
+         if ($result[0] == 0) {
+            header('Location: ../postInfoEdit.php?error=' . $result[1]);
+            $postImg = null;
+         } 
+      }
       if ($dbh->updatePostInfo($id, $titolo, $testo, $postImg["name"])) {
          header('Location: ../profile.php');
       }
