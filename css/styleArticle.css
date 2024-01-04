@@ -439,32 +439,21 @@ h3 {
 
 @media screen and (min-width: 768px) {
 
-    .content{
+    .content, .tipo2 .content{
         display:flex;
         width: 100%;
-    }
-
-    .content>section{
-        width: 50%;
-    }
-
-    .openmap, .fotoPost{
-        width: 50%;
-        height:auto;
-        margin: 10px;
-    }
-
-    .tipo2 .content{
-        width: 100%;
-        display: flex;
         flex-direction: row;
+    }
+
+    .content>section, .tipo2 .titleAndText{
+        width: 50%;
+    }
+
+   
+    .tipo2 .content{
         justify-content: space-around;
         align-items: center;
         margin:0 auto;
-    }
-
-    .colonna1{
-        align-content:flex-start;
     }
 
     .text{
@@ -478,8 +467,15 @@ h3 {
     width: 100%;
    }
 
+   .openmap, .tipo2 .fotoPost{
+    width: 50%;
+    height:auto;
+    margin: 10px;
+}
    .titleAndText{
+    width: 50%;
     display: flex;
     flex-direction: column;
+    align-self: flex-start;
    } 
 }
