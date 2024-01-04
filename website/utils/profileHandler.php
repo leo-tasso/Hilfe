@@ -39,14 +39,14 @@ if (isset($_POST['nome'], $_POST['cognome'], $_POST['data'], $_POST['email'], $_
          $result = uploadImage(UPLOAD_DIR_PROF_PIC, $_FILES["profilePic"]);
          if ($result[0] == 0) {
             header('Location: ../profileEdit.php?error=' . $result[1]);
-         } else
-
+            $profilePic = null;
+         } 
+      }
       if ($dbh->updateUser($nome, $cognome, $username, $data, $email, $password, $profilePic, $phone, $addr, $bio)) {
             $dbh->login($email, $password, false);
             header('Location: ../profile.php');
          } else
             header('Location: ../profile.php');
-      }
    } else {
       header('Location: ../profileEdit.php?error="You are not the owner of the profile"');
    }
