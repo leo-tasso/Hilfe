@@ -15,7 +15,8 @@ if (isset($_POST['titolo'], $_POST['testo'], $_POST['indirizzo'], $_POST['giorno
       header('Location: ../profileEdit.php');
    } else if ($id != null && islogged() && $dbh->getHelpPost($id)["Autore_idUser"] == $_SESSION["idUser"]) {
       if ($dbh->updatePostHelp($_POST["id"], $_POST['titolo'], $_POST['testo'], $_POST['indirizzo'], $_POST['giorno'], $_POST['ora'], $_POST['personeRichieste'], $oggetto, $quantita)) {
-         header('Location: ../profile.php');
+         echo var_dump($_POST["id"], $_POST['titolo'], $_POST['testo'], $_POST['indirizzo'], $_POST['giorno'], $_POST['ora'], $_POST['personeRichieste'], $oggetto, $quantita);
+         //header('Location: ../profile.php');
       }
    } else if ($dbh->newPostHelp($_POST['titolo'], $_POST['testo'], $_POST['indirizzo'], $_POST['giorno'], $_POST['ora'], $_POST['personeRichieste'], $oggetto, $quantita)) {
       header('Location: ../profile.php');
