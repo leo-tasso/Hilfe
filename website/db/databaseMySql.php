@@ -182,7 +182,7 @@ class DatabaseHelperMySql implements DatabaseHelper
                 $notInClause = empty($selectedUserIdsString) ? '' : "idUser NOT IN ($selectedUserIdsString) AND";
                 $stmt = $this->db->prepare("SELECT * FROM User WHERE " . $notInClause . " idUser <> ? AND idUser NOT IN (SELECT idSeguito FROM Seguiti WHERE idSeguace = ?) ORDER BY RAND() LIMIT ?");
                 $params = array_merge(array_column($suggestedUsers, 'idUser'), [$_SESSION["idUser"], $_SESSION["idUser"], $limitValue]);
-                $types = str_repeat('s', count($suggestedUsers)) . 'ii';
+                $types = str_repeat('s', count($suggestedUsers)) . 'iii';
                 $stmt->bind_param($types, ...$params);
 
                 $stmt->execute();
