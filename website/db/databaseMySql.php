@@ -180,7 +180,7 @@ class DatabaseHelperMySql implements DatabaseHelper
                 $limitValue = $n - count($suggestedUsers);
                 $selectedUserIdsString = implode(',', array_fill(0, count($suggestedUsers), '?'));
                 $notInClause = empty($selectedUserIdsString) ? '' : "idUser NOT IN ($selectedUserIdsString) AND";
-                $stmt = $this->db->prepare("SELECT * FROM User WHERE " . $notInClause . " idUser <> ? ORDER BY RAND() LIMIT ?");
+                $stmt = $this->db->prepare("SELECT * FROM User WHERE " . $notInClause . " idUser <> ? AND idUser NOT IN (SELECT idSeguito FROM Seguiti WHERE idSeguace = ?) ORDER BY RAND() LIMIT ?");
                 $params = array_merge(array_column($suggestedUsers, 'idUser'), [$_SESSION["idUser"], $limitValue]);
                 $types = str_repeat('s', count($suggestedUsers)) . 'ii';
                 $stmt->bind_param($types, ...$params);
