@@ -460,6 +460,11 @@ h3 {
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
+        margin:0 auto;
+    }
+
+    .colonna1{
+        align-content:flex-start;
     }
 
     .text{
@@ -469,12 +474,6 @@ h3 {
     padding:0;
    }
 
-   .tipo2 .fotoPost{
-    width: 50%;
-    height: auto;
-    margin-left: 10pt;
-   }
-
    .sectionCommenti{
     width: 100%;
    }
@@ -482,7 +481,5 @@ h3 {
    .titleAndText{
     display: flex;
     flex-direction: column;
-   }
-
-    
+   } 
 }
