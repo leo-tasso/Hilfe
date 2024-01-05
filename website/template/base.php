@@ -47,7 +47,7 @@
                 <?php endif; ?>
             </div>
         </nav>
-        <a class="profiloBarra" id="profiloBarra" href="profile.php">
+        <a class="profiloBarra" id="profiloBarra" href="profile.php" title="Il tuo Profilo" >
             <img src="../<?php echo $dbh->getSelfProfilePic(); ?>" alt="" class="fotoProfilo">
         </a>
         <div class="buttonLoginLogout">
