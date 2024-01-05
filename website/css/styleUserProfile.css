@@ -144,7 +144,6 @@ body{
 
 @media screen and (min-width: 768px) {
     article{
-    width: 90%;
     margin:5pt auto;
    }
 
