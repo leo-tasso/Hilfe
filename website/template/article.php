@@ -11,7 +11,7 @@
         </div>
     </header>
     <div class="content">
-        <section lang="ita">
+        <section lang="it">
             <h3>Dettagli Annuncio</h3>
             <p class="date"><?php echo $post["DataPubblicazione"]; ?></p>
             <p><?php echo $post["DescrizionePost"]; ?></p>
