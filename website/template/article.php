@@ -2,7 +2,7 @@
 <?php if(isset($post["idPostIntervento"])):?>
 <article class="HelpPost" id="<?php echo $post["idPostIntervento"]; ?>,<?php echo $post["PersoneRichieste"]; ?>">
     <header>
-        <h1><?php echo $post["TitoloPost"]; ?></h1>
+        <h2><?php echo $post["TitoloPost"]; ?></h2>
         <div class="infoUtente">
             <a href="profile.php?id=<?php echo $post["Autore_idUser"];?>" class="nomeAutore"><?php $autore = $dbh->getAuthorFromHelpPost($post["idPostIntervento"]);
                                                             echo $autore["Name"] . " " . $autore["Surname"] ?></a>
@@ -19,6 +19,7 @@
             <?php if ($autore["PhoneNumber"] != null) : ?>
                 <p class="phoneNumber">Numero di telefono: <?php echo $autore["PhoneNumber"]; ?></p>
             <?php endif ?>
+            <p class="people">Indirizzo: <?php echo $post["Address"]; ?></p>
             <p class="people">Persone necessarie: <?php echo $post["PersoneRichieste"]; ?></p>
             <?php $materiale = $dbh->getMaterialFromHelpPost($post["idPostIntervento"]);
             if (count($materiale) > 0) : ?>
@@ -49,7 +50,7 @@
 <?php else:?>
     <article class="tipo2 InfoPost" id="<?php echo "comunicazione".$post["idPostComunicazione"]; ?>">
     <header>
-        <h1><?php echo $post["TitoloPost"]; ?></h1>
+        <h2><?php echo $post["TitoloPost"]; ?></h2>
         <div class="infoUtente">
             <a href="profile.php?id=<?php echo $post["idUser"];?>" class="nomeAutore"><?php $autore = $dbh->getAuthorFromInfoPost($post["idPostComunicazione"]);
                                                             echo $autore["Name"] . " " . $autore["Surname"] ?></a>
