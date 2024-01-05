@@ -5,6 +5,10 @@
     align-items: center;
 }
 
+.articles, .followers_seguiti, .notificheMain{
+    margin:0 10px;
+}
+
 h3{
     font-size: 11pt;
 }

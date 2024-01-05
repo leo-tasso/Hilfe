@@ -14,7 +14,8 @@
     width: 40%;
     background-color: var(--hilfeRed);
     color:white;
-    font-size: 10pt;
+    font-size: 12pt;
+    padding:5pt; 
     border-radius: 10pt;
     border:none;
 }

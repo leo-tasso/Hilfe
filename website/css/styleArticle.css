@@ -1,4 +1,4 @@
-section>h3, .titleAndText>h3{
+section>h3, .titleAndText>h3, article>header h2{
     color: var(--hilfeGrey);
     margin:0;
 }
@@ -23,6 +23,7 @@ article>header {
 
 article>header h2{
     margin-top:15pt;
+    font-size: 20pt;
 }
 
 article>header .infoUtente{
@@ -189,7 +190,7 @@ article>footer>a {
 }
 
 h3 {
-    font-size: 15pt;
+    font-size: 13pt;
     font-weight: bold;
     color: white;
     padding: 5pt;
