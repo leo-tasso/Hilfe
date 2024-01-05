@@ -58,7 +58,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 700px;
+    max-width: 800px;
 }
 
 .mainInfo{
@@ -143,8 +143,14 @@ body{
 }
 
 @media screen and (min-width: 768px) {
+    .centralContent .articles{
+        width: 100%;
+        margin:0;
+    }
+
     article{
-    margin:5pt auto;
+        width: 100%;
+        margin:5pt auto;
    }
 
     .mainInfo{
@@ -158,8 +164,8 @@ body{
     }
 
     .infoUtenteProfilo{
+        width:100%;
         margin:10pt auto;
-        width:80%;
         display: flex;
         flex-direction: row;
         align-items: center;
