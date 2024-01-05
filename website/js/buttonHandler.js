@@ -226,14 +226,14 @@ function morePosts() {
             if (response.articles != "") {
                 document.querySelector(".buttonAltriPost").remove();
                 document.querySelector(".articles").innerHTML += response.articles + ' <button type="button" class="buttonAltriPost" onclick="morePosts()">Altri Post</button>';
-                updateAllMaps(0);
-                updateAllButtons(startPost);
             }
             else {
                 if (document.getElementById("nessunRisultato") == null) {
                     document.querySelector(".articles").innerHTML += '<p id="nessunRisultato">Nessun altro post trovato</p>';
                 }
             }
+            updateAllMaps(0);
+            updateAllButtons(startPost);
         },
         error: function (error) {
             console.log(error);
@@ -362,13 +362,13 @@ function moreInfoPosts() {
             if (response.articles != "") {
                 document.querySelector(".buttonAltriPost").remove();
                 document.querySelector(".articles").innerHTML += response.articles + ' <button type="button" class="buttonAltriPost" onclick="moreInfoPosts()">Altri Post</button>';
-                updateAllInfoButtons(startPost);
             }
             else {
                 if (document.getElementById("nessunRisultato") == null) {
                     document.querySelector(".articles").innerHTML += '<p id="nessunRisultato">Nessun altro post trovato</p>';
                 }
             }
+            updateAllInfoButtons(startPost);
         },
         error: function (error) {
             console.log(error);
