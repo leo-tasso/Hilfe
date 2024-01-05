@@ -81,11 +81,7 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-}
-
-.linkFooter a {
   color: white;
-  margin-left: 5pt;
 }
 
 
