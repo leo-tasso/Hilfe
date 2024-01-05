@@ -19,7 +19,7 @@
             <?php if ($autore["PhoneNumber"] != null) : ?>
                 <p class="phoneNumber">Numero di telefono: <?php echo $autore["PhoneNumber"]; ?></p>
             <?php endif ?>
-            <p class="people">Indirizzo: <?php echo $post["Address"]; ?></p>
+            <p class="people">Indirizzo: <?php echo $post["Indirizzo"]; ?></p>
             <p class="people">Persone necessarie: <?php echo $post["PersoneRichieste"]; ?></p>
             <?php $materiale = $dbh->getMaterialFromHelpPost($post["idPostIntervento"]);
             if (count($materiale) > 0) : ?>
