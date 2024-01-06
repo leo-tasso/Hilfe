@@ -8,7 +8,7 @@
 }
 
 .articles{
-    width: 95%;
+    width: 90%;
 }
 
 /**immagine profilo**/
@@ -63,7 +63,7 @@ body{
 
 .mainInfo{
     margin: 5pt auto;
-    width: 100%;
+    width: 98%;
     display: flex;
     flex-direction: column;
     background-color: var(--hilfeRed);

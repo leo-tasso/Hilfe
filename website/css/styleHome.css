@@ -10,7 +10,7 @@
 }
 
 .articles {
-    width: 80%;
+    width: 90%;
     max-width: 700px;
     text-align: center;
 }
@@ -56,11 +56,6 @@
     font-weight: bold;
 }
 
-main>article section>p {
-    margin: 5pt;
-}
-
-
 .navbar a {
     background-color: var(--hilfeRed);
     padding: 5pt;
@@ -92,7 +87,7 @@ main>article section>p {
 .leftAside {
     background-color: var(--hilfeRed);
     color: white;
-    width: 90%;
+    width: 95%;
     margin-bottom: 10pt;
     border-radius: 10pt;
 }
