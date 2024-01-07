@@ -50,6 +50,10 @@
     margin: 7px;
 }
 
+.newPost .profilo{
+    margin-right: 0;
+}
+
 
 .newPost>a:hover {
     background-color: white;
