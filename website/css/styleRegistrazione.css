@@ -69,9 +69,12 @@ main>h1{
 
 .cambiaFoto img{
     width:30%; 
+    height: 30%;
     border-radius: 50%;
     aspect-ratio: 1 / 1;
     border:2px solid var(--hilfeBlue);
+    clip-path: inset(0);
+    object-fit: cover;
 }
 
 .modifica{
