@@ -42,7 +42,7 @@
     text-decoration: none;
     margin: 5pt 6pt;
     box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.9);
-    width: 70%;
+    width: 100%;
     font-size: 11pt;
 }
 
@@ -52,6 +52,7 @@
 
 .newPost .profilo{
     margin-right: 0;
+    aspect-ratio: 1;
 }
 
 
@@ -157,11 +158,6 @@
 
 /**media query per dispositivi non mobile**/
 @media screen and (min-width: 768px) {
-
-    .newPost a{
-        width: 85%;
-    }
-
     .navbar {
         margin-left: 10px;
     }
