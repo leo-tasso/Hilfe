@@ -6,6 +6,7 @@ body {
     min-height: 100dvh;
     /* Altezza minima del corpo pari al 100% della viewport height */
     position: relative;
+    background-color: white;
 }
 
 main>section {
@@ -149,6 +150,9 @@ main>section>header {
 }
 
 @media screen and (min-width: 768px) {
+    body{
+        background-color: #f4f2ee;
+    }
 
     main {
         max-width: 500px;
