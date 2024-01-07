@@ -1,5 +1,5 @@
 <?php
-$START_POST_NUMBER = 2;
+$START_POST_NUMBER = 4;
 define("DEFAULT_PIC", "fotoProfiloIniziale.jpg");
 define("DEFAULT_PIC_PATH", "res/profilePictures/");
 define("START_SUGGESTED_USERS", 4);
