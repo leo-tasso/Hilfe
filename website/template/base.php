@@ -92,7 +92,7 @@
         <img src="../res/HeartHands.svg" alt="logo" />
         <div class="infoFooter">
             <p>©Hilfe 2024</p>
-                <a class="linkFooter" href="privacy.php">Informativa Privacy, termini e condizioni di utilizzo, cookie policy</a>
+                <a class="linkFooter" href="privacy.php">Informativa Privacy, condizioni di utilizzo</a>
         </div>
     </footer>
 </body>
