@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/leo-tasso/Hilfe/blob/master/LogoRes/LogoHeartBorder.svg?raw=true" width="400" />
+  <img src="https://github.com/leo-tasso/Hilfe/blob/master/LogoRes/LogoHeartBorder.png?raw=true" width="400" />
 </p>
 
 # Hilfe - Hands in love fostering empowerment
