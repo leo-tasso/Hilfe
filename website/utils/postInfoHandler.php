@@ -29,7 +29,8 @@ if (isset($_POST['titolo'], $_POST['testo'])) {
       if ($result[0] == 0) {
          header('Location: ../postInfoEdit.php?error=' . $result[1]);
       } else if ($dbh->createPostInfo($titolo, $testo, $postImg["name"])) {
-         header('Location: ../profile.php');
+         echo var_dump($postImg["name"]);
+         //header('Location: ../profile.php');
       } else {
          header('Location: ../postInfoEdit.php?error="Caricamento fallito"');
       }
