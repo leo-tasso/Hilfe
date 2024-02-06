@@ -22,6 +22,9 @@
             <span id="rangeValue">Illimit.</span>
         </div>
         <button type="button" class="vai" onclick="updatePosts()">Vai</button>
+        <div>
+            <p>Advertisement</p>
+        </div>
     </aside>
     <main class="articles">
 
