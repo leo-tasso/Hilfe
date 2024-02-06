@@ -23,7 +23,7 @@
         </div>
         <button type="button" class="vai" onclick="updatePosts()">Vai</button>
         <div>
-            <p>Advertisement</p>
+            <p>"Advertisement placeholder"</p>
         </div>
     </aside>
     <main class="articles">
