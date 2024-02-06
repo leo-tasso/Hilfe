@@ -28,8 +28,8 @@ if (isset($_POST['titolo'], $_POST['testo'])) {
       $result = uploadImage(UPLOAD_DIR_POSTINFO_PIC, $_FILES["postImg"]);
       if ($result[0] == 0) {
          header('Location: ../postInfoEdit.php?error=' . $result[1]);
-      } else if ($dbh->createPostInfo($titolo, $testo, $postImg["name"])) {
-         echo var_dump($postImg["name"]);
+      } else if ($dbh->createPostInfo($titolo, $testo, $postImg)) {
+         echo var_dump($postImg);
          //header('Location: ../profile.php');
       } else {
          header('Location: ../postInfoEdit.php?error="Caricamento fallito"');
